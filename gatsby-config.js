@@ -5,25 +5,35 @@ module.exports = {
     author: `@reverso`,
   },
   plugins: [
+    // {
+    //   resolve: `gatsby-plugin-intl`,
+    //   options: {
+    //     // language JSON resource path
+    //     path: `${__dirname}/src/intl`,
+    //     // supported language
+    //     languages: [`fr`, `en`],
+    //     // language file path
+    //     defaultLanguage: `en`,
+    //     // option to redirect to `/ko` when connecting `/`
+    //     // redirect: true,
+    //   },
+    // },
     {
-      resolve: `gatsby-plugin-intl`,
+      resolve: `gatsby-plugin-google-fonts`,
       options: {
-        // language JSON resource path
-        path: `${__dirname}/src/intl`,
-        // supported language
-        languages: [`fr`, `en`],
-        // language file path
-        defaultLanguage: `en`,
-        // option to redirect to `/ko` when connecting `/`
-        // redirect: true,
-      },
+        fonts: [
+          `hind\:300,400,400,700` // you can also specify font weights and styles
+        ],
+        display: 'swap'
+      }
     },
     {
       resolve: 'gatsby-source-prismic',
       options: {
         repositoryName: 'reverso',
         schemas: {
-           post: require('./src/schemas/homepage.json'),
+           homepage: require('./src/schemas/homepage.json'),
+           page: require('./src/schemas/page.json'),
          }
       }
     },
