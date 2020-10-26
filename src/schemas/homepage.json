@@ -1,0 +1,11 @@
+{
+    "Main": {},
+    "Seo": {
+      "seo_title": {
+        "type": "Text",
+        "config": {
+          "label": "Seo title"
+        }
+      }
+    }
+  }
