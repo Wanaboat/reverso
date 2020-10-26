@@ -1,26 +1,42 @@
 {
-    "Main" : { },
-    "Hierarchy" : {
-      "parent" : {
-        "type" : "Link",
-        "config" : {
-          "select" : "document",
-          "customtypes" : [ "page" ],
-          "label" : "Parent"
-        }
-      },
-      "uid" : {
-        "type" : "UID",
-        "config" : {
-          "label" : "uid"
+    "Main": {
+      "title": {
+        "type": "StructuredText",
+        "config": {
+          "single": "heading1",
+          "label": "title"
         }
       }
     },
-    "Seo" : {
-      "seo_title" : {
-        "type" : "Text",
-        "config" : {
-          "label" : "Seo title"
+    "Hierarchy": {
+      "parent": {
+        "type": "Link",
+        "config": {
+          "select": "document",
+          "customtypes": [
+            "page"
+          ],
+          "label": "Parent"
+        }
+      },
+      "uid": {
+        "type": "UID",
+        "config": {
+          "label": "uid"
+        }
+      }
+    },
+    "Seo": {
+      "seo_title": {
+        "type": "Text",
+        "config": {
+          "label": "Seo title"
+        }
+      },
+      "seo_description": {
+        "type": "Text",
+        "config": {
+          "label": "Seo description"
         }
       }
     }

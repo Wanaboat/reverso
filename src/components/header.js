@@ -1,5 +1,6 @@
 import Menu from './Menu'
-import { Box, Flex } from '@chakra-ui/core'
+import { Link as GatsbyLink } from 'gatsby'
+import { Box, Button, Flex } from '@chakra-ui/core'
 import PropTypes from "prop-types"
 import React from "react"
 
@@ -9,10 +10,16 @@ const Header = ({ siteTitle }) => (
     bg='gray.900'
     color='white'
     justify='space-between'
+    p='1rem'
   >
     <Box>
-    {siteTitle}
-
+      <Button
+        as={GatsbyLink}
+        to='/'
+        color='gray.800'
+      >
+        {siteTitle}
+      </Button>
     </Box>
     <Menu />
   </Flex>

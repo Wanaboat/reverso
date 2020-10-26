@@ -4,7 +4,6 @@ import React from "react"
 
 const Menu = ({ siteTitle }) => (
   <Box as='nav'>
-    Navigation
     <Box
       as={Button}
       color='gray.500'
