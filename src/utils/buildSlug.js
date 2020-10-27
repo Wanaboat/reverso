@@ -1,5 +1,4 @@
 const buildSlug = (node, lang) => {
-    console.log('node', node)
     let slug = []
     if (node) {
         if (node.uid) {
@@ -19,7 +18,6 @@ const buildSlug = (node, lang) => {
             return (slug.reverse().join('/'))
         }
         if (node.document) {
-            console.log('node.document', node.document)
             slug.push(node.document.uid)
             if (node.document.data.parent.document) {
                 slug.push(node.document.data.parent.document.uid)

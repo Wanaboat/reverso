@@ -1,8 +1,10 @@
 import Menu from './Menu'
+import LanguageSwitcher from './LanguageSwitcher'
 import { Link as GatsbyLink } from 'gatsby'
 import { Box, Button, Flex } from '@chakra-ui/core'
 import PropTypes from "prop-types"
 import React from "react"
+import { FormattedMessage } from 'react-intl'
 
 const Header = ({ siteTitle }) => (
   <Flex
@@ -18,10 +20,11 @@ const Header = ({ siteTitle }) => (
         to='/'
         color='gray.800'
       >
-        {siteTitle}
+        <FormattedMessage id="title" />
       </Button>
     </Box>
-    <Menu />
+    <Menu lang='fr' />
+    <LanguageSwitcher />
   </Flex>
 
 )

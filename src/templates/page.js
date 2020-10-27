@@ -2,14 +2,15 @@ import React from 'react'
 import Helmet from 'react-helmet'
 import Layout from '../components/layout'
 import buildSlug from '../utils/buildSlug'
+import Breadcrumbs from '../components/Breadcrumbs'
 import {
     Box,
     Flex,
-    Text
+    Text,
+    Heading
 } from '@chakra-ui/core'
 
 const PageTpl = (props) => {
-    console.log('data', props.data.prismicPage)
     return (
         <Layout lang={props.pageContext.lang}>
             <Helmet>
@@ -27,6 +28,7 @@ const PageTpl = (props) => {
                 />
                 : null}
             </Helmet>
+            <Breadcrumbs node={ props.data.prismicPage } />
             <Flex
                 minH='100vh'
                 justify='center'
@@ -34,9 +36,12 @@ const PageTpl = (props) => {
                 color='gray.400'
             >
                 <Box>
-                <h1>
+                <Heading as='h1'
+                  color='brand.secondary'
+                  bg='brand.primary'
+                >
                     H1 : { props.data.prismicPage.data.title.text }
-                </h1>
+                </Heading>
                 <Text>
                     Slug : { buildSlug( props.data.prismicPage ) }
                 </Text>
