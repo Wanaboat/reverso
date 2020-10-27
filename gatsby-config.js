@@ -35,10 +35,21 @@ module.exports = {
       resolve: 'gatsby-source-prismic',
       options: {
         repositoryName: 'reverso',
+        prismicToolbar: true,
         schemas: {
            homepage: require('./src/schemas/homepage.json'),
            page: require('./src/schemas/page.json'),
-         }
+        },
+        shouldDownloadImage: ({ node, key, value }) => {
+          if( value ){
+            return true
+          }
+          console.log(
+            //node,
+            // key,
+            value
+          )
+        },
       }
     },
     {

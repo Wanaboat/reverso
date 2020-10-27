@@ -1,9 +1,9 @@
-/**
- * Implement Gatsby's Browser APIs in this file.
- *
- * See: https://www.gatsbyjs.com/docs/browser-apis/
- */
+// gatsby-browser.js
 
-// You can delete this file if you're not using it
-
+import * as React from 'react'
+import { PreviewStoreProvider } from 'gatsby-source-prismic'
 import './src/css/font.css'
+export const wrapRootElement = ({ element }) => (
+  <PreviewStoreProvider>{element}</PreviewStoreProvider>
+)
+
