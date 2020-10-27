@@ -4,6 +4,8 @@ import Layout from '../components/layout'
 import buildSlug from '../utils/buildSlug'
 import Breadcrumbs from '../components/Breadcrumbs'
 import Img from "gatsby-image"
+import { withPreview } from 'gatsby-source-prismic'
+import usePreviewData from '../utils/usePreviewData'
 
 import {
   Box,
@@ -14,6 +16,10 @@ import {
 } from '@chakra-ui/core'
 
 const PageTpl = (props) => {
+
+  const data = usePreviewData(props.data)
+
+
   return (
     <Layout lang={props.pageContext.lang}>
       <Helmet>
@@ -43,7 +49,7 @@ const PageTpl = (props) => {
             color='brand.secondary'
             bg='brand.primary'
           >
-            H1 : {props.data.prismicPage.data.title.text}
+            H1 : {data.prismicPage.data.title.text}
           </Heading>
           <Text>
             Slug : {buildSlug(props.data.prismicPage)}
