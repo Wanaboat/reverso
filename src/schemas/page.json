@@ -1,43 +1,58 @@
 {
-    "Main": {
-      "title": {
-        "type": "StructuredText",
-        "config": {
-          "single": "heading1",
-          "label": "title"
-        }
+  "Main": {
+    "title": {
+      "type": "StructuredText",
+      "config": {
+        "single": "heading1",
+        "label": "title"
       }
     },
-    "Hierarchy": {
-      "parent": {
-        "type": "Link",
-        "config": {
-          "select": "document",
-          "customtypes": [
-            "page"
-          ],
-          "label": "Parent"
-        }
-      },
-      "uid": {
-        "type": "UID",
-        "config": {
-          "label": "uid"
-        }
+    "body": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+        "label": "body"
       }
     },
-    "Seo": {
-      "seo_title": {
-        "type": "Text",
-        "config": {
-          "label": "Seo title"
-        }
-      },
-      "seo_description": {
-        "type": "Text",
-        "config": {
-          "label": "Seo description"
-        }
+    "image": {
+      "type": "Image",
+      "config": {
+        "constraint": {},
+        "thumbnails": [],
+        "label": "image"
+      }
+    }
+  },
+  "Hierarchy": {
+    "parent": {
+      "type": "Link",
+      "config": {
+        "select": "document",
+        "customtypes": [
+          "page"
+        ],
+        "label": "Parent"
+      }
+    },
+    "uid": {
+      "type": "UID",
+      "config": {
+        "label": "uid"
+      }
+    }
+  },
+  "Seo": {
+    "seo_title": {
+      "type": "Text",
+      "config": {
+        "label": "Seo title"
+      }
+    },
+    "seo_description": {
+      "type": "Text",
+      "config": {
+        "label": "Seo description"
       }
     }
   }
+}
