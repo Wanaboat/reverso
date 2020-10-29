@@ -7,6 +7,7 @@ import {
   CSSReset,
   ThemeProvider
 } from '@chakra-ui/core'
+import LanguageSwitcher from './LanguageSwitcher'
 
 import Header from "./Header"
 import Footer from "./Footer"
@@ -24,8 +25,14 @@ const Layout = ({ lang, children }) => {
       <ThemeProvider theme={ theme }>
         <Helmet>
           <html lang={lang} />
+          <meta name="viewport" id="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"></meta>
         </Helmet>
         <CSSReset />
+        <Box
+          maxW='100vw'
+        >
+
+        
         <Header
           as='header'
           siteTitle="Reverso" />
@@ -36,6 +43,7 @@ const Layout = ({ lang, children }) => {
             {children}
           </Box>
         <Footer />
+        </Box>
       </ThemeProvider>
     </IntlProvider>
   )

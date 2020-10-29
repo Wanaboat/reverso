@@ -38,13 +38,25 @@ const PageTpl = (props) => {
       </Helmet>
       <Breadcrumbs
         node={props.data.prismicPage}
-        lang={ props.pageContext.lang }
+        lang={props.pageContext.lang}
       />
+
+        {data.prismicPage.data.title.text === 'Page de niveau 2' ?
+          <Box
+            w='100%'
+            minH='600px'
+          >
+            <iframe frameborder="0" height="100%" src="https://form.typeform.com/to/Gp9WdB?typeform-embed=embed-widget&amp;typeform-embed-id=zt4hx" width="100%" allow="camera; microphone; autoplay; encrypted-media;" data-qa="iframe" title="typeform-embed" style={{ 'minHeight': '600px', 'border': '0px' }}></iframe>
+
+          </Box>
+        : null}
+
       <Flex
         minH='100vh'
         justify='center'
         alignItems='center'
         color='gray.400'
+        w='100vw'
       >
         <Box>
           <Heading as='h1'

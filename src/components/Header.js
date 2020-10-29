@@ -20,11 +20,14 @@ const Header = ({ siteTitle }) => (
         to='/'
         color='gray.800'
       >
-        <FormattedMessage id="title" />
+        <FormattedMessage id="title" /> 
       </Button>
     </Box>
     <Menu lang='fr' />
+    <Box display={{ xs:'none', lg:'block'}}>
     <LanguageSwitcher />
+
+    </Box>
   </Flex>
 
 )

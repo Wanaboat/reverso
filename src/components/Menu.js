@@ -1,17 +1,20 @@
+import React, { useState } from "react"
 import { Box, Button, Flex, Link, Stack } from '@chakra-ui/core'
 import { Link as GatsbyLink } from 'gatsby'
 import PropTypes from "prop-types"
-import React from "react"
 
 const Menu = ({ lang }) => {
-
+  const [ isVisible, setIsVisible ] = useState( false )
   const MainNavLink = ({ to, children }) => {
     return(
       <Box
         mx='1rem'
         p='.45rem'
         as={GatsbyLink}
-        to={to}>
+        to={to}
+        w={{ xs:'100%', lg:'auto'}}
+        onClick={ ()=>{setIsVisible(false)} }
+      >
         {children} 
       </Box>
     )
@@ -63,10 +66,20 @@ const Menu = ({ lang }) => {
         color='gray.500'
         display={{ lg: 'none' }}
         spacing='2px'
+        onClick={()=>{ setIsVisible(!isVisible)}}
       >
         Button nav
     </Box>
-      <Flex>
+      <Flex
+        w={{ xs:'100vw', lg:'auto'}}
+        h={{ xs:'100vh', lg:'auto'}}
+        wrap={{xs:'wrap', lg:'nowrap'}}
+        position={{ xs:'fixed', lg:'initial'}}
+        display={{ xs:isVisible? 'flex' : 'none' , lg:'flex'}}
+        left='0'
+        top='0px'
+        bg='gray.800'
+      >
         {items[lang]}
       </Flex>
     </Box>

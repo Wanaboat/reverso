@@ -24,9 +24,9 @@ const HomeTpl = (props) => {
                         Homepage
                     </Heading>
                     <Box
-                        w='1400px'
-                        h='1000px'
+                    
                     >
+                        Content
                     </Box>
                 </Box>
             </Flex>
