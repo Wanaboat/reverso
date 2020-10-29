@@ -37,7 +37,10 @@ const PageTpl = (props) => {
           />
           : null}
       </Helmet>
-      <Breadcrumbs node={props.data.prismicPage} />
+      <Breadcrumbs
+        node={props.data.prismicPage}
+        lang={ props.pageContext.lang }
+      />
       <Flex
         minH='100vh'
         justify='center'
