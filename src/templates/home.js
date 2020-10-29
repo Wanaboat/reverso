@@ -11,7 +11,7 @@ const HomeTpl = (props) => {
     return (
         <Layout lang={ props.pageContext.lang}>
             <Flex
-                h='100vh'
+                minH='100vh'
                 w='100%'
                 justifyContent='center'
                 alignItems='center'
@@ -23,6 +23,11 @@ const HomeTpl = (props) => {
                     >
                         Homepage
                     </Heading>
+                    <Box
+                        w='1400px'
+                        h='1000px'
+                    >
+                    </Box>
                 </Box>
             </Flex>
         </Layout>

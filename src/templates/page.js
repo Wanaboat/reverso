@@ -19,7 +19,6 @@ const PageTpl = (props) => {
 
   const data = usePreviewData(props.data)
 
-
   return (
     <Layout lang={props.pageContext.lang}>
       <Helmet>
@@ -87,8 +86,6 @@ const PageTpl = (props) => {
                   h='400px'
                 />
               </SimpleGrid>
-
-
             </Box>
             : null}
         </Box>
