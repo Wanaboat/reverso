@@ -173,20 +173,24 @@ query pageQuery($prismicId: ID) {
             }
           
 
-          parent {
-            document {
-              ... on PrismicPage {
-                uid
-                data {
-                  parent {
-                    document {
-                      ... on PrismicPage {
-                        uid
-                        data {
-                          parent {
-                            document {
-                              ... on PrismicPage {
-                                uid
+            parent {
+              document {
+                ... on PrismicPage {
+                  data{ title{ text } }
+                  uid
+                  data {
+                    parent {
+                      document {
+                        ... on PrismicPage {
+                          data{ title{ text } }
+                          uid
+                          data {
+                            parent {
+                              document {
+                                ... on PrismicPage {
+                                  data{ title{ text } }
+                                  uid
+                                }
                               }
                             }
                           }
@@ -197,7 +201,6 @@ query pageQuery($prismicId: ID) {
                 }
               }
             }
-          }
         }
       }
      
