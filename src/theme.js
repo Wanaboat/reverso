@@ -15,9 +15,11 @@ theme = {
     colors: {
         ...defaultTheme.colors,
         brand: {
-            "primary": "#FF3FB4",
+            "primary": "#0E90EE",
             "secondary": "#FFE073",
             "thirdary": "#063462",
+            "3":"#323233",
+            "4":"#EEEEE8"
         }
     },
     fonts: {

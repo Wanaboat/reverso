@@ -62,9 +62,9 @@ module.exports = {
       resolve: `gatsby-plugin-netlify`,
       options: {
         headers: {
-          "/fr/premier-niveau/": [
+          "/admin/": [
             // matching headers (by type) are replaced by Netlify with more specific routes
-            "Basic-Auth: differentuser:differentpassword",
+            "Basic-Auth: Reverso:Reverso#97400",
           ],
         },
       }

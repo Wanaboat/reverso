@@ -30,6 +30,7 @@ const Layout = ({ lang, children }) => {
         <CSSReset />
         <Box
           maxW='100vw'
+          bg='brand.4'
         >
 
         
@@ -37,7 +38,6 @@ const Layout = ({ lang, children }) => {
           as='header'
           siteTitle="Reverso" />
         <Box
-          color='white'
           minH='calc(100vh - 54px - 27px)'
           bg='gray.100' as='main'>
             {children}

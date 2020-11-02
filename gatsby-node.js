@@ -41,6 +41,15 @@ exports.createPages = async ({ graphql, actions }) => {
         return ( slug.reverse().join('/'))
     }
 
+    // Subscribers page
+    createPage({
+      path: `/admin/`,
+      component: path.resolve(__dirname, 'src/templates/admin.js'),
+      context: {
+          lang: `en`
+      },
+  })
+
     // Query all Pages with their IDs and template data.
     const homepage = await graphql(`
   {
