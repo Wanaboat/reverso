@@ -58,7 +58,17 @@ module.exports = {
         trackingId: "UA-165721757-1",
       },
     },
-    `gatsby-plugin-netlify`,
+    {
+      resolve: `gatsby-plugin-netlify`,
+      options: {
+        headers: {
+          "/fr/premier-niveau/": [
+            // matching headers (by type) are replaced by Netlify with more specific routes
+            "Basic-Auth: differentuser:differentpassword",
+          ],
+        },
+      }
+    },
     {
       resolve: 'gatsby-plugin-manifest',
       options: {

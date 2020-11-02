@@ -10,6 +10,8 @@ const Menu = ({ lang }) => {
       <Box
         mx='1rem'
         p='.45rem'
+        fontWeight='600'
+        textTransform='uppercase'
         as={GatsbyLink}
         to={to}
         w={{ xs:'100%', lg:'auto'}}
@@ -42,10 +44,10 @@ const Menu = ({ lang }) => {
       label:'Les dériveurs Reverso',
       url:'/fr/premier-niveau/second-niveau'
     },
-    {
-      label:'Technologies',
-      url:'/fr/premier-niveau/second-niveau/troisieme-niveau'
-    },
+    // {
+    //   label:'Technologies',
+    //   url:'/fr/premier-niveau/second-niveau/troisieme-niveau'
+    // },
     {
       label:'À propos',
       url:'/fr/premier-niveau/second-niveau/troisieme-niveau/quatrieme-niveau'

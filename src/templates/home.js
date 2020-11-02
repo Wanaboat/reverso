@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Layout from '../components/layout'
 
 import {
@@ -7,7 +7,19 @@ import {
     Heading
 } from '@chakra-ui/core'
 
+import NewsletterForm from '../components/NewsletterForm'
+import { getAllContacts } from '../api';
+
+
 const HomeTpl = (props) => {
+    const [ contacts, setContacts ] = useState( false )
+    useEffect(() => {
+        getAllContacts.then(res => {
+            setContacts(res);
+          console.log(res);
+        });
+      }, []);
+
     return (
         <Layout lang={ props.pageContext.lang}>
             <Flex
@@ -28,6 +40,7 @@ const HomeTpl = (props) => {
                     >
                         Content
                     </Box>
+                    <NewsletterForm />
                 </Box>
             </Flex>
         </Layout>
