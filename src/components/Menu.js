@@ -56,7 +56,7 @@ const Menu = ({ lang }) => {
   items['fr'] = [
     {
       label:'Nouvelle ère de navigation',
-      url:'/fr/premier-niveau'
+      url:'/fr/nouvelle-ere'
     },
     {
       label:'Les dériveurs Reverso',

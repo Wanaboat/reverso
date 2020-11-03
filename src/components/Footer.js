@@ -3,12 +3,14 @@ import {
   Box,
   Flex,
   Grid,
+  Image,
   Link,
   Stack,
   Text
 } from '@chakra-ui/core'
 import PropTypes from "prop-types"
 import React from "react"
+import logoTypo from '../images/logo-typo.svg'
 
 const Footer = ({ siteTitle }) => (
   <Flex
@@ -26,7 +28,10 @@ const Footer = ({ siteTitle }) => (
       gap='2rem'
     >
       <Box>
-        <Box h='60px' w='180px' bg='gray.50'></Box>
+        <Image
+          src={ logoTypo }
+          alt='Reverso'
+        />
       </Box>
       <Stack spacing='1.5rem'>
         <Stack spacing='.5rem'>

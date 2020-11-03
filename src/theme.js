@@ -16,7 +16,7 @@ theme = {
         ...defaultTheme.colors,
         brand: {
             "primary": "#0E90EE",
-            "secondary": "#FFE073",
+            "1": "#E0E0DB",
             "2": "#ED1C24",
             "3":"#323232",
             "4":"#EEEEE8"
@@ -25,7 +25,7 @@ theme = {
     fonts: {
         ...defaultTheme.fonts,
         body: "Hind, sans-serif",
-        heading: "Hind, sans-serif",
+        heading: "Roboto, sans-serif",
         mono: "Source Sans Pro",
     },
     breakpoints

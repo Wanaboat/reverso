@@ -2,6 +2,7 @@ import React from 'react'
 import Helmet from 'react-helmet'
 import { Link as GatsbyLink } from 'gatsby'
 import { Box, Flex, Icon, Link, Stack } from '@chakra-ui/core'
+import Wrapper from './Wrapper'
 
 const Breadcrumbs = ({ node, lang }) => {
     const hierarchy = () => {
@@ -94,13 +95,15 @@ const Breadcrumbs = ({ node, lang }) => {
 
     }
     return (
-        <>
+        <Wrapper
+            bg='white'
+            borderBottom='solid 1px'
+            borderColor='gray.200'
+        >
             <Box
-                bg='white'
                 p='2rem'
                 color='gray.900'
-                borderBottom='solid 1px'
-                borderColor='gray.200'
+
                 display={{ xs:'none', md:'block' }}
             >
                 <Stack isInline spacing='2rem'>
@@ -123,7 +126,7 @@ const Breadcrumbs = ({ node, lang }) => {
             <Helmet>
                 <script id="breadcrumbs-data" type="application/ld+json">{structuredJSON()}</script>
             </Helmet>
-        </>
+        </Wrapper>
     )
 }
 

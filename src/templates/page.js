@@ -6,6 +6,7 @@ import Breadcrumbs from '../components/Breadcrumbs'
 import Img from "gatsby-image"
 import { withPreview } from 'gatsby-source-prismic'
 import usePreviewData from '../utils/usePreviewData'
+import PageContent from '../components/PageContent'
 
 import {
   Box,
@@ -40,6 +41,7 @@ const PageTpl = (props) => {
         node={props.data.prismicPage}
         lang={props.pageContext.lang}
       />
+        <PageContent />
 
         {data.prismicPage.data.title.text === 'Page de niveau 2' ?
           <Box
