@@ -94,8 +94,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Reverso`,
-        short_name: `starter`,
+        name: `ReversoProject`,
+        short_name: `Reverso`,
         start_url: `/`,
         background_color: `#FFFFFF`,
         theme_color: `#ED1C24`,
