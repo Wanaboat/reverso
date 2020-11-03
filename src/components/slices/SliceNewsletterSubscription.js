@@ -6,7 +6,8 @@ import {
     Text,
     Image,
     Heading,
-    Stack
+    Stack,
+    SimpleGrid
 } from '@chakra-ui/core'
 
 import Wrapper from '../Wrapper'
@@ -16,23 +17,27 @@ import NewsletterForm from '../NewsletterForm'
 const NewsletterSlice = () => {
     return (
         <Wrapper
-                bg='brand.3'
-                py='4rem'
-            >
-                <Box
-                    maxW='520px'
-                    mx='auto'>
-                        <Heading
+            bg='brand.3'
+            py={{ lg:'4rem' }}
+        >
+            <SimpleGrid columns={{ xs:1, lg:2}}>
+                <Flex alignItems='center'>
+                    <Heading
                         color='white'
                         fontSize='22px'
-                        textAlign='center'
-                        mb='1rem'
-                        >
-                            On-board videos, test drives, testimonials, opportunities, subscribe to the monthly Reverso newsletter to keep in touch.
+                    >
+                        On-board videos, test drives, testimonials, opportunities, subscribe to the monthly Reverso newsletter to keep in touch.
                         </Heading>
+                </Flex>
+                <Box
+                // maxW='520px'
+                // mx='auto'
+                >
                     <NewsletterForm />
                 </Box>
-            </Wrapper>
+            </SimpleGrid>
+
+        </Wrapper>
     )
 }
 export default NewsletterSlice 

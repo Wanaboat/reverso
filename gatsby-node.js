@@ -48,7 +48,15 @@ exports.createPages = async ({ graphql, actions }) => {
       context: {
           lang: `en`
       },
-  })
+    })
+
+    createPage({
+      path: `/unsubscribe/`,
+      component: path.resolve(__dirname, 'src/templates/unsubscribe.js'),
+      context: {
+          lang: `en`
+      },
+    })
 
     // Query all Pages with their IDs and template data.
     const homepage = await graphql(`

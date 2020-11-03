@@ -50,8 +50,15 @@ const HomepageHero = () => {
                         </Heading>{' '}
                      in 3 minutes
                     </Text>
-                            <List>
-                                <ListItem>no trailer / no marina / no garage</ListItem>
+                            <List
+                                fontSize='18px'
+                            >
+                                <ListItem
+                                    _before={{
+                                        display:'block',
+                                        content:'-'
+                                    }}
+                                >no trailer / no marina / no garage</ListItem>
                                 <ListItem>low commitment</ListItem>
                                 <ListItem>cost effective</ListItem>
                             </List>
@@ -90,9 +97,6 @@ const HomepageHero = () => {
                                     />
                                     <Text as="figcaption">Légende de l'image</Text>
                                 </Box>
-                            </Box>
-                            <Box>
-                                Logo / Logo / Logo
                             </Box>
                         </Box>
 

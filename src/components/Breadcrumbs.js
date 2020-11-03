@@ -105,7 +105,7 @@ const Breadcrumbs = ({ node, lang }) => {
             >
                 <Stack isInline spacing='2rem'>
                     {hierarchyData.map((item, index) =>
-                        <>
+                        <Box key={`${buildUrl(index)}`}>
                             <Link
                                 to={`${lang === 'fr' ? '/fr' : ''}/${buildUrl(index)}`}
                                 as={GatsbyLink}
@@ -116,7 +116,7 @@ const Breadcrumbs = ({ node, lang }) => {
                             { index + 1 < hierarchyData.length ? 
                                 <Flex px='1rem' alignItems='center' ><Icon name="chevron-right" /></Flex>
                             : ''}
-                        </>
+                        </Box>
                     )}
                 </Stack>
             </Box>

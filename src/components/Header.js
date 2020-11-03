@@ -1,34 +1,46 @@
 import Menu from './Menu'
 import LanguageSwitcher from './LanguageSwitcher'
 import { Link as GatsbyLink } from 'gatsby'
-import { Box, Button, Flex } from '@chakra-ui/core'
+import { Box, Button, Flex, Image } from '@chakra-ui/core'
 import PropTypes from "prop-types"
 import React from "react"
 import { FormattedMessage } from 'react-intl'
+import Wrapper from '../components/Wrapper'
+import logoTypo from '../images/logo-typo.svg'
 
 const Header = ({ siteTitle }) => (
-  <Flex
+  <Box
     as='header'
     bg='gray.900'
     color='white'
-    justify='space-between'
     p='1rem'
   >
-    <Box>
-      <Button
-        as={GatsbyLink}
-        to='/'
-        color='gray.800'
+    <Wrapper>
+      <Flex
+        justifyContent='space-between'
+        w='100%'
       >
-        <FormattedMessage id="title" /> 
-      </Button>
-    </Box>
-    <Menu lang='fr' />
-    <Box display={{ xs:'none', lg:'block'}}>
-    <LanguageSwitcher />
+        <Flex
+          as={GatsbyLink}
+          to='/'
+        >
+          <img
+            style={{ display: 'block' }}
+            src={logoTypo}
+            alt='Reverso Project'
+          />
+        </Flex>
 
-    </Box>
-  </Flex>
+        <Menu lang='fr' />
+        <Box display={{ xs: 'none', lg: 'block' }}>
+          <LanguageSwitcher />
+
+        </Box>
+      </Flex>
+
+    </Wrapper>
+
+  </Box>
 
 )
 

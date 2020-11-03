@@ -72,7 +72,7 @@ const AdminTpl = (props) => {
                                         {contact.data.name}
                                     </Text>
                                     <Text w='33%'>
-                                        {contact.data.lang} fr
+                                        {contact.data.lang}
                                     </Text>
                                     <Text w='33%'>
                                         {contact.data.email}

@@ -12,6 +12,7 @@ import HomepageHero from '../components/HomepageHero'
 
 import SliceBannerAndDescription from '../components/slices/BannerAndDescription'
 import SliceNewsletterSubscription from '../components/slices/SliceNewsletterSubscription'
+import SliceLogosList from '../components/slices/SliceLogosList'
 
 const HomeTpl = (props) => {
 
@@ -19,6 +20,7 @@ const HomeTpl = (props) => {
     return (
         <Layout lang={props.pageContext.lang}>
             <HomepageHero />
+            <SliceLogosList />
             <SliceBannerAndDescription />
             <SliceBannerAndDescription />
             <SliceNewsletterSubscription />

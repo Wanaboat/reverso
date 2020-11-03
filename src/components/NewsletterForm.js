@@ -28,15 +28,19 @@ const NewsletterForm = () => {
         <Box
             color='gray.900'
             as='form'
+            px={{ lg:'4rem'}}
             onSubmit={(e) => { handleSubmit(e) }}
         >
             { !isSaved ? 
             <FormControl>
-                {/* <FormLabel htmlFor="email">Email address</FormLabel> */}
+                <FormLabel
+                    htmlFor="email"
+                    color='white'
+                >
+                    Newsletter subscription :
+                </FormLabel>
                 <Grid
                     templateColumns='1fr 60px'
-                    maxW='400px'
-                    mx='auto'
                 >
                 <Input
                     ref={ InputField }
@@ -53,13 +57,13 @@ const NewsletterForm = () => {
                     color='white'
                     borderRadius='0 3px 3px 0'
                     h='50px'
+                    type='submit'
                 >
                     Ok
                 </Button>
                 </Grid>
                 
                 <FormHelperText
-                    textAlign='center'
                     id="email-helper-text">
                     Data storage is 100% secure, unsubscribe is easy.
                 </FormHelperText>
@@ -68,7 +72,6 @@ const NewsletterForm = () => {
             <Text
                 py='2rem'
                 color='white'
-                textAlign='center'
             >You're subscription has been successfuly recorded. You'll receive our first newslette soon.</Text>
             }
         </Box>

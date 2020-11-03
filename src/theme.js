@@ -17,8 +17,8 @@ theme = {
         brand: {
             "primary": "#0E90EE",
             "secondary": "#FFE073",
-            "thirdary": "#063462",
-            "3":"#323233",
+            "2": "#ED1C24",
+            "3":"#323232",
             "4":"#EEEEE8"
         }
     },

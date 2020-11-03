@@ -19,8 +19,9 @@ export const getAllContacts = client
     .query(
       q.Create(q.Collection('contacts'), {
         data: {
-          "name":"Test nale",
-          "email": "testemail"
+          "name":"Name",
+          "lang":"fr",
+          "email": "email@domain.fr"
         }
       })
     )
