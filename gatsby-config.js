@@ -94,11 +94,11 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `gatsby-starter-default`,
+        name: `Reverso`,
         short_name: `starter`,
         start_url: `/`,
-        background_color: `#663399`,
-        theme_color: `#663399`,
+        background_color: `#FFFFFF`,
+        theme_color: `#ED1C24`,
         display: `minimal-ui`,
         icon: `src/images/logo-red-r.png`, // This path is relative to the root of the site.
       },

@@ -24,8 +24,10 @@ const Header = ({ siteTitle }) => (
           as={GatsbyLink}
           to='/'
         >
-          <img
-            style={{ display: 'block' }}
+          <Image
+            // style={{ display: 'block' }}
+            display='block'
+            maxW='160px'
             src={logoTypo}
             alt='Reverso Project'
           />
