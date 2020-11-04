@@ -1,0 +1,121 @@
+{
+    "Main" : {
+      "title" : {
+        "type" : "StructuredText",
+        "config" : {
+          "single" : "heading1",
+          "label" : "title"
+        }
+      },
+      "intro" : {
+        "type" : "Text",
+        "config" : {
+          "label" : "intro"
+        }
+      },
+      "args_list" : {
+        "type" : "Group",
+        "config" : {
+          "fields" : {
+            "item" : {
+              "type" : "Text",
+              "config" : {
+                "label" : "Item"
+              }
+            }
+          },
+          "label" : "args list"
+        }
+      },
+      "image_main" : {
+        "type" : "Image",
+        "config" : {
+          "constraint" : { },
+          "thumbnails" : [ ],
+          "label" : "image main"
+        }
+      },
+      "second_args_list" : {
+        "type" : "Group",
+        "config" : {
+          "fields" : {
+            "title" : {
+              "type" : "Text",
+              "config" : {
+                "label" : "title"
+              }
+            },
+            "body" : {
+              "type" : "StructuredText",
+              "config" : {
+                "multi" : "paragraph, hyperlink",
+                "label" : "body"
+              }
+            }
+          },
+          "label" : "Args list secondary"
+        }
+      },
+      "gallery_list" : {
+        "type" : "Group",
+        "config" : {
+          "fields" : {
+            "picture" : {
+              "type" : "Image",
+              "config" : {
+                "constraint" : { },
+                "thumbnails" : [ ],
+                "label" : "picture"
+              }
+            }
+          },
+          "label" : "gallery list"
+        }
+      },
+      "video" : {
+        "type" : "Link",
+        "config" : {
+          "select" : "media",
+          "label" : "Video"
+        }
+      }
+    },
+    "Hierarchy" : {
+      "parent" : {
+        "type" : "Link",
+        "config" : {
+          "select" : "document",
+          "customtypes" : [ "page" ],
+          "label" : "Parent"
+        }
+      },
+      "uid" : {
+        "type" : "UID",
+        "config" : {
+          "label" : "uid"
+        }
+      }
+    },
+    "Seo" : {
+      "seo_title" : {
+        "type" : "Text",
+        "config" : {
+          "label" : "Seo title"
+        }
+      },
+      "seo_description" : {
+        "type" : "Text",
+        "config" : {
+          "label" : "Seo description"
+        }
+      },
+      "sharing_image" : {
+        "type" : "Image",
+        "config" : {
+          "constraint" : { },
+          "thumbnails" : [ ],
+          "label" : "sharing image"
+        }
+      }
+    }
+  }

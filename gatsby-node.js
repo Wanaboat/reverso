@@ -6,6 +6,7 @@ exports.createPages = async ({ graphql, actions }) => {
     const pageTemplates = {
         home: path.resolve(__dirname, 'src/templates/home.js'),
         page: path.resolve(__dirname, 'src/templates/page.js'),
+        product: path.resolve(__dirname, 'src/templates/product.js'),
     }
 
     var langSlugConverter = (lang) => {
@@ -98,8 +99,8 @@ exports.createPages = async ({ graphql, actions }) => {
         })
     })
 
-    // Query all Pages with their IDs and template data.
-    const pages = await graphql(`
+  // Query all Pages with their IDs and template data.
+  const pages = await graphql(`
   {
     allPrismicPage {
       edges {
@@ -139,21 +140,74 @@ exports.createPages = async ({ graphql, actions }) => {
       }
     }
   }
-  
   `)
+  // Create pages for each Page in Prismic using the selected template.
+  pages.data.allPrismicPage.edges.forEach((page) => {
+      createPage({
+          path: `${langSlugConverter(page.node.lang)}/${buildPageSlug(page.node)}`,
+          component: pageTemplates['page'],
+          context: {
+              id: page.node.id,
+              prismicId: page.node.prismicId,
+              lang: `${langCodeConverter(page.node.lang)}`
+          },
+      })
+  })
 
 
+  // Query all Pages with their IDs and template data.
+  const products = await graphql(`
+  {
+    allPrismicProduct {
+      edges {
+        node {
+          prismicId
+          lang
+          uid
+          data {
+            seo_title
+            parent {
+              document {
+                ... on PrismicPage {
+                  uid
+                  data {
+                    parent {
+                      document {
+                        ... on PrismicPage {
+                          uid
+                          data {
+                            parent {
+                              document {
+                                ... on PrismicPage {
+                                  uid
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  `)
+  // Create pages for each Page in Prismic using the selected template.
+  products.data.allPrismicProduct.edges.forEach((page) => {
+      createPage({
+          path: `${langSlugConverter(page.node.lang)}/${buildPageSlug(page.node)}`,
+          component: pageTemplates['product'],
+          context: {
+              id: page.node.id,
+              prismicId: page.node.prismicId,
+              lang: `${langCodeConverter(page.node.lang)}`
+          },
+      })
+  })
 
-    // Create pages for each Page in Prismic using the selected template.
-    pages.data.allPrismicPage.edges.forEach((page) => {
-        createPage({
-            path: `${langSlugConverter(page.node.lang)}/${buildPageSlug(page.node)}`,
-            component: pageTemplates['page'],
-            context: {
-                id: page.node.id,
-                prismicId: page.node.prismicId,
-                lang: `${langCodeConverter(page.node.lang)}`
-            },
-        })
-    })
 }

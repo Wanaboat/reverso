@@ -2,8 +2,10 @@ import React, { useState } from "react"
 import { Box, Button, Flex, Icon, Link, PseudoBox, Stack } from '@chakra-ui/core'
 import { Link as GatsbyLink } from 'gatsby'
 import PropTypes from "prop-types"
+import { useIntl } from 'react-intl'
 
 const Menu = ({ lang }) => {
+  const locale = useIntl().locale
   const [ isVisible, setIsVisible ] = useState( false )
   const MainNavLink = ({ to, children }) => {
     return(
@@ -43,13 +45,23 @@ const Menu = ({ lang }) => {
   let items = []
 
   items['en'] = [
-    'New kinds of sailing',
-    'Rerverso sailboats',
-    'Technologies',
-    'About'
+    {
+      label:'New kinds of sailing',
+      url:'/news-kinds-sailing'
+    },
+    {
+      label:'Small sailboats',
+      url:'/small-sailboats/'
+    },
+    {
+      label:'About',
+      url:'/about/'
+    }
   ].map(item =>
-    <MainNavLink>
-      {item}
+    <MainNavLink
+      to={ item.url }
+    >
+      {item.label}
     </MainNavLink>
   )
 
@@ -60,15 +72,11 @@ const Menu = ({ lang }) => {
     },
     {
       label:'Les dériveurs Reverso',
-      url:'/product/'
+      url:'/fr/deriveurs/'
     },
-    // {
-    //   label:'Technologies',
-    //   url:'/fr/premier-niveau/second-niveau/troisieme-niveau'
-    // },
     {
       label:'À propos',
-      url:'/fr/nouvelle-ere/easy-sailing/troisieme-niveau/'
+      url:'/fr/a-propos/'
     }
   ].map(item =>
     <MainNavLink
@@ -117,7 +125,7 @@ const Menu = ({ lang }) => {
         top='0'
         bg='gray.800'
       >
-        {items[lang]}
+        {items[locale]}
       </Flex>
     </Flex>
   )

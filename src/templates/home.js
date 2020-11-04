@@ -32,7 +32,7 @@ const HomeTpl = (props) => {
         <meta property="og:description" content={ prismicHomepage.data.seo_description } />
         <link
           rel='canonical'
-          href={`${'fr'}`}
+          href={`${process.env.GATSBY_BASE_URL}/${'fr'}`}
         />
           <link
             rel="alternate"
@@ -43,6 +43,7 @@ const HomeTpl = (props) => {
           <meta property='og:type' content='website' />
           <meta property="og:image:width" content="1200" />
           <meta property="og:image:height" content="630" />
+          <meta property='og:url' content={`${process.env.GATSBY_BASE_URL}/${'fr'}`} />
 
       </Helmet>
 
@@ -65,15 +66,17 @@ query HpQuery($langIso:String!) {
     prismicHomepage( lang : { eq: $langIso }) {
         dataRaw
         data {
+            seo_title
+            seo_description
             sharing_image {
                 localFile {
                     childImageSharp {
-                    fixed(height: 630, width: 1200) {
-                        src
+                        fixed(height: 630, width: 1200) {
+                            src
+                        }
                     }
                 }
-            }
-          }
+            }  
           hero_image_1 {
             alt
             copyright

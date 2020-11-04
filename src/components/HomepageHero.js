@@ -86,6 +86,7 @@ const HomepageHero = (props) => {
                                     fluid={
                                         props.image1.localFile.childImageSharp.fluid
                                     }
+                                    placeholderStyle={{ visibility: "hidden" }}
                                 />
                                 {/* <Image
                                     src={data.hero_image_1.url}

@@ -40,6 +40,7 @@ module.exports = {
         schemas: {
            homepage: require('./src/schemas/homepage.json'),
            page: require('./src/schemas/page.json'),
+           product: require('./src/schemas/product.json')
         },
         shouldDownloadImage: ({ node, key, value }) => {
           if( value ){
