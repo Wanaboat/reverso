@@ -13,7 +13,7 @@ import HomepageHero from '../components/HomepageHero'
 import SliceBannerAndDescription from '../components/slices/BannerAndDescription'
 import SliceNewsletterSubscription from '../components/slices/SliceNewsletterSubscription'
 import SliceLogosList from '../components/slices/SliceLogosList'
-import SliceCenteredOneColumn from '../components/Slices/CenteredOneColumn'
+import SliceCenteredOneColumn from '../components/slices/CenteredOneColumn'
 
 const HomeTpl = (props) => {
 
