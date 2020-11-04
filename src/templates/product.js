@@ -3,12 +3,14 @@ import Layout from '../components/layout'
 
 import {
     Box,
+    Button,
     Flex,
     Heading,
     Grid,
     Image,
     List,
     ListItem,
+    AspectRatioBox,
     Stack,
     Text,
     SimpleGrid
@@ -29,6 +31,8 @@ import BtnSecondary from '../components/Buttons/secondary'
 import Reverso1 from '../images/reverso-blue.png'
 import Reverso2 from '../images/reverso-red.png'
 import Reverso3 from '../images/reverso-match.png'
+
+import ReversoVideo from '../videos/montage.mp4'
 // import logoAudiAwards from '../images/logo-audi-awards.svg'
 
 const ProductTpl = (props) => {
@@ -42,8 +46,34 @@ const ProductTpl = (props) => {
             >
                 <Box
                     background={`url(${shapeGray}) no-repeat left top`}
-                    h='3000px'
+                    position='relative'
                 >
+                    <Box
+                        position='absolute'
+                        top='300px'
+                        left='0'
+                        p='1rem'
+                        bg='gray.400'
+                    >
+                        <Button
+                            size='sm'
+                        >
+                        Reverso Air
+                        </Button>
+                    </Box>
+                    <Box
+                        position='absolute'
+                        top='300px'
+                        right='0'
+                        p='1rem'
+                        bg='gray.400'
+                    >
+                        <Button
+                            size='sm'
+                        >
+                        Reverso Match
+                        </Button>
+                    </Box>
                     <Wrapper>
                         <Box
                             py='2rem'
@@ -129,6 +159,13 @@ const ProductTpl = (props) => {
                             <BtnSecondary>Order now</BtnSecondary>
                         </Stack>
 
+                        <Box>
+                        <Heading
+                                fontWeight='900'
+                            >
+                                Versions
+                            </Heading>
+                        </Box>
                         <Stack
                             spacing='1rem'
                             my='2rem'
@@ -255,13 +292,25 @@ const ProductTpl = (props) => {
                                 <Image
                                     src='https://images.squarespace-cdn.com/content/v1/5eadcd40acf99d220aee75a5/1601355291427-J3U25X12SK6LBCNH3LRF/ke17ZwdGBToddI8pDm48kO4MCmFXgria781RdOOdXR4UqsxRUqqbr1mOJYKfIPR7LoDQ9mXPOjoJoqy81S2I8N_N4V1vUb5AoIIIbLZhVYxCRW4BPu10St3TBAUQYVKczuNowp6jCWKg3HkDw9htMNjCCTfYrb_QE008VnYI4AiFeFFp_0SMpnEH4sQNbkF4/photoshop-lagon-drone+2.jpeg?format=1000w'
                                 />
-                                                                <Image
+                                <Image
                                     src='https://images.squarespace-cdn.com/content/v1/5eadcd40acf99d220aee75a5/1601355291427-J3U25X12SK6LBCNH3LRF/ke17ZwdGBToddI8pDm48kO4MCmFXgria781RdOOdXR4UqsxRUqqbr1mOJYKfIPR7LoDQ9mXPOjoJoqy81S2I8N_N4V1vUb5AoIIIbLZhVYxCRW4BPu10St3TBAUQYVKczuNowp6jCWKg3HkDw9htMNjCCTfYrb_QE008VnYI4AiFeFFp_0SMpnEH4sQNbkF4/photoshop-lagon-drone+2.jpeg?format=1000w'
                                 />
-                                                                <Image
+                                <Image
                                     src='https://images.squarespace-cdn.com/content/v1/5eadcd40acf99d220aee75a5/1601355291427-J3U25X12SK6LBCNH3LRF/ke17ZwdGBToddI8pDm48kO4MCmFXgria781RdOOdXR4UqsxRUqqbr1mOJYKfIPR7LoDQ9mXPOjoJoqy81S2I8N_N4V1vUb5AoIIIbLZhVYxCRW4BPu10St3TBAUQYVKczuNowp6jCWKg3HkDw9htMNjCCTfYrb_QE008VnYI4AiFeFFp_0SMpnEH4sQNbkF4/photoshop-lagon-drone+2.jpeg?format=1000w'
                                 />
                             </SimpleGrid>
+                        </Box>
+
+                        <Box>
+                            montage
+                            <Box
+                                maxW="100%"
+                                ratio={1}
+                            >
+                                <video width="100%" height="100%" autoplay controls>
+                                    <source src={ ReversoVideo } controls type="video/mp4" />
+                                </video>
+                            </Box>
                         </Box>
                         </Wrapper>
 

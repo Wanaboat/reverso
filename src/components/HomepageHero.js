@@ -14,67 +14,84 @@ import {
 
 } from '@chakra-ui/core'
 import BtnPrimary from '../components/Buttons/primary'
-import heroIllu from '../images/home-hero-1.jpg'
-const HomepageHero = () => {
+import Img from "gatsby-image"
+
+const HomepageHero = (props) => {
+    console.log('HeroProps', props)
+    const { data } = props
     return (
         <Box>
             <Box
                 bg='white'
             >
                 <Wrapper
-                    pt='5rem'
+                    pt={{ xs: '0', lg: '5rem' }}
                 >
                     <Grid
-                        gap='3rem'
+                        gap={{ xs: '2rem', lg: '3rem' }}
                         templateColumns={{ xs: '100%', lg: '50% 50%' }}
+                        pb='7rem'
                     >
                         <Stack
                             spacing='1.5rem'
+                            order={{ xs: '2', lg: '1' }}
                         >
                             <Text
                                 fontSize='24px'
-                                fontWeight='700'
-                            >Sailing is cool, owning a boat is complicated.</Text>
+                                fontWeight='900'
+                                fontFamily='Roboto'
+                            >
+                                {data.intro_title}
+                            </Text>
                             <Text
                                 as='span'
                                 fontSize='36px'
-                                fontWeight='700'
+                                fontWeight='900'
+                                fontFamily='Roboto'
                             >
-                                → We invented Reverso, the{' '}
+                                {data.title_prefix}
+                                {/* → We invented Reverso, the{' '} */}
                                 <Heading
                                     as='h1'
                                     display='inline'
                                     fontSize='36px'
+                                    fontWeight='900'
                                 >
-                                    sailing dinghy that folds up
-                        </Heading>{' '}
-                     in 3 minutes
-                    </Text>
+                                    {data.title}
+                                </Heading>{' '}
+                                {data.title_suffix}
+
+                            </Text>
                             <List
                                 fontSize='18px'
                             >
-                                <ListItem
-                                    _before={{
-                                        display:'block',
-                                        content:'-'
-                                    }}
-                                >no trailer / no marina / no garage</ListItem>
-                                <ListItem>low commitment</ListItem>
-                                <ListItem>cost effective</ListItem>
+                                {data.args_list.map(list =>
+                                    <ListItem>{list.item}</ListItem>
+                                )}
                             </List>
                         </Stack>
-                        <Box>
+                        <Box
+                            order={{ xs: '1', lg: '2' }}
+                        >
                             <Flex
                                 alignItems='center'
                                 justify='center'
-                                h='500px'
-                                // bg='gray.50'
+                                // h='500px'
+                            // bg='gray.50'
                             >
-                                <Image
-                                    src={ heroIllu }
+                                <Img
+                                    // fixed={
+                                    //     props.image1.localFile.childImageSharp.fixed
+                                    // }
+                                    fluid={
+                                        props.image1.localFile.childImageSharp.fluid
+                                    }
+                                />
+                                {/* <Image
+                                    src={data.hero_image_1.url}
                                     w='500px'
                                     h='auto'
-                                />
+                                /> */}
                             </Flex>
                         </Box>
                     </Grid>
@@ -90,34 +107,58 @@ const HomepageHero = () => {
                             <Box
                                 as='figure'
                             >
-                                <Box as='picture'>
-                                    <Image
+                                <Box
+                                    as='picture'
+                                    transform='translateY( -7rem )'
+                                    display='block'
+                                >
+                                    {/* <Image
                                         mt='-5rem'
-                                        src='https://static.actu.fr/uploads/2019/05/DJI_0065-copie2-960x640.jpg'
-                                    />
+                                        src={data.hero_image_2.url}
+                                    /> */}
+                                    <Img
+                                    // fixed={
+                                    //     props.image2.localFile.childImageSharp.fixed
+                                    // }
+                                    fluid={
+                                        props.image2.localFile.childImageSharp.fluid
+                                    }
+                                />
                                     <Text as="figcaption">Légende de l'image</Text>
                                 </Box>
                             </Box>
                         </Box>
 
                         <Box>
-                            <Stack p='2rem'>
-                                <Heading as='p'>
-                                    Does it work for :
+                            <Stack
+                                p={{ lg:'2rem' }}
+                            >
+                                <Heading
+                                    as='p'
+                                    fontSize='24px'
+                                    mb='1rem'
+                                >
+                                    {data.secondary_title[0].text}
                                 </Heading>
                                 <Stack
                                     spacing='1rem'
                                 >
-                                    <Text
-                                        textTransform='uppercase'
-                                        fontWeight='600'
-                                    >
-                                        → sailing solo ?
-                                    </Text>
-                                    <Text>
-                                        Yes ! the largest section only weights 39 pounds, the boat is super easy to rig and can be sailed by a single person.
-                                    </Text>
-                                    <Text
+                                    <List>
+                                        {data.second_args_list.map(list =>
+                                            <ListItem>
+                                                <Text
+                                                    textTransform='uppercase'
+                                                    fontWeight='600'
+                                                >
+                                                    {list.question}
+                                                </Text>
+                                                <Text>
+                                                    {list.answer}
+                                                </Text>
+                                            </ListItem>
+                                        )}
+                                    </List>
+                                    {/* <Text
                                         textTransform='uppercase'
                                         fontWeight='600'
                                     >
@@ -149,18 +190,14 @@ const HomepageHero = () => {
                                         fontWeight='600'
                                     >
                                         → The trunk of my car ?
-                                    </Text>
+                                    </Text> */}
                                 </Stack>
                                 <Box>
                                     <BtnPrimary>
                                         One boat - multiple purposes
                                     </BtnPrimary>
                                 </Box>
-
-
                             </Stack>
-
-
                         </Box>
                     </Grid>
                 </Wrapper>

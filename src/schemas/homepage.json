@@ -1,11 +1,108 @@
 {
-    "Main": {},
-    "Seo": {
-      "seo_title": {
-        "type": "Text",
-        "config": {
-          "label": "Seo title"
-        }
+  "Main" : { },
+  "Hero" : {
+    "intro_title" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "Intro title"
+      }
+    },
+    "title_prefix" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "title prefix"
+      }
+    },
+    "title" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "title"
+      }
+    },
+    "title_suffix" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "title suffix"
+      }
+    },
+    "args_list" : {
+      "type" : "Group",
+      "config" : {
+        "fields" : {
+          "item" : {
+            "type" : "Text",
+            "config" : {
+              "label" : "item"
+            }
+          }
+        },
+        "label" : "args list"
+      }
+    },
+    "hero_image_1" : {
+      "type" : "Image",
+      "config" : {
+        "constraint" : { },
+        "thumbnails" : [ ],
+        "label" : "Image 1"
+      }
+    },
+    "hero_image_2" : {
+      "type" : "Image",
+      "config" : {
+        "constraint" : { },
+        "thumbnails" : [ ],
+        "label" : "Image 2"
+      }
+    },
+    "secondary_title" : {
+      "type" : "StructuredText",
+      "config" : {
+        "single" : "heading2, heading3, heading4, heading5, heading6",
+        "label" : "Secondary title"
+      }
+    },
+    "second_args_list" : {
+      "type" : "Group",
+      "config" : {
+        "fields" : {
+          "question" : {
+            "type" : "Text",
+            "config" : {
+              "label" : "question"
+            }
+          },
+          "answer" : {
+            "type" : "Text",
+            "config" : {
+              "label" : "Answer"
+            }
+          }
+        },
+        "label" : "Second args list"
+      }
+    }
+  },
+  "Seo" : {
+    "seo_title" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "Seo title"
+      }
+    },
+    "seo_description" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "Seo description"
+      }
+    },
+    "sharing_image" : {
+      "type" : "Image",
+      "config" : {
+        "constraint" : { },
+        "thumbnails" : [ ],
+        "label" : "sharing image"
       }
     }
   }
+}

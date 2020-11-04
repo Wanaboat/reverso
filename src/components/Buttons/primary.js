@@ -8,6 +8,7 @@ const BtnPrimary = ({props, handleClick, children}) => {
         <Button
             bg='brand.1'
             color='white'
+            p='.75rem 1rem .5rem 1rem'
             _hover={{
                 bg:'blue.500'
             }}

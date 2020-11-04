@@ -92,7 +92,8 @@ exports.createPages = async ({ graphql, actions }) => {
             component: pageTemplates['home'],
             context: {
                 id: page.node.id,
-                lang: `${langCodeConverter(page.node.lang)}`
+                lang: `${langCodeConverter(page.node.lang)}`,
+                langIso: `${page.node.lang}`
             },
         })
     })

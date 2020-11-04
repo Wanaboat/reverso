@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import { Box, Button, Flex, Link, PseudoBox, Stack } from '@chakra-ui/core'
+import { Box, Button, Flex, Icon, Link, PseudoBox, Stack } from '@chakra-ui/core'
 import { Link as GatsbyLink } from 'gatsby'
 import PropTypes from "prop-types"
 
@@ -10,7 +10,7 @@ const Menu = ({ lang }) => {
       <PseudoBox
         mx='1rem'
         // p='.45rem'
-        my='.35rem'
+        my={{ xs:'1rem', lg:'.35rem' }}
         fontWeight='600'
         textTransform='uppercase'
         as={GatsbyLink}
@@ -80,29 +80,46 @@ const Menu = ({ lang }) => {
 
 
   return (
-    <Box as='nav'>
-      <Box
-        as={Button}
-        color='gray.500'
+    <Flex
+      as='nav'
+      alignItems='center'
+    >
+      <Button
+        bg='transparent'
+        color='gray.50'
         display={{ lg: 'none' }}
         spacing='2px'
         onClick={()=>{ setIsVisible(!isVisible)}}
+        _hover={{
+          bg:'transparent',
+          color:'white'
+        }}
       >
-        Button nav
-    </Box>
+        <Icon 
+          transition='all 200ms ease'
+          transform={ isVisible ? 'rotate(45deg)' : 'rotate(90deg)'}
+          name='add'
+          size='22px'
+        />
+    </Button>
       <Flex
         w={{ xs:'100vw', lg:'auto'}}
-        h={{ xs:'100vh', lg:'auto'}}
+        h={{ xs:'auto', lg:'auto'}}
         wrap={{xs:'wrap', lg:'nowrap'}}
         position={{ xs:'fixed', lg:'initial'}}
-        display={{ xs:isVisible? 'flex' : 'none' , lg:'flex'}}
+        pointerEvents={{ xs:isVisible ? 'auto' : 'none', lg:'auto' }}
+        opacity={{ xs:isVisible ? '1' : '0', lg:'1' }}
+        transform={{ xs: isVisible ? 'translateY(72px)' : 'translateY(0px)', lg:'none' }}
+        transition='all 200ms ease'
+        zIndex='banner'
+
         left='0'
-        top='0px'
+        top='0'
         bg='gray.800'
       >
         {items[lang]}
       </Flex>
-    </Box>
+    </Flex>
   )
 }
 Menu.propTypes = {

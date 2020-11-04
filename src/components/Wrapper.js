@@ -10,7 +10,7 @@ const Wrapper = (props) => {
             <Box
                 mx={{ xs: 0, md: 'auto' }}
                 maxW='1150px'
-                p={{ xs:'1rem', lg:'0'}}
+                p={{ xs:'1rem', xl:'0'}}
             >
                 {props.children}
             </Box>

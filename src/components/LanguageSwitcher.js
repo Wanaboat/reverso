@@ -12,8 +12,10 @@ const LanguageSwitcher = ({ siteTitle }) => {
     <>
     <Stack isInline spacing='1rem'>
       <Flex alignItems='center'>
-        EN / FR
-    </Flex>
+        <Link as={ GatsbyLink } to='/'>En</Link>
+        /
+        <Link as={ GatsbyLink } to='/fr'>Fr</Link>
+      </Flex>
       <BtnPrimary
         as={GatsbyLink}
         handleClick={ ()=>{

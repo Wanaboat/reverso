@@ -13,7 +13,12 @@ const Header = ({ siteTitle }) => (
     as='header'
     bg='gray.900'
     color='white'
-    p='1rem'
+    p={{ lg:'1rem' }}
+    position={{ xs:'fixed', lg:'initial'}}
+    top='0'
+    left='0'
+    w='100vw'
+    zIndex='tooltip'
   >
     <Wrapper>
       <Flex
@@ -27,7 +32,7 @@ const Header = ({ siteTitle }) => (
           <Image
             // style={{ display: 'block' }}
             display='block'
-            maxW='160px'
+            maxW={{ xs:'100px', lg:'160px'}}
             src={logoTypo}
             alt='Reverso Project'
           />

@@ -31,6 +31,7 @@ const Layout = ({ lang, children }) => {
         <Box
           maxW='100vw'
           bg='brand.4'
+          pt={{ xs:'72px', lg:0 }}
         >
 
         
