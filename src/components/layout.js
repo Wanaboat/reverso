@@ -39,7 +39,9 @@ const Layout = ({ lang, children }) => {
           siteTitle="Reverso" />
         <Box
           minH='calc(100vh - 54px - 27px)'
-          bg='gray.100' as='main'>
+          // bg='gray.100'
+          as='main'
+        >
             {children}
           </Box>
         <Footer />

@@ -63,7 +63,7 @@ const PageTpl = (props) => {
         <Box>
           <Heading as='h1'
             color='brand.secondary'
-            bg='brand.primary'
+            bg='brand.1'
           >
             H1 : {data.prismicPage.data.title.text}
           </Heading>

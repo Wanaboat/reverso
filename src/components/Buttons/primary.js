@@ -6,7 +6,7 @@ import {
 const BtnPrimary = ({props, handleClick, children}) => {
     return(
         <Button
-            bg='brand.primary'
+            bg='brand.1'
             color='white'
             _hover={{
                 bg:'blue.500'

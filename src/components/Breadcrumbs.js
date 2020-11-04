@@ -101,23 +101,28 @@ const Breadcrumbs = ({ node, lang }) => {
             borderColor='gray.200'
         >
             <Box
-                p='2rem'
+                py='2rem'
                 color='gray.900'
 
                 display={{ xs:'none', md:'block' }}
             >
-                <Stack isInline spacing='2rem'>
+                <Stack isInline 
+                    // spacing='2rem'
+                >
                     {hierarchyData.map((item, index) =>
                         <Box key={`${buildUrl(index)}`}>
                             <Link
+                                color='black'
                                 to={`${lang === 'fr' ? '/fr' : ''}/${buildUrl(index)}`}
                                 as={GatsbyLink}
+                                fontSize='15px'
                                 key={`breadcrumb-item-${index}`}
                             >
                                 {item.name}
                             </Link>
                             { index + 1 < hierarchyData.length ? 
-                                <Flex px='1rem' alignItems='center' ><Icon name="chevron-right" /></Flex>
+                                // <Flex px='1rem' alignItems='center' ><Icon name="chevron-right" /></Flex>
+                                <Box mx='1.5rem' display="inline">/</Box>
                             : ''}
                         </Box>
                     )}

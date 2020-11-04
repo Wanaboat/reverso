@@ -15,7 +15,9 @@ import Img1 from '../images/reverso-shooting-1.jpg'
 import Img2 from '../images/reverso-shooting-2.jpg'
 import BtnPrimary from './Buttons/primary'
 import SliceBannerAndDescription from '../components/slices/BannerAndDescription'
-
+import Faq from '../components/Faq'
+import Carousel from '../components/Carousel'
+import ConfigBanner from '../components/slices/ConfigBanner'
 const PageContent = () => {
     const SliderItems = () => {
         const items = [1, 2, 3, 4]
@@ -23,8 +25,6 @@ const PageContent = () => {
             <Box
                 overflowX='scroll'
             >
-
-
                 <Flex
                     w={{ xs:'calc( 50% * 4)', lg:'100%'}}
                     wrap='nowrap'
@@ -217,7 +217,7 @@ const PageContent = () => {
                 </Flex>
             </Wrapper>
             <Wrapper
-                bg='brand.1'
+                bg='brand.4'
             >
                 <SimpleGrid
                     columns={{ xs: 1, lg: 2 }}
@@ -258,6 +258,10 @@ const PageContent = () => {
                 </SimpleGrid>
             </Wrapper>
             <SliceBannerAndDescription />
+            <ConfigBanner />
+            <Carousel />
+            <Faq />
+
         </>
     )
 }

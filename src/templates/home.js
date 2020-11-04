@@ -13,17 +13,21 @@ import HomepageHero from '../components/HomepageHero'
 import SliceBannerAndDescription from '../components/slices/BannerAndDescription'
 import SliceNewsletterSubscription from '../components/slices/SliceNewsletterSubscription'
 import SliceLogosList from '../components/slices/SliceLogosList'
+import SliceCenteredOneColumn from '../components/Slices/CenteredOneColumn'
 
 const HomeTpl = (props) => {
 
 
     return (
         <Layout lang={props.pageContext.lang}>
+
             <HomepageHero />
+            <SliceCenteredOneColumn />
             <SliceLogosList />
             <SliceBannerAndDescription />
             <SliceBannerAndDescription />
             <SliceNewsletterSubscription />
+
         </Layout>
     )
 }

@@ -15,11 +15,10 @@ theme = {
     colors: {
         ...defaultTheme.colors,
         brand: {
-            "primary": "#0E90EE",
-            "1": "#E0E0DB",
-            "2": "#ED1C24",
-            "3":"#323232",
-            "4":"#EEEEE8"
+            "1": "#0E90EE", // Blue
+            "2": "#ED1C24", // Red
+            "3":"#323232", // Dark gray
+            "4":"#EEEEE8" // Mastic Gray
         }
     },
     fonts: {

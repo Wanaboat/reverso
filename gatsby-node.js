@@ -50,9 +50,17 @@ exports.createPages = async ({ graphql, actions }) => {
       },
     })
 
+    // createPage({
+    //   path: `/unsubscribe/`,
+    //   component: path.resolve(__dirname, 'src/templates/unsubscribe.js'),
+    //   context: {
+    //       lang: `en`
+    //   },
+    // })
+
     createPage({
-      path: `/unsubscribe/`,
-      component: path.resolve(__dirname, 'src/templates/unsubscribe.js'),
+      path: `/product/`,
+      component: path.resolve(__dirname, 'src/templates/product.js'),
       context: {
           lang: `en`
       },

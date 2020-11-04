@@ -60,7 +60,7 @@ const Menu = ({ lang }) => {
     },
     {
       label:'Les dériveurs Reverso',
-      url:'/fr/premier-niveau/second-niveau'
+      url:'/product/'
     },
     // {
     //   label:'Technologies',
@@ -68,7 +68,7 @@ const Menu = ({ lang }) => {
     // },
     {
       label:'À propos',
-      url:'/fr/premier-niveau/second-niveau/troisieme-niveau/quatrieme-niveau'
+      url:'/fr/nouvelle-ere/easy-sailing/troisieme-niveau/'
     }
   ].map(item =>
     <MainNavLink

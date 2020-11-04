@@ -53,7 +53,7 @@ const NewsletterForm = () => {
 
                 />
                 <Button
-                    bg='brand.primary'
+                    bg='brand.1'
                     color='white'
                     borderRadius='0 3px 3px 0'
                     h='50px'
