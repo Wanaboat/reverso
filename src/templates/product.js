@@ -3,6 +3,7 @@ import Layout from '../components/layout'
 import Breadcrumbs from '../components/Breadcrumbs'
 import Img from 'gatsby-image'
 import {
+    AspectRatioBox,
     Box,
     Button,
     Flex,
@@ -12,7 +13,6 @@ import {
     Image,
     List,
     ListItem,
-    AspectRatioBox,
     Stack,
     Text,
     SimpleGrid,
@@ -28,6 +28,7 @@ import logoAudiAwards from '../images/logo-audi-awards.svg'
 import Faq from '../components/Faq'
 import Carousel from '../components/Carousel'
 
+import ButtonConfig from '../components/Buttons/config'
 import BtnPrimary from '../components/Buttons/primary'
 import BtnSecondary from '../components/Buttons/secondary'
 
@@ -145,7 +146,9 @@ const ProductTpl = (props) => {
                                     shouldWrapChildren={true}
                                 >
                                     <Box>
-                                        <BtnPrimary>Pricing and boat configuration</BtnPrimary>
+                                        <ButtonConfig>
+                                            Pricing and boat configuration
+                                        </ButtonConfig>
                                     </Box>
                                     <Box
                                         display={{ xs: 'none', lg: 'flex' }}
@@ -404,21 +407,30 @@ const ProductTpl = (props) => {
                                     <Heading
                                         fontWeight='900'
                                     >
-                                        Faq
+                                        <FormattedMessage id="your.questions" />
                                     </Heading>
-                                    <Box>
-                                        Mini Faq content
-                                    </Box>
+                                    <AspectRatioBox ratio={16 / 9}>
+                                    <Box
+                                        as="iframe"
+                                        src='https://form.typeform.com/to/EimY5yHO' />
+                                    </AspectRatioBox>
                                 </Box>
 
 
                             </SimpleGrid>
 
+                            <Box>
+                                <Heading
+                                    fontWeight='900'
+                                    >Mini Faq</Heading>
+                                <Faq variant='light' />
+
+                            </Box>
+
                         </Stack>
                     </Wrapper>
 
                     <Carousel />
-                    <Faq />
 
                 </Box>
             </Box>
@@ -442,7 +454,7 @@ query productQuery($prismicId: ID) {
             localFile {
             childImageSharp {
                 fixed(height: 630, width: 1200) {
-                src
+                    src
                 }
             }
             }
@@ -455,7 +467,9 @@ query productQuery($prismicId: ID) {
             localFile {
                 childImageSharp {
                     fixed(height: 1000, width: 1000) { srcSet srcWebp aspectRatio base64 height originalName src srcSetWebp tracedSVG width }
-                    fluid { aspectRatio base64 originalImg originalName presentationHeight presentationWidth sizes src srcSet srcSetWebp srcWebp tracedSVG }                }
+                    fluid {
+                        ...GatsbyImageSharpFluid_noBase64
+                        aspectRatio base64 originalImg originalName presentationHeight presentationWidth sizes src srcSet srcSetWebp srcWebp tracedSVG }                }
             }
         }
         video {

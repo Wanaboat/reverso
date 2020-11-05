@@ -11,7 +11,7 @@ import {
 
 import Wrapper from '../components/Wrapper'
 
-const Faq = () => {
+const Faq = ({ variant }) => {
 
     const [ openItem, setOpenItem ] = useState( false )
 
@@ -21,7 +21,7 @@ const Faq = () => {
         [1,2,3,4].map( (item,index) =>
             <Box
                 borderBottom='solid 1px'
-                borderBottomColor='gray.600'
+                borderBottomColor={ variant === 'light' ? 'gray.100' : 'gray.600' }
                 p={{ xs:'1rem 2rem', lg:'2rem 4rem'}}
                 pr={{ xs:'2rem', lg:'8rem'}}
                 position='relative'
@@ -44,7 +44,6 @@ const Faq = () => {
                     display={ index === openItem ? 'block' : 'none'}
                 >
                     It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.
-
                 </Text>
                 <Flex
                     right={{ xs:'0', lg:'2rem' }}
@@ -60,7 +59,9 @@ const Faq = () => {
                         }}
                     >
                         <Icon
-                            name={  index === openItem ? 'minus' : 'add' }
+                            name='add'
+                            transition='all 200ms ease'
+                            transform={ index === openItem  ? 'rotate(45deg)' : 'rotate(90deg)'}
                         />
                     </Button>
                 </Flex>
@@ -71,8 +72,8 @@ const Faq = () => {
     }
     return(
         <Wrapper
-            bg='brand.3'
-            color='white'
+            bg={ variant === 'light' ? 'white' : 'brand.3' }
+            color={ variant === 'light' ? 'gray.700' : 'white' }
             py='2rem'
         >
             { <Items /> }

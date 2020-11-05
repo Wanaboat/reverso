@@ -8,6 +8,7 @@ import {
     FormErrorMessage,
     FormHelperText,
 } from "@chakra-ui/core"
+import addToMailchimp from 'gatsby-plugin-mailchimp'
 
 const NewsletterForm = () => {
 
@@ -21,7 +22,19 @@ const NewsletterForm = () => {
         createContactItem(InputField.current.value).then(res => {
             console.log('Expense details added to the database');
             setIsSaved( true )
-          });
+        });
+
+        addToMailchimp(InputField.current.value, {}) // listFields are optional if you are only capturing the email address.
+          .then(data => {
+            // I recommend setting data to React state
+            // but you can do whatever you want (including ignoring this `then()` altogether)
+            console.log(data)
+          })
+          .catch(() => {
+            // unnecessary because Mailchimp only ever
+            // returns a 200 status code
+            // see below for how to handle errors
+          })
     }
 
     return (

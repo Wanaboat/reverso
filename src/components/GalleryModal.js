@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useEffect, useCallback} from 'react'
 import { Button, Box, Flex, Icon } from '@chakra-ui/core'
 
 import {
@@ -14,7 +14,25 @@ import {
 import { FormattedMessage } from 'react-intl';
 
 const GalleryModal = ({ pictures, index, isVisible, handleClose, handlePrev, handleNext }) => {
-    console.log('pictures', pictures)
+    // console.log( 'pictures', pictures )
+    // const keyPressFunction = useCallback((event) => {
+
+    //     if(event.keyCode === 39) {
+    //         handlePrev()
+    //     }
+    //     if(event.keyCode === 37) {
+    //         handlePrev()
+    //       }
+    //   }, []);
+    
+    //   useEffect(() => {
+    //     document.addEventListener("keydown", keyPressFunction, false);
+    
+    //     return () => {
+    //       document.removeEventListener("keydown", keyPressFunction, false);
+    //     };
+    //   }, []);
+
     return (
         <Modal
             size='full'
@@ -36,15 +54,19 @@ const GalleryModal = ({ pictures, index, isVisible, handleClose, handlePrev, han
                     p='0'
                 >
                     <Box
-                        bg='gray.50'
+                        bg='gray.700'
                         p='1rem'
                     >
                         <Button
                             onClick={() => { handleClose() }}
                             variant='outline'
-                            color='gray.900'
+                            color='gray.50'
                             alignItems='center'
                             fontFamily='hind'
+                            _hover={{
+                                color:'gray.800',
+                                bg:'gray.100'
+                            }}
                         >
                             <Icon mr='.5rem' name='arrow-back' />
                             <FormattedMessage id="back" />
@@ -57,6 +79,7 @@ const GalleryModal = ({ pictures, index, isVisible, handleClose, handlePrev, han
                         position='relative'
                         w='100%'
                         h='calc( 100vh - 72px )'
+                        bg='gray.800'
                     >
                         <Flex
                             position='absolute'
@@ -103,11 +126,11 @@ const GalleryModal = ({ pictures, index, isVisible, handleClose, handlePrev, han
                                     display={ pictures[index-1].picture.alt ? 'block' : 'none' }
                                     boxShadow='sm'
                                     position='absolute'
-                                    bottom='1rem'
+                                    bottom='5rem'
                                     p='.5em .75rem'
                                     bg='white'
                                     borderRadius='3px'
-                                    maxW='200px'
+                                    maxW='300px'
                                     textAlign='center'
                                 >
                                     {pictures[index-1].picture.alt}
