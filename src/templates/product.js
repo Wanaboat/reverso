@@ -24,7 +24,7 @@ import logoReversoAir from '../images/logo-reverso-air.svg'
 import Wrapper from '../components/Wrapper'
 
 import logoBoatOfTheYear from '../images/logo-boat-of-year.svg'
-
+import logoAudiAwards from '../images/logo-audi-awards.svg'
 import Faq from '../components/Faq'
 import Carousel from '../components/Carousel'
 
@@ -35,7 +35,12 @@ import Reverso1 from '../images/reverso-blue.png'
 import Reverso2 from '../images/reverso-red.png'
 import Reverso3 from '../images/reverso-match.png'
 
-import ReversoVideo from '../videos/montage.mp4'
+import VideoPlayer from '../components/VideoPlayer'
+import Gallery from '../components/Gallery'
+
+import VideoCover from '../images/video-cover.jpg'
+
+import { FormattedMessage } from 'react-intl'
 // import logoAudiAwards from '../images/logo-audi-awards.svg'
 
 const ProductTpl = (props) => {
@@ -60,6 +65,7 @@ const ProductTpl = (props) => {
                         lang={props.pageContext.lang}
                     /> */}
                     <PseudoBox
+                        display={{ xs:'none', xl:'block'}}
                         position='absolute'
                         top='300px'
                         left='0'
@@ -74,27 +80,31 @@ const ProductTpl = (props) => {
                     >
                         <Icon size='30px' name='arrow-back' />
                     </PseudoBox>
-                    <Box
+                    <PseudoBox
+                        display={{ xs:'none', xl:'block'}}
                         position='absolute'
                         top='300px'
                         right='0'
                         p='1rem'
                         bg='gray.400'
+                        cursor='pointer'
+                        transition='background 300ms ease'
+                        _hover={{
+                            bg: 'brand.3',
+                            color: 'white'
+                        }}
                     >
-                        <Button
-                            size='sm'
-                        >
-                            Reverso Match
-                        </Button>
-                    </Box>
+                        <Icon size='30px' name='arrow-forward' />
+                    </PseudoBox>
                     <Wrapper>
                         <Box
                             py='2rem'
+                            display={{ xs:'none', lg:'block'}}
                         >
                             Breadcrumbs
                         </Box>
                         <Grid
-                            templateColumns='1fr 1fr'
+                            templateColumns={{ xs:'100%', lg:'1fr 1fr' }}
                             gap='3rem'
                             mb='3rem'
                         >
@@ -103,8 +113,17 @@ const ProductTpl = (props) => {
                                     <Image src={logoReversoAir} />
                                 </Box>
                                 <Box>
-                                    <Text>
-                                        Revereso Air : the small sailboat that changed the game of dinghy sailing. Our best seller small sailboat, ready for the adventure, standard with all premium equipment.
+                                    <Text as='div'>
+                                        <Heading
+                                            as='h1'
+                                            fontSize='16px'
+                                            fontFamily='Hind'
+                                            fontWeight='500'
+                                            display='inline'
+                                        >
+                                            { data.title.text }&nbsp;
+                                        </Heading>
+                                         { data.intro }
                                     </Text>
                                 </Box>
                                 <Box>
@@ -126,30 +145,37 @@ const ProductTpl = (props) => {
                                     shouldWrapChildren={true}
                                 >
                                     <BtnPrimary>Pricing and boat configuration</BtnPrimary>
-                                    <BtnSecondary>Order now</BtnSecondary>
+                                    <BtnSecondary display={{ xs:'none', lg:'flex' }}>Order now</BtnSecondary>
                                 </Stack>
 
                             </Stack>
                             <Box
                                 // bg='gray.50'
+                                maxW='100%'
+                                overflowX='hidden'
                             >
                                 <Img
+                                    style={{
+                                        maxWidth:'100%',
+                                        objectFit:'contain'
+                                    }}
                                     // fixed={
                                     //     props.image2.localFile.childImageSharp.fixed
                                     // }
-                                    fixed={
-                                        data.image_main.localFile.childImageSharp.fixed
+                                    fluid={
+                                        data.image_main.localFile.childImageSharp.fluid
                                     }
                                 />
                             </Box>
                         </Grid>
 
-                        <Grid templateColumns='1fr 1fr' gap='2rem'>
+                        <Grid templateColumns={{ xs:'100%', lg:'1fr 1fr'}} gap='2rem'>
                             <Box>
                                 <Heading
                                     fontWeight='900'
                                 >
-                                    Awards
+                                    <FormattedMessage id='awards' />
+                                    
                                 </Heading>
                                 <Stack
                                     py='1.5rem'
@@ -158,8 +184,8 @@ const ProductTpl = (props) => {
                                     borderBottom='solid 1px'
                                     borderBottomColor='gray.300'
                                 >
-                                    <Image src={logoBoatOfTheYear} />
-                                    {/* <Image src={ logoAudiAwards } /> */}
+                                    <Image h='55px' src={logoBoatOfTheYear} />
+                                    <Image h='55px' src={ logoAudiAwards } />
                                 </Stack>
                             </Box>
 
@@ -167,15 +193,19 @@ const ProductTpl = (props) => {
                                 <Heading
                                     fontWeight='900'
                                 >
-                                    Versions
+                                    <FormattedMessage id='other.versions' />
                             </Heading>
 
-                                <Stack
+                                <Grid
                                     spacing='1rem'
+                                    gap='1rem'
                                     my='2rem'
-                                    isInline
+                                    templateColumns={{ xs:'100%', lg:'1fr 1fr 1fr' }}
+                                    
                                 >
                                     <PseudoBox
+                                        w={{ xs:'100%', lg:'auto'}}
+                                        role="group"
                                         display='grid'
                                         gridTemplateColumns='50px 1fr'
                                         cursor='pointer'
@@ -184,94 +214,115 @@ const ProductTpl = (props) => {
                                         bg='white'
                                         border='solid 1px'
                                         borderColor='gray.300'
-                                        borderRadius='2px'
+                                        borderRadius='3px'
+                                        transition='background 400ms ease'
                                         _hover={{
-                                            bg:'gray.300',
-                                            borderColor:'gray.300'
+                                            bg:'brand.boat.blue',
+                                            borderColor:'brand.boat.blue',
+                                            color:'white'
                                         }}
                                     >
                                         <Box>
                                             <Image w='50px' src={Reverso1} />
                                         </Box>
                                         <Flex
-                                            pr='2rem'
+                                            pr='1rem'
                                             alignItems='center'>
-                                            <Text>Reverso Air</Text>
+                                                <Box>
+                                                <Text fontSize='14px'>Reverso&nbsp;Air</Text>
+                                                <PseudoBox
+                                                    _groupHover={{ color: "white" }}
+                                                    as={Text}
+                                                    fontSize='13px'
+                                                    whiteSpace='pre'
+                                                    color='gray.500'>9600 €</PseudoBox>
+                                                </Box>
+                                            
                                         </Flex>
                                     </PseudoBox>
-                                    <Grid
-                                        templateColumns='50px 1fr'
-                                        gap='.5rem'
+
+                                    <PseudoBox
+                                        w={{ xs:'100%', lg:'auto'}}
+                                        role='group'
+                                        display='grid'
+                                        gridTemplateColumns='50px 1fr'
+                                        cursor='pointer'
+                                        gridGap='.5rem'
                                         p='.5rem'
                                         bg='white'
                                         border='solid 1px'
                                         borderColor='gray.300'
-                                        borderRadius='2px'
+                                        borderRadius='3px'
+                                        _hover={{
+                                            bg:'brand.boat.red',
+                                            borderColor:'brand.boat.red',
+                                            color:'white'
+                                        }}
                                     >
                                         <Box>
-                                            <Image w='50px' src={Reverso2} />
+                                            <Image w='50px' src={Reverso1} />
                                         </Box>
                                         <Flex
-                                            pr='2rem'
+                                            pr='1rem'
                                             alignItems='center'>
-                                            <Text>Reverso Rouge</Text>
+                                                <Box>
+                                                    <Text fontSize='14px'>Reverso&nbsp;Air&nbsp;Series</Text>
+                                                    <PseudoBox
+                                                        _groupHover={{ color: "white" }}
+                                                        as={Text}
+                                                        fontSize='13px'
+                                                        whiteSpace='pre'
+                                                        color='gray.500'>Cobalt Blue 10340 €
+                                                    </PseudoBox>
+                                                </Box>
                                         </Flex>
-                                    </Grid>
-                                    <Grid
-                                        templateColumns='50px 1fr'
-                                        gap='.5rem'
+                                    </PseudoBox>
+
+                                    <PseudoBox
+                                        w={{ xs:'100%', lg:'auto'}}
+                                        display='grid'
+                                        gridTemplateColumns='50px 1fr'
+                                        cursor='pointer'
+                                        gridGap='.5rem'
                                         p='.5rem'
                                         bg='white'
                                         border='solid 1px'
                                         borderColor='gray.300'
-                                        borderRadius='2px'
+                                        borderRadius='3px'
+                                        _hover={{
+                                            bg:'brand.boat.blue',
+                                            borderColor:'brand.boat.blue',
+                                            color:'white'
+                                        }}
                                     >
                                         <Box>
-                                            <Image w='50px' src={Reverso3} />
+                                            <Image w='50px' src={Reverso1} />
                                         </Box>
                                         <Flex
-                                            pr='2rem'
+                                            pr='1rem'
                                             alignItems='center'>
-                                            <Text>Reverso Match</Text>
+                                                <Box>
+                                                <Text fontSize='14px'>Reverso&nbsp;Air&nbsp;Series</Text>
+                                                <Text fontSize='13px' color='gray.500' whiteSpace='pre'>Cobalt Blue - 10340 €</Text>
+                                                </Box>
+                                            
                                         </Flex>
-                                    </Grid>
-                                </Stack>
+                                    </PseudoBox>
+
+                                </Grid>
                             </Box>
                         </Grid>
 
-                        {/* <SimpleGrid
-                            columns='2'
-                            gap='2rem'
-                            my='2rem'
-                        >
-                            <Box>
-                                <Image
-                                    // src={}
-                                    src='https://images.squarespace-cdn.com/content/v1/5eadcd40acf99d220aee75a5/1601355291427-J3U25X12SK6LBCNH3LRF/ke17ZwdGBToddI8pDm48kO4MCmFXgria781RdOOdXR4UqsxRUqqbr1mOJYKfIPR7LoDQ9mXPOjoJoqy81S2I8N_N4V1vUb5AoIIIbLZhVYxCRW4BPu10St3TBAUQYVKczuNowp6jCWKg3HkDw9htMNjCCTfYrb_QE008VnYI4AiFeFFp_0SMpnEH4sQNbkF4/photoshop-lagon-drone+2.jpeg?format=1000w'
-                                />
-                            </Box>
-                            <Box>
-                                <Image
-                                    // src={}
-                                    src='https://images.squarespace-cdn.com/content/v1/5eadcd40acf99d220aee75a5/1601355291427-J3U25X12SK6LBCNH3LRF/ke17ZwdGBToddI8pDm48kO4MCmFXgria781RdOOdXR4UqsxRUqqbr1mOJYKfIPR7LoDQ9mXPOjoJoqy81S2I8N_N4V1vUb5AoIIIbLZhVYxCRW4BPu10St3TBAUQYVKczuNowp6jCWKg3HkDw9htMNjCCTfYrb_QE008VnYI4AiFeFFp_0SMpnEH4sQNbkF4/photoshop-lagon-drone+2.jpeg?format=1000w'
-                                />
-                            </Box>
-                        </SimpleGrid> */}
-
-
-
-
-                        <Box
-                            mt='2rem'
-                        >
+                        <Stack mb='2rem' spacing='3rem'>
+                        <Box>
                             <Heading
                                 fontWeight='900'
                             >
-                                Program
+                                <FormattedMessage id='boat.program' />
                             </Heading>
                             <SimpleGrid
-                                columns='3'
-                                gap='4rem'
+                                columns={{ xs:1, lg:3 }}
+                                gap={{ xs:'2rem', lg:'4rem' }}
                                 mt='2rem'
                             >
                                 { data.second_args_list.map( arg =>
@@ -296,26 +347,17 @@ const ProductTpl = (props) => {
                             <Heading
                                 fontWeight='900'
                             >
-                                Typeform
-                            </Heading>
-                        </Box>
-
-
-                        <Box>
-                            <Heading
-                                fontWeight='900'
-                            >
                                 Gallery
                             </Heading>
-                            <SimpleGrid columns={{ xs: 1, lg: 3 }} gap='2rem'>
+                            <Gallery
+                                pictures={ data.gallery_list }
+                            />
+                            {/* <SimpleGrid columns={{ xs: 1, lg: 3 }} gap='2rem'>
                                 {data.gallery_list.map(item =>
                                     <Image
                                         src={item.picture.url}
                                     />
                                 )}
-                                {/* <Image
-                                    src='https://images.squarespace-cdn.com/content/v1/5eadcd40acf99d220aee75a5/1601355291427-J3U25X12SK6LBCNH3LRF/ke17ZwdGBToddI8pDm48kO4MCmFXgria781RdOOdXR4UqsxRUqqbr1mOJYKfIPR7LoDQ9mXPOjoJoqy81S2I8N_N4V1vUb5AoIIIbLZhVYxCRW4BPu10St3TBAUQYVKczuNowp6jCWKg3HkDw9htMNjCCTfYrb_QE008VnYI4AiFeFFp_0SMpnEH4sQNbkF4/photoshop-lagon-drone+2.jpeg?format=1000w'
-                                />
                                 <Image
                                     src='https://images.squarespace-cdn.com/content/v1/5eadcd40acf99d220aee75a5/1601355291427-J3U25X12SK6LBCNH3LRF/ke17ZwdGBToddI8pDm48kO4MCmFXgria781RdOOdXR4UqsxRUqqbr1mOJYKfIPR7LoDQ9mXPOjoJoqy81S2I8N_N4V1vUb5AoIIIbLZhVYxCRW4BPu10St3TBAUQYVKczuNowp6jCWKg3HkDw9htMNjCCTfYrb_QE008VnYI4AiFeFFp_0SMpnEH4sQNbkF4/photoshop-lagon-drone+2.jpeg?format=1000w'
                                 />
@@ -324,27 +366,31 @@ const ProductTpl = (props) => {
                                 />
                                 <Image
                                     src='https://images.squarespace-cdn.com/content/v1/5eadcd40acf99d220aee75a5/1601355291427-J3U25X12SK6LBCNH3LRF/ke17ZwdGBToddI8pDm48kO4MCmFXgria781RdOOdXR4UqsxRUqqbr1mOJYKfIPR7LoDQ9mXPOjoJoqy81S2I8N_N4V1vUb5AoIIIbLZhVYxCRW4BPu10St3TBAUQYVKczuNowp6jCWKg3HkDw9htMNjCCTfYrb_QE008VnYI4AiFeFFp_0SMpnEH4sQNbkF4/photoshop-lagon-drone+2.jpeg?format=1000w'
-                                /> */}
-                            </SimpleGrid>
+                                />
+                                <Image
+                                    src='https://images.squarespace-cdn.com/content/v1/5eadcd40acf99d220aee75a5/1601355291427-J3U25X12SK6LBCNH3LRF/ke17ZwdGBToddI8pDm48kO4MCmFXgria781RdOOdXR4UqsxRUqqbr1mOJYKfIPR7LoDQ9mXPOjoJoqy81S2I8N_N4V1vUb5AoIIIbLZhVYxCRW4BPu10St3TBAUQYVKczuNowp6jCWKg3HkDw9htMNjCCTfYrb_QE008VnYI4AiFeFFp_0SMpnEH4sQNbkF4/photoshop-lagon-drone+2.jpeg?format=1000w'
+                                />
+                            </SimpleGrid> */}
                         </Box>
 
                         <Box>
-                            montage
+                        <Heading
+                                fontWeight='900'
+                            >
+                                Video
+                            </Heading>
                             <Box
                                 maxW="100%"
                                 ratio={1}
                             >
-                                <video
-                                    width="100%"
-                                    height="100%"
-                                    autoplay
-                                    controls
-                                    poster={ Reverso1 }
-                                >
-                                    <source src={data.video.url} controls type="video/mp4" />
-                                </video>
+                                <VideoPlayer
+                                    src={data.video.url}
+                                    poster={ VideoCover }
+                                />
+                                
                             </Box>
                         </Box>
+                        </Stack>
                     </Wrapper>
 
                     <Carousel />
@@ -377,11 +423,15 @@ query productQuery($prismicId: ID) {
             }
             }
         }
+        title{
+            text
+        }
+        intro
         image_main {
             localFile {
                 childImageSharp {
                     fixed(height: 1000, width: 1000) { srcSet srcWebp aspectRatio base64 height originalName src srcSetWebp tracedSVG width }
-                }
+                    fluid { aspectRatio base64 originalImg originalName presentationHeight presentationWidth sizes src srcSet srcSetWebp srcWebp tracedSVG }                }
             }
         }
         video {
@@ -401,12 +451,15 @@ query productQuery($prismicId: ID) {
         }
         gallery_list {
             picture {
-            alt
-            copyright
-            url
-            thumbnails
+              localFile {
+                publicURL
+              }
+              dimensions {
+                height
+                width
+              }
             }
-        }
+          }
         parent {
             document {
             ... on PrismicPage {

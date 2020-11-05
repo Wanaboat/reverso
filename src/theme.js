@@ -18,7 +18,12 @@ theme = {
             "1": "#0E90EE", // Blue
             "2": "#ED1C24", // Red
             "3":"#323232", // Dark gray
-            "4":"#EEEEE8" // Mastic Gray
+            "4":"#EEEEE8", // Mastic Gray
+            boat:{
+                red:"#EA0201",
+                blue:"#2A2FE6",
+                gray:"#6D6E6D"
+            }
         }
     },
     fonts: {
