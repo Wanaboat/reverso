@@ -40,7 +40,7 @@ import VideoPlayer from '../components/VideoPlayer'
 import Gallery from '../components/Gallery'
 
 import VideoCover from '../images/video-cover.jpg'
-
+import Wysiwyg from '../components/Wysiwyg'
 import { FormattedMessage } from 'react-intl'
 // import logoAudiAwards from '../images/logo-audi-awards.svg'
 
@@ -49,6 +49,7 @@ const ProductTpl = (props) => {
     console.log('propsData', props.data)
 
     const { data } = props.data.prismicProduct
+
 
 
     return (
@@ -269,7 +270,7 @@ const ProductTpl = (props) => {
                                         }}
                                     >
                                         <Box>
-                                            <Image w='50px' src={Reverso1} />
+                                            <Image w='50px' src={Reverso2} />
                                         </Box>
                                         <Flex
                                             pr='1rem'
@@ -289,6 +290,7 @@ const ProductTpl = (props) => {
 
                                     <PseudoBox
                                         w={{ xs: '100%', lg: 'auto' }}
+                                        role='group'
                                         display='grid'
                                         gridTemplateColumns='50px 1fr'
                                         cursor='pointer'
@@ -299,22 +301,27 @@ const ProductTpl = (props) => {
                                         borderColor='gray.300'
                                         borderRadius='3px'
                                         _hover={{
-                                            bg: 'brand.boat.blue',
-                                            borderColor: 'brand.boat.blue',
+                                            bg: 'brand.boat.gray',
+                                            borderColor: 'brand.boat.gray',
                                             color: 'white'
                                         }}
                                     >
                                         <Box>
-                                            <Image w='50px' src={Reverso1} />
+                                            <Image w='50px' src={Reverso3} />
                                         </Box>
                                         <Flex
                                             pr='1rem'
                                             alignItems='center'>
                                             <Box>
-                                                <Text fontSize='14px'>Reverso&nbsp;Air&nbsp;Series</Text>
-                                                <Text fontSize='13px' color='gray.500' whiteSpace='pre'>Cobalt Blue - 10340 €</Text>
+                                                <Text fontSize='14px'>Reverso&nbsp;Match</Text>
+                                                <PseudoBox
+                                                    _groupHover={{ color: "white" }}
+                                                    as={Text}
+                                                    fontSize='13px'
+                                                    whiteSpace='pre'
+                                                    color='gray.500'>Cobalt Blue 10340 €
+                                                    </PseudoBox>
                                             </Box>
-
                                         </Flex>
                                     </PseudoBox>
 
@@ -426,11 +433,18 @@ const ProductTpl = (props) => {
                                 <Faq variant='light' />
 
                             </Box>
+                            
+                            <Box>
+                            <Heading
+                                    fontWeight='900'
+                            >Boring SEO content</Heading>
+                            <Wysiwyg content={ data.body[0].primary.content.raw } />
 
+                            </Box>
                         </Stack>
                     </Wrapper>
 
-                    <Carousel />
+                    {/* <Carousel /> */}
 
                 </Box>
             </Box>
@@ -448,6 +462,19 @@ query productQuery($prismicId: ID) {
         lang
         uid
         data {
+        body{
+            __typename
+            ... on PrismicProductBodyWysiwyg{
+                slice_type
+                slice_label
+                primary{
+                content{
+                    html
+                    raw
+                }
+                }
+            }
+        }
         seo_title
         seo_description
         sharing_image {

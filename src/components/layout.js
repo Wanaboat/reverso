@@ -20,6 +20,8 @@ const Layout = ({ lang, children }) => {
   let messages = []
   messages[ 'en' ] = messagesEN
   messages[ 'fr' ] = messagesFR
+
+  console.log( 'messages', messages)
   return (
     <IntlProvider locale={lang} messages={messages[lang]}>
       <ThemeProvider theme={ theme }>

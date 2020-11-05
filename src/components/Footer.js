@@ -11,6 +11,7 @@ import {
 import PropTypes from "prop-types"
 import React from "react"
 import logoTypo from '../images/logo-typo.svg'
+import { FormattedMessage } from 'react-intl'
 
 const Footer = ({ siteTitle }) => (
   <Flex
@@ -34,19 +35,20 @@ const Footer = ({ siteTitle }) => (
         />
       </Box>
       <Stack spacing='1.5rem'>
-        <Stack spacing='.5rem'>
+        <Stack spacing='.5rem' letterSpacing='.15rem'>
           <Text
             color='gray.100'
             fontWeight='600'
             fontSize='18px'
           >
-            We are a french boat maker, building sailboats we are proud of for people we care about.
+            <FormattedMessage id='footersentence1' />
         </Text>
           <Text
-            color='gray.400'
+            color='#777'
             fontWeight='600'
-            fontSize='18px'        >
-            We ship woldwide on a simple box thanks to our folding technology
+            fontSize='18px'
+          >
+            <FormattedMessage id='footersentence2' />
         </Text>
         </Stack>
         <Box>
@@ -67,23 +69,19 @@ const Footer = ({ siteTitle }) => (
             color='white'
             fontSize='16px'
             fontWeight='600'
-          >Financial Partners  :</Text>
+          ><FormattedMessage id='financial.partners' />&nbsp;:
+          </Text>
           <Text
             color='gray.50'
             fontSize='14px'
           >
-            Région Occitanie • Banque populaire • BPI France • Créalia        </Text>
-
+            Région Occitanie • Banque populaire • BPI France • Créalia
+          </Text>
         </Box>
         <Box>
-          <Link as={GatsbyLink} to='/'>Legal mentions</Link>
+          <Link as={GatsbyLink} to='/'><FormattedMessage id='legal.mentions' /></Link>
         </Box>
-
-
-
-
       </Stack>
-
     </Grid>
   </Flex>
 
