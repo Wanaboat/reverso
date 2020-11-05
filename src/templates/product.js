@@ -65,7 +65,7 @@ const ProductTpl = (props) => {
                         lang={props.pageContext.lang}
                     /> */}
                     <PseudoBox
-                        display={{ xs:'none', xl:'block'}}
+                        display={{ xs: 'none', xl: 'block' }}
                         position='absolute'
                         top='300px'
                         left='0'
@@ -81,7 +81,7 @@ const ProductTpl = (props) => {
                         <Icon size='30px' name='arrow-back' />
                     </PseudoBox>
                     <PseudoBox
-                        display={{ xs:'none', xl:'block'}}
+                        display={{ xs: 'none', xl: 'block' }}
                         position='absolute'
                         top='300px'
                         right='0'
@@ -99,17 +99,17 @@ const ProductTpl = (props) => {
                     <Wrapper>
                         <Box
                             py='2rem'
-                            display={{ xs:'none', lg:'block'}}
+                            display={{ xs: 'none', lg: 'block' }}
                         >
                             Breadcrumbs
                         </Box>
                         <Grid
-                            templateColumns={{ xs:'100%', lg:'1fr 1fr' }}
+                            templateColumns={{ xs: '100%', lg: '1fr 1fr' }}
                             gap='3rem'
                             mb='3rem'
                         >
                             <Stack spacing='1.5rem'>
-                                <Box>
+                                <Box mt={{ xs:'1rem', lg:'2rem'}}>
                                     <Image src={logoReversoAir} />
                                 </Box>
                                 <Box>
@@ -121,9 +121,9 @@ const ProductTpl = (props) => {
                                             fontWeight='500'
                                             display='inline'
                                         >
-                                            { data.title.text }&nbsp;
+                                            {data.title.text}&nbsp;
                                         </Heading>
-                                         { data.intro }
+                                        {data.intro}
                                     </Text>
                                 </Box>
                                 <Box>
@@ -144,8 +144,14 @@ const ProductTpl = (props) => {
                                     spacing='1rem'
                                     shouldWrapChildren={true}
                                 >
-                                    <BtnPrimary>Pricing and boat configuration</BtnPrimary>
-                                    <BtnSecondary display={{ xs:'none', lg:'flex' }}>Order now</BtnSecondary>
+                                    <Box>
+                                        <BtnPrimary>Pricing and boat configuration</BtnPrimary>
+                                    </Box>
+                                    <Box
+                                        display={{ xs: 'none', lg: 'flex' }}
+                                    >
+                                        <BtnSecondary>Order now</BtnSecondary>
+                                    </Box>
                                 </Stack>
 
                             </Stack>
@@ -156,8 +162,8 @@ const ProductTpl = (props) => {
                             >
                                 <Img
                                     style={{
-                                        maxWidth:'100%',
-                                        objectFit:'contain'
+                                        maxWidth: '100%',
+                                        objectFit: 'contain'
                                     }}
                                     // fixed={
                                     //     props.image2.localFile.childImageSharp.fixed
@@ -169,13 +175,13 @@ const ProductTpl = (props) => {
                             </Box>
                         </Grid>
 
-                        <Grid templateColumns={{ xs:'100%', lg:'1fr 1fr'}} gap='2rem'>
+                        <Grid templateColumns={{ xs: '100%', lg: '1fr 1fr' }} gap='2rem'>
                             <Box>
                                 <Heading
                                     fontWeight='900'
                                 >
                                     <FormattedMessage id='awards' />
-                                    
+
                                 </Heading>
                                 <Stack
                                     py='1.5rem'
@@ -185,7 +191,7 @@ const ProductTpl = (props) => {
                                     borderBottomColor='gray.300'
                                 >
                                     <Image h='55px' src={logoBoatOfTheYear} />
-                                    <Image h='55px' src={ logoAudiAwards } />
+                                    <Image h='55px' src={logoAudiAwards} />
                                 </Stack>
                             </Box>
 
@@ -194,17 +200,17 @@ const ProductTpl = (props) => {
                                     fontWeight='900'
                                 >
                                     <FormattedMessage id='other.versions' />
-                            </Heading>
+                                </Heading>
 
                                 <Grid
                                     spacing='1rem'
                                     gap='1rem'
                                     my='2rem'
-                                    templateColumns={{ xs:'100%', lg:'1fr 1fr 1fr' }}
-                                    
+                                    templateColumns={{ xs: '100%', lg: '1fr 1fr 1fr' }}
+
                                 >
                                     <PseudoBox
-                                        w={{ xs:'100%', lg:'auto'}}
+                                        w={{ xs: '100%', lg: 'auto' }}
                                         role="group"
                                         display='grid'
                                         gridTemplateColumns='50px 1fr'
@@ -217,9 +223,9 @@ const ProductTpl = (props) => {
                                         borderRadius='3px'
                                         transition='background 400ms ease'
                                         _hover={{
-                                            bg:'brand.boat.blue',
-                                            borderColor:'brand.boat.blue',
-                                            color:'white'
+                                            bg: 'brand.boat.blue',
+                                            borderColor: 'brand.boat.blue',
+                                            color: 'white'
                                         }}
                                     >
                                         <Box>
@@ -228,7 +234,7 @@ const ProductTpl = (props) => {
                                         <Flex
                                             pr='1rem'
                                             alignItems='center'>
-                                                <Box>
+                                            <Box>
                                                 <Text fontSize='14px'>Reverso&nbsp;Air</Text>
                                                 <PseudoBox
                                                     _groupHover={{ color: "white" }}
@@ -236,13 +242,13 @@ const ProductTpl = (props) => {
                                                     fontSize='13px'
                                                     whiteSpace='pre'
                                                     color='gray.500'>9600 €</PseudoBox>
-                                                </Box>
-                                            
+                                            </Box>
+
                                         </Flex>
                                     </PseudoBox>
 
                                     <PseudoBox
-                                        w={{ xs:'100%', lg:'auto'}}
+                                        w={{ xs: '100%', lg: 'auto' }}
                                         role='group'
                                         display='grid'
                                         gridTemplateColumns='50px 1fr'
@@ -254,9 +260,9 @@ const ProductTpl = (props) => {
                                         borderColor='gray.300'
                                         borderRadius='3px'
                                         _hover={{
-                                            bg:'brand.boat.red',
-                                            borderColor:'brand.boat.red',
-                                            color:'white'
+                                            bg: 'brand.boat.red',
+                                            borderColor: 'brand.boat.red',
+                                            color: 'white'
                                         }}
                                     >
                                         <Box>
@@ -265,21 +271,21 @@ const ProductTpl = (props) => {
                                         <Flex
                                             pr='1rem'
                                             alignItems='center'>
-                                                <Box>
-                                                    <Text fontSize='14px'>Reverso&nbsp;Air&nbsp;Series</Text>
-                                                    <PseudoBox
-                                                        _groupHover={{ color: "white" }}
-                                                        as={Text}
-                                                        fontSize='13px'
-                                                        whiteSpace='pre'
-                                                        color='gray.500'>Cobalt Blue 10340 €
+                                            <Box>
+                                                <Text fontSize='14px'>Reverso&nbsp;Air&nbsp;Series</Text>
+                                                <PseudoBox
+                                                    _groupHover={{ color: "white" }}
+                                                    as={Text}
+                                                    fontSize='13px'
+                                                    whiteSpace='pre'
+                                                    color='gray.500'>Cobalt Blue 10340 €
                                                     </PseudoBox>
-                                                </Box>
+                                            </Box>
                                         </Flex>
                                     </PseudoBox>
 
                                     <PseudoBox
-                                        w={{ xs:'100%', lg:'auto'}}
+                                        w={{ xs: '100%', lg: 'auto' }}
                                         display='grid'
                                         gridTemplateColumns='50px 1fr'
                                         cursor='pointer'
@@ -290,9 +296,9 @@ const ProductTpl = (props) => {
                                         borderColor='gray.300'
                                         borderRadius='3px'
                                         _hover={{
-                                            bg:'brand.boat.blue',
-                                            borderColor:'brand.boat.blue',
-                                            color:'white'
+                                            bg: 'brand.boat.blue',
+                                            borderColor: 'brand.boat.blue',
+                                            color: 'white'
                                         }}
                                     >
                                         <Box>
@@ -301,11 +307,11 @@ const ProductTpl = (props) => {
                                         <Flex
                                             pr='1rem'
                                             alignItems='center'>
-                                                <Box>
+                                            <Box>
                                                 <Text fontSize='14px'>Reverso&nbsp;Air&nbsp;Series</Text>
                                                 <Text fontSize='13px' color='gray.500' whiteSpace='pre'>Cobalt Blue - 10340 €</Text>
-                                                </Box>
-                                            
+                                            </Box>
+
                                         </Flex>
                                     </PseudoBox>
 
@@ -314,45 +320,45 @@ const ProductTpl = (props) => {
                         </Grid>
 
                         <Stack mb='2rem' spacing='3rem'>
-                        <Box>
-                            <Heading
-                                fontWeight='900'
-                            >
-                                <FormattedMessage id='boat.program' />
-                            </Heading>
-                            <SimpleGrid
-                                columns={{ xs:1, lg:3 }}
-                                gap={{ xs:'2rem', lg:'4rem' }}
-                                mt='2rem'
-                            >
-                                { data.second_args_list.map( arg =>
-                                    <Stack spacing='1.5rem'>
-                                    <Heading
-                                        fontWeight='400'
-                                        fontFamily='hind'
-                                        fontSize='18px'
-                                        textTransform='uppercase'
-                                    >
-                                        { arg.title }
-                                    </Heading>
-                                    <Text>
-                                        { arg.body.text }
-                                    </Text>
-                                </Stack>
-                                )}
-                            </SimpleGrid>
-                        </Box>
+                            <Box>
+                                <Heading
+                                    fontWeight='900'
+                                >
+                                    <FormattedMessage id='boat.program' />
+                                </Heading>
+                                <SimpleGrid
+                                    columns={{ xs: 1, lg: 3 }}
+                                    gap={{ xs: '2rem', lg: '4rem' }}
+                                    mt='2rem'
+                                >
+                                    {data.second_args_list.map(arg =>
+                                        <Stack spacing='1.5rem'>
+                                            <Heading
+                                                fontWeight='400'
+                                                fontFamily='hind'
+                                                fontSize='18px'
+                                                textTransform='uppercase'
+                                            >
+                                                {arg.title}
+                                            </Heading>
+                                            <Text>
+                                                {arg.body.text}
+                                            </Text>
+                                        </Stack>
+                                    )}
+                                </SimpleGrid>
+                            </Box>
 
-                        <Box>
-                            <Heading
-                                fontWeight='900'
-                            >
-                                Gallery
+                            <Box>
+                                <Heading
+                                    fontWeight='900'
+                                >
+                                    Gallery
                             </Heading>
-                            <Gallery
-                                pictures={ data.gallery_list }
-                            />
-                            {/* <SimpleGrid columns={{ xs: 1, lg: 3 }} gap='2rem'>
+                                <Gallery
+                                    pictures={data.gallery_list}
+                                />
+                                {/* <SimpleGrid columns={{ xs: 1, lg: 3 }} gap='2rem'>
                                 {data.gallery_list.map(item =>
                                     <Image
                                         src={item.picture.url}
@@ -371,25 +377,43 @@ const ProductTpl = (props) => {
                                     src='https://images.squarespace-cdn.com/content/v1/5eadcd40acf99d220aee75a5/1601355291427-J3U25X12SK6LBCNH3LRF/ke17ZwdGBToddI8pDm48kO4MCmFXgria781RdOOdXR4UqsxRUqqbr1mOJYKfIPR7LoDQ9mXPOjoJoqy81S2I8N_N4V1vUb5AoIIIbLZhVYxCRW4BPu10St3TBAUQYVKczuNowp6jCWKg3HkDw9htMNjCCTfYrb_QE008VnYI4AiFeFFp_0SMpnEH4sQNbkF4/photoshop-lagon-drone+2.jpeg?format=1000w'
                                 />
                             </SimpleGrid> */}
-                        </Box>
-
-                        <Box>
-                        <Heading
-                                fontWeight='900'
-                            >
-                                Video
-                            </Heading>
-                            <Box
-                                maxW="100%"
-                                ratio={1}
-                            >
-                                <VideoPlayer
-                                    src={data.video.url}
-                                    poster={ VideoCover }
-                                />
-                                
                             </Box>
-                        </Box>
+
+                            <SimpleGrid
+                                columns={2}
+                                gap='3rem'
+                            >
+                                <Box>
+                                    <Heading
+                                        fontWeight='900'
+                                    >
+                                        Video
+                                    </Heading>
+                                    <Box
+                                        maxW="100%"
+                                        ratio={1}
+                                    >
+                                        <VideoPlayer
+                                            src={data.video.url}
+                                            poster={VideoCover}
+                                        />
+
+                                    </Box>
+                                </Box>
+                                <Box>
+                                    <Heading
+                                        fontWeight='900'
+                                    >
+                                        Faq
+                                    </Heading>
+                                    <Box>
+                                        Mini Faq content
+                                    </Box>
+                                </Box>
+
+
+                            </SimpleGrid>
+
                         </Stack>
                     </Wrapper>
 
@@ -451,8 +475,14 @@ query productQuery($prismicId: ID) {
         }
         gallery_list {
             picture {
+              alt
               localFile {
                 publicURL
+                childImageSharp {
+                    fixed(height: 300) {
+                      src
+                    }
+                  }
               }
               dimensions {
                 height
