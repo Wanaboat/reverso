@@ -55,29 +55,6 @@
           },
           "label" : "Args list secondary"
         }
-      },
-      "gallery_list" : {
-        "type" : "Group",
-        "config" : {
-          "fields" : {
-            "picture" : {
-              "type" : "Image",
-              "config" : {
-                "constraint" : { },
-                "thumbnails" : [ ],
-                "label" : "picture"
-              }
-            }
-          },
-          "label" : "gallery list"
-        }
-      },
-      "video" : {
-        "type" : "Link",
-        "config" : {
-          "select" : "media",
-          "label" : "Video"
-        }
       }
     },
     "Hierarchy" : {
@@ -115,6 +92,31 @@
           "constraint" : { },
           "thumbnails" : [ ],
           "label" : "sharing image"
+        }
+      }
+    },
+    "Gallery" : {
+      "gallery_list" : {
+        "type" : "Group",
+        "config" : {
+          "fields" : {
+            "picture" : {
+              "type" : "Image",
+              "config" : {
+                "constraint" : { },
+                "thumbnails" : [ ],
+                "label" : "picture"
+              }
+            }
+          },
+          "label" : "gallery list"
+        }
+      },
+      "video" : {
+        "type" : "Link",
+        "config" : {
+          "select" : "media",
+          "label" : "Video"
         }
       }
     }

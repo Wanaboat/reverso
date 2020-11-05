@@ -9,8 +9,12 @@ import {
     FormHelperText,
 } from "@chakra-ui/core"
 import addToMailchimp from 'gatsby-plugin-mailchimp'
+import { useIntl } from 'react-intl'
 
 const NewsletterForm = () => {
+
+    const  locale = useIntl()['locale']
+    console.log('locale', locale)
 
     const [ isSaved, setIsSaved ] = useState( false )
 
