@@ -4,7 +4,10 @@
 export const linkResolver = (doc) => {
     var data = require( '../paths.js')
 
-    for (let index = 0; index < data.URIs.length; index++) {
+    if( !doc ){
+      return '/'
+    }else{
+      for (let index = 0; index < data.URIs.length; index++) {
         const element = data.URIs[index];
         if( 
             element.id === doc.id
@@ -12,7 +15,10 @@ export const linkResolver = (doc) => {
           ){
             return element.path
         }
+      }
     }
+
+
     // console.log( 'path : ', paths.paths[doc.id])
     // return( paths.paths[doc.id])
     // const apiEndpoint = 'https://reverso.cdn.prismic.io/api/v2'
