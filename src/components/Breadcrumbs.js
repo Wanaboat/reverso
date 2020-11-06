@@ -98,17 +98,7 @@ const Breadcrumbs = ({ node, lang }) => {
 
     }
     return (
-        <Wrapper
-            bg='white'
-            borderBottom='solid 1px'
-            borderColor='gray.200'
-        >
-            <Box
-                py='2rem'
-                color='gray.900'
 
-                display={{ xs:'none', md:'block' }}
-            >
                 <Stack isInline 
                     // spacing='2rem'
                 >
@@ -129,12 +119,12 @@ const Breadcrumbs = ({ node, lang }) => {
                             : ''}
                         </Box>
                     )}
+                    <Helmet>
+                        <script id="breadcrumbs-data" type="application/ld+json">{structuredJSON()}</script>
+                    </Helmet>
                 </Stack>
-            </Box>
-            <Helmet>
-                <script id="breadcrumbs-data" type="application/ld+json">{structuredJSON()}</script>
-            </Helmet>
-        </Wrapper>
+     
+
     )
 }
 

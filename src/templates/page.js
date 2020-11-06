@@ -16,12 +16,13 @@ import {
   Heading,
   SimpleGrid
 } from '@chakra-ui/core'
+import Wrapper from '../components/Wrapper'
 
 const PageTpl = (props) => {
 
   const data = usePreviewData(props.data)
 
-  console.log( data )
+  console.log('data', data)
 
   return (
     <Layout lang={props.pageContext.lang}>
@@ -40,78 +41,44 @@ const PageTpl = (props) => {
           />
           : null}
       </Helmet>
-      <Breadcrumbs
-        node={props.data.prismicPage}
-        lang={props.pageContext.lang}
-      />
-      <SliceEngine data={ data.prismicPage.data.body }  />
+
+      <Wrapper
+        bg='white'
+        borderBottom='solid 1px'
+        borderColor='gray.200'
+      >
+        <Box
+          py='2rem'
+          color='gray.900'
+          display={{ xs: 'none', md: 'block' }}
+        >
+          <Breadcrumbs
+            node={props.data.prismicPage}
+            lang={props.pageContext.lang}
+          />
+        </Box>
+      </Wrapper>
+      <Wrapper>
+        <Heading
+          my='3rem'
+          as='h1'>
+          {data.prismicPage.data.title.text}
+          {data.prismicPage.data.title_suffix ? 
+            <Text
+              as='span'
+              color='brand.1'
+              fontWeight='900'
+            >
+                &nbsp;{ data.prismicPage.data.title_suffix }
+            </Text>
+          : null}
+        </Heading>
+      </Wrapper>
+      <SliceEngine data={data.prismicPage.data.body} />
       {/* { data.prismicPage.data.body ? 
         <Wysiwyg content={ data.prismicPage.data.body[0].primary.content.raw } />
       : null } */}
-        <PageContent />
-
-        {data.prismicPage.data.title.text === 'Page de niveau 2' ?
-          <Box
-            w='100%'
-            minH='600px'
-          >
-            <iframe frameborder="0" height="100%" src="https://form.typeform.com/to/Gp9WdB?typeform-embed=embed-widget&amp;typeform-embed-id=zt4hx" width="100%" allow="camera; microphone; autoplay; encrypted-media;" data-qa="iframe" title="typeform-embed" style={{ 'minHeight': '600px', 'border': '0px' }}></iframe>
-
-          </Box>
-        : null}
-
-      <Flex
-        minH='100vh'
-        justify='center'
-        alignItems='center'
-        color='gray.400'
-        w='100vw'
-      >
-        <Box>
-          <Heading as='h1'
-            color='brand.secondary'
-            bg='brand.1'
-          >
-            H1 : {data.prismicPage.data.title.text}
-          </Heading>
-          <Text>
-            Slug : {buildSlug(props.data.prismicPage)}
-          </Text>
-          <Text>
-            Base URL : {process.env.BASE_URL}
-          </Text>
-          <Text>
-            H1 : {props.data.prismicPage.data.title.text}
-          </Text>
-          <Text>
-            Seo title : {props.data.prismicPage.data.seo_title}
-          </Text>
-          <Text>
-            Seo description : {props.data.prismicPage.data.seo_description}
-          </Text>
-          <Text>
-            Alternate language : {buildSlug(props.data.prismicPage.alternate_languages[0], props.pageContext.lang)}
-          </Text>
-          {props.data.prismicPage.data.image.localFile ?
-            <Box>
-              <SimpleGrid columns='2'>
-                <picture>
-                  <source type='image/webp' srcSet={props.data.prismicPage.data.image.localFile.childImageSharp.fixed.srcSetWebp} />
-                  <source type='image/jpeg' srcSet={props.data.prismicPage.data.image.localFile.childImageSharp.fixed.srcSet} />
-                  <img loading='lazy' src={props.data.prismicPage.data.image.localFile.childImageSharp.original.src} />
-                </picture>
-                <Img
-                  fixed={props.data.prismicPage.data.image.localFile.childImageSharp.fixed}
-                  alt=""
-                  w='400px'
-                  h='400px'
-                />
-              </SimpleGrid>
-            </Box>
-            : null}
-        </Box>
-
-      </Flex>
+      {/* <PageContent /> */}
     </Layout>
   )
 }
@@ -159,22 +126,21 @@ query pageQuery($prismicId: ID) {
           title{
               text
           }
+          title_suffix
           seo_title
           seo_description
-
             image {
               alt
               copyright
               url
               thumbnails
               localFile {
-                
                 childImageSharp {
                   original {
                     src
                   }
-                  fixed {
-                    base64
+              fixed {
+              base64
               tracedSVG
               aspectRatio
               srcWebp
@@ -189,11 +155,66 @@ query pageQuery($prismicId: ID) {
               }
             }
             body {
+              ... on PrismicPageBodySummaryLinks {
+                id
+                items {
+                  link {
+                    document {
+                      ... on PrismicPage{
+                        prismicId
+                        data{
+                          title {
+                            html
+                            text
+                            raw
+                          }
+                        }
+                      }
+                      ... on PrismicProduct{
+                        prismicId
+                        data{
+                          title {
+                            html
+                            text
+                            raw
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
               ... on PrismicPageBodyWysiwyg {
                 primary {
                   content {
                     html
                     raw
+                  }
+                }
+              }
+              ... on PrismicPageBodyImageAndText {
+                primary {
+                  content { raw }
+                  button_label
+                  button_target {
+                    document{
+                      ... on PrismicPage{
+                        prismicId
+                      }
+                      ... on PrismicProduct{
+                        prismicId
+                      }
+                    }
+                  }
+                  image1{
+                      alt
+                      localFile {
+                          childImageSharp {
+                              fixed(height: 400, width: 600) {
+                                  src
+                              }
+                          }
+                      }
                   }
                 }
               }

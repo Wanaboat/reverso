@@ -123,7 +123,7 @@ const Menu = ({ lang }) => {
 
         left='0'
         top='0'
-        bg='gray.800'
+        // bg='gray.800'
       >
         {items[locale]}
       </Flex>

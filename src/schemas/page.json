@@ -7,6 +7,12 @@
         "label": "title"
       }
     },
+    "title_suffix": {
+      "type": "Text",
+      "config": {
+        "label": "Title suffix"
+      }
+    },
     "image": {
       "type": "Image",
       "config": {
@@ -54,7 +60,11 @@
       "fieldset": "Slice zone",
       "config": {
         "labels": {
-          "wysiwyg": []
+          "wysiwyg": [],
+          "image_and_text": [],
+          "two_illustrated_buttons": [],
+          "newsletter_form": [],
+          "summary_links": []
         },
         "choices": {
           "wysiwyg": {
@@ -73,6 +83,84 @@
               }
             },
             "repeat": {}
+          },
+          "image_and_text": {
+            "type": "Slice",
+            "fieldset": "Image and text",
+            "description": "A block with image and text side by side",
+            "icon": "add_box",
+            "display": "list",
+            "non-repeat": {
+              "content": {
+                "type": "StructuredText",
+                "config": {
+                  "multi": "paragraph, heading2, heading3, heading4, heading5, strong, em, hyperlink",
+                  "label": "Content"
+                }
+              },
+              "button_label": {
+                "type": "Text",
+                "config": {
+                  "label": "Button label"
+                }
+              },
+              "button_target": {
+                "type": "Link",
+                "config": {
+                  "label": "Button target"
+                }
+              },
+              "image1": {
+                "type": "Image",
+                "config": {
+                  "constraint": {},
+                  "thumbnails": [],
+                  "label": "Image"
+                }
+              }
+            },
+            "repeat": {}
+          },
+          "two_illustrated_buttons": {
+            "type": "Slice",
+            "fieldset": "Two img buttons",
+            "description": "Side by side illustrated buttons",
+            "icon": "add_box",
+            "display": "list",
+            "non-repeat": {},
+            "repeat": {
+              "label": {
+                "type": "Text",
+                "config": {
+                  "label": "Label"
+                }
+              }
+            }
+          },
+          "newsletter_form": {
+            "type": "Slice",
+            "fieldset": "Newsletter form",
+            "description": "A newsletter subscription block",
+            "icon": "add_box",
+            "display": "list",
+            "non-repeat": {},
+            "repeat": {}
+          },
+          "summary_links": {
+            "type": "Slice",
+            "fieldset": "Summary links",
+            "description": "A list of links",
+            "icon": "add_box",
+            "display": "list",
+            "non-repeat": {},
+            "repeat": {
+              "link": {
+                "type": "Link",
+                "config": {
+                  "label": "link"
+                }
+              }
+            }
           }
         }
       }

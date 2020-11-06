@@ -3,9 +3,17 @@ import {
     Button,
 } from '@chakra-ui/core'
 
-const BtnPrimary = ({props, handleClick, children}) => {
+const BtnPrimary = ({
+    props,
+    handleClick,
+    children,
+    to,
+    as
+}) => {
     return(
         <Button
+            to={ to ? to : null}
+            as={ as ? as : null}
             bg='brand.1'
             color='white'
             p='.7rem 1rem .5rem 1rem'

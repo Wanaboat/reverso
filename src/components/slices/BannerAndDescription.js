@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link as GatsbyLink } from 'gatsby'
 import {
     Box,
     Flex,
@@ -11,8 +12,12 @@ import {
 
 import Wrapper from '../Wrapper'
 import BtnPrimary from '../Buttons/primary'
+import Wysiwyg from '../Wysiwyg'
+import { linkResolver } from '../../prismic-configuration'
 
-const SliceBannerAndDescription = () => {
+const SliceBannerAndDescription = ({ data }) => {
+    console.log('SliceBannerAndDescription', data)
+    if( !data ){ return null }
     return (
         <Wrapper
             mt='2px'
@@ -27,12 +32,13 @@ const SliceBannerAndDescription = () => {
                     <Box
                         as='picture'>
                         <Image
-                            mx='-1rem'
-                            w='calc( 120% + 2rem )' 
+                            // mx='-1rem'
+                            // w='calc( 120% + 2rem )' 
                             h='auto'
                             // objectFit='cover'
-                            src='https://images.squarespace-cdn.com/content/v1/5eadcd40acf99d220aee75a5/1601355291427-J3U25X12SK6LBCNH3LRF/ke17ZwdGBToddI8pDm48kO4MCmFXgria781RdOOdXR4UqsxRUqqbr1mOJYKfIPR7LoDQ9mXPOjoJoqy81S2I8N_N4V1vUb5AoIIIbLZhVYxCRW4BPu10St3TBAUQYVKczuNowp6jCWKg3HkDw9htMNjCCTfYrb_QE008VnYI4AiFeFFp_0SMpnEH4sQNbkF4/photoshop-lagon-drone+2.jpeg?format=1000w'
+                            src={data.image1.localFile.childImageSharp.fixed.src }
                         />
+                        {data.image1.alt ? <Text fontStyle='italic'>{ data.image1.alt }</Text> : null }
                     </Box>
 
                     {/* </Box> */}
@@ -45,14 +51,24 @@ const SliceBannerAndDescription = () => {
                     >
                         Reverso Sailing dinghy : Meet our full range
                     </Heading>
-                    <Text>
+                    { data.content ? 
+                        <Wysiwyg data={ data.content.raw } />
+                    : "null"}
+
+                    {/* <Text>
                         3 different, hulls colors, many tech equipements possibilities and several options : your Reverso will be like no other.
-                    </Text>
-                    <Box>
-                        <BtnPrimary>
-                            Test
+                    </Text> */}
+                    { data.button_label ? 
+                    <Box mt='1rem'>
+                        <BtnPrimary
+                            to={linkResolver( data.button_target.document )}
+                            as={ GatsbyLink }
+                        >
+                            { data.button_label }
                         </BtnPrimary>
+                        
                     </Box>
+                    : null}
 
                 </Stack>
             </Grid>

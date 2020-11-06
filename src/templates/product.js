@@ -63,10 +63,6 @@ const ProductTpl = (props) => {
                     background={`url(${shapeGray}) no-repeat left top`}
                     position='relative'
                 >
-                    <Breadcrumbs
-                        node={props.data.prismicProduct}
-                        lang={props.pageContext.lang}
-                    />
                     <PseudoBox
                         display={{ xs: 'none', xl: 'block' }}
                         position='absolute'
@@ -104,7 +100,10 @@ const ProductTpl = (props) => {
                             py='2rem'
                             display={{ xs: 'none', lg: 'block' }}
                         >
-                            Breadcrumbs
+                            <Breadcrumbs
+                                node={props.data.prismicProduct}
+                                lang={props.pageContext.lang}
+                            />
                         </Box>
                         <Grid
                             templateColumns={{ xs: '100%', lg: '1fr 1fr' }}

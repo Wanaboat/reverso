@@ -3,11 +3,13 @@
 
 export const linkResolver = (doc) => {
     var data = require( '../paths.js')
-    console.log( data.URIs, doc.id )
 
     for (let index = 0; index < data.URIs.length; index++) {
         const element = data.URIs[index];
-        if( element.id === doc.id ){
+        if( 
+            element.id === doc.id
+            || element.id === doc.prismicId
+          ){
             return element.path
         }
     }
