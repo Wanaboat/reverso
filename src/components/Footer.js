@@ -34,7 +34,7 @@ const Footer = ({ siteTitle }) => (
           alt='Reverso'
         />
       </Box>
-      <Stack spacing='1.5rem'>
+      <Stack spacing='1.5rem' letterSpacing='.05rem'>
         <Stack spacing='.5rem' letterSpacing='.15rem'>
           <Text
             color='gray.100'

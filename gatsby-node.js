@@ -1,8 +1,9 @@
 const path = require('path')
-// const { langSlugConverter } = require('./src/utils/langSlugConverter')
+var fs = require('fs');
+
+
 exports.createPages = async ({ graphql, actions }) => {
     const { createPage } = actions
-
     const pageTemplates = {
         home: path.resolve(__dirname, 'src/templates/home.js'),
         page: path.resolve(__dirname, 'src/templates/page.js'),
@@ -17,6 +18,7 @@ exports.createPages = async ({ graphql, actions }) => {
             return ('')
         }
     }
+
     var langCodeConverter = (lang) => {
         if (lang === 'fr-fr') {
             return 'fr'
@@ -25,6 +27,9 @@ exports.createPages = async ({ graphql, actions }) => {
             return ('en')
         }
     }
+
+    var paths = []
+
     const buildPageSlug = (node) => {
         let slug = []
         if (node.uid){
@@ -38,8 +43,14 @@ exports.createPages = async ({ graphql, actions }) => {
                     }
                 }   
             }
-        } 
-        return ( slug.reverse().join('/'))
+        }
+        slug.push( langSlugConverter(node.lang) )
+        var uri = slug.reverse().join('/')
+        paths.push({
+          "id":`${node.prismicId}`,
+          "path": uri
+        })
+        return ( uri )
     }
 
     // Subscribers page
@@ -144,7 +155,7 @@ exports.createPages = async ({ graphql, actions }) => {
   // Create pages for each Page in Prismic using the selected template.
   pages.data.allPrismicPage.edges.forEach((page) => {
       createPage({
-          path: `${langSlugConverter(page.node.lang)}/${buildPageSlug(page.node)}`,
+          path: `${buildPageSlug(page.node)}`,
           component: pageTemplates['page'],
           context: {
               id: page.node.id,
@@ -200,7 +211,7 @@ exports.createPages = async ({ graphql, actions }) => {
   // Create pages for each Page in Prismic using the selected template.
   products.data.allPrismicProduct.edges.forEach((page) => {
       createPage({
-          path: `${langSlugConverter(page.node.lang)}/${buildPageSlug(page.node)}`,
+          path: `${buildPageSlug(page.node)}`,
           component: pageTemplates['product'],
           context: {
               id: page.node.id,
@@ -210,4 +221,25 @@ exports.createPages = async ({ graphql, actions }) => {
       })
   })
 
+  console.log( paths )
+
+  fs.appendFile('./paths.js', `export const paths=${JSON.stringify( paths )}`, function (err) {
+    if (err) throw err;
+    console.log('Saved!');
+  });
+
+}
+
+exports.onCreatePage = ({ page, actions }) => {
+  const { createPage, deletePage } = actions
+  console.log( page )
+  // deletePage(page)
+  // You can access the variable "house" in your page queries now
+  // createPage({
+  //   ...page,
+  //   context: {
+  //     ...page.context,
+  //     house: `Gryffindor`,
+  //   },
+  // })
 }
