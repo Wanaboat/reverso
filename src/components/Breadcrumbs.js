@@ -6,6 +6,9 @@ import Wrapper from './Wrapper'
 
 const Breadcrumbs = ({ node, lang }) => {
     const hierarchy = () => {
+
+        console.log( 'node', node )
+
         if (node.uid) {
             let slug = []
             let lang = 'fr'

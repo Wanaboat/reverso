@@ -7,7 +7,8 @@ import Img from "gatsby-image"
 import { withPreview } from 'gatsby-source-prismic'
 import usePreviewData from '../utils/usePreviewData'
 import PageContent from '../components/PageContent'
-
+import Hierarchy from '../components/hierachyPage'
+import SliceEngine from '../components/slices/Engine'
 import {
   Box,
   Flex,
@@ -19,6 +20,8 @@ import {
 const PageTpl = (props) => {
 
   const data = usePreviewData(props.data)
+
+  console.log( data )
 
   return (
     <Layout lang={props.pageContext.lang}>
@@ -41,6 +44,10 @@ const PageTpl = (props) => {
         node={props.data.prismicPage}
         lang={props.pageContext.lang}
       />
+      <SliceEngine data={ data.prismicPage.data.body }  />
+      {/* { data.prismicPage.data.body ? 
+        <Wysiwyg content={ data.prismicPage.data.body[0].primary.content.raw } />
+      : null } */}
         <PageContent />
 
         {data.prismicPage.data.title.text === 'Page de niveau 2' ?
@@ -114,6 +121,7 @@ export default PageTpl
 export const query = graphql`
 query pageQuery($prismicId: ID) {
     prismicPage( prismicId: { eq : $prismicId} ){
+        ...HierachyPage
         prismicId
         lang
         uid
@@ -181,40 +189,45 @@ query pageQuery($prismicId: ID) {
               }
             }
             body {
-              html
-              text
-              raw
-            }
-          
-
-            parent {
-              document {
-                ... on PrismicPage {
-                  data{ title{ text } }
-                  uid
-                  data {
-                    parent {
-                      document {
-                        ... on PrismicPage {
-                          data{ title{ text } }
-                          uid
-                          data {
-                            parent {
-                              document {
-                                ... on PrismicPage {
-                                  data{ title{ text } }
-                                  uid
-                                }
-                              }
-                            }
-                          }
-                        }
-                      }
-                    }
+              ... on PrismicPageBodyWysiwyg {
+                primary {
+                  content {
+                    html
+                    raw
                   }
                 }
               }
             }
+          
+
+            #parent {
+            #  document {
+            #    ... on PrismicPage {
+            #      data{ title{ text } }
+            #      uid
+            #      data {
+            #        parent {
+            #          document {
+            #            ... on PrismicPage {
+            #              data{ title{ text } }
+            #              uid
+            #              data {
+            #                parent {
+            #                  document {
+            #                    ... on PrismicPage {
+            #                      data{ title{ text } }
+            #                      uid
+            #                    }
+            #                  }
+            #                }
+            #              }
+            #            }
+            #          }
+            #        }
+            #      }
+            #    }
+            #  }
+            #}
         }
       }
      

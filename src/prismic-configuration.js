@@ -3,12 +3,11 @@
 
 export const linkResolver = (doc) => {
     var data = require( '../paths.js')
-    console.log( data.paths, doc.id )
+    console.log( data.URIs, doc.id )
 
-    for (let index = 0; index < data.paths.length; index++) {
-        const element = data.paths[index];
+    for (let index = 0; index < data.URIs.length; index++) {
+        const element = data.URIs[index];
         if( element.id === doc.id ){
-            console.log( 'return', element.path)
             return element.path
         }
     }

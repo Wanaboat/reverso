@@ -43,6 +43,7 @@ import VideoCover from '../images/video-cover.jpg'
 import Wysiwyg from '../components/Wysiwyg'
 import { FormattedMessage } from 'react-intl'
 // import logoAudiAwards from '../images/logo-audi-awards.svg'
+import Hierarchy from '../components/hierachyProduct'
 
 const ProductTpl = (props) => {
 
@@ -62,10 +63,10 @@ const ProductTpl = (props) => {
                     background={`url(${shapeGray}) no-repeat left top`}
                     position='relative'
                 >
-                    {/* <Breadcrumbs
+                    <Breadcrumbs
                         node={props.data.prismicProduct}
                         lang={props.pageContext.lang}
-                    /> */}
+                    />
                     <PseudoBox
                         display={{ xs: 'none', xl: 'block' }}
                         position='absolute'
@@ -435,11 +436,11 @@ const ProductTpl = (props) => {
                             </Box>
                             
                             <Box>
-                            <Heading
-                                    fontWeight='900'
-                            >Boring SEO content</Heading>
+                            {/* <Heading
+                                fontWeight='900'
+                                mb='2rem'
+                            >Boring SEO content</Heading> */}
                             <Wysiwyg content={ data.body[0].primary.content.raw } />
-
                             </Box>
                         </Stack>
                     </Wrapper>
@@ -458,104 +459,80 @@ export default ProductTpl
 export const query = graphql`
 query productQuery($prismicId: ID) {
     prismicProduct( prismicId: { eq : $prismicId} ){
+        ...HierachyProduct
         prismicId
         lang
         uid
         data {
-        body{
-            __typename
-            ... on PrismicProductBodyWysiwyg{
-                slice_type
-                slice_label
-                primary{
-                content{
+            body{
+                __typename
+                ... on PrismicProductBodyWysiwyg{
+                    slice_type
+                    slice_label
+                    primary{
+                        content{
+                            html
+                            raw
+                        }
+                    }
+                }
+            }
+            seo_title
+            seo_description
+            sharing_image {
+                localFile {
+                    childImageSharp {
+                        fixed(height: 630, width: 1200) {
+                            src
+                        }
+                    }
+                }
+            }
+            title{
+                text
+            }
+            intro
+            image_main {
+                localFile {
+                    childImageSharp {
+                        fixed(height: 1000, width: 1000) { srcSet srcWebp aspectRatio base64 height originalName src srcSetWebp tracedSVG width }
+                        fluid {
+                            ...GatsbyImageSharpFluid_noBase64
+                            aspectRatio base64 originalImg originalName presentationHeight presentationWidth sizes src srcSet srcSetWebp srcWebp tracedSVG }                }
+                }
+            }
+            video {
+                url
+            }
+            seo_title
+            args_list {
+                item
+            }
+            second_args_list{
+                title
+                body {
                     html
+                    text
                     raw
                 }
-                }
             }
-        }
-        seo_title
-        seo_description
-        sharing_image {
-            localFile {
-            childImageSharp {
-                fixed(height: 630, width: 1200) {
-                    src
-                }
-            }
-            }
-        }
-        title{
-            text
-        }
-        intro
-        image_main {
-            localFile {
-                childImageSharp {
-                    fixed(height: 1000, width: 1000) { srcSet srcWebp aspectRatio base64 height originalName src srcSetWebp tracedSVG width }
-                    fluid {
-                        ...GatsbyImageSharpFluid_noBase64
-                        aspectRatio base64 originalImg originalName presentationHeight presentationWidth sizes src srcSet srcSetWebp srcWebp tracedSVG }                }
-            }
-        }
-        video {
-            url
-        }
-        seo_title
-        args_list {
-            item
-          }
-        second_args_list{
-            title
-            body {
-                html
-                text
-                raw
-            }
-        }
-        gallery_list {
-            picture {
-              alt
-              localFile {
-                publicURL
-                childImageSharp {
-                    fixed(height: 300) {
-                      src
-                    }
-                  }
-              }
-              dimensions {
-                height
-                width
-              }
-            }
-          }
-        parent {
-            document {
-            ... on PrismicPage {
-                uid
-                data {
-                parent {
-                    document {
-                    ... on PrismicPage {
-                        uid
-                        data {
-                        parent {
-                            document {
-                            ... on PrismicPage {
-                                uid
-                            }
-                            }
-                        }
+            gallery_list {
+                picture {
+                alt
+                localFile {
+                    publicURL
+                    childImageSharp {
+                        fixed(height: 300) {
+                        src
                         }
                     }
-                    }
+                }
+                dimensions {
+                    height
+                    width
                 }
                 }
             }
-            }
-        }
         }
     }
 }
