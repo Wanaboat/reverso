@@ -122,7 +122,9 @@ const HomepageHero = (props) => {
                         gap='3rem'
                         templateColumns={{ xs: '100%', lg: '50% 50%' }}
                     >
-                        <Box>
+                        <Box
+                            mt={{ xs:'-1rem', lg:'auto'}}
+                        >
                             <Box
                                 as='figure'
                                 w='calc( 100% + 2rem )'

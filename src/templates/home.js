@@ -115,6 +115,7 @@ query HpQuery($langIso:String!) {
                 ... on PrismicHomepageBodyImageAndText {
                   primary {
                     reverse_position
+                    background_color
                     content { raw }
                     button_label
                     button_target {

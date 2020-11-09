@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { createContactItem } from '../api';
-
+import jsonp from 'jsonp';
 import { Box, Button, Input, Grid, Text } from '@chakra-ui/core'
 import {
     FormControl,
@@ -9,7 +9,7 @@ import {
     FormHelperText,
 } from "@chakra-ui/core"
 import addToMailchimp from 'gatsby-plugin-mailchimp'
-import { useIntl } from 'react-intl'
+import { FormattedMessage, useIntl } from 'react-intl'
 
 const NewsletterForm = () => {
 
@@ -28,17 +28,36 @@ const NewsletterForm = () => {
             setIsSaved( true )
         });
 
-        addToMailchimp(InputField.current.value, {}) // listFields are optional if you are only capturing the email address.
-          .then(data => {
-            // I recommend setting data to React state
-            // but you can do whatever you want (including ignoring this `then()` altogether)
-            console.log(data)
-          })
-          .catch(() => {
-            // unnecessary because Mailchimp only ever
-            // returns a 200 status code
-            // see below for how to handle errors
-          })
+        let mcUrl = ''
+
+        console.log( locale )
+
+        if(locale === 'en' ){
+            mcUrl = `${process.env.GATSBY_MAILCHIMP_EN_AUDIENCE}&EMAIL=${ InputField.current.value }&c=__jp0`
+        }else{
+            mcUrl = `${process.env.GATSBY_MAILCHIMP_FR_AUDIENCE}&EMAIL=${ InputField.current.value }&c=__jp0`
+        }
+
+        console.log( 'mcUrl', mcUrl )
+
+        new Promise((resolve, reject) =>
+            jsonp(mcUrl, { param: 'c' }, (err, data) => {
+                if (err) reject(err);
+                if (data) resolve(data);
+            }),
+        );
+
+        // addToMailchimp(InputField.current.value, {}) // listFields are optional if you are only capturing the email address.
+        //   .then(data => {
+        //     // I recommend setting data to React state
+        //     // but you can do whatever you want (including ignoring this `then()` altogether)
+        //     console.log(data)
+        //   })
+        //   .catch(() => {
+        //     // unnecessary because Mailchimp only ever
+        //     // returns a 200 status code
+        //     // see below for how to handle errors
+        //   })
     }
 
     return (
@@ -46,7 +65,7 @@ const NewsletterForm = () => {
             color='gray.900'
             as='form'
             px={{ lg:'4rem'}}
-            py={{ xs:'2rem', lg:'4rem' }}
+            pt={{ xs:'2rem', lg:'4rem' }}
             onSubmit={(e) => { handleSubmit(e) }}
         >
             { !isSaved ? 
@@ -55,7 +74,7 @@ const NewsletterForm = () => {
                     htmlFor="email"
                     color='white'
                 >
-                    Newsletter subscription :
+                    <FormattedMessage id='newsletter.subscribe' />&nbsp;:
                 </FormLabel>
                 <Grid
                     templateColumns='1fr 60px'
@@ -83,14 +102,18 @@ const NewsletterForm = () => {
                 
                 <FormHelperText
                     id="email-helper-text">
-                    Data storage is 100% secure, unsubscribe is easy.
+                    <FormattedMessage id='newsletter.subscribe.notice1' />
+
+                    
                 </FormHelperText>
             </FormControl>
             : 
             <Text
                 py='2rem'
                 color='white'
-            >You're subscription has been successfuly recorded. You'll receive our first newslette soon.</Text>
+            >
+                <FormattedMessage id='newsletter.subscribe.notice2' />
+            </Text>
             }
         </Box>
     )

@@ -13,6 +13,7 @@ import {
 import Wrapper from '../Wrapper'
 import BtnPrimary from '../Buttons/primary'
 import NewsletterForm from '../NewsletterForm'
+import { FormattedMessage } from 'react-intl'
 
 const NewsletterSlice = () => {
     return (
@@ -26,8 +27,8 @@ const NewsletterSlice = () => {
                         color='white'
                         fontSize='22px'
                     >
-                        On-board videos, test drives, testimonials, opportunities, subscribe to the monthly Reverso newsletter to keep in touch.
-                        </Heading>
+                        <FormattedMessage id='newsletter.subscribe.title' />&nbsp;:
+                    </Heading>
                 </Flex>
                 <Box
                 // maxW='520px'

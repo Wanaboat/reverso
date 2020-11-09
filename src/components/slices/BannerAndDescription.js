@@ -22,7 +22,7 @@ const SliceBannerAndDescription = ({ data }) => {
     return (
         <Wrapper
             bg='white'
-            py={{ xs: '4rem', lg:'2rem' }}
+            py={{ xs: '2rem', lg:'4rem' }}
             pt={{ xs:data.reverse_position ? 0 : '2rem', lg:'4rem'}}
             id={ data.anchor }
             bg={
