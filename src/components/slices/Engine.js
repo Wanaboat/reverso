@@ -16,10 +16,18 @@ const Engine = ({ data }) => {
 
     const sliceComponents = {
         PrismicPageBodyWysiwyg: SliceWysiwyg,
+        PrismicHomepageBodyWysiwyg: SliceWysiwyg,
+
         PrismicPageBodyNewsletterForm: NewsletterForm,
+        PrismicHomepageBodyNewsletterForm: NewsletterForm,
+
         PrismicPageBodyImageAndText: ImageAndText,
+        PrismicHomepageBodyImageAndText: ImageAndText,
+        
         PrismicPageBodyTwoIllustratedButtons: IllustratedButtons,
-        PrismicPageBodySummaryLinks: SummaryLinks
+        PrismicPageBodySummaryLinks: SummaryLinks,
+
+        
     }
 
     const Slices = data.map( (slice, index) =>{

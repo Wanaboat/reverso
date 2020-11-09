@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { createContactItem } from '../api';
 import Wrapper from '../components/Wrapper'
 import {
+    AspectRatioBox,
     Box,
     Heading,
     Grid,
@@ -15,10 +16,13 @@ import {
 } from '@chakra-ui/core'
 import BtnPrimary from '../components/Buttons/primary'
 import Img from "gatsby-image"
+import Wysiwyg from './Wysiwyg'
 
 const HomepageHero = (props) => {
     console.log('HeroProps', props)
-    const { data } = props
+    const { data, args_list, second_args_list } = props
+// 
+    // console.log( props.data.image1.localFile )
     return (
         <Box>
             <Box
@@ -30,7 +34,7 @@ const HomepageHero = (props) => {
                     <Grid
                         gap={{ xs: '2rem', lg: '3rem' }}
                         templateColumns={{ xs: '100%', lg: '50% 50%' }}
-                        pb='7rem'
+                        pb={{ lg:'7rem' }}
                     >
                         <Stack
                             spacing='1.5rem'
@@ -65,8 +69,10 @@ const HomepageHero = (props) => {
                             <List
                                 fontSize='18px'
                             >
-                                {data.args_list.map(list =>
-                                    <ListItem>{list.item}</ListItem>
+                                {args_list.map((list,index) =>
+                                    <ListItem
+                                        key={ `HeroHomeArgItem-${index}`}
+                                    >{list.item}</ListItem>
                                 )}
                             </List>
                         </Stack>
@@ -79,15 +85,26 @@ const HomepageHero = (props) => {
                                 // h='500px'
                             // bg='gray.50'
                             >
-                                <Img
-                                    // fixed={
-                                    //     props.image1.localFile.childImageSharp.fixed
-                                    // }
-                                    fluid={
-                                        props.image1.localFile.childImageSharp.fluid
-                                    }
-                                    placeholderStyle={{ visibility: "hidden" }}
-                                />
+                                <picture>
+                                    <source
+                                        type='image/jpeg'
+                                        srcSet={ props.image1.localFile.childImageSharp.fixed.srcSet }
+                                    />
+                                    <source
+                                        type='image/webp'
+                                        srcSet={ props.image1.localFile.childImageSharp.fixed.srcSetWebp }
+                                    />
+                                    <Image
+                                        w='100%'
+                                        loading='lazy'
+
+                                        // fixed={
+                                        //     props.image1.localFile.childImageSharp.fixed
+                                        // }
+                                        src={ props.image1.localFile.childImageSharp.fixed.src }
+                                    />
+                                </picture>
+ 
                                 {/* <Image
                                     src={data.hero_image_1.url}
                                     w='500px'
@@ -107,25 +124,38 @@ const HomepageHero = (props) => {
                         <Box>
                             <Box
                                 as='figure'
+                                w='calc( 100% + 2rem )'
+                                mx='-1rem'
                             >
+                                
                                 <Box
                                     as='picture'
-                                    transform='translateY( -7rem )'
+                                    transform={{ lg:'translateY( -5rem )' }}
                                     display='block'
+                                    margin='0'
+                                    
                                 >
-                                    {/* <Image
-                                        mt='-5rem'
-                                        src={data.hero_image_2.url}
-                                    /> */}
-                                    <Img
-                                    // fixed={
-                                    //     props.image2.localFile.childImageSharp.fixed
-                                    // }
-                                    fluid={
-                                        props.image2.localFile.childImageSharp.fluid
-                                    }
-                                />
-                                    <Text as="figcaption">Légende de l'image</Text>
+                                    <source
+                                        type='image/jpeg'
+                                        srcSet={ props.image2.localFile.childImageSharp.fixed.srcSet }
+                                    />
+                                    <source
+                                        type='image/webp'
+                                        srcSet={ props.image2.localFile.childImageSharp.fixed.srcSetWebp }
+                                    />
+                                    <Image
+                                        w='100%'
+                                        loading='lazy'
+
+                                        // fixed={
+                                        //     props.image1.localFile.childImageSharp.fixed
+                                        // }
+                                        src={ props.image2.localFile.childImageSharp.fixed.src }
+                                    />
+                                    <Text
+                                        mx={{ xs:'1rem', lg:'0' }}
+                                        fontStyle='italic'
+                                        as="figcaption">{ props.image2.alt }</Text>
                                 </Box>
                             </Box>
                         </Box>
@@ -133,6 +163,7 @@ const HomepageHero = (props) => {
                         <Box>
                             <Stack
                                 p={{ lg:'2rem' }}
+                                spacing='2rem'
                             >
                                 <Heading
                                     as='p'
@@ -141,11 +172,9 @@ const HomepageHero = (props) => {
                                 >
                                     {data.secondary_title[0].text}
                                 </Heading>
-                                <Stack
-                                    spacing='1rem'
-                                >
-                                    <List>
-                                        {data.second_args_list.map(list =>
+
+                                    <List spacing='1rem'>
+                                        {second_args_list.map(list =>
                                             <ListItem>
                                                 <Text
                                                     textTransform='uppercase'
@@ -153,9 +182,12 @@ const HomepageHero = (props) => {
                                                 >
                                                     {list.question}
                                                 </Text>
-                                                <Text>
+                                                <Wysiwyg
+                                                    data={ list.answer.raw }
+                                                />
+                                                {/* <Text>
                                                     {list.answer}
-                                                </Text>
+                                                </Text> */}
                                             </ListItem>
                                         )}
                                     </List>
@@ -192,7 +224,6 @@ const HomepageHero = (props) => {
                                     >
                                         → The trunk of my car ?
                                     </Text> */}
-                                </Stack>
                                 <Box>
                                     <BtnPrimary>
                                         One boat - multiple purposes

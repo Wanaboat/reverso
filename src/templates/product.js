@@ -38,6 +38,7 @@ import Reverso3 from '../images/reverso-match.png'
 
 import VideoPlayer from '../components/VideoPlayer'
 import Gallery from '../components/Gallery'
+import CarouselPictures from '../components/CarouselPictures'
 
 import VideoCover from '../images/video-cover.jpg'
 import Wysiwyg from '../components/Wysiwyg'
@@ -111,7 +112,7 @@ const ProductTpl = (props) => {
                             mb='3rem'
                         >
                             <Stack spacing='1.5rem'>
-                                <Box mt={{ xs:'1rem', lg:'2rem'}}>
+                                <Box mt={{ xs: '1rem', lg: '2rem' }}>
                                     <Image src={logoReversoAir} />
                                 </Box>
                                 <Box>
@@ -162,9 +163,28 @@ const ProductTpl = (props) => {
                             <Box
                                 // bg='gray.50'
                                 maxW='100%'
-                                overflowX='hidden'
                             >
-                                <Img
+                                <AspectRatioBox
+                                    w='100%'
+                                    maxW="560px"
+                                    ratio={1}
+                                >
+                                    <Box
+                                    as='picture'
+                                    >
+                                        <source type='image/jpeg' srcSet={data.image_main.localFile.childImageSharp.fixed.srcSetWebp} />
+                                        <source type='image/webp' srcSet={data.image_main.localFile.childImageSharp.fixed.srcSet} />
+                                        <Image
+                                            display='block'
+                                            m='0'
+                                            src={
+                                                data.image_main.localFile.childImageSharp.fixed.src
+                                            }
+                                        />
+                                    </Box>
+                                </AspectRatioBox>
+
+                                {/* <Img
                                     style={{
                                         maxWidth: '100%',
                                         objectFit: 'contain'
@@ -175,7 +195,7 @@ const ProductTpl = (props) => {
                                     fluid={
                                         data.image_main.localFile.childImageSharp.fluid
                                     }
-                                />
+                                /> */}
                             </Box>
                         </Grid>
 
@@ -329,7 +349,24 @@ const ProductTpl = (props) => {
                             </Box>
                         </Grid>
 
-                        <Stack mb='2rem' spacing='3rem'>
+
+
+                        <Stack mb='2rem' spacing='5rem'>
+
+                            <Box>
+                                {/* <Heading
+                                    fontWeight='900'
+                                >
+                                    Gallery
+                                </Heading> */}
+                                <CarouselPictures
+                                    pictures={data.gallery_list}
+                                />
+                                {/* <Gallery
+                                    pictures={data.gallery_list}
+                                /> */}
+                            </Box>
+
                             <Box>
                                 <Heading
                                     fontWeight='900'
@@ -359,35 +396,7 @@ const ProductTpl = (props) => {
                                 </SimpleGrid>
                             </Box>
 
-                            <Box>
-                                <Heading
-                                    fontWeight='900'
-                                >
-                                    Gallery
-                            </Heading>
-                                <Gallery
-                                    pictures={data.gallery_list}
-                                />
-                                {/* <SimpleGrid columns={{ xs: 1, lg: 3 }} gap='2rem'>
-                                {data.gallery_list.map(item =>
-                                    <Image
-                                        src={item.picture.url}
-                                    />
-                                )}
-                                <Image
-                                    src='https://images.squarespace-cdn.com/content/v1/5eadcd40acf99d220aee75a5/1601355291427-J3U25X12SK6LBCNH3LRF/ke17ZwdGBToddI8pDm48kO4MCmFXgria781RdOOdXR4UqsxRUqqbr1mOJYKfIPR7LoDQ9mXPOjoJoqy81S2I8N_N4V1vUb5AoIIIbLZhVYxCRW4BPu10St3TBAUQYVKczuNowp6jCWKg3HkDw9htMNjCCTfYrb_QE008VnYI4AiFeFFp_0SMpnEH4sQNbkF4/photoshop-lagon-drone+2.jpeg?format=1000w'
-                                />
-                                <Image
-                                    src='https://images.squarespace-cdn.com/content/v1/5eadcd40acf99d220aee75a5/1601355291427-J3U25X12SK6LBCNH3LRF/ke17ZwdGBToddI8pDm48kO4MCmFXgria781RdOOdXR4UqsxRUqqbr1mOJYKfIPR7LoDQ9mXPOjoJoqy81S2I8N_N4V1vUb5AoIIIbLZhVYxCRW4BPu10St3TBAUQYVKczuNowp6jCWKg3HkDw9htMNjCCTfYrb_QE008VnYI4AiFeFFp_0SMpnEH4sQNbkF4/photoshop-lagon-drone+2.jpeg?format=1000w'
-                                />
-                                <Image
-                                    src='https://images.squarespace-cdn.com/content/v1/5eadcd40acf99d220aee75a5/1601355291427-J3U25X12SK6LBCNH3LRF/ke17ZwdGBToddI8pDm48kO4MCmFXgria781RdOOdXR4UqsxRUqqbr1mOJYKfIPR7LoDQ9mXPOjoJoqy81S2I8N_N4V1vUb5AoIIIbLZhVYxCRW4BPu10St3TBAUQYVKczuNowp6jCWKg3HkDw9htMNjCCTfYrb_QE008VnYI4AiFeFFp_0SMpnEH4sQNbkF4/photoshop-lagon-drone+2.jpeg?format=1000w'
-                                />
-                                <Image
-                                    src='https://images.squarespace-cdn.com/content/v1/5eadcd40acf99d220aee75a5/1601355291427-J3U25X12SK6LBCNH3LRF/ke17ZwdGBToddI8pDm48kO4MCmFXgria781RdOOdXR4UqsxRUqqbr1mOJYKfIPR7LoDQ9mXPOjoJoqy81S2I8N_N4V1vUb5AoIIIbLZhVYxCRW4BPu10St3TBAUQYVKczuNowp6jCWKg3HkDw9htMNjCCTfYrb_QE008VnYI4AiFeFFp_0SMpnEH4sQNbkF4/photoshop-lagon-drone+2.jpeg?format=1000w'
-                                />
-                            </SimpleGrid> */}
-                            </Box>
+
 
                             <SimpleGrid
                                 columns={2}
@@ -417,9 +426,9 @@ const ProductTpl = (props) => {
                                         <FormattedMessage id="your.questions" />
                                     </Heading>
                                     <AspectRatioBox ratio={16 / 9}>
-                                    <Box
-                                        as="iframe"
-                                        src='https://form.typeform.com/to/EimY5yHO' />
+                                        <Box
+                                            as="iframe"
+                                            src='https://form.typeform.com/to/EimY5yHO' />
                                     </AspectRatioBox>
                                 </Box>
 
@@ -429,17 +438,17 @@ const ProductTpl = (props) => {
                             <Box>
                                 <Heading
                                     fontWeight='900'
-                                    >Mini Faq</Heading>
+                                >Mini Faq</Heading>
                                 <Faq variant='light' />
 
                             </Box>
-                            
+
                             <Box>
-                            {/* <Heading
+                                {/* <Heading
                                 fontWeight='900'
                                 mb='2rem'
                             >Boring SEO content</Heading> */}
-                            <Wysiwyg content={ data.body[0].primary.content.raw } />
+                                <Wysiwyg content={data.body[0].primary.content.raw} />
                             </Box>
                         </Stack>
                     </Wrapper>
@@ -494,7 +503,7 @@ query productQuery($prismicId: ID) {
             image_main {
                 localFile {
                     childImageSharp {
-                        fixed(height: 1000, width: 1000) { srcSet srcWebp aspectRatio base64 height originalName src srcSetWebp tracedSVG width }
+                        fixed(height: 500, width: 500) { srcSet srcWebp aspectRatio base64 height originalName src srcSetWebp tracedSVG width }
                         fluid {
                             ...GatsbyImageSharpFluid_noBase64
                             aspectRatio base64 originalImg originalName presentationHeight presentationWidth sizes src srcSet srcSetWebp srcWebp tracedSVG }                }
@@ -521,7 +530,7 @@ query productQuery($prismicId: ID) {
                 localFile {
                     publicURL
                     childImageSharp {
-                        fixed(height: 300) {
+                        fixed(width: 1150, height:600) {
                         src
                         }
                     }

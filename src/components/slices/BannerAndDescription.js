@@ -28,29 +28,42 @@ const SliceBannerAndDescription = ({ data }) => {
                 gap='4rem'
                 templateColumns={{ xs: '100%', lg: '1fr 1fr' }}
             >
-                <Box order='2'>
+                <Box
+                    order={ data.reverse_position ? 2 : 1 }
+                >
                     <Box
-                        as='picture'>
+                        display='block'
+                        w={{ xs:'calc( 100vw  )' , lg:'auto' }}
+                        mr={{ xs:'-1rem', lg:'0' }}
+                        ml={{ xs:'-1rem', lg:'0' }}
+                        as='picture'
+                    >
                         <Image
                             // mx='-1rem'
-                            // w='calc( 120% + 2rem )' 
+                            
                             h='auto'
+                            
+                            display='block'
                             // objectFit='cover'
                             src={data.image1.localFile.childImageSharp.fixed.src }
                         />
-                        {data.image1.alt ? <Text fontStyle='italic'>{ data.image1.alt }</Text> : null }
+                        {data.image1.alt ? <Text textAlign={{ xs:'center', lg:'left' }} px={{ xs:'1rem', lg:0 }} fontStyle='italic'>{ data.image1.alt }</Text> : null }
                     </Box>
 
                     {/* </Box> */}
                 </Box>
-                <Stack order='1' spacing='2rem' justify='center'>
-                    <Heading
+                <Stack
+                    order={ data.reverse_position ? 1 : 2 }
+                    spacing='2rem'
+                    justify='center'
+                >
+                    {/* <Heading
                         as='p'
                         fontWeight='600'
                         fontSize='24px'
                     >
                         Reverso Sailing dinghy : Meet our full range
-                    </Heading>
+                    </Heading> */}
                     { data.content ? 
                         <Wysiwyg data={ data.content.raw } />
                     : "null"}

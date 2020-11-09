@@ -73,8 +73,9 @@
             }
           },
           "answer" : {
-            "type" : "Text",
+            "type" : "StructuredText",
             "config" : {
+              "multi" : "paragraph, strong, em, hyperlink, list-item, o-list-item",
               "label" : "Answer"
             }
           }
@@ -102,6 +103,132 @@
         "constraint" : { },
         "thumbnails" : [ ],
         "label" : "sharing image"
+      }
+    }
+  },
+  "Body" : {
+    "body" : {
+      "type" : "Slices",
+      "fieldset" : "Slice zone",
+      "config" : {
+        "labels" : {
+          "wysiwyg" : [ ],
+          "image_and_text" : [ ],
+          "two_illustrated_buttons" : [ ],
+          "newsletter_form" : [ ],
+          "summary_links" : [ ]
+        },
+        "choices" : {
+          "wysiwyg" : {
+            "type" : "Slice",
+            "fieldset" : "Wysiwyg",
+            "description" : "A content block",
+            "icon" : "add_box",
+            "display" : "list",
+            "non-repeat" : {
+              "content" : {
+                "type" : "StructuredText",
+                "config" : {
+                  "multi" : "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+                  "label" : "content"
+                }
+              }
+            },
+            "repeat" : { }
+          },
+          "image_and_text" : {
+            "type" : "Slice",
+            "fieldset" : "Image and text",
+            "description" : "A block with image and text side by side",
+            "icon" : "add_box",
+            "display" : "list",
+            "non-repeat" : {
+              "background_color" : {
+                "type" : "Select",
+                "config" : {
+                  "options" : [ "white", "gray", "mastic" ],
+                  "label" : "Background color"
+                }
+              },
+              "reverse_position" : {
+                "type" : "Boolean",
+                "config" : {
+                  "default_value" : false,
+                  "label" : "Reverse position"
+                }
+              },
+              "content" : {
+                "type" : "StructuredText",
+                "config" : {
+                  "multi" : "paragraph, heading2, heading3, heading4, heading5, strong, em, hyperlink",
+                  "label" : "Content"
+                }
+              },
+              "button_label" : {
+                "type" : "Text",
+                "config" : {
+                  "label" : "Button label"
+                }
+              },
+              "button_target" : {
+                "type" : "Link",
+                "config" : {
+                  "label" : "Button target"
+                }
+              },
+              "image1" : {
+                "type" : "Image",
+                "config" : {
+                  "constraint" : { },
+                  "thumbnails" : [ ],
+                  "label" : "Image"
+                }
+              }
+            },
+            "repeat" : { }
+          },
+          "two_illustrated_buttons" : {
+            "type" : "Slice",
+            "fieldset" : "Two img buttons",
+            "description" : "Side by side illustrated buttons",
+            "icon" : "add_box",
+            "display" : "list",
+            "non-repeat" : { },
+            "repeat" : {
+              "label" : {
+                "type" : "Text",
+                "config" : {
+                  "label" : "Label"
+                }
+              }
+            }
+          },
+          "newsletter_form" : {
+            "type" : "Slice",
+            "fieldset" : "Newsletter form",
+            "description" : "A newsletter subscription block",
+            "icon" : "add_box",
+            "display" : "list",
+            "non-repeat" : { },
+            "repeat" : { }
+          },
+          "summary_links" : {
+            "type" : "Slice",
+            "fieldset" : "Summary links",
+            "description" : "A list of links",
+            "icon" : "add_box",
+            "display" : "list",
+            "non-repeat" : { },
+            "repeat" : {
+              "link" : {
+                "type" : "Link",
+                "config" : {
+                  "label" : "link"
+                }
+              }
+            }
+          }
+        }
       }
     }
   }

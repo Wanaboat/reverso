@@ -157,6 +157,7 @@ query pageQuery($prismicId: ID) {
             body {
               ... on PrismicPageBodySummaryLinks {
                 id
+                #anchor
                 items {
                   link {
                     document {
@@ -186,6 +187,7 @@ query pageQuery($prismicId: ID) {
               }
               ... on PrismicPageBodyWysiwyg {
                 primary {
+                  anchor
                   content {
                     html
                     raw
@@ -194,6 +196,7 @@ query pageQuery($prismicId: ID) {
               }
               ... on PrismicPageBodyImageAndText {
                 primary {
+                  anchor
                   content { raw }
                   button_label
                   button_target {

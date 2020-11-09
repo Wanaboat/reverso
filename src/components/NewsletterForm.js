@@ -46,6 +46,7 @@ const NewsletterForm = () => {
             color='gray.900'
             as='form'
             px={{ lg:'4rem'}}
+            py={{ xs:'2rem', lg:'4rem' }}
             onSubmit={(e) => { handleSubmit(e) }}
         >
             { !isSaved ? 
@@ -96,3 +97,15 @@ const NewsletterForm = () => {
 }
 
 export default NewsletterForm
+
+// Request URL: https://reversoproject.us20.list-manage.com/subscribe/post-json?u=65ccd57c038bb3835dd846686&amp;id=dfca43e39a&EMAIL=oli.livet%40gmail.com&c=__jp0
+// Request Method: GET
+// Status Code: 200 
+// Remote Address: 104.85.43.196:443
+// Referrer Policy: strict-origin-when-cross-origin
+
+
+// u: 65ccd57c038bb3835dd846686
+// amp;id: dfca43e39a
+// EMAIL: oli.livet@gmail.com
+// c: __jp0

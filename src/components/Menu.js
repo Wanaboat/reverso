@@ -25,16 +25,18 @@ const Menu = ({ lang }) => {
         _hover={{
           // 'borderBottomColor':'brand.2',
           ":after":{
-            "width": "100%"
+            "width": "100%",
+            "opacity":1
           }
         }}
         _after={{
           "content": '\" \"',
           "display": "block",
-          "width": "0px",
+          "width": "80%",
           "height": "1px",
           "bg": "brand.2",
-          "transition": "width .3s",
+          "opacity": "0",
+          "transition": "all .3s ease",
         }}
       >
         {children} 
@@ -123,7 +125,8 @@ const Menu = ({ lang }) => {
 
         left='0'
         top='0'
-        // bg='gray.800'
+        
+        bg={{ xs:'gray.800', lg:'transparent' }}
       >
         {items[locale]}
       </Flex>

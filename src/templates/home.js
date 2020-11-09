@@ -15,6 +15,7 @@ import SliceBannerAndDescription from '../components/slices/BannerAndDescription
 import SliceNewsletterSubscription from '../components/slices/SliceNewsletterSubscription'
 import SliceLogosList from '../components/slices/SliceLogosList'
 import SliceCenteredOneColumn from '../components/slices/CenteredOneColumn'
+import SliceEngine from '../components/slices/Engine'
 
 const HomeTpl = (props) => {
 
@@ -47,15 +48,23 @@ const HomeTpl = (props) => {
 
       </Helmet>
 
-            <HomepageHero data={ prismicHomepage.dataRaw } image1={prismicHomepage.data.hero_image_1} image2={prismicHomepage.data.hero_image_2} />
-            <SliceLogosList />
+            <HomepageHero
+                data={ prismicHomepage.dataRaw }
+                image1={prismicHomepage.data.hero_image_1}
+                image2={prismicHomepage.data.hero_image_2}
+                args_list={ prismicHomepage.data.args_list }
+                second_args_list={ prismicHomepage.data.second_args_list }
+            />
+            {/* <SliceLogosList />
             <SliceBannerAndDescription />
             <SliceBannerAndDescription />
             <SliceNewsletterSubscription />
-            <SliceCenteredOneColumn />
+            <SliceCenteredOneColumn /> */}
 
+            <SliceEngine data={prismicHomepage.data.body} />
 
         </Layout>
+
     )
 }
 
@@ -66,6 +75,74 @@ query HpQuery($langIso:String!) {
     prismicHomepage( lang : { eq: $langIso }) {
         dataRaw
         data {
+
+            body {
+                ... on PrismicHomepageBodySummaryLinks {
+                  id
+                  items {
+                    link {
+                      document {
+                        ... on PrismicPage{
+                          prismicId
+                          data{
+                            title {
+                              html
+                              text
+                              raw
+                            }
+                          }
+                        }
+                        ... on PrismicProduct{
+                          prismicId
+                          data{
+                            title {
+                              html
+                              text
+                              raw
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+                ... on PrismicHomepageBodyWysiwyg {
+                  primary {
+                    content {
+                      html
+                      raw
+                    }
+                  }
+                }
+                ... on PrismicHomepageBodyImageAndText {
+                  primary {
+                    reverse_position
+                    content { raw }
+                    button_label
+                    button_target {
+                      document{
+                        ... on PrismicHomepage{
+                          prismicId
+                        }
+                        ... on PrismicProduct{
+                          prismicId
+                        }
+                      }
+                    }
+                    image1{
+                        alt
+                        localFile {
+                            childImageSharp {
+                                fixed(height: 400, width: 600) {
+                                    src
+                                }
+                            }
+                        }
+                    }
+                  }
+                }
+              }
+
             seo_title
             seo_description
             sharing_image {
@@ -77,6 +154,17 @@ query HpQuery($langIso:String!) {
                     }
                 }
             }  
+            args_list {
+                item
+              }
+              second_args_list {
+                answer {
+                  html
+                  text
+                  raw
+                }
+                question
+              }
           hero_image_1 {
             alt
             copyright
@@ -104,7 +192,7 @@ query HpQuery($langIso:String!) {
                 original {
                   src
                 }
-                fixed { base64 tracedSVG aspectRatio srcWebp srcSetWebp originalName srcSet height src width }
+                fixed(width: 560, height: 420) { base64 tracedSVG aspectRatio srcWebp srcSetWebp originalName srcSet height src width }
                 fluid {
                     aspectRatio base64 originalImg originalName presentationHeight presentationWidth sizes src srcSet srcSetWebp srcWebp tracedSVG
                 }

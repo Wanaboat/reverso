@@ -74,6 +74,12 @@
             "icon": "add_box",
             "display": "list",
             "non-repeat": {
+              "anchor": {
+                "type": "Text",
+                "config": {
+                  "label": "anchor"
+                }
+              },
               "content": {
                 "type": "StructuredText",
                 "config": {
@@ -91,6 +97,30 @@
             "icon": "add_box",
             "display": "list",
             "non-repeat": {
+              "anchor": {
+                "type": "Text",
+                "config": {
+                  "label": "anchor"
+                }
+              },
+              "background_color": {
+                "type": "Select",
+                "config": {
+                  "options": [
+                    "white",
+                    "gray",
+                    "mastic"
+                  ],
+                  "label": "Background color"
+                }
+              },
+              "reverse_position": {
+                "type": "Boolean",
+                "config": {
+                  "default_value": false,
+                  "label": "Reverse position"
+                }
+              },
               "content": {
                 "type": "StructuredText",
                 "config": {
@@ -127,7 +157,14 @@
             "description": "Side by side illustrated buttons",
             "icon": "add_box",
             "display": "list",
-            "non-repeat": {},
+            "non-repeat": {
+              "anchor": {
+                "type": "Text",
+                "config": {
+                  "label": "anchor"
+                }
+              }
+            },
             "repeat": {
               "label": {
                 "type": "Text",
@@ -143,7 +180,14 @@
             "description": "A newsletter subscription block",
             "icon": "add_box",
             "display": "list",
-            "non-repeat": {},
+            "non-repeat": {
+              "anchor": {
+                "type": "Text",
+                "config": {
+                  "label": "anchor"
+                }
+              }
+            },
             "repeat": {}
           },
           "summary_links": {
@@ -152,7 +196,14 @@
             "description": "A list of links",
             "icon": "add_box",
             "display": "list",
-            "non-repeat": {},
+            "non-repeat": {
+              "anchor": {
+                "type": "Text",
+                "config": {
+                  "label": "Anchor"
+                }
+              }
+            },
             "repeat": {
               "link": {
                 "type": "Link",
