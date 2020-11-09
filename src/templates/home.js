@@ -20,12 +20,11 @@ import SliceEngine from '../components/slices/Engine'
 const HomeTpl = (props) => {
 
     const { prismicHomepage } = props.data
-    console.log( 'hp props', prismicHomepage )
+    console.log( 'hp props', props.data )
 
 
     return (
         <Layout lang={props.pageContext.lang}>
-
         <Helmet>
         <title>{prismicHomepage.data.seo_title}</title>
         <meta name='description' content={prismicHomepage.data.seo_description} />
@@ -49,7 +48,7 @@ const HomeTpl = (props) => {
       </Helmet>
 
             <HomepageHero
-                data={ prismicHomepage.dataRaw }
+                data={ prismicHomepage.data }
                 image1={prismicHomepage.data.hero_image_1}
                 image2={prismicHomepage.data.hero_image_2}
                 args_list={ prismicHomepage.data.args_list }
@@ -59,9 +58,9 @@ const HomeTpl = (props) => {
             <SliceBannerAndDescription />
             <SliceBannerAndDescription />
             <SliceNewsletterSubscription />
-            <SliceCenteredOneColumn /> */}
+            <SliceCenteredOneColumn />*/}
 
-            <SliceEngine data={prismicHomepage.data.body} />
+            <SliceEngine data={prismicHomepage.data.body} /> 
 
         </Layout>
 
@@ -73,9 +72,8 @@ export default HomeTpl
 export const query = graphql`
 query HpQuery($langIso:String!) {
     prismicHomepage( lang : { eq: $langIso }) {
-        dataRaw
+        #dataRaw
         data {
-
             body {
                 ... on PrismicHomepageBodySummaryLinks {
                   id
@@ -145,6 +143,13 @@ query HpQuery($langIso:String!) {
 
             seo_title
             seo_description
+            intro_title
+            title
+            title_suffix
+            title_prefix
+            secondary_title{
+                text
+            }
             sharing_image {
                 localFile {
                     childImageSharp {
@@ -157,14 +162,14 @@ query HpQuery($langIso:String!) {
             args_list {
                 item
               }
-              second_args_list {
+            second_args_list {
                 answer {
-                  html
-                  text
-                  raw
+                    html
+                    text
+                    raw
                 }
                 question
-              }
+            }
           hero_image_1 {
             alt
             copyright

@@ -197,6 +197,7 @@ query pageQuery($prismicId: ID) {
               ... on PrismicPageBodyImageAndText {
                 primary {
                   anchor
+                  background_color
                   content { raw }
                   button_label
                   button_target {

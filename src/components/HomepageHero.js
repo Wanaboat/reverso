@@ -19,9 +19,10 @@ import Img from "gatsby-image"
 import Wysiwyg from './Wysiwyg'
 
 const HomepageHero = (props) => {
-    console.log('HeroProps', props)
     const { data, args_list, second_args_list } = props
-// 
+    
+    console.log('HeroProps', second_args_list)
+
     // console.log( props.data.image1.localFile )
     return (
         <Box>
@@ -170,7 +171,7 @@ const HomepageHero = (props) => {
                                     fontSize='24px'
                                     mb='1rem'
                                 >
-                                    {data.secondary_title[0].text}
+                                    {data.secondary_titletext}
                                 </Heading>
 
                                     <List spacing='1rem'>

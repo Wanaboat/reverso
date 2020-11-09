@@ -14,18 +14,25 @@ import Wrapper from '../Wrapper'
 import BtnPrimary from '../Buttons/primary'
 import Wysiwyg from '../Wysiwyg'
 import { linkResolver } from '../../prismic-configuration'
+import { checkPropTypes } from 'prop-types'
 
 const SliceBannerAndDescription = ({ data }) => {
     console.log('SliceBannerAndDescription', data)
     if( !data ){ return null }
     return (
         <Wrapper
-            mt='2px'
             bg='white'
-            py='4rem'
+            py={{ xs: '4rem', lg:'2rem' }}
+            pt={{ xs:data.reverse_position ? 0 : '2rem', lg:'4rem'}}
+            id={ data.anchor }
+            bg={
+                data.background_color === 'mastic' ? 'brand.4'
+                : data.background_color === 'gray' ? 'gray.50'
+                    : data.background_color === 'white' ? 'white'
+                        : 'none' }
         >
             <Grid
-                gap='4rem'
+                gap={{ xs:'2rem', lg:'4rem' }}
                 templateColumns={{ xs: '100%', lg: '1fr 1fr' }}
             >
                 <Box
@@ -42,7 +49,7 @@ const SliceBannerAndDescription = ({ data }) => {
                             // mx='-1rem'
                             
                             h='auto'
-                            
+                            w='100%'
                             display='block'
                             // objectFit='cover'
                             src={data.image1.localFile.childImageSharp.fixed.src }

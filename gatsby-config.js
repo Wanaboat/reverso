@@ -45,17 +45,16 @@ module.exports = {
         repositoryName: 'reverso',
         prismicToolbar: true,
         schemas: {
-           homepage: require('./src/schemas/homepage.json'),
-           page: require('./src/schemas/page.json'),
-           product: require('./src/schemas/product.json')
+          homepage: require('./src/schemas/homepage.json'),
+          page: require('./src/schemas/page.json'),
+          product: require('./src/schemas/product.json')
         },
         shouldDownloadImage: ({ node, key, value }) => {
           if( value ){
             return true
           }
           console.log(
-            //node,
-            // key,
+
             value
           )
         },

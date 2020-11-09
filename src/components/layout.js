@@ -30,7 +30,7 @@ const Layout = ({ lang, children }) => {
         <CSSReset />
         <Box
           maxW='100vw'
-          bg='brand.4'
+          // 
           pt={{ xs:'72px', lg:0 }}
         >
 

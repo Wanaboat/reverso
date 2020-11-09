@@ -7,6 +7,7 @@ import '../css/wysiwyg.css'
 const Wysiwyg = ({data}) => {
     console.log( 'Wysiwyg', data )
     return(
+
         <Box className="wysiwyg">
             {/* {RichText.render(document.data.title)} */}
             {RichText.render( data, linkResolver )}
