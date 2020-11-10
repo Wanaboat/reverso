@@ -22,6 +22,9 @@ const LanguageSwitcher = ({ siteTitle }) => {
             borderRadius='3px'
             as={ GatsbyLink }
             to={ locale === 'en' ? '/fr' : '/' }
+            _hover={{
+              bg:'rgba(100,100,100,.2)'
+            }}
       >
         { locale === 'en' ? 'Fr' : 'En' }
       </Button>
@@ -31,8 +34,6 @@ const LanguageSwitcher = ({ siteTitle }) => {
         {/* <Link as={ GatsbyLink } to='/'>En</Link> */}
         
       <BtnPrimary
-        as={GatsbyLink}
-        
         handleClick={ ()=>{
           setOpenTryWizard( !openTryWizard ) 
           // console.log('wizard')

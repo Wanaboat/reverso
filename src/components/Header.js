@@ -35,6 +35,9 @@ const Header = ({ siteTitle }) => (
             maxW={{ xs:'100px', lg:'160px'}}
             src={logoTypo}
             alt='Reverso Project'
+            w={{ xs:'100px', lg:'160px'}}
+            h='40px'
+            
           />
         </Flex>
 
