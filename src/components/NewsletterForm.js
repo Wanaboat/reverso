@@ -65,7 +65,7 @@ const NewsletterForm = () => {
             color='gray.900'
             as='form'
             px={{ lg:'4rem'}}
-            pt={{ xs:'2rem', lg:'4rem' }}
+            pt={{ xs:'2rem', lg:'0' }}
             onSubmit={(e) => { handleSubmit(e) }}
         >
             { !isSaved ? 

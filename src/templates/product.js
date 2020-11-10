@@ -31,6 +31,7 @@ import Carousel from '../components/Carousel'
 import ButtonConfig from '../components/Buttons/config'
 import BtnPrimary from '../components/Buttons/primary'
 import BtnSecondary from '../components/Buttons/secondary'
+import SimpleQuestionForm from '../components/SimpleQuestionForm'
 
 import Reverso1 from '../images/reverso-blue.png'
 import Reverso2 from '../images/reverso-red.png'
@@ -425,11 +426,7 @@ const ProductTpl = (props) => {
                                     >
                                         <FormattedMessage id="your.questions" />
                                     </Heading>
-                                    <AspectRatioBox ratio={16 / 9}>
-                                        <Box
-                                            as="iframe"
-                                            src='https://form.typeform.com/to/EimY5yHO' />
-                                    </AspectRatioBox>
+                                    <SimpleQuestionForm />
                                 </Box>
 
 

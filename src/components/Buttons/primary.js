@@ -8,12 +8,13 @@ const BtnPrimary = ({
     handleClick,
     children,
     to,
-    as
+    as,
 }) => {
     return(
         <Button
             to={ to ? to : null}
             as={ as ? as : null}
+            cursor='pointer'
             bg='brand.1'
             color='white'
             p='.7rem 1rem .5rem 1rem'
@@ -21,6 +22,9 @@ const BtnPrimary = ({
             borderColor='brand.1'
             _hover={{
                 bg:'blue.500'
+            }}
+            _active={{
+                bg:'blue.700'
             }}
             onClick={ handleClick } 
             { ...props}

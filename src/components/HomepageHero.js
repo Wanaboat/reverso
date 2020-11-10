@@ -119,7 +119,7 @@ const HomepageHero = (props) => {
                     bg='brand.4'
                 >
                     <Grid
-                        gap='3rem'
+                        gap='2rem'
                         templateColumns={{ xs: '100%', lg: '50% 50%' }}
                     >
                         <Box
@@ -127,13 +127,13 @@ const HomepageHero = (props) => {
                         >
                             <Box
                                 as='figure'
-                                w='calc( 100% + 2rem )'
-                                mx='-1rem'
+                                w={{ xs:'calc( 100% + 2rem )', lg: '100%' }}
+                                mx={{ xs:'-1rem', lg:0}}
                             >
                                 
                                 <Box
                                     as='picture'
-                                    transform={{ lg:'translateY( -5rem )' }}
+                                    transform={{ lg:'translateY( -10rem )' }}
                                     display='block'
                                     margin='0'
                                     
