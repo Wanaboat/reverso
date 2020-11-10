@@ -155,6 +155,16 @@ query pageQuery($prismicId: ID) {
               }
             }
             body {
+              ... on PrismicPageBodyFigures {
+                primary {
+                  title1 {
+                    raw
+                    text
+                  }
+                  figure_1
+                  figure_2
+                }
+              }
               ... on PrismicPageBodySummaryLinks {
                 id
                 #anchor

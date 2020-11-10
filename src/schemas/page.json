@@ -52,9 +52,17 @@
       "config": {
         "label": "Seo description"
       }
+    },
+    "sharing_image": {
+      "type": "Image",
+      "config": {
+        "constraint": {},
+        "thumbnails": [],
+        "label": "Sharing image"
+      }
     }
   },
-  "Body": {
+  "Slices": {
     "body": {
       "type": "Slices",
       "fieldset": "Slice zone",
@@ -64,7 +72,8 @@
           "image_and_text": [],
           "two_illustrated_buttons": [],
           "newsletter_form": [],
-          "summary_links": []
+          "summary_links": [],
+          "figures": []
         },
         "choices": {
           "wysiwyg": {
@@ -212,6 +221,35 @@
                 }
               }
             }
+          },
+          "figures": {
+            "type": "Slice",
+            "fieldset": "Figures",
+            "description": "Figures / numbers",
+            "icon": "add_box",
+            "display": "list",
+            "non-repeat": {
+              "title1": {
+                "type": "StructuredText",
+                "config": {
+                  "multi": "heading1, heading2, heading3, heading4, heading5",
+                  "label": "Title"
+                }
+              },
+              "figure_1": {
+                "type": "Text",
+                "config": {
+                  "label": "Figure 1"
+                }
+              },
+              "figure_2": {
+                "type": "Text",
+                "config": {
+                  "label": "Figure 2"
+                }
+              }
+            },
+            "repeat": {}
           }
         }
       }

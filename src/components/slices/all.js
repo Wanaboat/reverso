@@ -3,6 +3,7 @@ import NewsletterForm from './SliceNewsletterSubscription'
 import ImageAndText from './BannerAndDescription'
 import IllustratedButtons from './TwoImgButtons'
 import SummaryLinks from './SummaryLinks'
+import Figures from './Figures'
 // import BannerWithCaption from './BannerWithCaption'
 // import BodyText from './BodyText'
 // import ImageGallery from './ImageGallery'
@@ -16,5 +17,6 @@ export {
     ImageAndText,
     NewsletterForm,
     SliceWysiwyg,
-    SummaryLinks
+    SummaryLinks,
+    Figures
 }

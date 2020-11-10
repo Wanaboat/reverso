@@ -8,7 +8,8 @@ import {
     NewsletterForm,
     ImageAndText,
     IllustratedButtons,
-    SummaryLinks
+    SummaryLinks,
+    Figures
   } from './all'
   
 
@@ -27,6 +28,8 @@ const Engine = ({ data }) => {
         PrismicPageBodyTwoIllustratedButtons: IllustratedButtons,
         PrismicPageBodySummaryLinks: SummaryLinks,
 
+        PrismicPageBodyFigures: Figures
+
         
     }
 
@@ -37,9 +40,9 @@ const Engine = ({ data }) => {
                 return(    
                     <SliceComponent
                       data={
-                        slice.primary ? slice.primary
-                            : slice.items ? slice.items
-                                :null
+                            slice.primary ? slice.primary
+                                : slice.items ? slice.items
+                                    :null
                     }
                     //   items={ slice.items }
                     //   lastPosts={ posts }

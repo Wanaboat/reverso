@@ -86,52 +86,6 @@ const PageContent = () => {
                 
             </Wrapper>
             <Wrapper
-                bg='brand.3'
-                py='3rem'
-                pb='8rem'
-            >
-                <Heading
-                    color='white'
-                    fontWeight='700'
-                    fontSize={{ xs: '28px', lg: '48px' }}
-                >
-                    Reverso is A FRENCH  SMALL SAILBOAT MANUFACTURER FOCUSING ON PERFORMANCE DESIGNS AND INNOVATION
-                </Heading>
-                <Flex
-                    my='3rem'
-                    color='white'
-                    fontSize={{ xs: '20px', lg: '28px' }}
-                    fontWeight='500'
-                >
-                    <Flex
-                        alignItems='center'
-                        pr={{ xs: '1rem', lg: '3rem' }}
-                        textAlign='center'
-                    >
-                        140+
-                        <br />
-                        boats
-                    </Flex>
-                    <Divider orientation='vertical' />
-                    <Flex
-                        alignItems='center'
-                        px={{ xs: '1rem', lg: '3rem' }}
-                        textAlign='center'
-                    >
-                        21
-                        <br />
-                        countries
-                    </Flex>
-                    <Divider orientation='vertical' />
-                    <Flex
-                        alignItems='center'
-                        px={{ xs: '1rem', lg: '3rem' }}
-                    >
-                        Logo
-                    </Flex>
-                </Flex>
-            </Wrapper>
-            <Wrapper
                 bg='brand.4'
             >
                 <SimpleGrid
