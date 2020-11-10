@@ -1,26 +1,20 @@
 import React from 'react'
-import {
-    Box,
-    Flex,
-    Grid,
-    Text,
-    Image,
-    Heading,
-    Stack
-} from '@chakra-ui/core'
-
+import { Box } from '@chakra-ui/core'
 import Wrapper from '../Wrapper'
 import Wysiwyg from '../Wysiwyg'
 const WysiwigSlice = ({ data }) => {
-    console.log( data )
+    console.log( 'WysiwigSlice', data )
     return (
         <Wrapper
             mt='2px'
             bg='white'
-            py='4rem'
+            py={{ xs:'1rem', lg:'4rem' }}
         >
-           <Wysiwyg data={ data.content.raw } />
-
+            <Box
+                px={{ xs:0, lg: !data.is_narrow ? '8rem' : '12rem' }}
+            >
+                <Wysiwyg data={ data.content.raw } />
+            </Box>
         </Wrapper>
     )
 }

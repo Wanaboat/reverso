@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import { Link as GatsbyLink } from 'gatsby'
 import Layout from '../components/layout'
 import Breadcrumbs from '../components/Breadcrumbs'
 import Img from 'gatsby-image'
@@ -29,8 +30,8 @@ import Faq from '../components/Faq'
 import Carousel from '../components/Carousel'
 
 import ButtonConfig from '../components/Buttons/config'
-import BtnPrimary from '../components/Buttons/primary'
-import BtnSecondary from '../components/Buttons/secondary'
+import ButtonOrder from '../components/Buttons/order'
+
 import SimpleQuestionForm from '../components/SimpleQuestionForm'
 
 import Reverso1 from '../images/reverso-blue.png'
@@ -46,6 +47,7 @@ import Wysiwyg from '../components/Wysiwyg'
 import { FormattedMessage } from 'react-intl'
 // import logoAudiAwards from '../images/logo-audi-awards.svg'
 import Hierarchy from '../components/hierachyProduct'
+import { linkResolver } from '../prismic-configuration'
 
 const ProductTpl = (props) => {
 
@@ -150,13 +152,16 @@ const ProductTpl = (props) => {
                                 >
                                     <Box>
                                         <ButtonConfig>
-                                            Pricing and boat configuration
+                                            <FormattedMessage id="pricing.and.boat.configuration" />
                                         </ButtonConfig>
                                     </Box>
                                     <Box
                                         display={{ xs: 'none', lg: 'flex' }}
                                     >
-                                        <BtnSecondary>Order now</BtnSecondary>
+                                        <ButtonOrder>
+                                            <FormattedMessage id="order.now" />
+                                        </ButtonOrder>
+                                        
                                     </Box>
                                 </Stack>
 
@@ -234,7 +239,11 @@ const ProductTpl = (props) => {
                                     templateColumns={{ xs: '100%', lg: '1fr 1fr 1fr' }}
 
                                 >
+                                    {
+                                        data.versions.map( version =>
                                     <PseudoBox
+                                        as={ GatsbyLink }
+                                        to={ linkResolver( version.version_link.document )}
                                         w={{ xs: '100%', lg: 'auto' }}
                                         role="group"
                                         display='grid'
@@ -248,104 +257,34 @@ const ProductTpl = (props) => {
                                         borderRadius='3px'
                                         transition='background 400ms ease'
                                         _hover={{
-                                            bg: 'brand.boat.blue',
-                                            borderColor: 'brand.boat.blue',
+                                            bg: version.hover_color,
+                                            borderColor: version.hover_color,
                                             color: 'white'
                                         }}
                                     >
-                                        <Box>
-                                            <Image w='50px' src={Reverso1} />
+                                        <Box as='picture'>
+                                            <source type="image/jpeg" srcSet={ version.version_link.document.data.image_main.localFile.childImageSharp.fixed.src } />
+                                            <source type="image/webp" srcSet={ version.version_link.document.data.image_main.localFile.childImageSharp.fixed.srcWebp } />
+                                            <Image w='50px' src={ version.version_link.document.data.image_main.localFile.childImageSharp.fixed.src } />
                                         </Box>
                                         <Flex
                                             pr='1rem'
                                             alignItems='center'>
                                             <Box>
-                                                <Text fontSize='14px'>Reverso&nbsp;Air</Text>
+                                                
+                                                <Text fontSize='14px'>{ version.version_title }</Text>
                                                 <PseudoBox
-                                                    _groupHover={{ color: "white" }}
+                                                    _groupHover={{ color: 'white' }}
                                                     as={Text}
                                                     fontSize='13px'
                                                     whiteSpace='pre'
-                                                    color='gray.500'>9600 €</PseudoBox>
-                                            </Box>
-
-                                        </Flex>
-                                    </PseudoBox>
-
-                                    <PseudoBox
-                                        w={{ xs: '100%', lg: 'auto' }}
-                                        role='group'
-                                        display='grid'
-                                        gridTemplateColumns='50px 1fr'
-                                        cursor='pointer'
-                                        gridGap='.5rem'
-                                        p='.5rem'
-                                        bg='white'
-                                        border='solid 1px'
-                                        borderColor='gray.300'
-                                        borderRadius='3px'
-                                        _hover={{
-                                            bg: 'brand.boat.red',
-                                            borderColor: 'brand.boat.red',
-                                            color: 'white'
-                                        }}
-                                    >
-                                        <Box>
-                                            <Image w='50px' src={Reverso2} />
-                                        </Box>
-                                        <Flex
-                                            pr='1rem'
-                                            alignItems='center'>
-                                            <Box>
-                                                <Text fontSize='14px'>Reverso&nbsp;Air&nbsp;Series</Text>
-                                                <PseudoBox
-                                                    _groupHover={{ color: "white" }}
-                                                    as={Text}
-                                                    fontSize='13px'
-                                                    whiteSpace='pre'
-                                                    color='gray.500'>Cobalt Blue 10340 €
-                                                    </PseudoBox>
+                                                    color='gray.500'>{ version.version_sub_title }</PseudoBox>
                                             </Box>
                                         </Flex>
                                     </PseudoBox>
 
-                                    <PseudoBox
-                                        w={{ xs: '100%', lg: 'auto' }}
-                                        role='group'
-                                        display='grid'
-                                        gridTemplateColumns='50px 1fr'
-                                        cursor='pointer'
-                                        gridGap='.5rem'
-                                        p='.5rem'
-                                        bg='white'
-                                        border='solid 1px'
-                                        borderColor='gray.300'
-                                        borderRadius='3px'
-                                        _hover={{
-                                            bg: 'brand.boat.gray',
-                                            borderColor: 'brand.boat.gray',
-                                            color: 'white'
-                                        }}
-                                    >
-                                        <Box>
-                                            <Image w='50px' src={Reverso3} />
-                                        </Box>
-                                        <Flex
-                                            pr='1rem'
-                                            alignItems='center'>
-                                            <Box>
-                                                <Text fontSize='14px'>Reverso&nbsp;Match</Text>
-                                                <PseudoBox
-                                                    _groupHover={{ color: "white" }}
-                                                    as={Text}
-                                                    fontSize='13px'
-                                                    whiteSpace='pre'
-                                                    color='gray.500'>Cobalt Blue 10340 €
-                                                    </PseudoBox>
-                                            </Box>
-                                        </Flex>
-                                    </PseudoBox>
-
+                                            )
+                                    }
                                 </Grid>
                             </Box>
                         </Grid>
@@ -512,6 +451,30 @@ query productQuery($prismicId: ID) {
             seo_title
             args_list {
                 item
+            }
+            versions{
+                version_link{
+                    document{
+                    ... on PrismicProduct{
+                      prismicId
+                      data{
+                        image_main{
+                          localFile{
+                            childImageSharp{
+                              fixed( width: 100, height: 100){
+                                srcWebp
+                                src
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+                version_title
+                version_sub_title
+                hover_color
             }
             second_args_list{
                 title

@@ -2,14 +2,15 @@ import React, { useState } from 'react'
 import {
     Button,
 } from '@chakra-ui/core'
-import Configurator from '../ConfiguratorModal'
+import Order from '../OrderModal'
+import BtnSecondary from '../Buttons/secondary'
 
 const BtnConfig = ({props, handleClick, children}) => {
-    const [ showConfig, setShowConfig ] = useState( false )
+    const [ showOrder, setShowOrder ] = useState( false )
     return(
         <>
-            { showConfig ? <Configurator handleClose={ ()=>{ setShowConfig(false)}} /> : null }
-            <Button
+            { showOrder ? <Order handleClose={ ()=>{ setShowOrder(false)}} /> : null }
+            <BtnSecondary
                 bg='brand.1'
                 color='white'
                 p='.7rem 1rem .5rem 1rem'
@@ -18,10 +19,10 @@ const BtnConfig = ({props, handleClick, children}) => {
                 _hover={{
                     bg:'blue.500'
                 }}
-                onClick={ ()=>{ setShowConfig( true ) } } 
+                handleClick={ ()=>{ setShowOrder( true ) } } 
                 { ...props}
                 >{children}
-            </Button>
+            </BtnSecondary>
         </>
     )
 }

@@ -198,6 +198,7 @@ query pageQuery($prismicId: ID) {
               ... on PrismicPageBodyWysiwyg {
                 primary {
                   anchor
+                  is_narrow
                   content {
                     html
                     raw

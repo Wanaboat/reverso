@@ -85,9 +85,9 @@ const GalleryModal = ({ handleClose }) => {
                             as='iframe'
                             maxW="800px"
                             w='100vw'
-                            h='600px'
+                            h={{ xs:'100vh', lg:'850px' }}
                             // ratio={4 / 3}
-                            src='https://reversoproject.typeform.com/to/Gp9WdB?typeform-embed=popup-drawer&typeform-embed-id=tj8kb'
+                            src='https://reversoproject.typeform.com/to/NyFcB0?typeform-embed=popup-drawer&typeform-embed-id=fhj4b'
                             // ratio={16/9}
                         />
                     </Box>

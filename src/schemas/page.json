@@ -73,7 +73,8 @@
           "two_illustrated_buttons": [],
           "newsletter_form": [],
           "summary_links": [],
-          "figures": []
+          "figures": [],
+          "gallery": []
         },
         "choices": {
           "wysiwyg": {
@@ -87,6 +88,13 @@
                 "type": "Text",
                 "config": {
                   "label": "anchor"
+                }
+              },
+              "is_narrow": {
+                "type": "Boolean",
+                "config": {
+                  "default_value": false,
+                  "label": "Is narrow"
                 }
               },
               "content": {
@@ -250,6 +258,24 @@
               }
             },
             "repeat": {}
+          },
+          "gallery": {
+            "type": "Slice",
+            "fieldset": "Gallery",
+            "description": "Pictures gallery",
+            "icon": "add_box",
+            "display": "list",
+            "non-repeat": {},
+            "repeat": {
+              "picture": {
+                "type": "Image",
+                "config": {
+                  "constraint": {},
+                  "thumbnails": [],
+                  "label": "Picture"
+                }
+              }
+            }
           }
         }
       }
