@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
-import { Link as GatsbyLink } from 'gatsby'
+import Helmet from 'react-helmet'
+import { Link as GatsbyLink } from 'gatsby'
 import Layout from '../components/layout'
 import Breadcrumbs from '../components/Breadcrumbs'
 import Img from 'gatsby-image'
@@ -51,15 +52,29 @@ import { linkResolver } from '../prismic-configuration'
 
 const ProductTpl = (props) => {
 
-    console.log('propsData', props.data)
 
     const { data } = props.data.prismicProduct
 
+    console.log('productData', props)
 
 
     return (
         <Layout lang={props.pageContext.lang}>
-
+            <Helmet>
+                <title>{data.seo_title}</title>
+                <meta name='description' content={data.seo_description} />
+                <link
+                    rel='canonical'
+                    href={`${process.env.BASE_URL}${ linkResolver(props.data.prismicProduct)}`}
+                />
+                {props.data.prismicProduct.alternate_languages[0] ?
+                    <link
+                        rel="alternate"
+                        href={`${process.env.BASE_URL}${linkResolver( props.data.prismicProduct.alternate_languages[0].raw )}`}
+                        hreflang="x-default"
+                    />
+                    : null}
+            </Helmet>
             <Box
                 bg='white'
             >
@@ -161,7 +176,7 @@ const ProductTpl = (props) => {
                                         <ButtonOrder>
                                             <FormattedMessage id="order.now" />
                                         </ButtonOrder>
-                                        
+
                                     </Box>
                                 </Stack>
 
@@ -176,7 +191,7 @@ const ProductTpl = (props) => {
                                     ratio={1}
                                 >
                                     <Box
-                                    as='picture'
+                                        as='picture'
                                     >
                                         <source type='image/jpeg' srcSet={data.image_main.localFile.childImageSharp.fixed.srcSetWebp} />
                                         <source type='image/webp' srcSet={data.image_main.localFile.childImageSharp.fixed.srcSet} />
@@ -240,50 +255,50 @@ const ProductTpl = (props) => {
 
                                 >
                                     {
-                                        data.versions.map( version =>
-                                    <PseudoBox
-                                        as={ GatsbyLink }
-                                        to={ linkResolver( version.version_link.document )}
-                                        w={{ xs: '100%', lg: 'auto' }}
-                                        role="group"
-                                        display='grid'
-                                        gridTemplateColumns='50px 1fr'
-                                        cursor='pointer'
-                                        gridGap='.5rem'
-                                        p='.5rem'
-                                        bg='white'
-                                        border='solid 1px'
-                                        borderColor='gray.300'
-                                        borderRadius='3px'
-                                        transition='background 400ms ease'
-                                        _hover={{
-                                            bg: version.hover_color,
-                                            borderColor: version.hover_color,
-                                            color: 'white'
-                                        }}
-                                    >
-                                        <Box as='picture'>
-                                            <source type="image/jpeg" srcSet={ version.version_link.document.data.image_main.localFile.childImageSharp.fixed.src } />
-                                            <source type="image/webp" srcSet={ version.version_link.document.data.image_main.localFile.childImageSharp.fixed.srcWebp } />
-                                            <Image w='50px' src={ version.version_link.document.data.image_main.localFile.childImageSharp.fixed.src } />
-                                        </Box>
-                                        <Flex
-                                            pr='1rem'
-                                            alignItems='center'>
-                                            <Box>
-                                                
-                                                <Text fontSize='14px'>{ version.version_title }</Text>
-                                                <PseudoBox
-                                                    _groupHover={{ color: 'white' }}
-                                                    as={Text}
-                                                    fontSize='13px'
-                                                    whiteSpace='pre'
-                                                    color='gray.500'>{ version.version_sub_title }</PseudoBox>
-                                            </Box>
-                                        </Flex>
-                                    </PseudoBox>
+                                        data.versions.map(version =>
+                                            <PseudoBox
+                                                as={GatsbyLink}
+                                                to={linkResolver(version.version_link.document)}
+                                                w={{ xs: '100%', lg: 'auto' }}
+                                                role="group"
+                                                display='grid'
+                                                gridTemplateColumns='50px 1fr'
+                                                cursor='pointer'
+                                                gridGap='.5rem'
+                                                p='.5rem'
+                                                bg='white'
+                                                border='solid 1px'
+                                                borderColor='gray.300'
+                                                borderRadius='3px'
+                                                transition='background 400ms ease'
+                                                _hover={{
+                                                    bg: version.hover_color,
+                                                    borderColor: version.hover_color,
+                                                    color: 'white'
+                                                }}
+                                            >
+                                                <Box as='picture'>
+                                                    <source type="image/jpeg" srcSet={version.version_link.document.data.image_main.localFile.childImageSharp.fixed.src} />
+                                                    <source type="image/webp" srcSet={version.version_link.document.data.image_main.localFile.childImageSharp.fixed.srcWebp} />
+                                                    <Image w='50px' src={version.version_link.document.data.image_main.localFile.childImageSharp.fixed.src} />
+                                                </Box>
+                                                <Flex
+                                                    pr='1rem'
+                                                    alignItems='center'>
+                                                    <Box>
 
-                                            )
+                                                        <Text fontSize='14px'>{version.version_title}</Text>
+                                                        <PseudoBox
+                                                            _groupHover={{ color: 'white' }}
+                                                            as={Text}
+                                                            fontSize='13px'
+                                                            whiteSpace='pre'
+                                                            color='gray.500'>{version.version_sub_title}</PseudoBox>
+                                                    </Box>
+                                                </Flex>
+                                            </PseudoBox>
+
+                                        )
                                     }
                                 </Grid>
                             </Box>
@@ -404,6 +419,9 @@ export const query = graphql`
 query productQuery($prismicId: ID) {
     prismicProduct( prismicId: { eq : $prismicId} ){
         ...HierachyProduct
+        alternate_languages{
+			raw
+        }
         prismicId
         lang
         uid
