@@ -47,7 +47,7 @@ const SliceBannerAndDescription = ({ data }) => {
                     >
                         <Image
                             // mx='-1rem'
-                            
+                            alt={ data.image1.alt  ? data.image1.alt  : ''}
                             h='auto'
                             w='100%'
                             display='block'

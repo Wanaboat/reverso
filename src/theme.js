@@ -15,7 +15,7 @@ theme = {
     colors: {
         ...defaultTheme.colors,
         brand: {
-            "1": "#0E90EE", // Blue
+            "1": "#256EA3", // Blue
             "2": "#ED1C24", // Red
             "3":"#323232", // Dark gray
             "4":"#EEEEE8", // Mastic Gray

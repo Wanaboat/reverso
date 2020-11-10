@@ -36,7 +36,7 @@ const HomeTpl = (props) => {
         />
           <link
             rel="alternate"
-            href={`${'/'}`}
+            href={`${process.env.GATSBY_BASE_URL}`}
             hreflang="x-default"
           />
           <meta property='og:image' content={ `${process.env.GATSBY_BASE_URL}/${prismicHomepage.data.sharing_image.localFile.childImageSharp.fixed.src }` } />

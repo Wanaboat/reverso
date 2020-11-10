@@ -20,11 +20,12 @@ const BtnPrimary = ({
             p='.7rem 1rem .5rem 1rem'
             border='solid 1px'
             borderColor='brand.1'
+            textShadow='0 0 3px rgba(0,0,0,0.5)'
             _hover={{
-                bg:'blue.500'
+                bg:'blue.700'
             }}
             _active={{
-                bg:'blue.700'
+                bg:'blue.500'
             }}
             onClick={ handleClick } 
             { ...props}

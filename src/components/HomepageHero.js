@@ -98,7 +98,7 @@ const HomepageHero = (props) => {
                                     <Image
                                         w='100%'
                                         loading='lazy'
-
+                                        alt={ props.image1.alt }
                                         // fixed={
                                         //     props.image1.localFile.childImageSharp.fixed
                                         // }
@@ -149,7 +149,7 @@ const HomepageHero = (props) => {
                                     <Image
                                         w='100%'
                                         loading='lazy'
-
+                                        alt={ props.image2.alt ? props.image2.alt : '' }
                                         // fixed={
                                         //     props.image1.localFile.childImageSharp.fixed
                                         // }

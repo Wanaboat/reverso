@@ -44,7 +44,7 @@ const Footer = ({ siteTitle }) => (
             <FormattedMessage id='footersentence1' />
         </Text>
           <Text
-            color='#777'
+            color='gray.400'
             fontWeight='600'
             fontSize='18px'
           >
