@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { createContactItem } from '../api';
+// import { createContactItem } from '../api';
 import jsonp from 'jsonp';
 import { Box, Button, Input, Grid, Text } from '@chakra-ui/core'
 import {
@@ -25,10 +25,10 @@ const NewsletterForm = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         console.log("submit", InputField.current.value)
-        createContactItem(InputField.current.value).then(res => {
-            console.log('Expense details added to the database');
-            setIsSaved(true)
-        });
+        // createContactItem(InputField.current.value).then(res => {
+        //     console.log('Expense details added to the database');
+        //     setIsSaved(true)
+        // });
 
         let mcUrl = ''
 
