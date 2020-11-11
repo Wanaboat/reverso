@@ -22,9 +22,9 @@ import {
 } from '@chakra-ui/core'
 
 import shapeGray from '../images/shape-triangle.svg'
-import logoReversoAir from '../images/logo-reverso-air.svg'
-import logoReversoAirSeries from '../images/logo-reverso-air-series.svg'
-import logoReversoMatch from '../images/logo-reverso-match.svg'
+import logoReversoAir from '../images/logo-air.svg'
+import logoReversoAirSeries from '../images/logo-air-series.svg'
+import logoReversoMatch from '../images/logo-match.svg'
 import Wrapper from '../components/Wrapper'
 
 import logoBoatOfTheYear from '../images/logo-boat-of-year.svg'
