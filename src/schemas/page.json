@@ -180,16 +180,37 @@
                 "config": {
                   "label": "anchor"
                 }
-              }
-            },
-            "repeat": {
-              "label": {
+              },
+              "label_1": {
                 "type": "Text",
                 "config": {
-                  "label": "Label"
+                  "label": "Label 1"
+                }
+              },
+              "image_1": {
+                "type": "Image",
+                "config": {
+                  "constraint": {},
+                  "thumbnails": [],
+                  "label": "Image 1"
+                }
+              },
+              "label_2": {
+                "type": "Text",
+                "config": {
+                  "label": "Label 2"
+                }
+              },
+              "image_2": {
+                "type": "Image",
+                "config": {
+                  "constraint": {},
+                  "thumbnails": [],
+                  "label": "Image 2"
                 }
               }
-            }
+            },
+            "repeat": {}
           },
           "newsletter_form": {
             "type": "Slice",

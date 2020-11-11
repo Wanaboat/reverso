@@ -155,6 +155,15 @@ query pageQuery($prismicId: ID) {
               }
             }
             body {
+              ... on PrismicPageBodyTwoIllustratedButtons {
+                primary {
+                  anchor
+                  label_1
+                  label_2
+                  image_1 { localFile { childImageSharp { fixed { src srcWebp } } } }
+                  image_2 { localFile { childImageSharp { fixed { src srcWebp } } } }
+                }
+              }
               ... on PrismicPageBodyFigures {
                 primary {
                   title1 {

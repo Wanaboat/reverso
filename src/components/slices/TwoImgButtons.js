@@ -8,7 +8,9 @@ import {
 } from '@chakra-ui/core'
 
 
-const TwoImgButtons = () => {
+const TwoImgButtons = ( props ) => {
+    console.log('TwoImgButtons', props )
+    const { data } = props
     return (
         <Wrapper>
             <SimpleGrid
@@ -18,7 +20,7 @@ const TwoImgButtons = () => {
             >
                 <PseudoBox
                     role="group"
-                    bg='red.100'
+                    bg='transparent'
                     position='relative'
                     cursor='pointer'
                     transition='* 200ms ease'
@@ -47,19 +49,21 @@ const TwoImgButtons = () => {
                             transition='all 200ms ease'
                             _groupHover={{ pl: "4rem" }}
                         >
-                            Easy<br /> Sailing
+                            { data.label_1}
                         </PseudoBox>
 
                     </PseudoBox>
-                    {/* <Image src={Img1} alt='alt' /> */}
+                    <Image
+                        w='100%'
+                        src={ data.image_1.localFile.childImageSharp.fixed.src
+                    } alt={ data.image_1.alt } />
                 </PseudoBox>
                 <PseudoBox
                     role="group"
-                    bg='red.100'
+                    bg='transparent'
                     position='relative'
                     cursor='pointer'
                     transition='* 200ms ease'
-
                 >
                     <PseudoBox
                         display='flex'
@@ -85,11 +89,14 @@ const TwoImgButtons = () => {
                             transition='all 200ms ease'
                             _groupHover={{ pl: "4rem" }}
                         >
-                            Easy<br /> Sailing
+                            { data.label_2}
                         </PseudoBox>
 
                     </PseudoBox>
-                    {/* <Image src={Img2} alt='alt' /> */}
+                    <Image
+                        w='100%'
+                        src={ data.image_2.localFile.childImageSharp.fixed.src
+                    } alt={ data.image_2.alt } />
                 </PseudoBox>
             </SimpleGrid>
         </Wrapper>
