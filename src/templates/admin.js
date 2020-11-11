@@ -46,14 +46,14 @@ const AdminTpl = (props) => {
                             </Button>
                             <Button
                                 as='a'
-                                href='https://reverso.prismic.io'
+                                href='https://analytics.google.com/analytics/web/#/report-home/a97930234w144058920p148785528'
                                 target="_blank"
                             >
                                 Analytics view
                             </Button>
                             <Button
                                 as='a'
-                                href='https://reverso.prismic.io'
+                                href='https://api.netlify.com/build_hooks/5fac0b9995d1291a29a60ee2'
                                 target="_blank"
                             >
                                 Netlify Build Trigger

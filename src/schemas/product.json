@@ -7,6 +7,19 @@
         "label": "title"
       }
     },
+    "logo": {
+      "type": "Select",
+      "config": {
+        "options": [
+          "air",
+          "series",
+          "match"
+        ],
+        "default_value": "air",
+        "label": "Logo",
+        "placeholder": "Which is the logo"
+      }
+    },
     "intro": {
       "type": "Text",
       "config": {

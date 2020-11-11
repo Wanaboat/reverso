@@ -78,9 +78,9 @@ const Footer = ({ siteTitle }) => (
             Région Occitanie • Banque populaire • BPI France • Créalia
           </Text>
         </Box>
-        <Box>
+        {/* <Box>
           <Link as={GatsbyLink} to='/'><FormattedMessage id='legal.mentions' /></Link>
-        </Box>
+        </Box> */}
       </Stack>
     </Grid>
   </Flex>

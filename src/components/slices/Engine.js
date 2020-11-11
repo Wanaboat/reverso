@@ -9,7 +9,8 @@ import {
     ImageAndText,
     IllustratedButtons,
     SummaryLinks,
-    Figures
+    Figures,
+    FourImgButtons
   } from './all'
   
 
@@ -28,7 +29,8 @@ const Engine = ({ data }) => {
         PrismicPageBodyTwoIllustratedButtons: IllustratedButtons,
         PrismicPageBodySummaryLinks: SummaryLinks,
 
-        PrismicPageBodyFigures: Figures
+        PrismicPageBodyFigures: Figures,
+        PrismicPageBodyHorizontalButtons: FourImgButtons
 
         
     }

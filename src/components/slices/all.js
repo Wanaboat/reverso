@@ -4,6 +4,7 @@ import ImageAndText from './BannerAndDescription'
 import IllustratedButtons from './TwoImgButtons'
 import SummaryLinks from './SummaryLinks'
 import Figures from './Figures'
+import FourImgButtons from './FourImgButtons'
 // import BannerWithCaption from './BannerWithCaption'
 // import BodyText from './BodyText'
 // import ImageGallery from './ImageGallery'
@@ -16,6 +17,7 @@ export {
     IllustratedButtons,
     ImageAndText,
     NewsletterForm,
+    FourImgButtons,
     SliceWysiwyg,
     SummaryLinks,
     Figures

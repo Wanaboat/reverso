@@ -49,7 +49,7 @@ const Menu = ({ lang }) => {
   items['en'] = [
     {
       label:'New kinds of sailing',
-      url:'/news-kinds-sailing'
+      url:'/new-kinds-sailing'
     },
     {
       label:'Small sailboats',
@@ -57,7 +57,7 @@ const Menu = ({ lang }) => {
     },
     {
       label:'About',
-      url:'/about/'
+      url:'/about-reverso/'
     }
   ].map(item =>
     <MainNavLink

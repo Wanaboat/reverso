@@ -56,7 +56,10 @@
     "sharing_image": {
       "type": "Image",
       "config": {
-        "constraint": {},
+        "constraint": {
+          "width": 1200,
+          "height": 630
+        },
         "thumbnails": [],
         "label": "Sharing image"
       }
@@ -74,7 +77,8 @@
           "newsletter_form": [],
           "summary_links": [],
           "figures": [],
-          "gallery": []
+          "gallery": [],
+          "horizontal_buttons": []
         },
         "choices": {
           "wysiwyg": {
@@ -294,6 +298,36 @@
                   "constraint": {},
                   "thumbnails": [],
                   "label": "Picture"
+                }
+              }
+            }
+          },
+          "horizontal_buttons": {
+            "type": "Slice",
+            "fieldset": "Horizontal Buttons",
+            "description": "List of horizontal buttons",
+            "icon": "add_box",
+            "display": "grid",
+            "non-repeat": {},
+            "repeat": {
+              "button_image": {
+                "type": "Image",
+                "config": {
+                  "constraint": {},
+                  "thumbnails": [],
+                  "label": "Button image"
+                }
+              },
+              "button_label": {
+                "type": "Text",
+                "config": {
+                  "label": "button label"
+                }
+              },
+              "button_target": {
+                "type": "Link",
+                "config": {
+                  "label": "Button target"
                 }
               }
             }

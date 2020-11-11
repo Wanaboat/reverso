@@ -48,9 +48,9 @@ const PageTpl = (props) => {
         borderColor='gray.200'
       >
         <Box
-          py='2rem'
+          py={{ xs:'.5rem', lg:'2rem' }}
           color='gray.900'
-          display={{ xs: 'none', md: 'block' }}
+          display={{ xs: 'block', md: 'block' }}
         >
           <Breadcrumbs
             node={props.data.prismicPage}
@@ -60,14 +60,17 @@ const PageTpl = (props) => {
       </Wrapper>
       <Wrapper>
         <Heading
-          my='3rem'
-          as='h1'>
+          my={{ xs:'.5rem', lg:'3rem' }}
+          as='h1'
+          fontWeight='900'
+        >
           {data.prismicPage.data.title.text}
           {data.prismicPage.data.title_suffix ? 
             <Text
               as='span'
               color='brand.1'
               fontWeight='900'
+              fontFamily='Roboto'
             >
                 &nbsp;{ data.prismicPage.data.title_suffix }
             </Text>
@@ -164,6 +167,21 @@ query pageQuery($prismicId: ID) {
                   image_2 { localFile { childImageSharp { fixed { src srcWebp } } } }
                 }
               }
+              ... on PrismicPageBodyHorizontalButtons{
+                items{
+                  button_image{
+                    localFile{ childImageSharp{ fixed(width: 300, height: 600){ src srcWebp } }}
+                  }
+                  button_label
+                  button_target{
+                    document{
+                      ... on PrismicPage{
+                        prismicId
+                      }
+                    }
+                  }
+                }
+              }
               ... on PrismicPageBodyFigures {
                 primary {
                   title1 {
@@ -217,6 +235,7 @@ query pageQuery($prismicId: ID) {
               ... on PrismicPageBodyImageAndText {
                 primary {
                   anchor
+                  reverse_position
                   background_color
                   content { raw }
                   button_label

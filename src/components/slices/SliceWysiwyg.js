@@ -11,7 +11,7 @@ const WysiwigSlice = ({ data }) => {
             py={{ xs:'1rem', lg:'4rem' }}
         >
             <Box
-                px={{ xs:0, lg: !data.is_narrow ? '8rem' : '12rem' }}
+                px={{ xs:0, lg: !data.is_narrow ? '0' : '12rem' }}
             >
                 <Wysiwyg data={ data.content.raw } />
             </Box>

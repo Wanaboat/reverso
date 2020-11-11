@@ -52,7 +52,7 @@ const PicturesGallery = ({ pictures }) => {
 
     return (
         <Box
-            mx={{ xs: '-2rem', lg: '0' }}
+            mx={{ xs: '-1rem', lg: '0' }}
             position='relative'
         >
             <CarouselProvider

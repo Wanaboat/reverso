@@ -23,6 +23,8 @@ import {
 
 import shapeGray from '../images/shape-triangle.svg'
 import logoReversoAir from '../images/logo-reverso-air.svg'
+import logoReversoAirSeries from '../images/logo-reverso-air-series.svg'
+import logoReversoMatch from '../images/logo-reverso-match.svg'
 import Wrapper from '../components/Wrapper'
 
 import logoBoatOfTheYear from '../images/logo-boat-of-year.svg'
@@ -34,10 +36,6 @@ import ButtonConfig from '../components/Buttons/config'
 import ButtonOrder from '../components/Buttons/order'
 
 import SimpleQuestionForm from '../components/SimpleQuestionForm'
-
-import Reverso1 from '../images/reverso-blue.png'
-import Reverso2 from '../images/reverso-red.png'
-import Reverso3 from '../images/reverso-match.png'
 
 import VideoPlayer from '../components/VideoPlayer'
 import Gallery from '../components/Gallery'
@@ -57,6 +55,8 @@ const ProductTpl = (props) => {
 
     console.log('productData', props)
 
+    // console.log('data.versions[0].version_link', data.versions[0].version_link, linkResolver(data.versions[0].version_link.document))
+
 
     return (
         <Layout lang={props.pageContext.lang}>
@@ -65,12 +65,12 @@ const ProductTpl = (props) => {
                 <meta name='description' content={data.seo_description} />
                 <link
                     rel='canonical'
-                    href={`${process.env.BASE_URL}${ linkResolver(props.data.prismicProduct)}`}
+                    href={`${process.env.BASE_URL}${linkResolver(props.data.prismicProduct)}`}
                 />
                 {props.data.prismicProduct.alternate_languages[0] ?
                     <link
                         rel="alternate"
-                        href={`${process.env.BASE_URL}${linkResolver( props.data.prismicProduct.alternate_languages[0].raw )}`}
+                        href={`${process.env.BASE_URL}${linkResolver(props.data.prismicProduct.alternate_languages[0].raw)}`}
                         hreflang="x-default"
                     />
                     : null}
@@ -82,38 +82,47 @@ const ProductTpl = (props) => {
                     background={`url(${shapeGray}) no-repeat left top`}
                     position='relative'
                 >
-                    <PseudoBox
-                        display={{ xs: 'none', xl: 'block' }}
-                        position='absolute'
-                        top='300px'
-                        left='0'
-                        p='1rem'
-                        bg='gray.400'
-                        cursor='pointer'
-                        transition='background 300ms ease'
-                        _hover={{
-                            bg: 'brand.3',
-                            color: 'white'
-                        }}
-                    >
-                        <Icon size='30px' name='arrow-back' />
-                    </PseudoBox>
-                    <PseudoBox
-                        display={{ xs: 'none', xl: 'block' }}
-                        position='absolute'
-                        top='300px'
-                        right='0'
-                        p='1rem'
-                        bg='gray.400'
-                        cursor='pointer'
-                        transition='background 300ms ease'
-                        _hover={{
-                            bg: 'brand.3',
-                            color: 'white'
-                        }}
-                    >
-                        <Icon size='30px' name='arrow-forward' />
-                    </PseudoBox>
+                    {data.versions[0] ?
+                        <>
+                            <PseudoBox
+                                as={GatsbyLink}
+                                to={linkResolver(data.versions[0].version_link.document)}
+                                display={{ xs: 'none', xl: 'block' }}
+                                position='absolute'
+                                top='300px'
+                                left='0'
+                                p='1rem'
+                                bg='gray.400'
+                                cursor='pointer'
+                                transition='background 300ms ease'
+                                _hover={{
+                                    bg: 'brand.3',
+                                    color: 'white'
+                                }}
+                            >
+                                <Icon size='30px' name='arrow-back' />
+                            </PseudoBox>
+
+                            <PseudoBox
+                                as={GatsbyLink}
+                                to={linkResolver(data.versions[data.versions.length - 1].version_link.document)}
+                                display={{ xs: 'none', xl: 'block' }}
+                                position='absolute'
+                                top='300px'
+                                right='0'
+                                p='1rem'
+                                bg='gray.400'
+                                cursor='pointer'
+                                transition='background 300ms ease'
+                                _hover={{
+                                    bg: 'brand.3',
+                                    color: 'white'
+                                }}
+                            >
+                                <Icon size='30px' name='arrow-forward' />
+                            </PseudoBox>
+                        </>
+                    : null}
                     <Wrapper>
                         <Box
                             py='2rem'
@@ -131,7 +140,15 @@ const ProductTpl = (props) => {
                         >
                             <Stack spacing='1.5rem'>
                                 <Box mt={{ xs: '1rem', lg: '2rem' }}>
-                                    <Image src={logoReversoAir} />
+                                    <Image src={
+                                        data.logo === 'air' ?
+                                            logoReversoAir
+                                            : data.logo === 'series' ?
+                                                logoReversoAirSeries
+                                                : data.logo === 'match' ?
+                                                    logoReversoMatch
+                                                    : logoReversoAir
+                                    } />
                                 </Box>
                                 <Box>
                                     <Text as='div'>
@@ -170,13 +187,10 @@ const ProductTpl = (props) => {
                                             <FormattedMessage id="pricing.and.boat.configuration" />
                                         </ButtonConfig>
                                     </Box>
-                                    <Box
-                                        display={{ xs: 'none', lg: 'flex' }}
-                                    >
+                                    <Box>
                                         <ButtonOrder>
                                             <FormattedMessage id="order.now" />
                                         </ButtonOrder>
-
                                     </Box>
                                 </Stack>
 
@@ -188,7 +202,7 @@ const ProductTpl = (props) => {
                                 <AspectRatioBox
                                     w='100%'
                                     maxW="560px"
-                                    ratio={1}
+                                    ratio={700 / 500}
                                 >
                                     <Box
                                         as='picture'
@@ -351,10 +365,8 @@ const ProductTpl = (props) => {
                                 </SimpleGrid>
                             </Box>
 
-
-
                             <SimpleGrid
-                                columns={2}
+                                columns={{ xs: 1, lg: 2 }}
                                 gap='3rem'
                             >
                                 <Box>
@@ -453,11 +465,12 @@ query productQuery($prismicId: ID) {
             title{
                 text
             }
+            logo
             intro
             image_main {
                 localFile {
                     childImageSharp {
-                        fixed(height: 500, width: 500) { srcSet srcWebp aspectRatio base64 height originalName src srcSetWebp tracedSVG width }
+                        fixed(height: 500, width: 700) { srcSet srcWebp aspectRatio base64 height originalName src srcSetWebp tracedSVG width }
                         fluid {
                             ...GatsbyImageSharpFluid_noBase64
                             aspectRatio base64 originalImg originalName presentationHeight presentationWidth sizes src srcSet srcSetWebp srcWebp tracedSVG }                }
