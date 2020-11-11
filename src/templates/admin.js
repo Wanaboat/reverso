@@ -2,16 +2,16 @@ import React, { useEffect, useState } from 'react'
 import Layout from '../components/layout'
 
 import { Box, Button, Flex, Heading, Image, Stack, Text } from '@chakra-ui/core'
-import { getAllContacts } from '../api';
+// import { getAllContacts } from '../api';
 
 const AdminTpl = (props) => {
     const [contacts, setContacts] = useState(false)
 
     useEffect(() => {
-        getAllContacts.then(res => {
-            setContacts(res);
-            console.log(res);
-        });
+        // getAllContacts.then(res => {
+        //     setContacts(res);
+        //     console.log(res);
+        // });
     }, []);
     return (
         <Layout lang={props.pageContext.lang}>
