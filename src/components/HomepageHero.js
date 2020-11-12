@@ -123,7 +123,7 @@ const HomepageHero = (props) => {
                         templateColumns={{ xs: '100%', lg: '50% 50%' }}
                     >
                         <Box
-                            mt={{ xs:'-1rem', lg:'auto'}}
+                            mt={{ xs:'-1rem', lg:'0'}}
                         >
                             <Box
                                 as='figure'
@@ -133,7 +133,7 @@ const HomepageHero = (props) => {
                                 
                                 <Box
                                     as='picture'
-                                    transform={{ lg:'translateY( -10rem )' }}
+                                    transform={{ lg:'translateY( -6rem )' }}
                                     display='block'
                                     margin='0'
                                     
@@ -176,57 +176,26 @@ const HomepageHero = (props) => {
                                     {data.secondary_title.text}
                                 </Heading>
 
-                                    <List spacing='1rem'>
-                                        {second_args_list.map(list =>
-                                            <ListItem>
-                                                <Text
-                                                    textTransform='uppercase'
-                                                    fontWeight='600'
-                                                >
-                                                    {list.question}
-                                                </Text>
-                                                <Wysiwyg
-                                                    data={ list.answer.raw }
-                                                />
-                                                {/* <Text>
-                                                    {list.answer}
-                                                </Text> */}
-                                            </ListItem>
-                                        )}
-                                    </List>
-                                    {/* <Text
-                                        textTransform='uppercase'
-                                        fontWeight='600'
-                                    >
-                                        → sailing with kids ?
-                                    </Text>
-                                    <Text>
-                                        Kids love the Reverso since they feel protected in the large and safe cockpit. They’ll be able to helm
-                                    </Text>
-                                    <Text
-                                        textTransform='uppercase'
-                                        fontWeight='600'
-                                    >
-                                        → sailing with 2 crew ?
-                                    </Text>
-                                    <Text>
-                                        Of course ! Besides being super easy to handle, the Reverso Air took us over 16.2 kts. would you dare trying to smash that record ?
-                                    </Text>
-                                    <Text
-                                        textTransform='uppercase'
-                                        fontWeight='600'
-                                    >
-                                        → performance sailing ?
-                                    </Text>
-                                    <Text>
-                                        Hell yeah ! Besides being super easy to handle, the Reverso Air took us over 16.2 kts. would you dare trying to smash that record ?
-                                    </Text>
-                                    <Text
-                                        textTransform='uppercase'
-                                        fontWeight='600'
-                                    >
-                                        → The trunk of my car ?
-                                    </Text> */}
+                                <List spacing='1rem'>
+                                    {second_args_list.map((list, i) =>
+                                        <ListItem
+                                            key={`homeHeroSecondArgs-${i}`}
+                                        >
+                                            <Text
+                                                textTransform='uppercase'
+                                                fontWeight='600'
+                                            >
+                                                {list.question}
+                                            </Text>
+                                            <Wysiwyg
+                                                data={ list.answer.raw }
+                                            />
+                                            {/* <Text>
+                                                {list.answer}
+                                            </Text> */}
+                                        </ListItem>
+                                    )}
+                                </List>
                                 <Box>
                                     <BtnPrimary>
                                         One boat - multiple purposes

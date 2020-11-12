@@ -18,7 +18,7 @@ const PicturesGallery = ({ pictures }) => {
             const img = arr[index];
             cleanArray.push(
                 {
-                    src: img.picture.localFile.childImageSharp.fixed.src,
+                    src: img.picture.localFile ? img.picture.localFile.childImageSharp.fixed.src : img.picture.fixed.src,
                     width: img.picture.dimensions.width,
                     height: img.picture.dimensions.height,
                 }

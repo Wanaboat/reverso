@@ -1,20 +1,7 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import Helmet from 'react-helmet'
 import Layout from '../components/layout'
-
-import {
-    Box,
-    Flex,
-    Heading
-} from '@chakra-ui/core'
-
 import HomepageHero from '../components/HomepageHero'
-// import NewsletterForm from '../components/NewsletterForm'
-
-import SliceBannerAndDescription from '../components/slices/BannerAndDescription'
-import SliceNewsletterSubscription from '../components/slices/SliceNewsletterSubscription'
-import SliceLogosList from '../components/slices/SliceLogosList'
-import SliceCenteredOneColumn from '../components/slices/CenteredOneColumn'
 import SliceEngine from '../components/slices/Engine'
 
 const HomeTpl = (props) => {
@@ -81,7 +68,7 @@ query HpQuery($langIso:String!) {
                 }
                 items{
                   logo_item{
-                    localFile{ childImageSharp{ fixed( height: 120) { src, srcWebp }}}
+                    localFile{ childImageSharp{ fixed( height: 80) { src, srcWebp }}}
                   }
                 }
               }

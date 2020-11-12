@@ -3,6 +3,7 @@
 import React, { useEffect } from 'react'
 import { navigate, useStaticQuery } from 'gatsby'
 import { usePrismicPreview } from 'gatsby-source-prismic'
+import { linkResolver } from '../prismic-configuration'
 
 // Note that the `location` prop is taken and provided to the `usePrismicPreview` hook.
 const PreviewPage = ({ location }) => {
@@ -19,12 +20,12 @@ const PreviewPage = ({ location }) => {
     }
   `)
 
-  console.log( 'allSitePage', allSitePage )
+  console.log('allSitePage', allSitePage)
 
   console.log('location', location)
   const allPaths = allSitePage.nodes.map((node) => node.path)
 
-  console.log( 'allPaths', allPaths )
+  console.log('allPaths', allPaths)
 
 
   const { isPreview, previewData, path } = usePrismicPreview({
@@ -32,7 +33,7 @@ const PreviewPage = ({ location }) => {
     repositoryName: 'reverso',
   })
 
-  console.log( isPreview, previewData, path );
+  console.log(isPreview, previewData, path);
 
   // This useEffect runs when values from usePrismicPreview update. When
   // preview data is available, this will save the data globally and redirect to
@@ -52,19 +53,43 @@ const PreviewPage = ({ location }) => {
 
     // navigate( `/${previewData.prismicPage.uid}` )
 
-    allPaths.forEach(path => {
-        if( path.includes( previewData.prismicPage.uid ) ){
-            navigate(`${ path }`)
-        }
-        
-    });
+    if (previewData.prismicPage) {
+      navigate(linkResolver(previewData.prismicPage))
+    }
+
+    else if (previewData.prismicProduct) {
+        navigate(linkResolver(previewData.prismicProduct))
+    }
+    else{
+      navigate( `/` )
+    }
+
+
+
+    // allPaths.forEach(path => {
+    //   if (previewData.prismicPage.prismicId) {
+    //     if (path.includes(previewData.prismicPage.uid)) {
+    //       navigate(linkResolver(prismicId))
+    //     }
+    //   }
+
+    //   if (previewData.prismicProduct.uid) {
+    //     if (path.includes(previewData.prismicProduct.uid)) {
+    //       // navigate(`${ path }`)
+    //       navigate(linkResolver(prismicId))
+
+    //     }
+    //   }
+
+
+    // });
 
     // Navigate to the document's page if page exists.
-    if (allPaths.includes(previewData.prismicPage.uid)) {
-        navigate( `/${previewData.prismicPage.uid}`)
-    } else {
-    //   navigate('/')
-    }
+    // if (allPaths.includes(previewData.prismicPage.uid)) {
+    //   navigate(`/${previewData.prismicPage.uid}`)
+    // } else {
+    //   //   navigate('/')
+    // }
   }, [isPreview, previewData, path])
 
   // Tell the user if this is not a preview.

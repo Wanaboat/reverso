@@ -7,7 +7,6 @@ import {
 } from '@chakra-ui/core'
 
 const LogosList = ( props ) => {
-    console.log( 'logosList', props )
     return(
         <Box
             py='2rem'
@@ -25,9 +24,13 @@ const LogosList = ( props ) => {
                 justifyContent='center'
             >
                 { props.items.map( item =>
-                    <Box mx='1rem'>
+                    <Box
+                        key={ item.logo_item.localFile.childImageSharp.fixed.src }
+                        mx='1.5rem'>
                         <Image
+                            h='60px'
                             src={ item.logo_item.localFile.childImageSharp.fixed.src }
+                            alt={ item.logo_item.alt }
                         />
                     </Box>
                 )}
@@ -37,5 +40,3 @@ const LogosList = ( props ) => {
 }
 
 export default LogosList
-
-

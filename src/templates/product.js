@@ -47,13 +47,15 @@ import { FormattedMessage } from 'react-intl'
 // import logoAudiAwards from '../images/logo-audi-awards.svg'
 import Hierarchy from '../components/hierachyProduct'
 import { linkResolver } from '../prismic-configuration'
+import usePreviewData from '../utils/usePreviewData'
 
 const ProductTpl = (props) => {
 
+    const {data} = usePreviewData(props.data.prismicProduct)
 
-    const { data } = props.data.prismicProduct
+    // const { data } = props.data.prismicProduct.data
 
-    console.log('productData', props)
+    console.log('productData', data)
 
     // console.log('data.versions[0].version_link', data.versions[0].version_link, linkResolver(data.versions[0].version_link.document))
 
@@ -207,30 +209,26 @@ const ProductTpl = (props) => {
                                     <Box
                                         as='picture'
                                     >
-                                        <source type='image/jpeg' srcSet={data.image_main.localFile.childImageSharp.fixed.srcSetWebp} />
-                                        <source type='image/webp' srcSet={data.image_main.localFile.childImageSharp.fixed.srcSet} />
+                                        { data.image_main.localFile ? 
+                                            <>
+                                                <source type='image/jpeg' srcSet={data.image_main.localFile.childImageSharp.fixed.srcSetWebp} />
+                                                <source type='image/webp' srcSet={data.image_main.localFile.childImageSharp.fixed.srcSet} />
+                                            </>
+                                        : null}
                                         <Image
                                             display='block'
                                             m='0'
                                             src={
-                                                data.image_main.localFile.childImageSharp.fixed.src
+                                                data.image_main.localFile ?
+                                                    data.image_main.localFile.childImageSharp.fixed.src
+                                                :
+                                                    data.image_main.fixed.src   
                                             }
                                         />
                                     </Box>
                                 </AspectRatioBox>
 
-                                {/* <Img
-                                    style={{
-                                        maxWidth: '100%',
-                                        objectFit: 'contain'
-                                    }}
-                                    // fixed={
-                                    //     props.image2.localFile.childImageSharp.fixed
-                                    // }
-                                    fluid={
-                                        data.image_main.localFile.childImageSharp.fluid
-                                    }
-                                /> */}
+                             
                             </Box>
                         </Grid>
 
@@ -292,9 +290,18 @@ const ProductTpl = (props) => {
                                                 }}
                                             >
                                                 <Box as='picture'>
-                                                    <source type="image/jpeg" srcSet={version.version_link.document.data.image_main.localFile.childImageSharp.fixed.src} />
-                                                    <source type="image/webp" srcSet={version.version_link.document.data.image_main.localFile.childImageSharp.fixed.srcWebp} />
-                                                    <Image w='50px' src={version.version_link.document.data.image_main.localFile.childImageSharp.fixed.src} />
+
+                                                    { version.version_link.document.data.image_main.localFile ? 
+                                                        <>
+                                                            <source type='image/jpeg' srcSet={data.image_main.localFile.childImageSharp.fixed.srcSetWebp} />
+                                                            <source type='image/webp' srcSet={data.image_main.localFile.childImageSharp.fixed.srcSet} />
+                                                        </>
+                                                    : null}
+                                                    <Image w='50px' src={
+                                                        version.version_link.document.data.image_main.localFile
+                                                            ? version.version_link.document.data.image_main.localFile.childImageSharp.fixed.src
+                                                            : version.version_link.document.data.image_main.fixed.src
+                                                    } />
                                                 </Box>
                                                 <Flex
                                                     pr='1rem'
@@ -468,6 +475,9 @@ query productQuery($prismicId: ID) {
             logo
             intro
             image_main {
+                fixed{
+                    src
+                }
                 localFile {
                     childImageSharp {
                         fixed(height: 500, width: 700) { srcSet srcWebp aspectRatio base64 height originalName src srcSetWebp tracedSVG width }
@@ -490,6 +500,7 @@ query productQuery($prismicId: ID) {
                       prismicId
                       data{
                         image_main{
+                          fixed{ src }
                           localFile{
                             childImageSharp{
                               fixed( width: 100, height: 100){
@@ -518,6 +529,7 @@ query productQuery($prismicId: ID) {
             gallery_list {
                 picture {
                 alt
+                fixed{ src }
                 localFile {
                     publicURL
                     childImageSharp {

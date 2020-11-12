@@ -14,7 +14,7 @@ const Header = ({ siteTitle }) => (
     bg='gray.900'
     color='white'
     p={{ lg:'1rem' }}
-    py='1rem'
+    py={{ xs:'0rem', lg:'1rem' }}
     position={{ xs:'fixed', lg:'initial'}}
     top='0'
     left='0'
