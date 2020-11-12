@@ -127,7 +127,7 @@ const ProductTpl = (props) => {
                     : null}
                     <Wrapper>
                         <Box
-                            py='2rem'
+                            py='1rem'
                             display={{ xs: 'none', lg: 'block' }}
                         >
                             <Breadcrumbs
@@ -169,7 +169,7 @@ const ProductTpl = (props) => {
                                 <Box>
                                     <List
                                         spacing='1rem'
-                                        listStyleType='circle'
+                                        listStyleType='disc'
                                     >
                                         {data.args_list.map(arg =>
                                             <ListItem>
@@ -234,12 +234,12 @@ const ProductTpl = (props) => {
 
                         <Grid templateColumns={{ xs: '100%', lg: '1fr 1fr' }} gap='2rem'>
                             <Box>
-                                <Heading
+                                {/* <Heading
                                     fontWeight='900'
                                 >
                                     <FormattedMessage id='awards' />
 
-                                </Heading>
+                                </Heading> */}
                                 <Stack
                                     py='1.5rem'
                                     isInline
@@ -253,11 +253,11 @@ const ProductTpl = (props) => {
                             </Box>
 
                             <Box>
-                                <Heading
+                                {/* <Heading
                                     fontWeight='900'
                                 >
                                     <FormattedMessage id='other.versions' />
-                                </Heading>
+                                </Heading> */}
 
                                 <Grid
                                     spacing='1rem'
