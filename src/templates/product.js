@@ -346,6 +346,7 @@ const ProductTpl = (props) => {
                             <Box>
                                 <Heading
                                     fontWeight='900'
+                                    textTransform='uppercase'
                                 >
                                     <FormattedMessage id='boat.program' />
                                 </Heading>
@@ -359,7 +360,8 @@ const ProductTpl = (props) => {
                                             <Heading
                                                 fontWeight='400'
                                                 fontFamily='hind'
-                                                fontSize='18px'
+                                                fontSize='24px'
+                                                letterSpacing='0.15rem'
                                                 textTransform='uppercase'
                                             >
                                                 {arg.title}

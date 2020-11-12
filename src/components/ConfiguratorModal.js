@@ -11,7 +11,7 @@ import {
     ModalBody,
     ModalCloseButton,
 } from "@chakra-ui/core";
-import { FormattedMessage } from 'react-intl';
+import { FormattedMessage, useIntl } from 'react-intl';
 
 const GalleryModal = ({ handleClose }) => {
     // console.log( 'pictures', pictures )
@@ -32,6 +32,10 @@ const GalleryModal = ({ handleClose }) => {
     //       document.removeEventListener("keydown", keyPressFunction, false);
     //     };
     //   }, []);
+
+    const locale = useIntl().locale
+
+    console.log('GalleryModalLocale', locale)
 
     return (
         <Modal
@@ -87,7 +91,7 @@ const GalleryModal = ({ handleClose }) => {
                             w='100vw'
                             h='600px'
                             // ratio={4 / 3}
-                            src='https://reversoproject.typeform.com/to/Gp9WdB?typeform-embed=popup-drawer&typeform-embed-id=tj8kb'
+                            src='https://form.typeform.com/to/BC6lkfG6'
                             // ratio={16/9}
                         />
                     </Box>

@@ -61,7 +61,7 @@ const Faq = ({ variant }) => {
                         <Icon
                             name='add'
                             transition='all 200ms ease'
-                            transform={ index === openItem  ? 'rotate(45deg)' : 'rotate(90deg)'}
+                            // transform={ index === openItem  ? 'rotate(45deg)' : 'rotate(90deg)'}
                         />
                     </Button>
                 </Flex>
