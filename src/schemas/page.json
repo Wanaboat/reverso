@@ -78,7 +78,8 @@
           "summary_links": [],
           "figures": [],
           "gallery": [],
-          "horizontal_buttons": []
+          "horizontal_buttons": [],
+          "logos_list": []
         },
         "choices": {
           "wysiwyg": {
@@ -328,6 +329,31 @@
                 "type": "Link",
                 "config": {
                   "label": "Button target"
+                }
+              }
+            }
+          },
+          "logos_list": {
+            "type": "Slice",
+            "fieldset": "Logos list",
+            "description": "An horizontal logos list",
+            "icon": "add_box",
+            "display": "list",
+            "non-repeat": {
+              "logo_list_title": {
+                "type": "Text",
+                "config": {
+                  "label": "logo_list_title"
+                }
+              }
+            },
+            "repeat": {
+              "logo_item": {
+                "type": "Image",
+                "config": {
+                  "constraint": {},
+                  "thumbnails": [],
+                  "label": "Logo item"
                 }
               }
             }

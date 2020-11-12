@@ -10,7 +10,8 @@ import {
     IllustratedButtons,
     SummaryLinks,
     Figures,
-    FourImgButtons
+    FourImgButtons,
+    LogosList
   } from './all'
   
 
@@ -30,7 +31,9 @@ const Engine = ({ data }) => {
         PrismicPageBodySummaryLinks: SummaryLinks,
 
         PrismicPageBodyFigures: Figures,
-        PrismicPageBodyHorizontalButtons: FourImgButtons
+        PrismicPageBodyHorizontalButtons: FourImgButtons,
+
+        PrismicHomepageBodyLogosList: LogosList
 
         
     }
@@ -46,7 +49,7 @@ const Engine = ({ data }) => {
                                 : slice.items ? slice.items
                                     :null
                     }
-                    //   items={ slice.items }
+                    items={ slice.items ? slice.items : null }
                     //   lastPosts={ posts }
                     //   products= { products}
                       key={`${slice.__typename}-${index}`}

@@ -75,72 +75,82 @@ query HpQuery($langIso:String!) {
         #dataRaw
         data {
             body {
-                ... on PrismicHomepageBodySummaryLinks {
-                  id
-                  items {
-                    link {
-                      document {
-                        ... on PrismicPage{
-                          prismicId
-                          data{
-                            title {
-                              html
-                              text
-                              raw
-                            }
-                          }
-                        }
-                        ... on PrismicProduct{
-                          prismicId
-                          data{
-                            title {
-                              html
-                              text
-                              raw
-                            }
+              ... on PrismicHomepageBodyLogosList{
+                primary{
+                  logo_list_title
+                }
+                items{
+                  logo_item{
+                    localFile{ childImageSharp{ fixed( height: 120) { src, srcWebp }}}
+                  }
+                }
+              }
+              ... on PrismicHomepageBodySummaryLinks {
+                id
+                items {
+                  link {
+                    document {
+                      ... on PrismicPage{
+                        prismicId
+                        data{
+                          title {
+                            html
+                            text
+                            raw
                           }
                         }
                       }
-                    }
-                  }
-                }
-                ... on PrismicHomepageBodyWysiwyg {
-                  primary {
-                    content {
-                      html
-                      raw
-                    }
-                  }
-                }
-                ... on PrismicHomepageBodyImageAndText {
-                  primary {
-                    reverse_position
-                    background_color
-                    content { raw }
-                    button_label
-                    button_target {
-                      document{
-                        ... on PrismicHomepage{
-                          prismicId
-                        }
-                        ... on PrismicProduct{
-                          prismicId
+                      ... on PrismicProduct{
+                        prismicId
+                        data{
+                          title {
+                            html
+                            text
+                            raw
+                          }
                         }
                       }
-                    }
-                    image1{
-                        alt
-                        localFile {
-                            childImageSharp {
-                                fixed(height: 400, width: 600) {
-                                    src
-                                }
-                            }
-                        }
                     }
                   }
                 }
               }
+              ... on PrismicHomepageBodyWysiwyg {
+                primary {
+                  content {
+                    html
+                    raw
+                  }
+                }
+              }
+              ... on PrismicHomepageBodyImageAndText {
+                primary {
+                  reverse_position
+                  background_color
+                  content { raw }
+                  button_label
+                  button_target {
+                    document{
+                      ... on PrismicHomepage{
+                        prismicId
+                      }
+                      ... on PrismicProduct{
+                        prismicId
+                      }
+                    }
+                  }
+                  image1{
+                      alt
+                      localFile {
+                          childImageSharp {
+                              fixed(height: 400, width: 600) {
+                                  src
+                              }
+                          }
+                      }
+                  }
+                }
+              }
+            }
 
             seo_title
             seo_description

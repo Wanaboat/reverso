@@ -5,6 +5,7 @@ import IllustratedButtons from './TwoImgButtons'
 import SummaryLinks from './SummaryLinks'
 import Figures from './Figures'
 import FourImgButtons from './FourImgButtons'
+import LogosList from './LogosList'
 // import BannerWithCaption from './BannerWithCaption'
 // import BodyText from './BodyText'
 // import ImageGallery from './ImageGallery'
@@ -20,5 +21,6 @@ export {
     FourImgButtons,
     SliceWysiwyg,
     SummaryLinks,
-    Figures
+    Figures,
+    LogosList
 }

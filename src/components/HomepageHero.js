@@ -21,7 +21,7 @@ import Wysiwyg from './Wysiwyg'
 const HomepageHero = (props) => {
     const { data, args_list, second_args_list } = props
     
-    console.log('HeroProps', second_args_list)
+    console.log('HeroProps', data)
 
     // console.log( props.data.image1.localFile )
     return (
@@ -173,7 +173,7 @@ const HomepageHero = (props) => {
                                     fontSize='24px'
                                     mb='1rem'
                                 >
-                                    {data.secondary_titletext}
+                                    {data.secondary_title.text}
                                 </Heading>
 
                                     <List spacing='1rem'>
