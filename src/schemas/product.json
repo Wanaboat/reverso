@@ -141,7 +141,8 @@
       "fieldset": "Slice zone",
       "config": {
         "labels": {
-          "wysiwyg": []
+          "wysiwyg": [],
+          "accordion": []
         },
         "choices": {
           "wysiwyg": {
@@ -151,11 +152,41 @@
             "icon": "add_box",
             "display": "list",
             "non-repeat": {
+              "accordion_link": {
+                "type": "Link",
+                "config": {
+                  "select": "document",
+                  "customtypes": [
+                    "accordion"
+                  ],
+                  "label": "Accordion link"
+                }
+              },
               "content": {
                 "type": "StructuredText",
                 "config": {
                   "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
                   "label": "content"
+                }
+              }
+            },
+            "repeat": {}
+          },
+          "accordion": {
+            "type": "Slice",
+            "fieldset": "Accordion",
+            "description": "Link to an accordion element",
+            "icon": "add_box",
+            "display": "list",
+            "non-repeat": {
+              "accordion_link": {
+                "type": "Link",
+                "config": {
+                  "select": "document",
+                  "customtypes": [
+                    "accordion"
+                  ],
+                  "label": "Accordion link"
                 }
               }
             },

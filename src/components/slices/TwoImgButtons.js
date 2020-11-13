@@ -41,10 +41,11 @@ const TwoImgButtons = ( props ) => {
                             w='100%'
                             color='white'
                             bg='rgba(0,0,0,0.3)'
-                            fontSize={{ xs: '18px', lg: '48px' }}
+                            fontSize={{ xs: '18px', lg: '40px' }}
                             lineHeight={{ lg: '3rem' }}
                             textTransform='uppercase'
-                            fontWeight='bold'
+                            fontWeight='900'
+                            fontFamily='Roboto'
                             p={{ xs:'1rem', lg:'2rem' }}
                             transition='all 200ms ease'
                             _groupHover={{ pl: "4rem" }}
@@ -86,10 +87,10 @@ const TwoImgButtons = ( props ) => {
                             w='100%'
                             color='white'
                             bg='rgba(0,0,0,0.3)'
-                            fontSize={{ xs: '18px', lg: '48px' }}
+                            fontSize={{ xs: '18px', lg: '40px' }}
                             lineHeight={{ lg: '3rem' }}
-                            textTransform='uppercase'
-                            fontWeight='bold'
+                            fontWeight='900'
+                            fontFamily='Roboto'
                             p={{ xs:'1rem', lg:'2rem' }}
                             transition='all 200ms ease'
                             _groupHover={{ pl: "4rem" }}

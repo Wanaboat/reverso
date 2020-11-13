@@ -9,7 +9,7 @@ const VideoPlayer = ({ src, poster }) => {
             <video
                 width="100%"
                 height="100%"
-                autoplay
+                autoPlay
                 controls
                 poster={ poster }
             >

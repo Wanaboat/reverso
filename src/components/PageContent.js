@@ -15,7 +15,7 @@ import Img1 from '../images/reverso-shooting-1.jpg'
 import Img2 from '../images/reverso-shooting-2.jpg'
 import BtnPrimary from './Buttons/primary'
 import SliceBannerAndDescription from '../components/slices/BannerAndDescription'
-import Faq from '../components/Faq'
+import Faq from '../components/FaqSimple'
 import Carousel from '../components/Carousel'
 import ConfigBanner from '../components/slices/ConfigBanner'
 const PageContent = () => {

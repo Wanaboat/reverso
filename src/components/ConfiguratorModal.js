@@ -91,7 +91,7 @@ const GalleryModal = ({ handleClose }) => {
                             w='100vw'
                             h='600px'
                             // ratio={4 / 3}
-                            src='https://form.typeform.com/to/BC6lkfG6'
+                            src={ locale === 'fr' ? 'https://form.typeform.com/to/BC6lkfG6' : 'https://form.typeform.com/to/BC6lkfG6' } 
                             // ratio={16/9}
                         />
                     </Box>

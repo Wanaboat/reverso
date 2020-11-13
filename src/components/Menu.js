@@ -61,6 +61,7 @@ const Menu = ({ lang }) => {
     }
   ].map(item =>
     <MainNavLink
+      key={ item.url }
       to={ item.url }
     >
       {item.label}

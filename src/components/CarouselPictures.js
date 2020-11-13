@@ -28,12 +28,14 @@ const PicturesGallery = ({ pictures }) => {
         return cleanArray
     }
     const photos = formatArray(pictures)
-    console.log('photos', photos)
     const Items = () => {
         return (
 
             photos.map((item, index) =>
-                <Slide index={index}>
+                <Slide
+                    index={index}
+                    key={`carousel-picture-item-${index}`}
+                >
                     <Box
                         // p={{ xs: '1rem 4rem' }}
                         position='relative'

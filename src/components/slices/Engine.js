@@ -11,22 +11,26 @@ import {
     SummaryLinks,
     Figures,
     FourImgButtons,
-    LogosList
-  } from './all'
-  
+    LogosList,
+    Accordion
+} from './all'
+
 
 const Engine = ({ data }) => {
 
     const sliceComponents = {
         PrismicPageBodyWysiwyg: SliceWysiwyg,
         PrismicHomepageBodyWysiwyg: SliceWysiwyg,
+        PrismicProductBodyWysiwyg: SliceWysiwyg,
+
+        PrismicProductBodyAccordion: Accordion,
 
         PrismicPageBodyNewsletterForm: NewsletterForm,
         PrismicHomepageBodyNewsletterForm: NewsletterForm,
 
         PrismicPageBodyImageAndText: ImageAndText,
         PrismicHomepageBodyImageAndText: ImageAndText,
-        
+
         PrismicPageBodyTwoIllustratedButtons: IllustratedButtons,
         PrismicPageBodySummaryLinks: SummaryLinks,
 
@@ -35,35 +39,35 @@ const Engine = ({ data }) => {
 
         PrismicHomepageBodyLogosList: LogosList
 
-        
+
     }
 
-    const Slices = data.map( (slice, index) =>{
-        console.log( 'slice', slice )
+    const Slices = data.map((slice, index) => {
+        console.log('slice', slice)
         const SliceComponent = sliceComponents[slice.__typename]
-            if (SliceComponent) {
-                return(    
-                    <SliceComponent
-                      data={
-                            slice.primary ? slice.primary
-                                : slice.items ? slice.items
-                                    :null
+        if (SliceComponent) {
+            return (
+                <SliceComponent
+                    data={
+                        slice.primary ? slice.primary
+                            : slice.items ? slice.items
+                                : null
                     }
-                    items={ slice.items ? slice.items : null }
+                    items={slice.items ? slice.items : null}
                     //   lastPosts={ posts }
                     //   products= { products}
-                      key={`${slice.__typename}-${index}`}
-                    />
-                )  
-            }else{
-                return(<Box>Component not found: {slice.__typename}</Box>)
-            }
+                    key={`${slice.__typename}-${index}`}
+                />
+            )
+        } else {
+            return (<Box>Component not found: {slice.__typename}</Box>)
+        }
     }
-       
+
     )
-    return(
+    return (
         <Box>
-            {Slices}
+            { Slices}
         </Box>
     )
 }

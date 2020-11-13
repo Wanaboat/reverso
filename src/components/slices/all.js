@@ -6,6 +6,7 @@ import SummaryLinks from './SummaryLinks'
 import Figures from './Figures'
 import FourImgButtons from './FourImgButtons'
 import LogosList from './LogosList'
+import Accordion from './Accordion'
 // import BannerWithCaption from './BannerWithCaption'
 // import BodyText from './BodyText'
 // import ImageGallery from './ImageGallery'
@@ -14,7 +15,8 @@ import LogosList from './LogosList'
 // import ProductsList from './ProductsList'
 // import Video from './Video'
 
-export { 
+export {
+    Accordion,
     IllustratedButtons,
     ImageAndText,
     NewsletterForm,

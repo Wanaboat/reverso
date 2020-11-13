@@ -11,7 +11,7 @@ import {
 
 import Wrapper from '../components/Wrapper'
 
-const Faq = ({ variant }) => {
+const FaqAdvanced = ({ variant }) => {
 
     const [ openItem, setOpenItem ] = useState( false )
 
@@ -66,7 +66,6 @@ const Faq = ({ variant }) => {
                     </Button>
                 </Flex>
             </Box>
-
         )
         )
     }
@@ -81,4 +80,4 @@ const Faq = ({ variant }) => {
     )   
 }
 
-export default Faq
+export default FaqAdvanced

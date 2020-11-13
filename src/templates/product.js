@@ -29,13 +29,14 @@ import Wrapper from '../components/Wrapper'
 
 import logoBoatOfTheYear from '../images/logo-boat-of-year.svg'
 import logoAudiAwards from '../images/logo-audi-awards.svg'
-import Faq from '../components/Faq'
+import FaqSimple from '../components/FaqSimple'
 import Carousel from '../components/Carousel'
 
 import ButtonConfig from '../components/Buttons/config'
 import ButtonOrder from '../components/Buttons/order'
 
 import SimpleQuestionForm from '../components/SimpleQuestionForm'
+// import Accordion from '../components/Accordion'
 
 import VideoPlayer from '../components/VideoPlayer'
 import Gallery from '../components/Gallery'
@@ -46,6 +47,10 @@ import Wysiwyg from '../components/Wysiwyg'
 import { FormattedMessage } from 'react-intl'
 // import logoAudiAwards from '../images/logo-audi-awards.svg'
 import Hierarchy from '../components/hierachyProduct'
+import AccordionQuery from '../fragments/accordion'
+
+import SliceEngine from '../components/slices/Engine'
+
 import { linkResolver } from '../prismic-configuration'
 import usePreviewData from '../utils/usePreviewData'
 
@@ -171,8 +176,10 @@ const ProductTpl = (props) => {
                                         spacing='1rem'
                                         listStyleType='disc'
                                     >
-                                        {data.args_list.map(arg =>
-                                            <ListItem>
+                                        {data.args_list.map((arg,index) =>
+                                            <ListItem
+                                                key={`args-list-item-${index}`}
+                                            >
                                                 {arg.item}
                                             </ListItem>
 
@@ -195,7 +202,6 @@ const ProductTpl = (props) => {
                                         </ButtonOrder>
                                     </Box>
                                 </Stack>
-
                             </Stack>
                             <Box
                                 // bg='gray.50'
@@ -227,11 +233,8 @@ const ProductTpl = (props) => {
                                         />
                                     </Box>
                                 </AspectRatioBox>
-
-                             
                             </Box>
                         </Grid>
-
                         <Grid templateColumns={{ xs: '100%', lg: '1fr 1fr' }} gap='2rem'>
                             <Box>
                                 {/* <Heading
@@ -267,8 +270,9 @@ const ProductTpl = (props) => {
 
                                 >
                                     {
-                                        data.versions.map(version =>
+                                        data.versions.map((version, index) =>
                                             <PseudoBox
+                                                key={`versions-list-item-${index}`}
                                                 as={GatsbyLink}
                                                 to={linkResolver(version.version_link.document)}
                                                 w={{ xs: '100%', lg: 'auto' }}
@@ -318,17 +322,12 @@ const ProductTpl = (props) => {
                                                     </Box>
                                                 </Flex>
                                             </PseudoBox>
-
                                         )
                                     }
                                 </Grid>
                             </Box>
                         </Grid>
-
-
-
                         <Stack mb='2rem' spacing='5rem'>
-
                             <Box>
                                 {/* <Heading
                                     fontWeight='900'
@@ -342,7 +341,6 @@ const ProductTpl = (props) => {
                                     pictures={data.gallery_list}
                                 /> */}
                             </Box>
-
                             <Box>
                                 <Heading
                                     fontWeight='900'
@@ -355,8 +353,11 @@ const ProductTpl = (props) => {
                                     gap={{ xs: '2rem', lg: '4rem' }}
                                     mt='2rem'
                                 >
-                                    {data.second_args_list.map(arg =>
-                                        <Stack spacing='1.5rem'>
+                                    {data.second_args_list.map((arg, index) =>
+                                        <Stack
+                                            spacing='1.5rem'
+                                            key={`second-args-list-item-${index}`}
+                                        >
                                             <Heading
                                                 fontWeight='400'
                                                 fontFamily='hind'
@@ -373,7 +374,6 @@ const ProductTpl = (props) => {
                                     )}
                                 </SimpleGrid>
                             </Box>
-
                             <SimpleGrid
                                 columns={{ xs: 1, lg: 2 }}
                                 gap='3rem'
@@ -403,24 +403,23 @@ const ProductTpl = (props) => {
                                     </Heading>
                                     <SimpleQuestionForm />
                                 </Box>
-
-
                             </SimpleGrid>
-
                             <Box>
                                 <Heading
                                     fontWeight='900'
                                 >Mini Faq</Heading>
-                                <Faq variant='light' />
+                                <FaqSimple variant='light' />
 
                             </Box>
-
                             <Box>
                                 {/* <Heading
                                 fontWeight='900'
                                 mb='2rem'
                             >Boring SEO content</Heading> */}
-                                <Wysiwyg content={data.body[0].primary.content.raw} />
+                                <Wysiwyg content={ data.body[0].primary.content.raw } />
+                            </Box>
+                            <Box>
+                                <SliceEngine data={ data.body } />
                             </Box>
                         </Stack>
                     </Wrapper>
@@ -457,6 +456,17 @@ query productQuery($prismicId: ID) {
                             html
                             raw
                         }
+                    }
+                }
+                ... on PrismicProductBodyAccordion {
+                    primary {
+                      accordion_link {
+                        document {
+                          ... on PrismicAccordion {
+                            ...PrismicAccordionFragment
+                          }
+                        }
+                      }
                     }
                 }
             }

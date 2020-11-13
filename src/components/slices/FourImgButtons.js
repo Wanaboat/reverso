@@ -56,6 +56,9 @@ const FourImgButtons = ( props ) => {
                             fontWeight='bold'
                             p='2rem'
                             pl='2rem'
+                            fontWeight='900'
+                            fontFamily='Roboto'
+                            lineHeight='28px'
                             transition='all 200ms ease'
                             _groupHover={{ pl: "4rem" }}
                         >
