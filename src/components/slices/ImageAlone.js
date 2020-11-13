@@ -6,7 +6,6 @@ const ImageAlone = (props) => {
 
     console.log('ImageAlone', props)
     return (
-        <Wrapper>
             <Box
                 w='80vw'
                 mx='auto'
@@ -15,6 +14,8 @@ const ImageAlone = (props) => {
             >
 
                 <Image
+                    display='block'
+                    mx='auto'
                     borderRadius='2px'
                     src={props.data.isolated_image.localFile.childImageSharp.fixed.src}
                 />
@@ -26,7 +27,6 @@ const ImageAlone = (props) => {
                     { props.data.isolated_image.alt }
                 </Text>
             </Box>
-        </Wrapper>
     )
 }
 

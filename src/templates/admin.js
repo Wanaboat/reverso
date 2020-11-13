@@ -1,11 +1,25 @@
 import React, { useEffect, useState } from 'react'
 import Layout from '../components/layout'
-
+import axios from 'axios'
+import NetlifyBuildingBadge from '../components/NetlifyBuildingBadge'
 import { Box, Button, Flex, Heading, Image, Stack, Text } from '@chakra-ui/core'
 // import { getAllContacts } from '../api';
 
 const AdminTpl = (props) => {
     const [contacts, setContacts] = useState(false)
+    const [buildTriggerResponse, setBuildTriggerResponse] = useState(false)
+
+    const triggerBuild = () => {
+        console.log('triggerBuild')
+        axios.post(`https://api.netlify.com/build_hooks/5fac0b9995d1291a29a60ee2`)
+            .then(function(response){
+                alert('Build just triggered, new version live in 1 minute.')
+                console.log( response )
+                var today = new Date();
+                var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+                setBuildTriggerResponse( time )
+            });
+    }
 
     useEffect(() => {
         // getAllContacts.then(res => {
@@ -27,8 +41,9 @@ const AdminTpl = (props) => {
                         <Flex
                             ml='2rem'
                             alignItems='center'>
-                                <Image src={'https://api.netlify.com/api/v1/badges/b05e589d-b055-45e3-ab75-21a4514f8fde/deploy-status'}
-                                    alt='Build status' />
+                            <NetlifyBuildingBadge
+                                key={ buildTriggerResponse }
+                            />
                             </Flex>
                     </Flex>
                     <Box>
@@ -52,9 +67,7 @@ const AdminTpl = (props) => {
                                 Analytics view
                             </Button>
                             <Button
-                                as='a'
-                                href='https://api.netlify.com/build_hooks/5fac0b9995d1291a29a60ee2'
-                                target="_blank"
+                                onClick={ ()=>{ triggerBuild() } }
                             >
                                 Netlify Build Trigger
                         </Button>

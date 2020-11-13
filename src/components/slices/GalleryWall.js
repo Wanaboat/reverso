@@ -6,7 +6,6 @@ import Wrapper from '../Wrapper'
 const GalleryWall = (props) => {
     console.log( 'gallerywall', props)
     return (
-        <Wrapper>
         <Box
             w='80vw'
             mx='auto'
@@ -18,7 +17,6 @@ const GalleryWall = (props) => {
                 pictures={props.items}
             />
         </Box>
-        </Wrapper>
     )
 }
 
