@@ -399,12 +399,12 @@ const ProductTpl = (props) => {
                                     <SimpleQuestionForm />
                                 </Box>
                             </SimpleGrid>
-                            <Box>
+                            {/* <Box>
                                 <Heading
                                     fontWeight='900'
                                 >Mini Faq</Heading>
                                 <FaqSimple variant='light' />
-                            </Box>
+                            </Box> */}
                             <Box>
                                 <SliceEngine data={ data.body } />
                             </Box>

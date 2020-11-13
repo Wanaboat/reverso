@@ -7,6 +7,9 @@ import Gallery from 'react-photo-gallery'
 import GalleryModal from './GalleryModal'
 
 const PicturesGallery = ({ pictures }) => {
+
+    console.log('PicturesGallery', pictures)
+    
     const [ current, setCurrent ] = useState( false )
 
     const formatArray = ( arr ) => {

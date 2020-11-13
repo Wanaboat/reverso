@@ -32,7 +32,7 @@ const GalleryModal = ({ pictures, index, isVisible, handleClose, handlePrev, han
     //       document.removeEventListener("keydown", keyPressFunction, false);
     //     };
     //   }, []);
-
+    console.log( 'pictures', pictures)
     return (
         <Modal
             size='full'
@@ -119,7 +119,7 @@ const GalleryModal = ({ pictures, index, isVisible, handleClose, handlePrev, han
                                     mx='auto'
                                     maxH='calc(100vh - 72px)'
                                     src={
-                                        pictures[index-1].picture.localFile.publicURL
+                                        pictures[index-1].picture.localFile.childImageSharp.fixed.src
                                     }
                                 />
                                 <Box
