@@ -463,7 +463,21 @@ query productQuery($prismicId: ID) {
                       accordion_link {
                         document {
                           ... on PrismicAccordion {
-                            ...PrismicAccordionFragment
+                            data {
+                                accordion {
+                                  title
+                                  image {
+                                    document {
+                                      __typename
+                                    }
+                                    url
+                                  }
+                                  intro
+                                  content {
+                                    raw
+                                  }
+                                }
+                            }
                           }
                         }
                       }
