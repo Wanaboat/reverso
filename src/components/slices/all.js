@@ -7,13 +7,8 @@ import Figures from './Figures'
 import FourImgButtons from './FourImgButtons'
 import LogosList from './LogosList'
 import Accordion from './Accordion'
-// import BannerWithCaption from './BannerWithCaption'
-// import BodyText from './BodyText'
-// import ImageGallery from './ImageGallery'
-// import PostsList from './PostsList'
-// import Plan from './Plan'
-// import ProductsList from './ProductsList'
-// import Video from './Video'
+import ImageAlone from './ImageAlone'
+import GalleryWall from './GalleryWall'
 
 export {
     Accordion,
@@ -24,5 +19,7 @@ export {
     SliceWysiwyg,
     SummaryLinks,
     Figures,
-    LogosList
+    LogosList,
+    GalleryWall,
+    ImageAlone
 }

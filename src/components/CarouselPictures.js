@@ -2,6 +2,7 @@ import React, { useEffect, useState, useCallback } from 'react'
 import {
     Box,
     Button,
+    Flex,
     Image
 } from '@chakra-ui/core'
 
@@ -65,36 +66,46 @@ const PicturesGallery = ({ pictures }) => {
                 <Slider>
                     <Items />
                 </Slider>
-                <Box
+                <Flex
                     position='absolute'
                     bottom='-1.5rem'
-                    left='1rem'
-                    bg='brand.3'
-                    p='.5rem .75rem'
+                    left='0rem'
+                    w='100%'
+                    justifyContent={{ xs:'center', lg:'left'}}
+                    pl={{ xs:'0', lg:'2rem'}}
                 >
-                    <Button
-                        variant='ghost'
-                        color='white'
-                        as={ButtonBack}
-                        transition='transform 200ms ease'
-                        _hover={{
-                            bg:'transparent',
-                            color:'white',
-                            transform:'translateX(-.5rem)'
-                        }}
-                    >←</Button>
-                    <Button
-                        variant='ghost'
-                        color='white'
-                        as={ButtonNext}
-                        transition='transform 200ms ease'
-                        _hover={{
-                            bg:'transparent',
-                            color:'white',
-                            transform:'translateX(.5rem)'
-                        }}
-                    >→</Button>
-                </Box>
+                    <Flex
+                        w='auto'
+                        // ml='1rem'
+                        bg='brand.3'
+                        p={{ xs: '.25rem', lg: '.5rem .75rem' }}
+                        display='flex'
+                        justifyContent={{ xs: 'center', lg: 'flex-start' }}
+                    >
+                        <Button
+                            variant='ghost'
+                            color='white'
+                            as={ButtonBack}
+                            transition='transform 200ms ease'
+                            _hover={{
+                                bg: 'transparent',
+                                color: 'white',
+                                transform: 'translateX(-.5rem)'
+                            }}
+                        >←</Button>
+                        <Button
+                            variant='ghost'
+                            color='white'
+                            as={ButtonNext}
+                            transition='transform 200ms ease'
+                            _hover={{
+                                bg: 'transparent',
+                                color: 'white',
+                                transform: 'translateX(.5rem)'
+                            }}
+                        >→</Button>
+                    </Flex>
+                </Flex>
             </CarouselProvider>
 
         </Box>

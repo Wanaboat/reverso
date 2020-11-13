@@ -79,7 +79,8 @@
           "figures": [],
           "gallery": [],
           "horizontal_buttons": [],
-          "logos_list": []
+          "logos_list": [],
+          "image_alone": []
         },
         "choices": {
           "wysiwyg": {
@@ -357,6 +358,24 @@
                 }
               }
             }
+          },
+          "image_alone": {
+            "type": "Slice",
+            "fieldset": "Image alone",
+            "description": "Isolated image alone",
+            "icon": "add_box",
+            "display": "list",
+            "non-repeat": {
+              "isolated_image": {
+                "type": "Image",
+                "config": {
+                  "constraint": {},
+                  "thumbnails": [],
+                  "label": "Isolated image"
+                }
+              }
+            },
+            "repeat": {}
           }
         }
       }

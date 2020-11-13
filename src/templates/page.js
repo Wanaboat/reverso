@@ -60,7 +60,7 @@ const PageTpl = (props) => {
       </Wrapper>
       <Wrapper>
         <Heading
-          my={{ xs:'.5rem', lg:'3rem' }}
+          my={{ xs:'.5rem', lg:'2rem' }}
           as='h1'
           fontWeight='900'
         >
@@ -158,6 +158,19 @@ query pageQuery($prismicId: ID) {
               }
             }
             body {
+              ... on PrismicPageBodyImageAlone {
+                primary{
+                  isolated_image{ alt localFile{ childImageSharp{ fixed(width:1000){ src srcWebp } } } }
+                }
+              }
+              ... on PrismicPageBodyGallery{
+                items{
+                  picture{
+                    dimensions { height width }
+                    localFile{ childImageSharp{ fixed{ src srcWebp } } }
+                  }
+                }
+              }
               ... on PrismicPageBodyTwoIllustratedButtons {
                 primary {
                   anchor

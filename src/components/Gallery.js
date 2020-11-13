@@ -20,7 +20,6 @@ const PicturesGallery = ({ pictures }) => {
                     height:img.picture.dimensions.height,
                 }
             )
-            
         }
         return cleanArray
     }
