@@ -34,7 +34,7 @@ module.exports = {
       options: {
         fonts: [
           `hind\:300,400`,
-          `roboto\:600,700,800,900`
+          `roboto\:600,700,900`
         ],
         display: 'swap'
       }
@@ -47,7 +47,8 @@ module.exports = {
         schemas: {
           homepage: require('./src/schemas/homepage.json'),
           page: require('./src/schemas/page.json'),
-          product: require('./src/schemas/product.json')
+          product: require('./src/schemas/product.json'),
+          accordion: require('./src/schemas/accordion.json')
         },
         shouldDownloadImage: ({ node, key, value }) => {
           if( value ){
@@ -98,7 +99,13 @@ module.exports = {
       },
     },
     `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,
+    {
+      resolve: `gatsby-plugin-sharp`,
+      options: {
+        defaultQuality: 70,
+        failOnError: true,
+      },
+    },
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
