@@ -48,7 +48,7 @@ const SimpleFaq = ({ variant }) => {
         <Wrapper
             bg={ variant === 'light' ? 'white' : 'brand.3' }
             color={ variant === 'light' ? 'gray.700' : 'white' }
-            py='2rem'
+            py='1rem'
         >
             { <Items /> }
         </Wrapper>

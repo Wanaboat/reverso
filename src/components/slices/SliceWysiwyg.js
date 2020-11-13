@@ -6,9 +6,9 @@ const WysiwigSlice = ({ data }) => {
     console.log( 'WysiwigSlice', data )
     return (
         <Wrapper
-            mt='2px'
+            // mt='2px'
             bg='white'
-            py={{ xs:'1rem', lg:'4rem' }}
+            py={{ xs:'1rem', lg:'2rem' }}
         >
             <Box
                 px={{ xs:0, lg: !data.is_narrow ? '0' : '12rem' }}

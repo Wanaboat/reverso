@@ -1,13 +1,11 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import Helmet from 'react-helmet'
 import { Link as GatsbyLink } from 'gatsby'
 import Layout from '../components/layout'
 import Breadcrumbs from '../components/Breadcrumbs'
-import Img from 'gatsby-image'
 import {
     AspectRatioBox,
     Box,
-    Button,
     Flex,
     Heading,
     Grid,
@@ -30,24 +28,21 @@ import Wrapper from '../components/Wrapper'
 import logoBoatOfTheYear from '../images/logo-boat-of-year.svg'
 import logoAudiAwards from '../images/logo-audi-awards.svg'
 import FaqSimple from '../components/FaqSimple'
-import Carousel from '../components/Carousel'
+// import Carousel from '../components/Carousel'
 
 import ButtonConfig from '../components/Buttons/config'
 import ButtonOrder from '../components/Buttons/order'
 
 import SimpleQuestionForm from '../components/SimpleQuestionForm'
-// import Accordion from '../components/Accordion'
 
 import VideoPlayer from '../components/VideoPlayer'
-import Gallery from '../components/Gallery'
+// import Gallery from '../components/Gallery'
 import CarouselPictures from '../components/CarouselPictures'
 
 import VideoCover from '../images/video-cover.jpg'
-import Wysiwyg from '../components/Wysiwyg'
 import { FormattedMessage } from 'react-intl'
-// import logoAudiAwards from '../images/logo-audi-awards.svg'
-import Hierarchy from '../components/hierachyProduct'
-import AccordionQuery from '../fragments/accordion'
+// import Hierarchy from '../components/hierachyProduct'
+// import AccordionQuery from '../fragments/accordion'
 
 import SliceEngine from '../components/slices/Engine'
 
@@ -409,26 +404,14 @@ const ProductTpl = (props) => {
                                     fontWeight='900'
                                 >Mini Faq</Heading>
                                 <FaqSimple variant='light' />
-
-                            </Box>
-                            <Box>
-                                {/* <Heading
-                                fontWeight='900'
-                                mb='2rem'
-                            >Boring SEO content</Heading> */}
-                                <Wysiwyg content={ data.body[0].primary.content.raw } />
                             </Box>
                             <Box>
                                 <SliceEngine data={ data.body } />
                             </Box>
                         </Stack>
                     </Wrapper>
-
-                    {/* <Carousel /> */}
-
                 </Box>
             </Box>
-
         </Layout>
     )
 }
