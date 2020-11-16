@@ -11,7 +11,7 @@ const WysiwigSlice = ({ data }) => {
             py={{ xs:'1rem', lg:'2rem' }}
         >
             <Box
-                maxW={{ xs:'none', lg: !data.is_narrow ? '0' : '50rem' }}
+                maxW={{ xs:'none', lg: !data.is_narrow ? '100%' : '50rem' }}
                 mx='auto'
             >
                 <Wysiwyg data={ data.content.raw } />

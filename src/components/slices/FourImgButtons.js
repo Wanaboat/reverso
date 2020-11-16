@@ -22,12 +22,11 @@ const FourImgButtons = ( props ) => {
                     w={{ xs:'calc( 50% * 4)', lg:'100%'}}
                     wrap='nowrap'
                 >
-                    { data.map( (item, i) =>
-                    <PseudoBox
+                { data.map( (item, i) =>
+                <PseudoBox
                     as={ GatsbyLink }
                     to={ linkResolver( item.button_target.document )}
                     role="group"
-                    bg='red.100'
                     position='relative'
                     cursor='pointer'
                     transition='* 200ms ease'

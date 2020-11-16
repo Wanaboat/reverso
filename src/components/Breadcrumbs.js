@@ -1,7 +1,7 @@
 import React from 'react'
 import Helmet from 'react-helmet'
 import { Link as GatsbyLink } from 'gatsby'
-import { Box, Flex, Icon, Link, Stack, Text } from '@chakra-ui/core'
+import { Box, Link, Stack, Text } from '@chakra-ui/core'
 import { FormattedMessage } from 'react-intl'
 // import Wrapper from './Wrapper'
 
@@ -99,43 +99,77 @@ const Breadcrumbs = ({ node, lang }) => {
         return `${customUrl.filter(Boolean).join('/')}`
 
     }
+
+    const BreadLink = (props) => {
+        return (
+            <>
+                <Link
+                    color='black'
+                    to={`${lang === 'fr' ? '/fr' : ''}/${buildUrl(props.index)}`}
+                    as={GatsbyLink}
+                    mr='1.5rem'
+                // key={`breadcrumb-item-${props}`}
+                >
+                    {props.children}
+                </Link>
+                <Box display="inline">/</Box>
+            </>
+        )
+    }
     return (
 
         <Stack
             isInline
             fontSize='14px'
+            spacing='0'
+            shouldWrapChildren={ true }
+            spacing='1.5rem'
         >
             <Link
                 color='black'
                 to={`${lang === 'fr' ? '/fr' : ''}/`}
                 as={GatsbyLink}
+                display='block'
             >
                 <FormattedMessage id='home' />
             </Link>
-            <Box mx='1.5rem' display="inline">/</Box>
+            <Box display="inline">/</Box>
 
             {hierarchyData.map((item, index) =>
-                <Box key={`${buildUrl(index)}`}>
-                    {index + 1 !== hierarchyData.length ?
-                        <Link
-                            color='black'
-                            to={`${lang === 'fr' ? '/fr' : ''}/${buildUrl(index)}`}
-                            as={GatsbyLink}
-                            key={`breadcrumb-item-${index}`}
-                        >
-                            {item.name}
-                        </Link>
-                        :
-                        <Text>
-                            {item.name}
-                        </Text>
-                    }
-                    {index + 1 < hierarchyData.length ?
-                        // <Flex px='1rem' alignItems='center' ><Icon name="chevron-right" /></Flex>
-                        <Box mx='1.5rem' display="inline">/</Box>
-                        : ''}
-                </Box>
-            )}
+                index + 1 !== hierarchyData.length ?
+                    <BreadLink
+                        index={index}
+                    >
+                        {item.name}
+                    </BreadLink>
+                    :
+                    <Text>
+                        {item.name}
+                    </Text>
+                 )}
+                        {/* // <Box
+                        //     ml='1.5rem'
+                        //     key={`${buildUrl(index)}`}>
+                        //     {index + 1 !== hierarchyData.length ?
+                        //         <Link
+                        //             color='black'
+                        //             to={`${lang === 'fr' ? '/fr' : ''}/${buildUrl(index)}`}
+                        //             as={GatsbyLink}
+                        //             key={`breadcrumb-item-${index}`}
+                        //         >
+                        //             {item.name}
+                        //         </Link>
+                        //         :
+                        //         <Text>
+                        //             {item.name}
+                        //         </Text>
+                        //     }
+                        //     {index + 1 < hierarchyData.length ?
+                        //         // <Flex px='1rem' alignItems='center' ><Icon name="chevron-right" /></Flex>
+                        //         <Box mx='1.5rem' display="inline">/</Box>
+                        //         : null }
+                        // </Box>
+                */}
             <Helmet>
                 <script id="breadcrumbs-data" type="application/ld+json">{structuredJSON()}</script>
             </Helmet>
