@@ -131,7 +131,8 @@ const Breadcrumbs = ({ node, lang }) => {
                 as={GatsbyLink}
                 display='block'
             >
-                <FormattedMessage id='home' />
+                {/* <FormattedMessage id='home' /> */}
+                Sail Reverso
             </Link>
             <Box display="inline">/</Box>
 
@@ -143,7 +144,9 @@ const Breadcrumbs = ({ node, lang }) => {
                         {item.name}
                     </BreadLink>
                     :
-                    <Text>
+                    <Text
+                        color='gray.500'
+                    >
                         {item.name}
                     </Text>
                  )}
