@@ -229,6 +229,8 @@ query pageQuery($prismicId: ID) {
                   button_image{
                     localFile{ childImageSharp{ fixed(width: 300, height: 600){ src srcWebp } }}
                   }
+                  label_primary
+                  label_secondary
                   button_label
                   button_target{
                     document{

@@ -34,7 +34,7 @@ module.exports = {
       options: {
         fonts: [
           `hind\:300,400`,
-          `roboto\:600,700,900`
+          `roboto\:300,600,700,900`
         ],
         display: 'swap'
       }

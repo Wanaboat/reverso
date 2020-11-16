@@ -3,10 +3,13 @@ import Wrapper from '../Wrapper'
 import { Link as GatsbyLink } from 'gatsby'
 import {
     Box,
+    Button,
     Flex,
-    SimpleGrid,
+    // SimpleGrid,
     PseudoBox,
     Image,
+    Stack,
+    Text
 } from '@chakra-ui/core'
 import { linkResolver } from '../../prismic-configuration'
 
@@ -47,21 +50,52 @@ const FourImgButtons = ( props ) => {
                     >
                         <PseudoBox
                             w='100%'
+                            h='100%'
                             color='white'
-                            bg='rgba(0,0,0,0.3)'
+                            background='linear-gradient(180deg, rgba(0, 0, 0, 0.47) 69.8%, #BBBDBF 99.24%);'
                             fontSize={{ xs: '20px', lg: '28px' }}
                             lineHeight={{ lg: '3rem' }}
                             textTransform='uppercase'
                             fontWeight='bold'
                             p='2rem'
-                            pl='2rem'
                             fontWeight='900'
                             fontFamily='Roboto'
                             lineHeight='28px'
                             transition='all 200ms ease'
-                            _groupHover={{ pl: "4rem" }}
+                            // _groupHover={{ pl: "4rem" }}
+                            display='flex'
+                            alignItems='center'
+                            justifyContent='center'
+                            flexWrap='wrap'
+                            textAlign='center'
+                            fontWeight='300'
+                            fontFamily='Roboto'
+                            letterSpacing='0.05rem'
                         >
-                            { item.button_label }
+                            <Stack spacing="1rem">
+                            <Text
+                                textDecoration='underline'
+                                fontSize='14px'
+                                fontWeight='500'
+                            >{ item.label_primary }</Text>
+                            <Text
+                            letterSpacing='0.075rem'
+                            fontSize='16px'
+                            >{ item.label_secondary }</Text>
+
+                            <Button variant='outline'
+                                fontSize='12px'
+                                _groupHover={{
+                                    p1: ".5rem",
+                                    bg:'white',
+                                    color:'gray.900'
+
+                                }}
+                            >
+                                { item.button_label }
+                            </Button>
+                            </Stack>
+
                         </PseudoBox>
 
                     </PseudoBox>
