@@ -1,13 +1,14 @@
 import React from 'react'
 import Helmet from 'react-helmet'
 import { Link as GatsbyLink } from 'gatsby'
-import { Box, Flex, Icon, Link, Stack } from '@chakra-ui/core'
-import Wrapper from './Wrapper'
+import { Box, Flex, Icon, Link, Stack, Text } from '@chakra-ui/core'
+import { FormattedMessage } from 'react-intl'
+// import Wrapper from './Wrapper'
 
 const Breadcrumbs = ({ node, lang }) => {
     const hierarchy = () => {
 
-        console.log( 'node', node )
+        // console.log( 'node', node )
 
         if (node.uid) {
             let slug = []
@@ -49,6 +50,7 @@ const Breadcrumbs = ({ node, lang }) => {
                     }
                 }
             }
+
             if (lang === 'fr') {
                 // slug.push('fr')
             }
@@ -62,7 +64,7 @@ const Breadcrumbs = ({ node, lang }) => {
     const structuredJSON = () => {
 
         let breadcrumbsItems = [];
-        console.log('breadcrumbsItems', hierarchyData)
+        // console.log('breadcrumbsItems', hierarchyData)
 
         var y = 0
         for (let index = 0; index < hierarchyData.length; index++) {
@@ -99,31 +101,46 @@ const Breadcrumbs = ({ node, lang }) => {
     }
     return (
 
-                <Stack isInline 
-                    // spacing='2rem'
-                >
-                    {hierarchyData.map((item, index) =>
-                        <Box key={`${buildUrl(index)}`}>
-                            <Link
-                                color='black'
-                                to={`${lang === 'fr' ? '/fr' : ''}/${buildUrl(index)}`}
-                                as={GatsbyLink}
-                                fontSize='15px'
-                                key={`breadcrumb-item-${index}`}
-                            >
-                                {item.name}
-                            </Link>
-                            { index + 1 < hierarchyData.length ? 
-                                // <Flex px='1rem' alignItems='center' ><Icon name="chevron-right" /></Flex>
-                                <Box mx='1.5rem' display="inline">/</Box>
-                            : ''}
-                        </Box>
-                    )}
-                    <Helmet>
-                        <script id="breadcrumbs-data" type="application/ld+json">{structuredJSON()}</script>
-                    </Helmet>
-                </Stack>
-     
+        <Stack
+            isInline
+            fontSize='14px'
+        >
+            <Link
+                color='black'
+                to={`${lang === 'fr' ? '/fr' : ''}/`}
+                as={GatsbyLink}
+            >
+                <FormattedMessage id='home' />
+            </Link>
+            <Box mx='1.5rem' display="inline">/</Box>
+
+            {hierarchyData.map((item, index) =>
+                <Box key={`${buildUrl(index)}`}>
+                    {index + 1 !== hierarchyData.length ?
+                        <Link
+                            color='black'
+                            to={`${lang === 'fr' ? '/fr' : ''}/${buildUrl(index)}`}
+                            as={GatsbyLink}
+                            key={`breadcrumb-item-${index}`}
+                        >
+                            {item.name}
+                        </Link>
+                        :
+                        <Text>
+                            {item.name}
+                        </Text>
+                    }
+                    {index + 1 < hierarchyData.length ?
+                        // <Flex px='1rem' alignItems='center' ><Icon name="chevron-right" /></Flex>
+                        <Box mx='1.5rem' display="inline">/</Box>
+                        : ''}
+                </Box>
+            )}
+            <Helmet>
+                <script id="breadcrumbs-data" type="application/ld+json">{structuredJSON()}</script>
+            </Helmet>
+        </Stack>
+
 
     )
 }

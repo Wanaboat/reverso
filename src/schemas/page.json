@@ -85,7 +85,8 @@
           "gallery" : [ ],
           "horizontal_buttons" : [ ],
           "logos_list" : [ ],
-          "image_alone" : [ ]
+          "image_alone" : [ ],
+          "illustrated_summary" : [ ]
         },
         "choices" : {
           "wysiwyg" : {
@@ -374,9 +375,64 @@
                   "thumbnails" : [ ],
                   "label" : "Isolated image"
                 }
+              },
+              "wide_display" : {
+                "type" : "Boolean",
+                "config" : {
+                  "default_value" : false,
+                  "label" : "Wide display"
+                }
               }
             },
             "repeat" : { }
+          },
+          "illustrated_summary" : {
+            "type" : "Slice",
+            "fieldset" : "Illustrated summary",
+            "description" : "A block with intro & image buttons",
+            "icon" : "add_box",
+            "display" : "list",
+            "non-repeat" : {
+              "summary_title" : {
+                "type" : "Text",
+                "config" : {
+                  "label" : "Summary Title"
+                }
+              },
+              "summary_intro" : {
+                "type" : "Text",
+                "config" : {
+                  "label" : "Summary intro"
+                }
+              }
+            },
+            "repeat" : {
+              "link_image" : {
+                "type" : "Image",
+                "config" : {
+                  "constraint" : { },
+                  "thumbnails" : [ {
+                    "name" : "landscape",
+                    "width" : 550,
+                    "height" : 250
+                  } ],
+                  "label" : "Link Image"
+                }
+              },
+              "link_label" : {
+                "type" : "Text",
+                "config" : {
+                  "label" : "Link label"
+                }
+              },
+              "link_target" : {
+                "type" : "Link",
+                "config" : {
+                  "select" : "document",
+                  "label" : "Link target"
+                }
+              }
+            }
           }
         }
       }

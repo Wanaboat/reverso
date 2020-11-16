@@ -6,17 +6,18 @@ const ImageAlone = (props) => {
 
     console.log('ImageAlone', props)
     return (
+        <Wrapper>
             <Box
-                w='80vw'
-                mx='auto'
-                p='1rem'
-                borderRadius='2px'
-            >
+                w={{ xs:'100vw', lg:props.wide_display ? '80vw' : '50rem' }}
+                mx={{ xs:'-1rem', lg:'auto' }}
+                // p='1rem'
+                borderRadius={{ lg:'2px' }}
 
+            >
                 <Image
                     display='block'
                     mx='auto'
-                    borderRadius='2px'
+                    borderRadius={{ lg:'2px' }}
                     src={props.data.isolated_image.localFile.childImageSharp.fixed.src}
                 />
                 <Text
@@ -27,6 +28,8 @@ const ImageAlone = (props) => {
                     { props.data.isolated_image.alt }
                 </Text>
             </Box>
+            </Wrapper>
+
     )
 }
 

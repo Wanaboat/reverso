@@ -14,7 +14,8 @@ import {
     LogosList,
     Accordion,
     GalleryWall,
-    ImageAlone
+    ImageAlone,
+    IllustratedSummary
 } from './all'
 
 
@@ -42,7 +43,9 @@ const Engine = ({ data }) => {
         PrismicHomepageBodyLogosList: LogosList,
 
         PrismicPageBodyImageAlone: ImageAlone,
-        PrismicPageBodyGallery: GalleryWall
+        PrismicPageBodyGallery: GalleryWall,
+
+        PrismicPageBodyIllustratedSummary: IllustratedSummary
 
 
     }

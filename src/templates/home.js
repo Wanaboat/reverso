@@ -172,7 +172,6 @@ query HpQuery($langIso:String!) {
             alt
             copyright
             url
-            thumbnails
             localFile {
               childImageSharp {
                 original {
@@ -189,7 +188,6 @@ query HpQuery($langIso:String!) {
             alt
             copyright
             url
-            thumbnails
             localFile {
               childImageSharp {
                 original {

@@ -46,17 +46,20 @@ const PageTpl = (props) => {
         bg='white'
         borderBottom='solid 1px'
         borderColor='gray.200'
+        py={{ xs:'1rem', lg:'1rem'}}
+        px={{ xs:'1.5rem' }}
+        display={{ xs:'none', md:'block' }}
       >
-        <Box
-          py={{ xs:'.5rem', lg:'2rem' }}
+        {/* <Box
+          py={{ xs:'.5rem', lg:'.5rem' }}
           color='gray.900'
           display={{ xs: 'block', md: 'block' }}
-        >
+        > */}
           <Breadcrumbs
             node={props.data.prismicPage}
             lang={props.pageContext.lang}
           />
-        </Box>
+        {/* </Box> */}
       </Wrapper>
       <Wrapper>
         <Heading
@@ -138,7 +141,6 @@ query pageQuery($prismicId: ID) {
               alt
               copyright
               url
-              thumbnails
               localFile {
                 childImageSharp {
                   original {
@@ -160,8 +162,39 @@ query pageQuery($prismicId: ID) {
               }
             }
             body {
+              ... on PrismicPageBodyIllustratedSummary {
+                primary{
+                  summary_title
+                  summary_intro
+                }
+                items{
+                  link_target{
+                    document{
+                      ... on PrismicPage{ prismicId }
+                      ... on PrismicProduct{ prismicId }
+                    }
+                  }
+                  link_label
+                  link_image {
+                    alt
+                    thumbnails {
+                      landscape {
+                        localFile {
+                          childImageSharp {
+                            fixed {
+                              src
+                              srcWebp
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
               ... on PrismicPageBodyImageAlone {
                 primary{
+                  wide_display
                   isolated_image{ alt localFile{ childImageSharp{ fixed(width:1000){ src srcWebp } } } }
                 }
               }
