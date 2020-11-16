@@ -44,8 +44,8 @@ const PageTpl = (props) => {
 
       <Wrapper
         bg='white'
-        borderBottom='solid 1px'
-        borderColor='gray.200'
+        // borderBottom='solid 1px'
+        // borderColor='gray.200'
         py={{ xs:'1rem', lg:'1rem'}}
         px={{ xs:'1.5rem' }}
         display={{ xs:'none', md:'block' }}
@@ -63,8 +63,10 @@ const PageTpl = (props) => {
       </Wrapper>
       <Wrapper>
         <Heading
-          my={{ xs:'.5rem', lg:'2rem' }}
+          position='relative'
+          my={{ xs:'.5rem', lg:'1rem' }}
           as='h1'
+          pb='1rem'
           fontWeight='900'
           textAlign={ data.prismicPage.data.is_title_centered ? 'center' : 'left' }
         >
@@ -79,6 +81,13 @@ const PageTpl = (props) => {
                 &nbsp;{ data.prismicPage.data.title_suffix }
             </Text>
           : null}
+          <Box
+            w='100px'
+            h='6px'
+            bg='gray.900'
+            position='absolute'
+            bottom='0'
+          />
         </Heading>
       </Wrapper>
       <SliceEngine data={data.prismicPage.data.body} />

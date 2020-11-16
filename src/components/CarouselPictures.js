@@ -45,6 +45,7 @@ const PicturesGallery = ({ pictures }) => {
                         <Image
                             w='100%'
                             src={item.src}
+                            loading='lazy'
                         />
                     </Box>
                 </Slide>

@@ -24,9 +24,9 @@ const IllustratedSummary = ( props ) => {
                     gap={{ xs:'1rem', lg:'2rem'}}
                 >
                     <Flex
-                        border='solid 1px'
-                        borderColor='gray.400'
-                        borderRadius='2px'
+                        // border='solid 1px'
+                        // borderColor='gray.400'
+                        // borderRadius='2px'
                         p='3rem'
                         h='100%'
                         wrap='wrap'
@@ -36,6 +36,7 @@ const IllustratedSummary = ( props ) => {
                         <Box>
                             <Heading
                                 as='h3'
+                                textTransform='uppercase'
                                 w='100%'
                                 mb='1rem'
                                 fontSize={{ xs:'20px', lg:'28px'}}
