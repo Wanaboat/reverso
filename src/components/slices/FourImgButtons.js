@@ -70,7 +70,7 @@ const FourImgButtons = ( props ) => {
                             textAlign='center'
                             fontWeight='300'
                             fontFamily='Roboto'
-                            letterSpacing='0.05rem'
+                            letterSpacing='0.085rem'
                         >
                             <Stack spacing="1rem">
                             <Text
