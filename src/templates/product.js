@@ -57,9 +57,6 @@ const ProductTpl = (props) => {
 
     console.log('productData', data)
 
-    // console.log('data.versions[0].version_link', data.versions[0].version_link, linkResolver(data.versions[0].version_link.document))
-
-
     return (
         <Layout lang={props.pageContext.lang}>
             <Helmet>
@@ -290,16 +287,16 @@ const ProductTpl = (props) => {
                                             >
                                                 <Box as='picture'>
 
-                                                    { version.version_link.document.data.image_main.localFile ? 
+                                                    { version.version_link.document.data.image_main_small.localFile ? 
                                                         <>
-                                                            <source type='image/jpeg' srcSet={data.image_main.localFile.childImageSharp.fixed.srcSetWebp} />
-                                                            <source type='image/webp' srcSet={data.image_main.localFile.childImageSharp.fixed.srcSet} />
+                                                            <source type='image/jpeg' srcSet={ version.version_link.document.data.image_main_small.localFile.src } />
+                                                            <source type='image/webp' srcSet={ version.version_link.document.data.image_main_small.localFile.srcWebp } />
                                                         </>
                                                     : null}
                                                     <Image w='50px' src={
-                                                        version.version_link.document.data.image_main.localFile
-                                                            ? version.version_link.document.data.image_main.localFile.childImageSharp.fixed.src
-                                                            : version.version_link.document.data.image_main.fixed.src
+                                                        version.version_link.document.data.image_main_small.localFile
+                                                            ? version.version_link.document.data.image_main_small.localFile.childImageSharp.fixed.src
+                                                            : version.version_link.document.data.image_main_small.fixed.src
                                                     } />
                                                 </Box>
                                                 <Flex
@@ -495,6 +492,9 @@ query productQuery($prismicId: ID) {
                             aspectRatio base64 originalImg originalName presentationHeight presentationWidth sizes src srcSet srcSetWebp srcWebp tracedSVG }                }
                 }
             }
+            image_main_small{
+                localFile{ childImageSharp{ fixed{ src srcWebp } } }
+            }
             video {
                 url
             }
@@ -508,6 +508,9 @@ query productQuery($prismicId: ID) {
                     ... on PrismicProduct{
                       prismicId
                       data{
+                        image_main_small{
+                            localFile{ childImageSharp{ fixed{ src srcWebp } } }
+                        }
                         image_main{
                           fixed{ src }
                           localFile{
@@ -537,20 +540,25 @@ query productQuery($prismicId: ID) {
             }
             gallery_list {
                 picture {
-                alt
-                fixed{ src }
-                localFile {
-                    publicURL
-                    childImageSharp {
-                        fixed(width: 1150, height:600) {
-                        src
+                    thumbnails{
+                        landscape_wide{
+                            localFile{ childImageSharp{ fixed { src srcWebp }} }
                         }
                     }
-                }
-                dimensions {
-                    height
-                    width
-                }
+                    alt
+                    fixed{ src }
+                    localFile {
+                        publicURL
+                        childImageSharp {
+                            fixed(width: 1150, height:600) {
+                            src
+                            }
+                        }
+                    }
+                    dimensions {
+                        height
+                        width
+                    }
                 }
             }
         }

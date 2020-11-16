@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useCallback } from 'react'
+import React, { useState } from 'react'
 import {
     Box,
     Button,
@@ -6,12 +6,13 @@ import {
     Image
 } from '@chakra-ui/core'
 
-import Gallery from 'react-photo-gallery'
 import { CarouselProvider, Slider, Slide, ButtonBack, ButtonNext } from 'pure-react-carousel';
 import 'pure-react-carousel/dist/react-carousel.es.css';
 
 const PicturesGallery = ({ pictures }) => {
     const [current, setCurrent] = useState(false)
+
+    console.log('PicturesGallery', pictures)
 
     const formatArray = (arr) => {
         const cleanArray = []
@@ -19,12 +20,11 @@ const PicturesGallery = ({ pictures }) => {
             const img = arr[index];
             cleanArray.push(
                 {
-                    src: img.picture.localFile ? img.picture.localFile.childImageSharp.fixed.src : img.picture.fixed.src,
+                    src: img.picture.localFile.childImageSharp.fixed.src ? img.picture.localFile.childImageSharp.fixed.src : img.picture.fixed.src,
                     width: img.picture.dimensions.width,
                     height: img.picture.dimensions.height,
                 }
             )
-
         }
         return cleanArray
     }

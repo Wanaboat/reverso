@@ -120,7 +120,7 @@ const Breadcrumbs = ({ node, lang }) => {
 
         <Stack
             isInline
-            fontSize='14px'
+            fontSize='12px'
             spacing='0'
             shouldWrapChildren={ true }
             spacing='1.5rem'
