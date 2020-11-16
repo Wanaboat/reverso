@@ -87,6 +87,7 @@ const PageTpl = (props) => {
             bg='gray.900'
             position='absolute'
             bottom='0'
+            left={ data.prismicPage.data.is_title_centered ? 'calc(50% - 50px)': '0'}
           />
         </Heading>
       </Wrapper>
@@ -296,6 +297,8 @@ query pageQuery($prismicId: ID) {
                   anchor
                   reverse_position
                   background_color
+                  vertical_align
+                  text_extra_margin
                   content { raw }
                   button_label
                   button_target {

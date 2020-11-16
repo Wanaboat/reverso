@@ -145,11 +145,29 @@
                   "label": "Background color"
                 }
               },
+              "vertical_align": {
+                "type": "Select",
+                "config": {
+                  "options": [
+                    "top",
+                    "center",
+                    "bottom"
+                  ],
+                  "label": "Vertical align"
+                }
+              },
               "reverse_position": {
                 "type": "Boolean",
                 "config": {
                   "default_value": false,
                   "label": "Reverse position"
+                }
+              },
+              "text_extra_margin": {
+                "type": "Boolean",
+                "config": {
+                  "default_value": false,
+                  "label": "Text extra margin"
                 }
               },
               "content": {

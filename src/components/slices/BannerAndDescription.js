@@ -62,7 +62,18 @@ const SliceBannerAndDescription = ({ data }) => {
                 <Stack
                     order={ data.reverse_position ? 1 : 2 }
                     spacing='2rem'
-                    justify='center'
+                    justify={
+                        data.vertical_align === 'top' ? 'flex-start'
+                            : data.vertical_align === 'center' ? 'center'
+                                : data.vertical_align === 'bottom' ? 'flex-end'
+                                    : null
+                        }
+                    pl={
+                        data.text_extra_margin && !data.reverse_position ? '30%' : 0
+                    }
+                    pr={
+                        data.text_extra_margin && data.reverse_position ? '30%' : 0
+                    }
                 >
                     {/* <Heading
                         as='p'
