@@ -45,6 +45,7 @@ const SliceBannerAndDescription = ({ data }) => {
                         ml={{ xs:'-1rem', lg:'0' }}
                         as='picture'
                     >
+                        { data.image1 ? 
                         <Image
                             // mx='-1rem'
                             alt={ data.image1.alt  ? data.image1.alt  : ''}
@@ -52,8 +53,9 @@ const SliceBannerAndDescription = ({ data }) => {
                             w='100%'
                             display='block'
                             // objectFit='cover'
-                            src={data.image1.localFile.childImageSharp.fixed.src }
+                            src={ data.image1.localFile  ? data.image1.localFile.childImageSharp.fixed.src : data.image1.fixed.src }
                         />
+                        : null}
                         {data.image1.alt ? <Text textAlign={{ xs:'center', lg:'left' }} px={{ xs:'1rem', lg:0 }} fontStyle='italic'>{ data.image1.alt }</Text> : null }
                     </Box>
 

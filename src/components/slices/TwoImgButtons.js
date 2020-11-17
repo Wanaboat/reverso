@@ -54,6 +54,7 @@ const TwoImgButtons = ( props ) => {
                         </PseudoBox>
 
                     </PseudoBox>
+                    { data.image_1 ? data.image_1.localFile ? 
                     <Box as='picture'>
                         <source type='image/webp' srcSet={ data.image_1.localFile.childImageSharp.fixed.srcWebp } />
                         <source type='image/jpeg' srcSet={ data.image_1.localFile.childImageSharp.fixed.src } />
@@ -63,6 +64,7 @@ const TwoImgButtons = ( props ) => {
                             alt={ data.image_1.alt }
                         />
                     </Box>
+                    : null : null }
                     
                 </PseudoBox>
                 <PseudoBox
@@ -99,6 +101,7 @@ const TwoImgButtons = ( props ) => {
                         </PseudoBox>
 
                     </PseudoBox>
+                    { data.image_2.localFile ? 
                     <Box as='picture'>
                         <source type='image/webp' srcSet={ data.image_2.localFile.childImageSharp.fixed.srcWebp } />
                         <source type='image/jpeg' srcSet={ data.image_2.localFile.childImageSharp.fixed.src } />
@@ -108,6 +111,7 @@ const TwoImgButtons = ( props ) => {
                             alt={ data.image_2.alt }
                         />
                     </Box>
+                    : null }
                 </PseudoBox>
             </SimpleGrid>
         </Wrapper>

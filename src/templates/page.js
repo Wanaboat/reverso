@@ -165,18 +165,6 @@ query pageQuery($prismicId: ID) {
                   original {
                     src
                   }
-              fixed {
-              base64
-              tracedSVG
-              aspectRatio
-              srcWebp
-              srcSetWebp
-              originalName
-              srcSet
-              height
-              src
-              width
-                  }
                 }
               }
             }
@@ -204,6 +192,7 @@ query pageQuery($prismicId: ID) {
                     alt
                     thumbnails {
                       landscape {
+                        fixed{ src }
                         localFile {
                           childImageSharp {
                             fixed {
@@ -220,13 +209,14 @@ query pageQuery($prismicId: ID) {
               ... on PrismicPageBodyImageAlone {
                 primary{
                   wide_display
-                  isolated_image{ alt localFile{ childImageSharp{ fixed(width:1000){ src srcWebp } } } }
+                  isolated_image{ alt fixed{ src } localFile{ childImageSharp{ fixed(width:1000){ src srcWebp } } } }
                 }
               }
               ... on PrismicPageBodyGallery{
                 items{
                   picture{
                     dimensions { height width }
+                    fixed{ src }
                     localFile{ childImageSharp{ fixed{ src srcWebp } } }
                   }
                 }
@@ -236,13 +226,14 @@ query pageQuery($prismicId: ID) {
                   anchor
                   label_1
                   label_2
-                  image_1 { localFile { childImageSharp { fixed { src srcWebp } } } }
-                  image_2 { localFile { childImageSharp { fixed { src srcWebp } } } }
+                  image_1 { fixed{ src } localFile { childImageSharp { fixed { src srcWebp } } } }
+                  image_2 { fixed{ src } localFile { childImageSharp { fixed { src srcWebp } } } }
                 }
               }
               ... on PrismicPageBodyHorizontalButtons{
                 items{
                   button_image{
+                    fixed{ src }
                     localFile{ childImageSharp{ fixed(width: 300, height: 600){ src srcWebp } }}
                   }
                   label_primary
@@ -328,6 +319,7 @@ query pageQuery($prismicId: ID) {
                   }
                   image1{
                       alt
+                      fixed{ src }
                       localFile {
                           childImageSharp {
                               fixed(height: 400, width: 600) {

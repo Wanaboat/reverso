@@ -37,6 +37,10 @@ const Figures = ( props ) => {
                 alignItems='center'
                 pr={{ xs: '1rem', lg: '3rem' }}
                 textAlign='center'
+                fontWeight='900'
+                fontFamily='Roboto'
+                whiteSpace='pre'
+                lineHeight='28px'
             >
                 { props.data.figure_1 }
             </Flex>
@@ -45,6 +49,10 @@ const Figures = ( props ) => {
                 alignItems='center'
                 px={{ xs: '1rem', lg: '3rem' }}
                 textAlign='center'
+                fontWeight='900'
+                fontFamily='Roboto'
+                whiteSpace='pre'
+                lineHeight='28px'
             >
                 { props.data.figure_2 }
             </Flex>
