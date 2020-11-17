@@ -41,6 +41,8 @@ const PageTpl = (props) => {
           : null}
           <meta name='og:title' content={props.data.prismicPage.data.seo_title ? props.data.prismicPage.data.seo_title : ''} />
           <meta name='og:description' content={props.data.prismicPage.data.seo_description ? props.data.prismicPage.data.seo_description : ''} />
+          <meta name='og:url' content={`${process.env.GATSBY_BASE_URL}/${buildSlug(props.data.prismicPage, props.pageContext.lang)}`} />
+          <meta name='og:type' content={`article`} />
           { props.data.prismicPage.data.sharing_image ?  props.data.prismicPage.data.sharing_image.localFile ? 
             <meta name='og:image' content={`${process.env.GATSBY_BASE_URL}${props.data.prismicPage.data.sharing_image.localFile.childImageSharp.fixed.src}`} />
           : null : null }
