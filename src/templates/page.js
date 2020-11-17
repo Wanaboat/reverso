@@ -21,8 +21,7 @@ import Wrapper from '../components/Wrapper'
 const PageTpl = (props) => {
 
   const data = usePreviewData(props.data)
-
-  console.log('data', data)
+  console.log('PageData', data)
 
   return (
     <Layout lang={props.pageContext.lang}>
@@ -40,6 +39,9 @@ const PageTpl = (props) => {
             hreflang="x-default"
           />
           : null}
+          <meta name='og:title' content={props.data.prismicPage.data.seo_title} />
+          <meta name='og:description' content={props.data.prismicPage.data.seo_description} />
+          <meta name='og:image' content={`${process.env.GATSBY_BASE_URL}${props.data.prismicPage.data.sharing_image.localFile.childImageSharp.fixed.src}`} />
       </Helmet>
 
       <Wrapper
@@ -147,6 +149,9 @@ query pageQuery($prismicId: ID) {
           is_title_centered
           seo_title
           seo_description
+          sharing_image{
+            localFile{ childImageSharp{ fixed(width: 1200, height:630){ src }}}
+          }
             image {
               alt
               copyright
