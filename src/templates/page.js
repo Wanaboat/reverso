@@ -41,7 +41,7 @@ const PageTpl = (props) => {
           : null}
           <meta name='og:title' content={props.data.prismicPage.data.seo_title ? props.data.prismicPage.data.seo_title : ''} />
           <meta name='og:description' content={props.data.prismicPage.data.seo_description ? props.data.prismicPage.data.seo_description : ''} />
-          { props.data.prismicPage.data.sharing_image. ? 
+          { props.data.prismicPage.data.sharing_image ? 
             <meta name='og:image' content={`${process.env.GATSBY_BASE_URL}${props.data.prismicPage.data.sharing_image.localFile.childImageSharp.fixed.src}`} />
           : null}
       </Helmet>
