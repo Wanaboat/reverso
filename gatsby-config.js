@@ -18,7 +18,7 @@ module.exports = {
         sitemap: 'https://sailreverso.com/sitemap.xml',
         policy: [{ userAgent: '*', allow: '/' }]
       }
-    }
+    },
     `gatsby-plugin-force-trailing-slashes`,
     // {
     //   resolve: `gatsby-plugin-intl`,

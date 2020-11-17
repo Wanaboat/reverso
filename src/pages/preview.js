@@ -4,7 +4,7 @@ import React, { useEffect } from 'react'
 import { navigate, useStaticQuery } from 'gatsby'
 import { usePrismicPreview } from 'gatsby-source-prismic'
 import { linkResolver } from '../prismic-configuration'
-
+import { Box, Flex, Spinner, Text } from '@chakra-ui/core'
 // Note that the `location` prop is taken and provided to the `usePrismicPreview` hook.
 const PreviewPage = ({ location }) => {
   // Let's use a static query to retrieve all known paths. We'll use it later
@@ -93,9 +93,17 @@ const PreviewPage = ({ location }) => {
   }, [isPreview, previewData, path])
 
   // Tell the user if this is not a preview.
-  if (isPreview === false) return <div>Not a preview!</div>
+  if (isPreview === false) return (
+    <Flex h='100vh' alignItems='center' justify='center'>
+      <Text fontFamily='Arial' textTransform='uppercase' letterSpacing='0.1rem' fontSize='14px' fontWeight='bold' color='#777'>Not a preview...</Text>
+    </Flex>
+  )
 
-  return <div>Loading preview...</div>
+  return (
+    <Flex h='100vh' alignItems='center' justify='center'>
+      <Text fontFamily='Arial' textTransform='uppercase' letterSpacing='0.1rem' fontSize='14px' fontWeight='bold' color='#777'>Loading preview...</Text>
+    </Flex>
+  )
 }
 
 export default PreviewPage
