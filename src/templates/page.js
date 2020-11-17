@@ -172,6 +172,12 @@ query pageQuery($prismicId: ID) {
               }
             }
             body {
+              ... on PrismicPageBodyQuote {
+                primary{
+                  quote_content{ html raw }
+                  quote_signature
+                }
+              }
               ... on PrismicPageBodyIllustratedSummary {
                 primary{
                   summary_title

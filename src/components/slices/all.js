@@ -11,6 +11,7 @@ import ImageAlone from './ImageAlone'
 import GalleryWall from './GalleryWall'
 import IllustratedSummary from './IllustratedSummary'
 import ContactForm from './ContactForm'
+import Quote from './Quote'
 
 export {
     Accordion,
@@ -25,5 +26,6 @@ export {
     GalleryWall,
     ImageAlone,
     IllustratedSummary,
-    ContactForm
+    ContactForm,
+    Quote
 }

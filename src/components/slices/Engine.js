@@ -16,7 +16,8 @@ import {
     GalleryWall,
     ImageAlone,
     IllustratedSummary,
-    ContactForm
+    ContactForm,
+    Quote
 } from './all'
 
 
@@ -47,7 +48,8 @@ const Engine = ({ data }) => {
         PrismicPageBodyGallery: GalleryWall,
 
         PrismicPageBodyIllustratedSummary: IllustratedSummary,
-        PrismicPageBodyContact: ContactForm
+        PrismicPageBodyContact: ContactForm,
+        PrismicPageBodyQuote: Quote
 
 
     }
