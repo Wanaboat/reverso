@@ -88,7 +88,8 @@
           "horizontal_buttons": [],
           "logos_list": [],
           "image_alone": [],
-          "illustrated_summary": []
+          "illustrated_summary": [],
+          "contact": []
         },
         "choices": {
           "wysiwyg": {
@@ -471,6 +472,15 @@
                 }
               }
             }
+          },
+          "contact": {
+            "type": "Slice",
+            "fieldset": "Contact",
+            "description": "A block with address & Question form",
+            "icon": "email",
+            "display": "list",
+            "non-repeat": {},
+            "repeat": {}
           }
         }
       }

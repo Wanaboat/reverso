@@ -10,6 +10,7 @@ import Accordion from './Accordion'
 import ImageAlone from './ImageAlone'
 import GalleryWall from './GalleryWall'
 import IllustratedSummary from './IllustratedSummary'
+import ContactForm from './ContactForm'
 
 export {
     Accordion,
@@ -23,5 +24,6 @@ export {
     LogosList,
     GalleryWall,
     ImageAlone,
-    IllustratedSummary
+    IllustratedSummary,
+    ContactForm
 }

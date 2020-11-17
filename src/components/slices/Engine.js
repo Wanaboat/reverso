@@ -15,7 +15,8 @@ import {
     Accordion,
     GalleryWall,
     ImageAlone,
-    IllustratedSummary
+    IllustratedSummary,
+    ContactForm
 } from './all'
 
 
@@ -45,7 +46,8 @@ const Engine = ({ data }) => {
         PrismicPageBodyImageAlone: ImageAlone,
         PrismicPageBodyGallery: GalleryWall,
 
-        PrismicPageBodyIllustratedSummary: IllustratedSummary
+        PrismicPageBodyIllustratedSummary: IllustratedSummary,
+        PrismicPageBodyContact: ContactForm
 
 
     }
