@@ -7,7 +7,8 @@ module.exports = {
     title: `Reverso`,
     description: `Fast and easy dinghy.. as website also.`,
     author: `@reverso`,
-    url:`https://sailreverso.com`
+    url:`https://sailreverso.com`,
+    siteUrl:`https://sailreverso.com`
   },
   plugins: [
     `gatsby-plugin-sitemap`,
