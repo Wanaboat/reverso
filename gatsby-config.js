@@ -7,8 +7,18 @@ module.exports = {
     title: `Reverso`,
     description: `Fast and easy dinghy.. as website also.`,
     author: `@reverso`,
+    url:`https://sailreverso.com`
   },
   plugins: [
+    `gatsby-plugin-sitemap`,
+    {
+      resolve: 'gatsby-plugin-robots-txt',
+      options: {
+        host: 'https://sailreverso.com',
+        sitemap: 'https://sailreverso.com/sitemap.xml',
+        policy: [{ userAgent: '*', allow: '/' }]
+      }
+    }
     `gatsby-plugin-force-trailing-slashes`,
     // {
     //   resolve: `gatsby-plugin-intl`,
