@@ -64,12 +64,12 @@ const ProductTpl = (props) => {
                 <meta name='description' content={data.seo_description} />
                 <link
                     rel='canonical'
-                    href={`${process.env.BASE_URL}${linkResolver(props.data.prismicProduct)}`}
+                    href={`${process.env.GATSBY_BASE_URL}${linkResolver(props.data.prismicProduct)}`}
                 />
                 {props.data.prismicProduct.alternate_languages[0] ?
                     <link
                         rel="alternate"
-                        href={`${process.env.BASE_URL}${linkResolver(props.data.prismicProduct.alternate_languages[0].raw)}`}
+                        href={`${process.env.GATSBY_BASE_URL}${linkResolver(props.data.prismicProduct.alternate_languages[0].raw)}`}
                         hreflang="x-default"
                     />
                     : null}

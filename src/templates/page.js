@@ -31,12 +31,12 @@ const PageTpl = (props) => {
         <meta name='description' content={props.data.prismicPage.data.seo_description} />
         <link
           rel='canonical'
-          href={`${process.env.BASE_URL}/${buildSlug(props.data.prismicPage, props.pageContext.lang)}`}
+          href={`${process.env.GATSBY_BASE_URL}/${buildSlug(props.data.prismicPage, props.pageContext.lang)}`}
         />
         {props.data.prismicPage.alternate_languages[0] ?
           <link
             rel="alternate"
-            href={`${process.env.BASE_URL}/${buildSlug(props.data.prismicPage.alternate_languages[0], props.pageContext.lang)}`}
+            href={`${process.env.GATSBY_BASE_URL}/${buildSlug(props.data.prismicPage.alternate_languages[0], props.pageContext.lang)}`}
             hreflang="x-default"
           />
           : null}
