@@ -5,10 +5,11 @@ require("dotenv").config({
 module.exports = {
   siteMetadata: {
     title: `Reverso`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
+    description: `Fast and easy dinghy.. as website also.`,
     author: `@reverso`,
   },
   plugins: [
+    `gatsby-plugin-force-trailing-slashes`,
     // {
     //   resolve: `gatsby-plugin-intl`,
     //   options: {

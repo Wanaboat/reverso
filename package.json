@@ -41,6 +41,7 @@
     "react-slick": "^0.27.13"
   },
   "devDependencies": {
+    "gatsby-plugin-force-trailing-slashes": "^1.0.4",
     "prettier": "2.1.2"
   },
   "keywords": [
