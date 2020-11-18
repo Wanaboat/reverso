@@ -23,7 +23,7 @@ const TwoImgButtons = ( props ) => {
                     role="group"
                     bg='transparent'
                     position='relative'
-                    cursor='pointer'
+                    // cursor='pointer'
                     transition='* 200ms ease'
                 >
                     <PseudoBox
@@ -36,7 +36,7 @@ const TwoImgButtons = ( props ) => {
                         alignItems='center'
                         transition='all 200ms ease'
                         // _groupHover={{ bg: 'rgba(0,0,0,0.1)' }}
-                        background='linear-gradient(180deg, rgba(0, 0, 0, 0.47) 69.8%, #BBBDBF 99.24%);'
+                        // background='linear-gradient(180deg, rgba(0, 0, 0, 0.47) 69.8%, #BBBDBF 99.24%);'
 
                     >
                         <PseudoBox
@@ -50,6 +50,7 @@ const TwoImgButtons = ( props ) => {
                             fontFamily='Roboto'
                             p={{ xs:'1rem', lg:'2rem' }}
                             transition='all 200ms ease'
+                            bg="rgba(0,0,0,.1)"
                             _groupHover={{ bg: "rgba(0,0,0,.1)" }}
                             fontWeight='300'
                             h='100%'
@@ -81,7 +82,7 @@ const TwoImgButtons = ( props ) => {
                     role="group"
                     bg='transparent'
                     position='relative'
-                    cursor='pointer'
+                    // cursor='pointer'
                     transition='* 200ms ease'
                 >
                     <PseudoBox
@@ -94,8 +95,7 @@ const TwoImgButtons = ( props ) => {
                         alignItems='center'
                         transition='all 200ms ease'
                         // _groupHover={{ bg: 'rgba(0,0,0,0.1)' }}
-                        background='linear-gradient(180deg, rgba(0, 0, 0, 0.47) 69.8%, #BBBDBF 99.24%);'
-
+                        // background='linear-gradient(180deg, rgba(0, 0, 0, 0.47) 69.8%, #BBBDBF 99.24%);'
                     >
                         <PseudoBox
                             w='100%'
@@ -108,6 +108,7 @@ const TwoImgButtons = ( props ) => {
                             fontFamily='Roboto'
                             p={{ xs:'1rem', lg:'2rem' }}
                             transition='all 200ms ease'
+                            bg="rgba(0,0,0,.1)"
                             _groupHover={{ bg: "rgba(0,0,0,.1)" }}
                             fontWeight='300'
                             h='100%'
