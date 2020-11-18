@@ -301,6 +301,8 @@ query pageQuery($prismicId: ID) {
               ... on PrismicPageBodyImageAndText {
                 primary {
                   anchor
+                  border_bottom
+                  overlap_top_image
                   reverse_position
                   background_color
                   vertical_align

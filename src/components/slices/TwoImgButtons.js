@@ -35,12 +35,14 @@ const TwoImgButtons = ( props ) => {
                         h='100%'
                         alignItems='center'
                         transition='all 200ms ease'
-                        _groupHover={{ bg: 'rgba(0,0,0,0.1)' }}
+                        // _groupHover={{ bg: 'rgba(0,0,0,0.1)' }}
+                        background='linear-gradient(180deg, rgba(0, 0, 0, 0.47) 69.8%, #BBBDBF 99.24%);'
+
                     >
                         <PseudoBox
                             w='100%'
                             color='white'
-                            bg='rgba(0,0,0,0.3)'
+                            // bg='rgba(0,0,0,0.3)'
                             fontSize={{ xs: '18px', lg: '40px' }}
                             lineHeight={{ lg: '3rem' }}
                             textTransform='uppercase'
@@ -48,23 +50,31 @@ const TwoImgButtons = ( props ) => {
                             fontFamily='Roboto'
                             p={{ xs:'1rem', lg:'2rem' }}
                             transition='all 200ms ease'
-                            _groupHover={{ pl: "4rem" }}
+                            _groupHover={{ bg: "rgba(0,0,0,.1)" }}
+                            fontWeight='300'
+                            h='100%'
+                            display='flex'
+                            alignItems='center'
                         >
                             { data.label_1}
                         </PseudoBox>
 
                     </PseudoBox>
-                    { data.image_1 ? data.image_1.localFile ? 
+                    { data.image_1 ?
                     <Box as='picture'>
-                        <source type='image/webp' srcSet={ data.image_1.localFile.childImageSharp.fixed.srcWebp } />
-                        <source type='image/jpeg' srcSet={ data.image_1.localFile.childImageSharp.fixed.src } />
+                        { data.image_1.localFile ? 
+                            <>
+                                <source type='image/webp' srcSet={ data.image_1.localFile.childImageSharp.fixed.srcWebp } />
+                                <source type='image/jpeg' srcSet={ data.image_1.localFile.childImageSharp.fixed.src } />
+                            </>
+                        : null }
                         <Image
                             w='100%'
-                            src={ data.image_1.localFile.childImageSharp.fixed.src}
+                            src={ data.image_1.localFile ? data.image_1.localFile.childImageSharp.fixed.src : data.image_1.fixed.src}
                             alt={ data.image_1.alt }
                         />
                     </Box>
-                    : null : null }
+                    : null }
                     
                 </PseudoBox>
                 <PseudoBox
@@ -83,19 +93,26 @@ const TwoImgButtons = ( props ) => {
                         h='100%'
                         alignItems='center'
                         transition='all 200ms ease'
-                        _groupHover={{ bg: 'rgba(0,0,0,0.1)' }}
+                        // _groupHover={{ bg: 'rgba(0,0,0,0.1)' }}
+                        background='linear-gradient(180deg, rgba(0, 0, 0, 0.47) 69.8%, #BBBDBF 99.24%);'
+
                     >
                         <PseudoBox
                             w='100%'
                             color='white'
-                            bg='rgba(0,0,0,0.3)'
+                            // bg='rgba(0,0,0,0.3)'
                             fontSize={{ xs: '18px', lg: '40px' }}
                             lineHeight={{ lg: '3rem' }}
+                            textTransform='uppercase'
                             fontWeight='900'
                             fontFamily='Roboto'
                             p={{ xs:'1rem', lg:'2rem' }}
                             transition='all 200ms ease'
-                            _groupHover={{ pl: "4rem" }}
+                            _groupHover={{ bg: "rgba(0,0,0,.1)" }}
+                            fontWeight='300'
+                            h='100%'
+                            display='flex'
+                            alignItems='center'
                         >
                             { data.label_2}
                         </PseudoBox>

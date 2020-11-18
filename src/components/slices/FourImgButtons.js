@@ -15,7 +15,7 @@ import { linkResolver } from '../../prismic-configuration'
 
 const FourImgButtons = ( props ) => {
     console.log('FourImgButtons', props )
-    const { data } = props
+    const { data, items } = props
     return (
         <Wrapper>
             <Box
@@ -25,7 +25,9 @@ const FourImgButtons = ( props ) => {
                     w={{ xs:'calc( 50% * 4)', lg:'100%'}}
                     wrap='nowrap'
                 >
-                { data.map( (item, i) =>
+                {
+                items.map ? 
+                items.map( (item, i) =>
                 <PseudoBox
                     as={ GatsbyLink }
                     to={ linkResolver( item.button_target.document )}
@@ -75,25 +77,28 @@ const FourImgButtons = ( props ) => {
                             <Stack spacing="1rem">
                             <Text
                                 textDecoration='underline'
-                                fontSize='14px'
+                                fontSize={{ xs:'12px', lg:'16px' }}
                                 fontWeight='500'
                             >{ item.label_primary }</Text>
                             <Text
-                            letterSpacing='0.075rem'
-                            fontSize='16px'
+                                letterSpacing='0.075rem'
+                                whiteSpace='pre-wrap'
+                                fontSize={{ xs:'14px', lg:'18px' }}
                             >{ item.label_secondary }</Text>
+                            <Box>
+                                <Button variant='outline'
+                                    fontSize='12px'
+                                    _groupHover={{
+                                        p1: ".5rem",
+                                        bg:'white',
+                                        color:'gray.900'
 
-                            <Button variant='outline'
-                                fontSize='12px'
-                                _groupHover={{
-                                    p1: ".5rem",
-                                    bg:'white',
-                                    color:'gray.900'
-
-                                }}
-                            >
-                                { item.button_label }
-                            </Button>
+                                    }}
+                                >
+                                    { item.button_label }
+                                </Button>
+                            </Box>
+                            
                             </Stack>
 
                         </PseudoBox>
@@ -101,13 +106,22 @@ const FourImgButtons = ( props ) => {
                     </PseudoBox>
                     { item.button_image ? 
                     <Box as='picture'>
-                        <source type='image/jpeg' src={item.button_image.localFile.childImageSharp.fixed.src} />
-                        <source type='image/webp' src={item.button_image.localFile.childImageSharp.fixed.srcWebp} />
-                        <Image src={ item.button_image.localFile.childImageSharp.fixed.src } alt={ item.button_image.alt } />
+                        { item.button_image.localFile ? 
+                            <>
+                                <source type='image/jpeg' src={item.button_image.localFile.childImageSharp.fixed.src} />
+                                <source type='image/webp' src={item.button_image.localFile.childImageSharp.fixed.srcWebp} />
+                            </>
+                        : null}
+                        <Image
+                            src={ item.button_image.localFile ? item.button_image.localFile.childImageSharp.fixed.src : item.button_image.fixed.src }
+                            alt={ item.button_image.alt ? item.button_image.alt : '' }
+                        />
                     </Box>
                     : null}
                 </PseudoBox>
-                    )}
+                )
+                : null
+                }
                 </Flex>
             </Box>
             {/* <SimpleGrid

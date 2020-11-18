@@ -12,7 +12,7 @@ import Wrapper from '../Wrapper'
 const ContactForm = () => {
     return (
         <Wrapper
-            bg='brand.4'
+            bg='white'
             id='contact'
         >
             <SimpleGrid
@@ -26,16 +26,25 @@ const ContactForm = () => {
                             as='h4'
                             mb='1rem'
                             fontSize='26px'
-                        >Contact</Heading>
+                            fontWeight='400'
+                        >
+                            Contact us
+                        </Heading>
                         <Text
                             color='gray.900'
                             fontSize='14px'
                         >
-                            • 10 parc club du millénaire
-                            <br />• 1025 av Henri Becquerel
-                            <br />• 34000 Montpellier FRANCE
-                            <br />• tel : +33 6 95 85 83 93
-                            <br />• contact@reversoproject.com
+                            contact@reversoproject.com
+                            <br />+33 6 95 85 83 93
+                        </Text>
+                        <Text
+                            color='gray.900'
+                            fontSize='14px'
+                        >
+                            <br />10 parc club du millénaire
+                            <br />1025 avenue Henri Becquerel
+                            <br />34000 Montpellier
+                            <br />FRANCE
                         </Text>
                     </Box>
                 </Flex>

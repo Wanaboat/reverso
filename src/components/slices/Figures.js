@@ -17,7 +17,7 @@ const Figures = ( props ) => {
         <Wrapper
         bg='brand.3'
         py='3rem'
-        pb='8rem'
+        pb={{ lg:'8rem' }}
     >
         <Heading
             color='white'

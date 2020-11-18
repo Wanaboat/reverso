@@ -25,6 +25,8 @@ const SliceBannerAndDescription = ({ data }) => {
             py={{ xs: '2rem', lg:'4rem' }}
             pt={{ xs:data.reverse_position ? 0 : '2rem', lg:'4rem'}}
             id={ data.anchor }
+            borderBottom={ data.border_bottom ? 'solid 1px' : 'none'}
+            borderBottomColor='gray.100'
             bg={
                 data.background_color === 'mastic' ? 'brand.4'
                 : data.background_color === 'gray' ? 'gray.50'
@@ -44,15 +46,15 @@ const SliceBannerAndDescription = ({ data }) => {
                         mr={{ xs:'-1rem', lg:'0' }}
                         ml={{ xs:'-1rem', lg:'0' }}
                         as='picture'
+                        mt={{ lg:data.overlap_top_image ? '-10rem' : ''}}
+
                     >
                         { data.image1 ? 
                         <Image
-                            // mx='-1rem'
                             alt={ data.image1.alt  ? data.image1.alt  : ''}
                             h='auto'
                             w='100%'
                             display='block'
-                            // objectFit='cover'
                             src={ data.image1.localFile  ? data.image1.localFile.childImageSharp.fixed.src : data.image1.fixed.src }
                         />
                         : null}
