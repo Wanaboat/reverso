@@ -163,7 +163,10 @@ const ProductTpl = (props) => {
                                         {data.intro}
                                     </Text>
                                 </Box>
-                                <Box>
+                                <Box
+                                    borderBottom='solid 1px'
+                                    borderBottomColor='gray.100'
+                                >
                                     <List
                                         spacing='1rem'
                                         listStyleType='disc'

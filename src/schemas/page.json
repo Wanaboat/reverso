@@ -113,6 +113,13 @@
                   "label": "Is narrow"
                 }
               },
+              "is_dark": {
+                "type": "Boolean",
+                "config": {
+                  "default_value": false,
+                  "label": "Is dark"
+                }
+              },
               "content": {
                 "type": "StructuredText",
                 "config": {

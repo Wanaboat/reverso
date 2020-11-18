@@ -7,14 +7,14 @@ const WysiwigSlice = ({ data }) => {
     return (
         <Wrapper
             // mt='2px'
-            bg='white'
+            bg={ data.is_dark ? 'brand.3' : 'none'}
             py={{ xs:'1rem', lg:'2rem' }}
         >
             <Box
                 maxW={{ xs:'none', lg: !data.is_narrow ? '100%' : '50rem' }}
                 mx='auto'
             >
-                <Wysiwyg data={ data.content.raw } />
+                <Wysiwyg isDark={ data.is_dark  } data={ data.content.raw } />
             </Box>
         </Wrapper>
     )

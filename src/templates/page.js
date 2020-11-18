@@ -11,10 +11,8 @@ import Hierarchy from '../components/hierachyPage'
 import SliceEngine from '../components/slices/Engine'
 import {
   Box,
-  Flex,
   Text,
   Heading,
-  SimpleGrid
 } from '@chakra-ui/core'
 import Wrapper from '../components/Wrapper'
 
@@ -292,6 +290,7 @@ query pageQuery($prismicId: ID) {
                 primary {
                   anchor
                   is_narrow
+                  is_dark
                   content {
                     html
                     raw

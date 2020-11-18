@@ -40,7 +40,8 @@ const Figures = ( props ) => {
                 fontWeight='900'
                 fontFamily='Roboto'
                 whiteSpace='pre'
-                lineHeight='28px'
+                lineHeight='30px'
+                textTransform='uppercase'
             >
                 { props.data.figure_1 }
             </Flex>
@@ -52,7 +53,8 @@ const Figures = ( props ) => {
                 fontWeight='900'
                 fontFamily='Roboto'
                 whiteSpace='pre'
-                lineHeight='28px'
+                lineHeight='30px'
+                textTransform='uppercase'
             >
                 { props.data.figure_2 }
             </Flex>

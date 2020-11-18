@@ -4,11 +4,14 @@ import {Link, RichText, Date} from 'prismic-reactjs';
 import { linkResolver } from '../prismic-configuration';
 import '../css/wysiwyg.css'
 
-const Wysiwyg = ({data}) => {
+const Wysiwyg = ({isDark, data}) => {
     console.log( 'Wysiwyg', data )
     return(
 
-        <Box className="wysiwyg">
+        <Box
+            color={ isDark ? 'white' : 'inherit'}
+            className="wysiwyg"
+        >
             {/* {RichText.render(document.data.title)} */}
             {RichText.render( data, linkResolver )}
 
