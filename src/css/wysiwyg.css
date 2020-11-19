@@ -45,8 +45,8 @@
     font-size: 0.8em;
 }
 .wysiwyg strong {
-    font-weight: normal;
-    background:#ffff0069;
+    font-weight: bold;
+    /* background:#ffff0069; */
 }
 .wysiwyg sub,
 .wysiwyg sup {

@@ -379,16 +379,22 @@ const ProductTpl = (props) => {
                                     >
                                         Video
                                     </Heading>
+
                                     <Box
-                                        maxW="100%"
-                                        ratio={1}
-                                    >
-                                        <VideoPlayer
+                                        as='iframe'
+                                        ratio={ 16/9 }
+                                        w='100%'
+                                        h='100%'
+                                        allowFullScreen
+                                        src="https://player.vimeo.com/video/430264806"
+                                    />
+                                        {/* <iframe title="vimeo-player"  width="640" height="360" frameborder="0" allowfullscreen></iframe> */}
+                                        {/* <VideoPlayer
                                             src={data.video.url}
                                             poster={VideoCover}
-                                        />
+                                        /> */}
 
-                                    </Box>
+                                    
                                 </Box>
                                 <Box>
                                     <Heading

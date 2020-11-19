@@ -12,7 +12,7 @@ const ImageAlone = (props) => {
                 mx={{ xs:'-1rem', lg:'auto' }}
                 // p='1rem'
                 borderRadius={{ lg:'2px' }}
-
+                py='1rem'
             >
                 <Image
                     display='block'

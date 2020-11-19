@@ -283,7 +283,7 @@ query pageQuery($prismicId: ID) {
                 primary {
                   anchor
                   is_narrow
-                  is_dark
+                  background_color
                   content {
                     html
                     raw

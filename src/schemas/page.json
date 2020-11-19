@@ -127,11 +127,16 @@
                   "label": "Is narrow"
                 }
               },
-              "is_dark": {
-                "type": "Boolean",
+              "background_color": {
+                "type": "Select",
                 "config": {
-                  "default_value": false,
-                  "label": "Is dark"
+                  "options": [
+                    "white",
+                    "gray",
+                    "mastic",
+                    "dark"
+                  ],
+                  "label": "Background color"
                 }
               },
               "content": {
