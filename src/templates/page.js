@@ -147,6 +147,7 @@ query pageQuery($prismicId: ID) {
           title{
               text
           }
+          short_title
           title_suffix
           is_title_centered
           seo_title

@@ -8,7 +8,7 @@ import { FormattedMessage } from 'react-intl'
 const Breadcrumbs = ({ node, lang }) => {
     const hierarchy = () => {
 
-        // console.log( 'node', node )
+        console.log( 'Breadcrumbs', node )
 
         if (node.uid) {
             let slug = []
@@ -17,7 +17,7 @@ const Breadcrumbs = ({ node, lang }) => {
             slug.push(
                 {
                     "uid": node.uid,
-                    "name": node.data.title.text
+                    "name": node.data.short_title ? node.data.short_title : node.data.title.text
                 }
             )
             url.push(node.uid)
@@ -25,7 +25,7 @@ const Breadcrumbs = ({ node, lang }) => {
                 slug.push(
                     {
                         "uid": node.data.parent.document.uid,
-                        "name": node.data.parent.document.data.title.text
+                        "name": node.data.parent.document.data.short_title ? node.data.parent.document.data.short_title : node.data.parent.document.data.title.text
                     }
                 )
                 url.push(node.data.parent.document.uid)
@@ -34,7 +34,7 @@ const Breadcrumbs = ({ node, lang }) => {
                         // node.data.parent.document.data.parent.document.uid
                         {
                             "uid": node.data.parent.document.data.parent.document.uid,
-                            "name": node.data.parent.document.data.parent.document.data.title.text
+                            "name": node.data.parent.document.data.parent.document.data.short_title ? node.data.parent.document.data.parent.document.data.short_title : node.data.parent.document.data.parent.document.data.title.text
                         }
                     )
                     url.push(node.data.parent.document.data.parent.document.uid)
@@ -43,7 +43,7 @@ const Breadcrumbs = ({ node, lang }) => {
                             // node.data.parent.document.data.parent.document.data.parent.document.uid
                             {
                                 "uid": node.data.parent.document.data.parent.document.data.parent.document.uid,
-                                "name": node.data.parent.document.data.parent.document.data.parent.document.data.title.text
+                                "name": node.data.parent.document.data.parent.document.data.parent.document.data.short_title ? node.data.parent.document.data.parent.document.data.parent.document.data.short_title : node.data.parent.document.data.parent.document.data.parent.document.data.title.text
                             }
                         )
                         url.push(node.data.parent.document.data.parent.document.data.parent.document.uid)

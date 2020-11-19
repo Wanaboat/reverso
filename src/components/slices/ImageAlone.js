@@ -8,7 +8,7 @@ const ImageAlone = (props) => {
     return (
         <Wrapper>
             <Box
-                w={{ xs:'100vw', lg:props.wide_display ? '80vw' : '50rem' }}
+                w={{ xs:'100vw', lg:props.wide_display ? '80vw' : '42rem' }}
                 mx={{ xs:'-1rem', lg:'auto' }}
                 // p='1rem'
                 borderRadius={{ lg:'2px' }}

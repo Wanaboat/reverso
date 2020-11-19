@@ -14,7 +14,6 @@ const Wysiwyg = ({isDark, data}) => {
         >
             {/* {RichText.render(document.data.title)} */}
             {RichText.render( data, linkResolver )}
-
         </Box>
     )
 }

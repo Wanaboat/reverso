@@ -13,6 +13,13 @@
         "label": "Title suffix"
       }
     },
+    "short_title": {
+      "type": "Text",
+      "config": {
+        "label": "Short title",
+        "placeholder": "If filled, it's used in breadcrumbs"
+      }
+    },
     "is_title_centered": {
       "type": "Boolean",
       "config": {

@@ -57,6 +57,7 @@ fragment HierachyPage on PrismicPage {
                               title {
                                 text
                               }
+                              short_title
                             }
                           }
                         }
@@ -70,6 +71,7 @@ fragment HierachyPage on PrismicPage {
                       title {
                         text
                       }
+                      short_title
                       parent {
                         uid
                         document {
@@ -89,6 +91,7 @@ fragment HierachyPage on PrismicPage {
                               title {
                                 text
                               }
+                              short_title
                             }
                           }
                         }
@@ -106,6 +109,7 @@ fragment HierachyPage on PrismicPage {
               title {
                 text
               }
+              short_title
               parent {
                 uid
                 document {
@@ -133,6 +137,7 @@ fragment HierachyPage on PrismicPage {
                               title {
                                 text
                               }
+                              short_title
                             }
                             prismicId
                             uid
@@ -148,6 +153,7 @@ fragment HierachyPage on PrismicPage {
                       title {
                         text
                       }
+                      short_title
                       parent {
                         uid
                         document {
@@ -167,6 +173,7 @@ fragment HierachyPage on PrismicPage {
                               title {
                                 text
                               }
+                              short_title
                             }
                           }
                         }
