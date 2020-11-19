@@ -23,7 +23,8 @@ const ImageAlone = (props) => {
                 <Text
                     textAlign='center'
                     fontStyle='italic'
-                    color='gray.900'
+                    color='gray.700'
+                    fontSize={{ xs:'12px', lg:'14px'}}
                 >
                     { props.data.isolated_image.alt }
                 </Text>

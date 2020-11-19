@@ -71,8 +71,11 @@ const PageTpl = (props) => {
           my={{ xs:'.5rem', lg:'1rem' }}
           as='h1'
           pb='1rem'
+          mb='1rem'
           fontWeight='900'
           textAlign={ data.prismicPage.data.is_title_centered ? 'center' : 'left' }
+          maxW={ data.prismicPage.data.is_title_narrow ? '42rem' : 'auto' }
+          mx='auto'
         >
           {data.prismicPage.data.title.text}
           {data.prismicPage.data.title_suffix ? 
@@ -149,6 +152,7 @@ query pageQuery($prismicId: ID) {
           }
           short_title
           title_suffix
+          is_title_narrow
           is_title_centered
           seo_title
           seo_description

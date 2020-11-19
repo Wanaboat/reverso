@@ -11,6 +11,7 @@ const Wysiwyg = ({isDark, data}) => {
         <Box
             color={ isDark ? 'white' : 'inherit'}
             className="wysiwyg"
+            fontSize={{ xs:'16px', lg:'21px' }}
         >
             {/* {RichText.render(document.data.title)} */}
             {RichText.render( data, linkResolver )}

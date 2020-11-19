@@ -27,6 +27,13 @@
         "label": "Is title centered"
       }
     },
+    "is_title_narrow": {
+      "type": "Boolean",
+      "config": {
+        "default_value": false,
+        "label": "Is title narrow"
+      }
+    },
     "image": {
       "type": "Image",
       "config": {
