@@ -45,20 +45,12 @@ const PageTpl = (props) => {
             <meta name='og:image' content={`${process.env.GATSBY_BASE_URL}${props.data.prismicPage.data.sharing_image.localFile.childImageSharp.fixed.src}`} />
           : null : null }
       </Helmet>
-
       <Wrapper
         bg='white'
-        // borderBottom='solid 1px'
-        // borderColor='gray.200'
         py={{ xs:'1rem', lg:'1rem'}}
         px={{ xs:'1.5rem' }}
         display={{ xs:'none', md:'block' }}
       >
-        {/* <Box
-          py={{ xs:'.5rem', lg:'.5rem' }}
-          color='gray.900'
-          display={{ xs: 'block', md: 'block' }}
-        > */}
           <Breadcrumbs
             node={props.data.prismicPage}
             lang={props.pageContext.lang}
@@ -99,10 +91,6 @@ const PageTpl = (props) => {
         </Heading>
       </Wrapper>
       <SliceEngine data={data.prismicPage.data.body} />
-      {/* { data.prismicPage.data.body ? 
-        <Wysiwyg content={ data.prismicPage.data.body[0].primary.content.raw } />
-      : null } */}
-      {/* <PageContent /> */}
     </Layout>
   )
 }

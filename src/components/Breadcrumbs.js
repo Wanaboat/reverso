@@ -140,12 +140,14 @@ const Breadcrumbs = ({ node, lang }) => {
                 index + 1 !== hierarchyData.length ?
                     <BreadLink
                         index={index}
+                        key={`breadcrumbsLink-${index}`}
                     >
                         {item.name}
                     </BreadLink>
                     :
                     <Text
                         color='gray.500'
+                        key={`breadcrumbsLink-${index}`}
                     >
                         {item.name}
                     </Text>
