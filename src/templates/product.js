@@ -78,10 +78,11 @@ const ProductTpl = (props) => {
                 bg='white'
             >
                 <Box
+                    // display='none'
                     background={`url(${shapeGray}) no-repeat left top`}
                     position='relative'
                 >
-                    {data.versions[0] ?
+                    {/* {data.versions[0] ?
                         <>
                             <PseudoBox
                                 as={GatsbyLink}
@@ -121,10 +122,10 @@ const ProductTpl = (props) => {
                                 <Icon size='30px' name='arrow-forward' />
                             </PseudoBox>
                         </>
-                    : null}
+                    : null} */}
                     <Wrapper>
                         <Box
-                            py='1rem'
+                            py='1.5rem'
                             display={{ xs: 'none', lg: 'block' }}
                         >
                             <Breadcrumbs
@@ -136,6 +137,7 @@ const ProductTpl = (props) => {
                             templateColumns={{ xs: '100%', lg: '1fr 1fr' }}
                             gap='3rem'
                             mb='3rem'
+                            mt='3rem'
                         >
                             <Stack spacing='1.5rem'>
                                 <Box mt={{ xs: '1rem', lg: '2rem' }}>
@@ -324,7 +326,7 @@ const ProductTpl = (props) => {
                                 </Grid>
                             </Box>
                         </Grid>
-                        <Stack mb='2rem' spacing='5rem'>
+                        <Stack mt='4rem' mb='2rem' spacing='5rem'>
                             <Box>
                                 {/* <Heading
                                     fontWeight='900'
