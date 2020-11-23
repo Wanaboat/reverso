@@ -186,7 +186,7 @@ query pageQuery($prismicId: ID) {
                         fixed{ src }
                         localFile {
                           childImageSharp {
-                            fixed {
+                            fixed( width:550 height:250) {
                               src
                               srcWebp
                             }
@@ -288,6 +288,33 @@ query pageQuery($prismicId: ID) {
                   content {
                     html
                     raw
+                  }
+                }
+              }
+              ... on PrismicPageBodyVideo {
+                primary{
+                  video_background
+                  embed {
+                    author_id
+                    author_name
+                    author_url
+                    cache_age
+                    embed_url
+                    html
+                    name
+                    provider_name
+                    provider_url
+                    thumbnail_height
+                    thumbnail_url
+                    thumbnail_width
+                    title
+                    type
+                    version
+                    url
+                    width
+                    height
+                    media_id
+                    description
                   }
                 }
               }

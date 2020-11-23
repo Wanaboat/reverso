@@ -12,6 +12,7 @@ import GalleryWall from './GalleryWall'
 import IllustratedSummary from './IllustratedSummary'
 import ContactForm from './ContactForm'
 import Quote from './Quote'
+import Video from './Video'
 
 export {
     Accordion,
@@ -27,5 +28,6 @@ export {
     ImageAlone,
     IllustratedSummary,
     ContactForm,
-    Quote
+    Quote,
+    Video
 }

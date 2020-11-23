@@ -1,10 +1,7 @@
 import React from 'react'
 import {
-    AspectRatioBox,
     Box,
     Flex,
-    Heading,
-    SimpleGrid,
     Text
 } from '@chakra-ui/core'
 import Wrapper from '../Wrapper'

@@ -17,7 +17,8 @@ import {
     ImageAlone,
     IllustratedSummary,
     ContactForm,
-    Quote
+    Quote,
+    Video
 } from './all'
 
 
@@ -49,7 +50,9 @@ const Engine = ({ data }) => {
 
         PrismicPageBodyIllustratedSummary: IllustratedSummary,
         PrismicPageBodyContact: ContactForm,
-        PrismicPageBodyQuote: Quote
+        PrismicPageBodyQuote: Quote,
+
+        PrismicPageBodyVideo: Video
 
 
     }

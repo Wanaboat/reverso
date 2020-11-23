@@ -1,8 +1,7 @@
-import React, { useState, useEffect } from 'react'
-import { createContactItem } from '../api';
+import React from 'react'
+import { Link as GatsbyLink } from 'gatsby'
 import Wrapper from '../components/Wrapper'
 import {
-    AspectRatioBox,
     Box,
     Heading,
     Grid,
@@ -42,7 +41,7 @@ const HomepageHero = (props) => {
                             order={{ xs: '2', lg: '1' }}
                         >
                             <Text
-                                fontSize='24px'
+                                fontSize='36px'
                                 fontWeight='900'
                                 fontFamily='Roboto'
                             >
@@ -76,6 +75,15 @@ const HomepageHero = (props) => {
                                     >{list.item}</ListItem>
                                 )}
                             </List>
+                            <Box>
+                                <BtnPrimary
+                                    as={ GatsbyLink }
+                                    to='/small-sailboats/reverso-air/'
+                                >
+                                    MEET OUR SMALL SAILBOAT RANGE
+                                </BtnPrimary>
+                            </Box>
+                            
                         </Stack>
                         <Box
                             order={{ xs: '1', lg: '2' }}
