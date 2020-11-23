@@ -8,9 +8,12 @@ import Wrapper from '../Wrapper'
 
 const Video = ( props ) => {
     console.log( 'VideoProps', props )
-    const regex = /src="(.[^"]+)"/gm;
-    const found = props.data.embed.html.match(regex);
-    const iframeURL =  found[0].replaceAll('"', '').replace('src=','');
+    const regex = /([0-9]+)/g;
+    const found = props.data.embed.embed_url.match(regex);
+    console.log( 'VideoPropsfound', found )
+    let iframeURL =  'https://player.vimeo.com/video/'+found[0]+'?app_id=122963';
+
+
 
 // console.log(found);
 
@@ -22,7 +25,8 @@ const Video = ( props ) => {
                     : props.data.video_background === 'white' ? 'white'
                         : 'none' }
             id='quote'
-            p={{ lg:'1rem' }}
+            p={{ xs:0, lg:'1rem' }}
+            mx={{ xs:'-1rem', lg:'auto'}}
         >
             <AspectRatioBox ratio={16 / 9}>
                 <Box
