@@ -88,6 +88,7 @@ const IllustratedSummary = ( props ) => {
                             {
                                 item.link_image.thumbnails ?
                                 item.link_image.thumbnails.landscape ?
+                                item.link_image.thumbnails.landscape.localFile ?
                             <Image
                                 w='100%'
                                 h='100%'
@@ -96,7 +97,7 @@ const IllustratedSummary = ( props ) => {
                                 src={ item.link_image.thumbnails.landscape.localFile.childImageSharp.fixed.src }
                                 alt={ item.link_image.alt ? item.link_image.alt : '' }
                             />
-                            : null : null }
+                            : null : null : null }
                         </Box>
                     </PseudoBox>
                     )}
