@@ -15,6 +15,8 @@ const BtnConfig = ({props, handleClick, children}) => {
                 p='.7rem 1rem .5rem 1rem'
                 border='solid 1px'
                 borderColor='brand.1'
+                fontWeight='bold'
+                textTransform='uppercase'
                 _hover={{
                     bg:'blue.500'
                 }}
