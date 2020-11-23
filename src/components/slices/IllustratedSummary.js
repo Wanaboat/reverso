@@ -73,7 +73,7 @@ const IllustratedSummary = ( props ) => {
                                 alignItems='center'
                                 transition='all 200ms ease'
 
-                                _groupHover={{ bg: 'rgba(0,0,0,0.1)' }}
+                                _groupHover={{ bg: 'rgba(0,0,0,0.5)' }}
                             >
                                 <Text
                                     textShadow='0 0 3px rgba(0,0,0,0.4)'
