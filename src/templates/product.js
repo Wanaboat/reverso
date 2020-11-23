@@ -165,7 +165,8 @@ const ProductTpl = (props) => {
                                 </Box>
                                 <Box
                                     borderBottom='solid 1px'
-                                    borderBottomColor='gray.100'
+                                    borderBottomColor='gray.300'
+                                    pb='2rem'
                                 >
                                     <List
                                         spacing='1rem'
@@ -245,8 +246,8 @@ const ProductTpl = (props) => {
                                     borderBottom='solid 1px'
                                     borderBottomColor='gray.300'
                                 >
-                                    <Image h='55px' src={logoBoatOfTheYear} />
-                                    <Image h='55px' src={logoAudiAwards} />
+                                    <Image h='35px' src={logoBoatOfTheYear} />
+                                    <Image h='35px' src={logoAudiAwards} />
                                 </Stack>
                             </Box>
 
@@ -260,7 +261,8 @@ const ProductTpl = (props) => {
                                 <Grid
                                     spacing='1rem'
                                     gap='1rem'
-                                    my='2rem'
+                                    my='1rem'
+                                    mb='2rem'
                                     templateColumns={{ xs: '100%', lg: '1fr 1fr 1fr' }}
 
                                 >

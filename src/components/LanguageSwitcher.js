@@ -11,40 +11,35 @@ const LanguageSwitcher = ({ siteTitle }) => {
   const [openTryWizard, setOpenTryWizard] = useState(false)
   return (
     <>
-    <Stack isInline spacing='1rem'>
-  
-      <Button
+      <Stack isInline spacing='1rem'>
+        <Button
+          display='none'
           variant='ouline'
-            alignItems='center'
-            border='solid 1px'
-            borderColor='white'
-            px='.5rem'
-            borderRadius='3px'
-            as={ GatsbyLink }
-            to={ locale === 'en' ? '/fr' : '/' }
-            _hover={{
-              bg:'rgba(100,100,100,.2)'
-            }}
-      >
-        { locale === 'en' ? 'Fr' : 'En' }
-      </Button>
-        
-        {/* <Link as={ GatsbyLink } to='/fr'>Fr</Link> */}
-
-        {/* <Link as={ GatsbyLink } to='/'>En</Link> */}
-        
-      <BtnPrimary
-        handleClick={ ()=>{
-          setOpenTryWizard( !openTryWizard ) 
-          // console.log('wizard')
-        }}
-      >
-        <FormattedMessage id="try.it" />
-    </BtnPrimary>
-    </Stack>
+          alignItems='center'
+          border='solid 1px'
+          borderColor='white'
+          px='.5rem'
+          borderRadius='3px'
+          as={GatsbyLink}
+          to={locale === 'en' ? '/fr' : '/'}
+          _hover={{
+            bg: 'rgba(100,100,100,.2)'
+          }}
+        >
+          {locale === 'en' ? 'Fr' : 'En'}
+        </Button>
+        <BtnPrimary
+          handleClick={() => {
+            setOpenTryWizard(!openTryWizard)
+            // console.log('wizard')
+          }}
+        >
+          <FormattedMessage id="try.it" />
+        </BtnPrimary>
+      </Stack>
       <TryItWizard
-        isActive={ openTryWizard }
-        handleClose={ () => { setOpenTryWizard( false ) } }
+        isActive={openTryWizard}
+        handleClose={() => { setOpenTryWizard(false) }}
       />
     </>
   )

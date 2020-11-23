@@ -27,7 +27,8 @@ const IllustratedSummary = ( props ) => {
                         // border='solid 1px'
                         // borderColor='gray.400'
                         // borderRadius='2px'
-                        p='3rem'
+                        py='3rem'
+                        pr='3rem'
                         h='100%'
                         wrap='wrap'
                         alignItems='center'
@@ -37,6 +38,7 @@ const IllustratedSummary = ( props ) => {
                             <Heading
                                 as='h3'
                                 textTransform='uppercase'
+                                whiteSpace='pre-wrap'
                                 w='100%'
                                 mb='1rem'
                                 fontSize={{ xs:'20px', lg:'28px'}}
@@ -78,7 +80,10 @@ const IllustratedSummary = ( props ) => {
                                     color='white'
                                     fontWeight='900'
                                     fontFamily='Roboto'
-                                    fontSize={{ xs:'22px', lg:'30px' }}
+                                    fontWeight='300'
+                                    textTransform='uppercase'
+                                    fontSize={{ xs:'18px', lg:'22px' }}
+                                    letterSpacing='0.15rem'
                                     textAlign='center'
                                 >
                                 { item.link_label }
