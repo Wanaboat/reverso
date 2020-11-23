@@ -21,6 +21,7 @@ const PicturesGallery = ({ pictures }) => {
             cleanArray.push(
                 {
                     src: img.picture.localFile.childImageSharp.fixed.src ? img.picture.localFile.childImageSharp.fixed.src : img.picture.fixed.src,
+                    srcWebp: img.picture.localFile.childImageSharp.fixed.srcWebp ? img.picture.localFile.childImageSharp.fixed.srcWebp : false,
                     width: img.picture.dimensions.width,
                     height: img.picture.dimensions.height,
                 }
@@ -42,11 +43,18 @@ const PicturesGallery = ({ pictures }) => {
                         position='relative'
                         h='600px'
                     >
-                        <Image
-                            w='100%'
-                            src={item.src}
-                            loading='lazy'
-                        />
+                        <picture>
+                            <source type="image/jpeg" src={item.src} />
+                            { item.srcWebp ? 
+                                <source type="image/webp" src={item.srcWebp} />
+                            : null}
+                            <Image
+                                w='100%'
+                                src={item.src}
+                                loading='lazy'
+                            />
+                        </picture>
+                        
                     </Box>
                 </Slide>
 

@@ -567,6 +567,7 @@ query productQuery($prismicId: ID) {
                         childImageSharp {
                             fixed(width: 1150, height:600) {
                             src
+                            srcWebp
                             }
                         }
                     }

@@ -13,7 +13,7 @@ export const linkResolver = (doc) => {
             element.id === doc.id
             || element.id === doc.prismicId
           ){
-            return element.path
+            return `${element.path}/`
         }
       }
     }

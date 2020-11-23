@@ -105,7 +105,7 @@ const Breadcrumbs = ({ node, lang }) => {
             <>
                 <Link
                     color='black'
-                    to={`${lang === 'fr' ? '/fr' : ''}/${buildUrl(props.index)}`}
+                    to={`${lang === 'fr' ? '/fr' : ''}/${buildUrl(props.index)}/`}
                     as={GatsbyLink}
                     mr='1.5rem'
                 // key={`breadcrumb-item-${props}`}
