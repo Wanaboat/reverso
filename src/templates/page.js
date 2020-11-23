@@ -283,6 +283,7 @@ query pageQuery($prismicId: ID) {
                 primary {
                   anchor
                   is_narrow
+                  increase_font_size
                   background_color
                   content {
                     html

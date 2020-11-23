@@ -186,6 +186,13 @@
             "icon": "add_box",
             "display": "list",
             "non-repeat": {
+              "accordion_title": {
+                "type": "StructuredText",
+                "config": {
+                  "single": "heading2, heading3, heading4, heading5, heading6",
+                  "label": "Accordion title"
+                }
+              },
               "accordion_link": {
                 "type": "Link",
                 "config": {

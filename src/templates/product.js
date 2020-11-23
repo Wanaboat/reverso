@@ -80,6 +80,7 @@ const ProductTpl = (props) => {
                 <Box
                     // display='none'
                     background={`url(${shapeGray}) no-repeat left top`}
+                    backgroundSize='50%'
                     position='relative'
                 >
                     {/* {data.versions[0] ?
@@ -137,9 +138,9 @@ const ProductTpl = (props) => {
                             templateColumns={{ xs: '100%', lg: '1fr 1fr' }}
                             gap='3rem'
                             mb='3rem'
-                            mt='3rem'
+                            mt='2rem'
                         >
-                            <Stack spacing='1.5rem'>
+                            <Stack spacing='2.5rem'>
                                 <Box mt={{ xs: '1rem', lg: '2rem' }}>
                                     <Image src={
                                         data.logo === 'air' ?
@@ -208,7 +209,7 @@ const ProductTpl = (props) => {
                                 <AspectRatioBox
                                     w='100%'
                                     maxW="560px"
-                                    ratio={700 / 500}
+                                    ratio={1 / 1}
                                 >
                                     <Box
                                         as='picture'
@@ -453,6 +454,7 @@ query productQuery($prismicId: ID) {
                 }
                 ... on PrismicProductBodyAccordion {
                     primary {
+                    accordion_title{ text }
                       accordion_link {
                         document {
                           ... on PrismicAccordion {
@@ -499,7 +501,7 @@ query productQuery($prismicId: ID) {
                 }
                 localFile {
                     childImageSharp {
-                        fixed(height: 500, width: 700) { srcSet srcWebp aspectRatio base64 height originalName src srcSetWebp tracedSVG width }
+                        fixed(height: 550, width: 550) { srcSet srcWebp aspectRatio base64 height originalName src srcSetWebp tracedSVG width }
                         fluid {
                             ...GatsbyImageSharpFluid_noBase64
                             aspectRatio base64 originalImg originalName presentationHeight presentationWidth sizes src srcSet srcSetWebp srcWebp tracedSVG }                }

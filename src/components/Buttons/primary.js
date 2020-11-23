@@ -21,6 +21,8 @@ const BtnPrimary = ({
             border='solid 1px'
             borderColor='brand.1'
             textShadow='0 0 3px rgba(0,0,0,0.5)'
+            textTransform='uppercase'
+            fontWeight='bold'
             _hover={{
                 bg:'blue.700'
             }}

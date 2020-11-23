@@ -1,5 +1,4 @@
-
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 
 import {
     Box,
@@ -16,6 +15,8 @@ import Wysiwyg from '../Wysiwyg'
 import Wrapper from '../../components/Wrapper'
 
 const Accordion = (props) => {
+
+    console.log('AccordionProps', props )
 
     const variant = 'dark'
     const [isOpen, setIsOpen] = useState( false )
@@ -43,19 +44,18 @@ const Accordion = (props) => {
                 >
                     <Heading
                         as='p'
-                        textTransform='uppercase'
                         mb='1rem'
                         fontWeight='900'
                         fontFamily='Roboto'
                         letterSpacing='0.1rem'
-                        fontSize={{ xs:'20px', lg:'32px' }}
+                        fontSize={{ xs:'18px', lg:'20px' }}
                         cursor='pointer'
                         onClick={() => { handleOpen( index ) }}
                     >
                         { item.title }
                     </Heading>
                     <Text
-                        fontSize='14px'
+                        fontSize='16px'
                     >
                         { item.intro }
                     </Text>
@@ -102,12 +102,13 @@ const Accordion = (props) => {
     }
     return (
         <Wrapper
-            bg={variant === 'light' ? 'white' : 'brand.3'}
+            bg={variant === 'light' ? 'white' : 'black'}
             color={variant === 'light' ? 'gray.700' : 'white'}
-            // p='1rem'
-            px={{ xs:0, lg:'2rem' }}
+            px={{ xs:0, lg:'3rem' }}
+            py={{ xs:0, lg:'2rem' }}
             mx={{ xs: '-1rem', lg:0 }}
         >
+            <Heading>{ props.data.accordion_title.text }</Heading>
             { <Items />}
         </Wrapper>
     )
