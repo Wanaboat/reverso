@@ -14,15 +14,11 @@ import {
 
 } from '@chakra-ui/core'
 import BtnPrimary from '../components/Buttons/primary'
-import Img from "gatsby-image"
 import Wysiwyg from './Wysiwyg'
 
 const HomepageHero = (props) => {
     const { data, args_list, second_args_list } = props
-    
     console.log('HeroProps', data)
-
-    // console.log( props.data.image1.localFile )
     return (
         <Box>
             <Box
@@ -91,8 +87,6 @@ const HomepageHero = (props) => {
                             <Flex
                                 alignItems='center'
                                 justify='center'
-                                // h='500px'
-                            // bg='gray.50'
                             >
                                 <picture>
                                     <source
@@ -107,18 +101,9 @@ const HomepageHero = (props) => {
                                         w='100%'
                                         loading='lazy'
                                         alt={ props.image1.alt }
-                                        // fixed={
-                                        //     props.image1.localFile.childImageSharp.fixed
-                                        // }
                                         src={ props.image1.localFile.childImageSharp.fixed.src }
                                     />
                                 </picture>
- 
-                                {/* <Image
-                                    src={data.hero_image_1.url}
-                                    w='500px'
-                                    h='auto'
-                                /> */}
                             </Flex>
                         </Box>
                     </Grid>
@@ -190,7 +175,6 @@ const HomepageHero = (props) => {
                                             key={`homeHeroSecondArgs-${i}`}
                                         >
                                             <Text
-                                                textTransform='uppercase'
                                                 fontWeight='600'
                                             >
                                                 {list.question}
@@ -198,9 +182,6 @@ const HomepageHero = (props) => {
                                             <Wysiwyg
                                                 data={ list.answer.raw }
                                             />
-                                            {/* <Text>
-                                                {list.answer}
-                                            </Text> */}
                                         </ListItem>
                                     )}
                                 </List>

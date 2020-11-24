@@ -20,7 +20,6 @@ const BtnPrimary = ({
             p='.7rem 1rem .5rem 1rem'
             border='solid 1px'
             borderColor='brand.1'
-            textShadow='0 0 3px rgba(0,0,0,0.5)'
             textTransform='uppercase'
             fontWeight='bold'
             _hover={{

@@ -200,6 +200,7 @@ query pageQuery($prismicId: ID) {
               ... on PrismicPageBodyImageAlone {
                 primary{
                   wide_display
+                  isolated_image_background
                   isolated_image{ alt fixed{ src } localFile{ childImageSharp{ fixed(width:1000){ src srcWebp } } } }
                 }
               }

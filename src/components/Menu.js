@@ -48,8 +48,8 @@ const Menu = ({ lang }) => {
 
   items['en'] = [
     {
-      label:'New kinds of sailing',
-      url:'/new-kinds-sailing/'
+      label:'New sailing culture',
+      url:'/new-sailing-culture/'
     },
     {
       label:'Small sailboats',

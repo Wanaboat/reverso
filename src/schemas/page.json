@@ -454,6 +454,18 @@
             "icon": "add_box",
             "display": "list",
             "non-repeat": {
+              "isolated_image_background": {
+                "type": "Select",
+                "config": {
+                  "options": [
+                    "white",
+                    "gray",
+                    "mastic",
+                    "dark"
+                  ],
+                  "label": "Background"
+                }
+              },
               "isolated_image": {
                 "type": "Image",
                 "config": {

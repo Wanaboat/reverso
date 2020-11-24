@@ -25,8 +25,10 @@ const Video = ( props ) => {
                     : props.data.video_background === 'white' ? 'white'
                         : 'none' }
             id='quote'
-            p={{ xs:0, lg:'1rem' }}
+            p={{ xs:0, lg:'0rem' }}
             mx={{ xs:'-1rem', lg:'auto'}}
+            maxW={{ xs:'none', lg:'42rem' }}
+
         >
             <AspectRatioBox ratio={16 / 9}>
                 <Box
