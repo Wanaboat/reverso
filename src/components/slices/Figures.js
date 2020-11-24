@@ -16,7 +16,7 @@ const Figures = ( props ) => {
     return(
         <Wrapper
         bg='brand.3'
-        py='3rem'
+        py={{ xs:'1rem', lg:'3rem' }}
         pb={{ lg:'8rem' }}
     >
         <Heading
@@ -28,10 +28,11 @@ const Figures = ( props ) => {
             {props.data.title1.text}
         </Heading>
         <Flex
-            my='3rem'
+            my={{ xs:'2rem', lg:'3rem' }}
             color='white'
             fontSize={{ xs: '20px', lg: '28px' }}
             fontWeight='500'
+            wrap={{ xs: 'wrap', lg:'nowrap' }}
         >
             <Flex
                 alignItems='center'
@@ -58,10 +59,12 @@ const Figures = ( props ) => {
             >
                 { props.data.figure_2 }
             </Flex>
-            <Divider orientation='vertical' />
+            <Divider display={{ xs:'none', lg:'block' }} orientation='vertical' />
             <Flex
                 alignItems='center'
                 px={{ xs: '1rem', lg: '3rem' }}
+                mt={{ xs:'2rem', lg:0}}
+                w={{ xs:'100%', lg:'auto' }}
             >
                 <Image h='55px' src={logoBoatOfTheYearWhite} />
             </Flex>

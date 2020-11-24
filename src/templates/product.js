@@ -21,7 +21,8 @@ import {
 
 import shapeGray from '../images/shape-triangle.svg'
 import logoReversoAir from '../images/logo-air.svg'
-import logoReversoAirSeries from '../images/logo-air-series.svg'
+import logoReversoAirBlue from '../images/logo-air-blue.svg'
+import logoReversoAirRed from '../images/logo-air-red.svg'
 import logoReversoMatch from '../images/logo-match.svg'
 import Wrapper from '../components/Wrapper'
 
@@ -51,9 +52,7 @@ import usePreviewData from '../utils/usePreviewData'
 
 const ProductTpl = (props) => {
 
-    const {data} = usePreviewData(props.data.prismicProduct)
-
-    // const { data } = props.data.prismicProduct.data
+    const { data } = usePreviewData(props.data.prismicProduct)
 
     console.log('productData', data)
 
@@ -145,11 +144,13 @@ const ProductTpl = (props) => {
                                     <Image src={
                                         data.logo === 'air' ?
                                             logoReversoAir
-                                            : data.logo === 'series' ?
-                                                logoReversoAirSeries
-                                                : data.logo === 'match' ?
-                                                    logoReversoMatch
-                                                    : logoReversoAir
+                                            : data.logo === 'series-red' ?
+                                                logoReversoAirRed
+                                                : data.logo === 'series-blue' ?
+                                                    logoReversoAirBlue
+                                                    : data.logo === 'match' ?
+                                                        logoReversoMatch
+                                                        : logoReversoAir
                                     } />
                                 </Box>
                                 <Box>
@@ -175,7 +176,7 @@ const ProductTpl = (props) => {
                                         spacing='1rem'
                                         listStyleType='disc'
                                     >
-                                        {data.args_list.map((arg,index) =>
+                                        {data.args_list.map((arg, index) =>
                                             <ListItem
                                                 key={`args-list-item-${index}`}
                                             >
@@ -185,10 +186,14 @@ const ProductTpl = (props) => {
                                         )}
                                     </List>
                                 </Box>
-                                <Stack
+                                {/* <Stack
                                     isInline
                                     spacing='1rem'
                                     shouldWrapChildren={true}
+                                > */}
+                                <Grid
+                                    templateColumns={{ xs:'100%', lg:'1fr 100%'}}
+                                    gap='1rem'
                                 >
                                     <Box>
                                         <ButtonConfig>
@@ -200,7 +205,8 @@ const ProductTpl = (props) => {
                                             <FormattedMessage id="order.now" />
                                         </ButtonOrder>
                                     </Box>
-                                </Stack>
+                                    </Grid>
+                                {/* </Stack> */}
                             </Stack>
                             <Box
                                 // bg='gray.50'
@@ -214,20 +220,20 @@ const ProductTpl = (props) => {
                                     <Box
                                         as='picture'
                                     >
-                                        { data.image_main.localFile ? 
+                                        {data.image_main.localFile ?
                                             <>
                                                 <source type='image/jpeg' srcSet={data.image_main.localFile.childImageSharp.fixed.srcSetWebp} />
                                                 <source type='image/webp' srcSet={data.image_main.localFile.childImageSharp.fixed.srcSet} />
                                             </>
-                                        : null}
+                                            : null}
                                         <Image
                                             display='block'
                                             m='0'
                                             src={
                                                 data.image_main.localFile ?
                                                     data.image_main.localFile.childImageSharp.fixed.src
-                                                :
-                                                    data.image_main.fixed.src   
+                                                    :
+                                                    data.image_main.fixed.src
                                             }
                                         />
                                     </Box>
@@ -236,12 +242,6 @@ const ProductTpl = (props) => {
                         </Grid>
                         <Grid templateColumns={{ xs: '100%', lg: '1fr 1fr' }} gap='2rem'>
                             <Box>
-                                {/* <Heading
-                                    fontWeight='900'
-                                >
-                                    <FormattedMessage id='awards' />
-
-                                </Heading> */}
                                 <Stack
                                     py='1.5rem'
                                     isInline
@@ -295,12 +295,12 @@ const ProductTpl = (props) => {
                                             >
                                                 <Box as='picture'>
 
-                                                    { version.version_link.document.data.image_main_small.localFile ? 
+                                                    {version.version_link.document.data.image_main_small.localFile ?
                                                         <>
-                                                            <source type='image/jpeg' srcSet={ version.version_link.document.data.image_main_small.localFile.src } />
-                                                            <source type='image/webp' srcSet={ version.version_link.document.data.image_main_small.localFile.srcWebp } />
+                                                            <source type='image/jpeg' srcSet={version.version_link.document.data.image_main_small.localFile.src} />
+                                                            <source type='image/webp' srcSet={version.version_link.document.data.image_main_small.localFile.srcWebp} />
                                                         </>
-                                                    : null}
+                                                        : null}
                                                     <Image w='50px' src={
                                                         version.version_link.document.data.image_main_small.localFile
                                                             ? version.version_link.document.data.image_main_small.localFile.childImageSharp.fixed.src
@@ -387,19 +387,19 @@ const ProductTpl = (props) => {
 
                                     <Box
                                         as='iframe'
-                                        ratio={ 16/9 }
+                                        ratio={16 / 9}
                                         w='100%'
                                         h='100%'
                                         allowFullScreen
                                         src="https://player.vimeo.com/video/430264806"
                                     />
-                                        {/* <iframe title="vimeo-player"  width="640" height="360" frameborder="0" allowfullscreen></iframe> */}
-                                        {/* <VideoPlayer
+                                    {/* <iframe title="vimeo-player"  width="640" height="360" frameborder="0" allowfullscreen></iframe> */}
+                                    {/* <VideoPlayer
                                             src={data.video.url}
                                             poster={VideoCover}
                                         /> */}
 
-                                    
+
                                 </Box>
                                 <Box>
                                     <Heading
@@ -417,7 +417,7 @@ const ProductTpl = (props) => {
                                 <FaqSimple variant='light' />
                             </Box> */}
                             <Box>
-                                <SliceEngine data={ data.body } />
+                                <SliceEngine data={data.body} />
                             </Box>
                         </Stack>
                     </Wrapper>

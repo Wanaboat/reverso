@@ -17,7 +17,7 @@ theme = {
         brand: {
             "1": "#256EA3", // Blue
             "2": "#ED1C24", // Red
-            "3":"#323232", // Dark gray
+            "3":"#000000", // Dark gray
             "4":"#EEEEE8", // Mastic Gray
             boat:{
                 red:"#EA0201",

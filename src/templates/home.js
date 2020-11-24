@@ -145,6 +145,20 @@ query HpQuery($langIso:String!) {
             title
             title_suffix
             title_prefix
+            button_label
+            button_target {
+              document {
+                ... on PrismicPage { prismicId }
+                ... on PrismicProduct { prismicId }
+              }
+            }
+            secondary_button_label
+            secondary_button_target {
+              document {
+                ... on PrismicPage { prismicId }
+                ... on PrismicProduct { prismicId }
+              }
+            }
             secondary_title{
                 text
             }

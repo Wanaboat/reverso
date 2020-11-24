@@ -15,6 +15,7 @@ import {
 } from '@chakra-ui/core'
 import BtnPrimary from '../components/Buttons/primary'
 import Wysiwyg from './Wysiwyg'
+import { linkResolver } from '../prismic-configuration'
 
 const HomepageHero = (props) => {
     const { data, args_list, second_args_list } = props
@@ -74,9 +75,9 @@ const HomepageHero = (props) => {
                             <Box>
                                 <BtnPrimary
                                     as={ GatsbyLink }
-                                    to='/small-sailboats/reverso-air/'
+                                    to={ linkResolver( data.button_target.document )}
                                 >
-                                    MEET OUR SMALL SAILBOAT RANGE
+                                    { data.button_label }
                                 </BtnPrimary>
                             </Box>
                             
@@ -186,8 +187,11 @@ const HomepageHero = (props) => {
                                     )}
                                 </List>
                                 <Box>
-                                    <BtnPrimary>
-                                        One boat - multiple purposes
+                                    <BtnPrimary
+                                        as={ GatsbyLink }
+                                        to={ linkResolver( data.secondary_button_target.document )}
+                                    >
+                                        { data.secondary_button_label }
                                     </BtnPrimary>
                                 </Box>
                             </Stack>

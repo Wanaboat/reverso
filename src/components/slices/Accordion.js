@@ -50,6 +50,7 @@ const Accordion = (props) => {
                         letterSpacing='0.1rem'
                         fontSize={{ xs:'18px', lg:'20px' }}
                         cursor='pointer'
+                        pr='1.5rem'
                         onClick={() => { handleOpen( index ) }}
                     >
                         { item.title }
@@ -81,13 +82,13 @@ const Accordion = (props) => {
                         top={{ xs: '.5rem', lg: '0rem' }}
                         h='100%'
                         position='absolute'
-                        mt='2rem'
+                        mt={{ xs:'0rem', lg: '2rem' }}
                         alignItems={{ xs: 'flex-start', lg: 'flex-start' }}
                     >
                         <Button
                             variant='shadow'
                             onClick={() => { handleOpen( index ) }}
-                            display={{ xs:'none', lg:'block' }}
+                            display={{ lg:'block' }}
                         >
                             <Icon
                                 name={ isOpen === index ? 'minus' : 'add'}

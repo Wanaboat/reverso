@@ -71,6 +71,7 @@ const PicturesGallery = ({ pictures }) => {
                 naturalSlideWidth={1150}
                 naturalSlideHeight={600}
                 totalSlides={photos.length}
+                infinite={ true }
             >
                 <Slider>
                     <Items />
