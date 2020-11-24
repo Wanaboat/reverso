@@ -5,6 +5,7 @@ import {
     Box,
     Button,
     Flex,
+    Grid,
     // SimpleGrid,
     PseudoBox,
     Image,
@@ -22,8 +23,12 @@ const FourImgButtons = ( props ) => {
                 overflowX='scroll'
             >
                 <Flex
-                    w={{ xs:'calc( 50% * 4)', lg:'100%'}}
-                    wrap='nowrap'
+                    templateColumns={{
+                        xs:'90%',
+                        lg:'1fr 1fr 1fr 1fr'
+                    }}
+                    gap='1rem'
+                    w={{ xs:'calc( 90% * 4 + 3rem )', lg:'100%'}}
                 >
                 {
                 items.map ? 
@@ -35,7 +40,7 @@ const FourImgButtons = ( props ) => {
                     position='relative'
                     cursor='pointer'
                     transition='* 200ms ease'
-                    w={{ xs:'50%', lg:'25%'}}
+                    w={{ xs:'25%', lg:'100%'}}
                     mr={ i+1 < data.length ? '1rem' : '0'}
 
                 >
@@ -113,6 +118,7 @@ const FourImgButtons = ( props ) => {
                             </>
                         : null}
                         <Image
+                            w='100%'
                             src={ item.button_image.localFile ? item.button_image.localFile.childImageSharp.fixed.src : item.button_image.fixed.src }
                             alt={ item.button_image.alt ? item.button_image.alt : '' }
                         />
