@@ -21,6 +21,10 @@
     to = "/small-sailboats/"
     status = 301
 [[redirects]]
+    from = "/about/*"
+    to = "/about-reverso/"
+    status = 301
+[[redirects]]
     from = "/test/*"
     to = "/"
     status = 301    

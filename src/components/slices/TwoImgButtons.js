@@ -57,7 +57,7 @@ const TwoImgButtons = ( props ) => {
                             display='flex'
                             alignItems='center'
                         >
-                            { data.label_1}
+                            { data.label_1.replace(/&#8232;/g," ") }
                         </PseudoBox>
 
                     </PseudoBox>
