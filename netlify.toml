@@ -4,6 +4,26 @@
     from = "/api/*"
     to = "/.netlify/functions/:splat"
     status = 200
+[[redirects]]
+    from = "/testimonials/*"
+    to = "/"
+    status = 301
+[[redirects]]
+    from = "/blog/*"
+    to = "/"
+    status = 301
+[[redirects]]
+    from = "/explore/*"
+    to = "/new-sailing-culture/"
+    status = 301
+[[redirects]]
+    from = "/reservation/*"
+    to = "/small-sailboats/"
+    status = 301
+[[redirects]]
+    from = "/test/*"
+    to = "/"
+    status = 301    
 
 
 ## Fauna Key : fnAD5mMGnXACAaZ07REwSRrKUf8L6xSCVyMsGccn    
