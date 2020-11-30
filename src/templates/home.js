@@ -6,52 +6,50 @@ import SliceEngine from '../components/slices/Engine'
 
 const HomeTpl = (props) => {
 
-    const { prismicHomepage } = props.data
-    console.log( 'hp props', props.data )
-
-
-    return (
-        <Layout lang={props.pageContext.lang}>
-        <Helmet>
+  const { prismicHomepage } = props.data
+  // console.log( 'hp props', props.data )
+  console.log('props.pageContext.lang', props.pageContext.lang)
+  return (
+    <Layout lang={props.pageContext.lang}>
+      <Helmet>
         <title>{prismicHomepage.data.seo_title}</title>
         <meta name='description' content={prismicHomepage.data.seo_description} />
-        <meta property="og:title" content={ prismicHomepage.data.seo_title } />
-        <meta property="og:description" content={ prismicHomepage.data.seo_description } />
+        <meta property="og:title" content={prismicHomepage.data.seo_title} />
+        <meta property="og:description" content={prismicHomepage.data.seo_description} />
         <link
           rel='canonical'
-          href={`${process.env.GATSBY_BASE_URL}/${'fr'}`}
+          href={`${process.env.GATSBY_BASE_URL}/${props.pageContext.lang === 'fr' ? 'fr/' : ''}`}
         />
-          <link
-            rel="alternate"
-            href={`${process.env.GATSBY_BASE_URL}`}
-            hreflang="x-default"
-          />
-          <meta property='og:image' content={ `${process.env.GATSBY_BASE_URL}/${prismicHomepage.data.sharing_image.localFile ? prismicHomepage.data.sharing_image.localFile.childImageSharp.fixed.src : '' }` } />
-          <meta property='og:type' content='website' />
-          <meta property="og:image:width" content="1200" />
-          <meta property="og:image:height" content="630" />
-          <meta property='og:url' content={`${process.env.GATSBY_BASE_URL}/${'fr'}`} />
-
+        <link
+          rel="alternate"
+          href={`${process.env.GATSBY_BASE_URL}`}
+          hreflang="x-default"
+        />
+        <meta property='og:image' content={`${process.env.GATSBY_BASE_URL}/${prismicHomepage.data.sharing_image.localFile ? prismicHomepage.data.sharing_image.localFile.childImageSharp.fixed.src : ''}`} />
+        <meta property='og:type' content='website' />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property='og:url' content={`${process.env.GATSBY_BASE_URL}/${'fr'}`} />
       </Helmet>
+      <HomepageHero
+        data={prismicHomepage.data}
+        image1={prismicHomepage.data.hero_image_1}
+        image2={prismicHomepage.data.hero_image_2}
+        args_list={prismicHomepage.data.args_list}
+        second_args_list={prismicHomepage.data.second_args_list}
+      />
+      {/* 
+          <SliceLogosList />
+          <SliceBannerAndDescription />
+          <SliceBannerAndDescription />
+          <SliceNewsletterSubscription />
+          <SliceCenteredOneColumn />
+      */}
+      <SliceEngine data={prismicHomepage.data.body} />
 
-            <HomepageHero
-                data={ prismicHomepage.data }
-                image1={prismicHomepage.data.hero_image_1}
-                image2={prismicHomepage.data.hero_image_2}
-                args_list={ prismicHomepage.data.args_list }
-                second_args_list={ prismicHomepage.data.second_args_list }
-            />
-            {/* <SliceLogosList />
-            <SliceBannerAndDescription />
-            <SliceBannerAndDescription />
-            <SliceNewsletterSubscription />
-            <SliceCenteredOneColumn />*/}
+    </Layout>
 
-            <SliceEngine data={prismicHomepage.data.body} /> 
-
-        </Layout>
-
-    )
+  )
 }
 
 export default HomeTpl

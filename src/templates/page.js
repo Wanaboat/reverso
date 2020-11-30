@@ -15,11 +15,13 @@ import {
   Heading,
 } from '@chakra-ui/core'
 import Wrapper from '../components/Wrapper'
+import { linkResolver } from '../prismic-configuration'
 
 const PageTpl = (props) => {
 
   const data = usePreviewData(props.data)
   console.log('PageData', data)
+  console.log('props.data.prismicPage.alternate_languages[0]', props.data.prismicPage.alternate_languages[0])
 
   return (
     <Layout lang={props.pageContext.lang}>
@@ -28,28 +30,30 @@ const PageTpl = (props) => {
         <meta name='description' content={props.data.prismicPage.data.seo_description} />
         <link
           rel='canonical'
+          hreflang={props.pageContext.lang === 'en' ? 'fr' : 'en'}
           href={`${process.env.GATSBY_BASE_URL}/${buildSlug(props.data.prismicPage, props.pageContext.lang)}`}
+          hreflang={props.pageContext.lang === 'en' ? 'fr' : 'en'}
         />
-        {/* {props.data.prismicPage.alternate_languages[0] ?
+        {props.data.prismicPage.alternate_languages[0] ?
           <link
             rel="alternate"
-            href={`${process.env.GATSBY_BASE_URL}/${buildSlug(props.data.prismicPage.alternate_languages[0], props.pageContext.lang)}`}
+            href={`${process.env.GATSBY_BASE_URL}${linkResolver({ prismicId: props.data.prismicPage.alternate_languages[0].document.prismicId })} `}
             hreflang="x-default"
           />
-          : null} */}
-          <meta name='og:title' content={props.data.prismicPage.data.seo_title ? props.data.prismicPage.data.seo_title : ''} />
-          <meta name='og:description' content={props.data.prismicPage.data.seo_description ? props.data.prismicPage.data.seo_description : ''} />
-          <meta name='og:url' content={`${process.env.GATSBY_BASE_URL}/${buildSlug(props.data.prismicPage, props.pageContext.lang)}`} />
-          <meta name='og:type' content={`article`} />
-          { props.data.prismicPage.data.sharing_image ?  props.data.prismicPage.data.sharing_image.localFile ? 
-            <meta name='og:image' content={`${process.env.GATSBY_BASE_URL}${props.data.prismicPage.data.sharing_image.localFile.childImageSharp.fixed.src}`} />
-          : null : null }
+          : null}
+        <meta name='og:title' content={props.data.prismicPage.data.seo_title ? props.data.prismicPage.data.seo_title : ''} />
+        <meta name='og:description' content={props.data.prismicPage.data.seo_description ? props.data.prismicPage.data.seo_description : ''} />
+        <meta name='og:url' content={`${process.env.GATSBY_BASE_URL}/${buildSlug(props.data.prismicPage, props.pageContext.lang)}`} />
+        <meta name='og:type' content={`article`} />
+        {props.data.prismicPage.data.sharing_image ? props.data.prismicPage.data.sharing_image.localFile ?
+          <meta name='og:image' content={`${process.env.GATSBY_BASE_URL}${props.data.prismicPage.data.sharing_image.localFile.childImageSharp.fixed.src}`} />
+          : null : null}
       </Helmet>
       <Wrapper
         bg='white'
-        py={{ xs:'1rem', lg:'1rem'}}
-        px={{ xs:'1.5rem' }}
-        display={{ xs:'none', md:'block' }}
+        py={{ xs: '1rem', lg: '1rem' }}
+        px={{ xs: '1.5rem' }}
+        display={{ xs: 'none', md: 'block' }}
       >
         {/* <Breadcrumbs
           node={props.data.prismicPage}
@@ -59,33 +63,33 @@ const PageTpl = (props) => {
       <Wrapper>
         <Heading
           position='relative'
-          my={{ xs:'.5rem', lg:'1rem' }}
+          my={{ xs: '.5rem', lg: '1rem' }}
           as='h1'
           pb='1rem'
           mb='1rem'
           fontWeight='900'
-          textAlign={ data.prismicPage.data.is_title_centered ? 'center' : 'left' }
-          maxW={ data.prismicPage.data.is_title_narrow ? '42rem' : 'auto' }
+          textAlign={data.prismicPage.data.is_title_centered ? 'center' : 'left'}
+          maxW={data.prismicPage.data.is_title_narrow ? '42rem' : 'auto'}
           mx='auto'
         >
           {data.prismicPage.data.title.text}
-          {data.prismicPage.data.title_suffix ? 
+          {data.prismicPage.data.title_suffix ?
             <Text
               as='span'
               color='brand.1'
               fontWeight='900'
               fontFamily='Roboto'
             >
-                &nbsp;{ data.prismicPage.data.title_suffix }
+              &nbsp;{data.prismicPage.data.title_suffix}
             </Text>
-          : null}
+            : null}
           <Box
             w='100px'
             h='6px'
             bg='gray.900'
             position='absolute'
             bottom='0'
-            left={ data.prismicPage.data.is_title_centered ? 'calc(50% - 50px)': '0'}
+            left={data.prismicPage.data.is_title_centered ? 'calc(50% - 50px)' : '0'}
           />
         </Heading>
       </Wrapper>
@@ -103,34 +107,10 @@ query pageQuery($prismicId: ID) {
         prismicId
         lang
         uid
-        alternate_languages {
-          lang
-          document {
-            ... on PrismicPage {
-              id
-              uid
-              ... on PrismicPage {
-                uid
-                data {
-                  parent {
-                    document {
-                      ... on PrismicPage {
-                        uid
-                        data {
-                          parent {
-                            document {
-                              ... on PrismicPage {
-                                uid
-                              }
-                            }
-                          }
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            }
+        alternate_languages{
+          document{
+            ... on PrismicPage{ prismicId }
+            ... on PrismicProduct{ prismicId }
           }
         }
         data {

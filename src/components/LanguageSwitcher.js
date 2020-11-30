@@ -1,8 +1,8 @@
 import React from "react"
-import { Box, Button, Flex, Link, Stack } from '@chakra-ui/core'
+import { Button, Stack } from '@chakra-ui/core'
 import { Link as GatsbyLink } from 'gatsby'
 import PropTypes from "prop-types"
-import { FormattedMessage, useIntl } from 'react-intl'
+import { useIntl } from 'react-intl'
 import TryItButton from './Buttons/try'
 const LanguageSwitcher = ({ siteTitle }) => {
   const locale = useIntl().locale

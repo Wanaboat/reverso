@@ -58,7 +58,7 @@ const Engine = ({ data }) => {
     }
 
     const Slices = data.map((slice, index) => {
-        console.log('slice', slice)
+        // console.log('Slice', slice)
         const SliceComponent = sliceComponents[slice.__typename]
         if (SliceComponent) {
             return (

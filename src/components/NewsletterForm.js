@@ -16,7 +16,7 @@ const NewsletterForm = () => {
     ReactGA.initialize( process.env.GATSBY_GA_ID );
 
     const locale = useIntl()['locale']
-    console.log('locale', locale)
+    // console.log('locale', locale)
 
     const [isSaved, setIsSaved] = useState(false)
 
@@ -31,8 +31,6 @@ const NewsletterForm = () => {
         // });
 
         let mcUrl = ''
-
-        console.log(locale)
 
         if (locale === 'en') {
             mcUrl = `${process.env.GATSBY_MAILCHIMP_EN_AUDIENCE}&EMAIL=${InputField.current.value}&c=__jp0`
@@ -53,18 +51,6 @@ const NewsletterForm = () => {
             category: "Newsletter",
             action: "Subscription"
         });
-
-        // addToMailchimp(InputField.current.value, {}) // listFields are optional if you are only capturing the email address.
-        //   .then(data => {
-        //     // I recommend setting data to React state
-        //     // but you can do whatever you want (including ignoring this `then()` altogether)
-        //     console.log(data)
-        //   })
-        //   .catch(() => {
-        //     // unnecessary because Mailchimp only ever
-        //     // returns a 200 status code
-        //     // see below for how to handle errors
-        //   })
     }
 
     return (

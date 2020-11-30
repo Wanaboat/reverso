@@ -10,8 +10,7 @@ import {
     List,
     ListItem,
     Stack,
-    Text,
-
+    Text
 } from '@chakra-ui/core'
 import BtnPrimary from '../components/Buttons/primary'
 import Wysiwyg from './Wysiwyg'
@@ -19,7 +18,7 @@ import { linkResolver } from '../prismic-configuration'
 
 const HomepageHero = (props) => {
     const { data, args_list, second_args_list } = props
-    console.log('HeroProps', data)
+    // console.log('HeroProps', data)
     return (
         <Box>
             <Box

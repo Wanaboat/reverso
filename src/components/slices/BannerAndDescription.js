@@ -17,7 +17,7 @@ import { linkResolver } from '../../prismic-configuration'
 import { checkPropTypes } from 'prop-types'
 
 const SliceBannerAndDescription = ({ data }) => {
-    console.log('SliceBannerAndDescription', data)
+    // console.log('SliceBannerAndDescription', data)
     if( !data ){ return null }
     return (
         <Wrapper

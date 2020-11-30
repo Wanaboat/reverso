@@ -68,8 +68,9 @@ const ProductTpl = (props) => {
                 {props.data.prismicProduct.alternate_languages[0] ?
                     <link
                         rel="alternate"
-                        href={`${process.env.GATSBY_BASE_URL}${linkResolver(props.data.prismicProduct.alternate_languages[0].raw)}`}
-                        hreflang="x-default"
+                        href={`${process.env.GATSBY_BASE_URL}${linkResolver({ prismicId: props.data.prismicProduct.alternate_languages[0].document.prismicId })} `}
+                        hreflang={props.pageContext.lang === 'en' ? 'fr' : 'en'}
+                        // hreflang="x-default"
                     />
                     : null}
             </Helmet>
@@ -192,7 +193,7 @@ const ProductTpl = (props) => {
                                     shouldWrapChildren={true}
                                 > */}
                                 <Grid
-                                    templateColumns={{ xs:'100%', lg:'1fr 100%'}}
+                                    templateColumns={{ xs: '100%', lg: '1fr 100%' }}
                                     gap='1rem'
                                 >
                                     <Box>
@@ -205,7 +206,7 @@ const ProductTpl = (props) => {
                                             <FormattedMessage id="order.now" />
                                         </ButtonOrder>
                                     </Box>
-                                    </Grid>
+                                </Grid>
                                 {/* </Stack> */}
                             </Stack>
                             <Box
@@ -434,8 +435,11 @@ query productQuery($prismicId: ID) {
     prismicProduct( prismicId: { eq : $prismicId} ){
         ...HierachyProduct
         alternate_languages{
-			raw
-        }
+            document{
+              ... on PrismicPage{ prismicId }
+              ... on PrismicProduct{ prismicId }
+            }
+          }
         prismicId
         lang
         uid

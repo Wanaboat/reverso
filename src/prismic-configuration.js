@@ -4,6 +4,8 @@
 export const linkResolver = (doc) => {
     var data = require( '../paths.js')
 
+    // console.log('doc', doc)
+
     if( !doc ){
       return '/'
     }else{

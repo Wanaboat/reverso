@@ -5,7 +5,7 @@ import { linkResolver } from '../prismic-configuration';
 import '../css/wysiwyg.css'
 
 const Wysiwyg = ({isDark, data}) => {
-    console.log( 'Wysiwyg', data )
+    // console.log( 'Wysiwyg', data )
     return(
 
         <Box

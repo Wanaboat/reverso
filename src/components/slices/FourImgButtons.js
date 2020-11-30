@@ -42,6 +42,7 @@ const FourImgButtons = ( props ) => {
                     transition='* 200ms ease'
                     w={{ xs:'25%', lg:'100%'}}
                     mr={ i+1 < data.length ? '1rem' : '0'}
+                    key={`fourButtonsItems-${i}`}
 
                 >
                     <PseudoBox
