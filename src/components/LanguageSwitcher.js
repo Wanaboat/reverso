@@ -1,19 +1,15 @@
-import React, { useState } from "react"
+import React from "react"
 import { Box, Button, Flex, Link, Stack } from '@chakra-ui/core'
 import { Link as GatsbyLink } from 'gatsby'
 import PropTypes from "prop-types"
-import BtnPrimary from '../components/Buttons/primary'
-import TryItWizard from '../components/TryItWizard'
 import { FormattedMessage, useIntl } from 'react-intl'
-
+import TryItButton from './Buttons/try'
 const LanguageSwitcher = ({ siteTitle }) => {
   const locale = useIntl().locale
-  const [openTryWizard, setOpenTryWizard] = useState(false)
   return (
     <>
       <Stack isInline spacing='1rem'>
         <Button
-          display='none'
           variant='ouline'
           alignItems='center'
           border='solid 1px'
@@ -28,19 +24,9 @@ const LanguageSwitcher = ({ siteTitle }) => {
         >
           {locale === 'en' ? 'Fr' : 'En'}
         </Button>
-        <BtnPrimary
-          handleClick={() => {
-            setOpenTryWizard(!openTryWizard)
-            // console.log('wizard')
-          }}
-        >
-          <FormattedMessage id="try.it" />
-        </BtnPrimary>
+        <TryItButton />
       </Stack>
-      <TryItWizard
-        isActive={openTryWizard}
-        handleClose={() => { setOpenTryWizard(false) }}
-      />
+      
     </>
   )
 }

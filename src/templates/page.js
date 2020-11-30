@@ -30,13 +30,13 @@ const PageTpl = (props) => {
           rel='canonical'
           href={`${process.env.GATSBY_BASE_URL}/${buildSlug(props.data.prismicPage, props.pageContext.lang)}`}
         />
-        {props.data.prismicPage.alternate_languages[0] ?
+        {/* {props.data.prismicPage.alternate_languages[0] ?
           <link
             rel="alternate"
             href={`${process.env.GATSBY_BASE_URL}/${buildSlug(props.data.prismicPage.alternate_languages[0], props.pageContext.lang)}`}
             hreflang="x-default"
           />
-          : null}
+          : null} */}
           <meta name='og:title' content={props.data.prismicPage.data.seo_title ? props.data.prismicPage.data.seo_title : ''} />
           <meta name='og:description' content={props.data.prismicPage.data.seo_description ? props.data.prismicPage.data.seo_description : ''} />
           <meta name='og:url' content={`${process.env.GATSBY_BASE_URL}/${buildSlug(props.data.prismicPage, props.pageContext.lang)}`} />
@@ -51,11 +51,10 @@ const PageTpl = (props) => {
         px={{ xs:'1.5rem' }}
         display={{ xs:'none', md:'block' }}
       >
-          <Breadcrumbs
-            node={props.data.prismicPage}
-            lang={props.pageContext.lang}
-          />
-        {/* </Box> */}
+        {/* <Breadcrumbs
+          node={props.data.prismicPage}
+          lang={props.pageContext.lang}
+        /> */}
       </Wrapper>
       <Wrapper>
         <Heading

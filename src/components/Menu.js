@@ -3,30 +3,32 @@ import { Box, Button, Flex, Icon, Link, PseudoBox, Stack } from '@chakra-ui/core
 import { Link as GatsbyLink } from 'gatsby'
 import PropTypes from "prop-types"
 import { useIntl } from 'react-intl'
+import BtnPrimary from "./Buttons/primary"
+import TryItButton from './Buttons/try'
 
 const Menu = ({ lang }) => {
   const locale = useIntl().locale
-  const [ isVisible, setIsVisible ] = useState( false )
+  const [isVisible, setIsVisible] = useState(false)
   const MainNavLink = ({ to, children }) => {
-    return(
+    return (
       <PseudoBox
         mx='1rem'
         // p='.45rem'
-        my={{ xs:'1rem', lg:'.35rem' }}
+        my={{ xs: '1rem', lg: '.35rem' }}
         fontWeight='600'
         textTransform='uppercase'
         as={GatsbyLink}
         to={to}
         // borderBottom="solid 2px"
         // borderBottomColor='transparent'
-        w={{ xs:'100%', lg:'auto'}}
-        onClick={ ()=>{setIsVisible(false)} }
+        w={{ xs: '100%', lg: 'auto' }}
+        onClick={() => { setIsVisible(false) }}
         display='block'
         _hover={{
           // 'borderBottomColor':'brand.2',
-          ":after":{
+          ":after": {
             "width": "100%",
-            "opacity":1
+            "opacity": 1
           }
         }}
         _after={{
@@ -39,7 +41,7 @@ const Menu = ({ lang }) => {
           "transition": "all .3s ease",
         }}
       >
-        {children} 
+        {children}
       </PseudoBox>
     )
   }
@@ -48,21 +50,21 @@ const Menu = ({ lang }) => {
 
   items['en'] = [
     {
-      label:'New sailing culture',
-      url:'/new-sailing-culture/'
+      label: 'New sailing culture',
+      url: '/new-sailing-culture/'
     },
     {
-      label:'Small sailboats',
-      url:'/small-sailboats/'
+      label: 'Small sailboats',
+      url: '/small-sailboats/'
     },
     {
-      label:'About',
-      url:'/about-reverso/'
+      label: 'About',
+      url: '/about-reverso/'
     }
   ].map(item =>
     <MainNavLink
-      key={ item.url }
-      to={ item.url }
+      key={item.url}
+      to={item.url}
     >
       {item.label}
     </MainNavLink>
@@ -70,20 +72,20 @@ const Menu = ({ lang }) => {
 
   items['fr'] = [
     {
-      label:'Nouvelle ère de navigation',
-      url:'/fr/nouvelle-ere'
+      label: 'Nouvelle culture',
+      url: '/fr/navigation-nouvelle-culture/'
     },
     {
-      label:'Les dériveurs Reverso',
-      url:'/fr/deriveurs/'
+      label: 'Les dériveurs Reverso',
+      url: '/fr/nos-deriveurs/'
     },
     {
-      label:'À propos',
-      url:'/fr/a-propos/'
+      label: 'À propos',
+      url: '/fr/a-propos/'
     }
   ].map(item =>
     <MainNavLink
-      to={ item.url }
+      to={item.url}
     >
       {item.label}
     </MainNavLink>
@@ -100,36 +102,44 @@ const Menu = ({ lang }) => {
         color='gray.50'
         display={{ lg: 'none' }}
         spacing='2px'
-        onClick={()=>{ setIsVisible(!isVisible)}}
+        onClick={() => { setIsVisible(!isVisible) }}
         _hover={{
-          bg:'transparent',
-          color:'white'
+          bg: 'transparent',
+          color: 'white'
         }}
       >
-        <Icon 
+        <Icon
           transition='all 200ms ease'
-          transform={ isVisible ? 'rotate(45deg)' : 'rotate(90deg)'}
+          transform={isVisible ? 'rotate(45deg)' : 'rotate(90deg)'}
           name='add'
           size='22px'
         />
-    </Button>
+      </Button>
       <Flex
-        w={{ xs:'100vw', lg:'auto'}}
-        h={{ xs:'auto', lg:'auto'}}
-        wrap={{xs:'wrap', lg:'nowrap'}}
-        position={{ xs:'fixed', lg:'initial'}}
-        pointerEvents={{ xs:isVisible ? 'auto' : 'none', lg:'auto' }}
-        opacity={{ xs:isVisible ? '1' : '0', lg:'1' }}
-        transform={{ xs: isVisible ? 'translateY(72px)' : 'translateY(0px)', lg:'none' }}
+        w={{ xs: '100vw', lg: 'auto' }}
+        h={{ xs: 'auto', lg: 'auto' }}
+        wrap={{ xs: 'wrap', lg: 'nowrap' }}
+        position={{ xs: 'fixed', lg: 'initial' }}
+        pointerEvents={{ xs: isVisible ? 'auto' : 'none', lg: 'auto' }}
+        opacity={{ xs: isVisible ? '1' : '0', lg: '1' }}
+        transform={{ xs: isVisible ? 'translateY(72px)' : 'translateY(0px)', lg: 'none' }}
         transition='all 200ms ease'
         zIndex='banner'
 
         left='0'
         top='0'
-        
-        bg={{ xs:'gray.800', lg:'transparent' }}
+
+        bg={{ xs: 'gray.800', lg: 'transparent' }}
       >
         {items[locale]}
+        <Box
+          m='1rem'
+          mt='0'
+          display={{ xs:'block', lg:'none'}}
+        >
+          <TryItButton />
+        </Box>
+
       </Flex>
     </Flex>
   )

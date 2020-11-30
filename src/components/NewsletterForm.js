@@ -93,7 +93,7 @@ const NewsletterForm = () => {
                             aria-describedby="email-helper-text"
                             borderRadius='3px 0 0 3px'
                             h='50px'
-                            placeholder='Your email'
+                            placeholder='Email'
 
                         />
                         <Button
