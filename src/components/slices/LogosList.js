@@ -28,7 +28,7 @@ const LogosList = ( props ) => {
                         key={ item.logo_item.localFile.childImageSharp.fixed.src }
                         mx='1.5rem'>
                         <Image
-                            h='60px'
+                            h={{ xs:'auto', lg:'60px' }}
                             src={ item.logo_item.localFile.childImageSharp.fixed.src }
                             alt={ item.logo_item.alt }
                         />

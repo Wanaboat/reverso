@@ -49,6 +49,7 @@ import SliceEngine from '../components/slices/Engine'
 
 import { linkResolver } from '../prismic-configuration'
 import usePreviewData from '../utils/usePreviewData'
+import Reverso3d from '../components/Reverso3d'
 
 const ProductTpl = (props) => {
 
@@ -329,12 +330,12 @@ const ProductTpl = (props) => {
                             </Box>
                         </Grid>
                         <Stack mt='4rem' mb='2rem' spacing='5rem'>
+                            <Box
+                                mx={{ xs:'-1rem', lg:0 }}
+                            >
+                                <Reverso3d />
+                            </Box>
                             <Box>
-                                {/* <Heading
-                                    fontWeight='900'
-                                >
-                                    Gallery
-                                </Heading> */}
                                 <CarouselPictures
                                     pictures={data.gallery_list}
                                 />

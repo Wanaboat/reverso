@@ -3,6 +3,8 @@ import Helmet from 'react-helmet'
 import Layout from '../components/layout'
 import HomepageHero from '../components/HomepageHero'
 import SliceEngine from '../components/slices/Engine'
+import { AspectRatioBox, Box } from '@chakra-ui/core'
+import Reverso3d from '../components/Reverso3d'
 
 const HomeTpl = (props) => {
 
@@ -45,8 +47,8 @@ const HomeTpl = (props) => {
           <SliceNewsletterSubscription />
           <SliceCenteredOneColumn />
       */}
+      <Reverso3d />
       <SliceEngine data={prismicHomepage.data.body} />
-
     </Layout>
 
   )
