@@ -5,6 +5,7 @@ import {
     Flex,
 } from '@chakra-ui/core'
 import BtnPrimary from './Buttons/primary'
+import { FormattedMessage } from 'react-intl'
 
 const Reverso3d = () => {
     const [showPlayer, setShowPlayer] = useState(false)
@@ -19,7 +20,9 @@ const Reverso3d = () => {
             >
                 <BtnPrimary
                     handleClick={() => { setShowPlayer(true) }}
-                >Discover Reverso in 3d</BtnPrimary>
+                >
+                    <FormattedMessage id='discover.3d' />
+                </BtnPrimary>
             </Flex>
             :
             <>
@@ -33,7 +36,7 @@ const Reverso3d = () => {
                     <Box
                         as="iframe"
                         title="Reverso 3D"
-                        src='https://emersya.com/presets/85N0OLMVM4'
+                        src='https://emersya.com/showcase/85N0OLMVM4'
                         allowFullScreen
                     />
                 </AspectRatioBox>
@@ -42,13 +45,15 @@ const Reverso3d = () => {
                     maxW="100%"
                     w='100%'
                     // ratio={{ xs:1.77, lg: }}
-                    ratio={1.5}
+                    ratio={1.6}
                 >
                     <Box
                         as="iframe"
                         title="Reverso 3D"
-                        src='https://emersya.com/presets/85N0OLMVM4'
+                        src='https://emersya.com/showcase/85N0OLMVM4'
                         allowFullScreen
+                        frameborder={ 0 }
+                        allow='camera; gyroscope; accelerometer; magnetometer;'
                     />
                 </AspectRatioBox>
             </>

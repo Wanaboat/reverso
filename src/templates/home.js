@@ -5,7 +5,7 @@ import HomepageHero from '../components/HomepageHero'
 import SliceEngine from '../components/slices/Engine'
 import { AspectRatioBox, Box } from '@chakra-ui/core'
 import Reverso3d from '../components/Reverso3d'
-
+import Wrapper from '../components/Wrapper'
 const HomeTpl = (props) => {
 
   const { prismicHomepage } = props.data
@@ -47,7 +47,12 @@ const HomeTpl = (props) => {
           <SliceNewsletterSubscription />
           <SliceCenteredOneColumn />
       */}
-      <Reverso3d />
+      <Wrapper
+        py='1rem'
+        bg='brand.3'
+      >
+        <Reverso3d />
+      </Wrapper>
       <SliceEngine data={prismicHomepage.data.body} />
     </Layout>
 
