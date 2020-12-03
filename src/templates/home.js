@@ -49,7 +49,7 @@ const HomeTpl = (props) => {
       */}
       <Wrapper
         py='1rem'
-        bg='brand.3'
+        // bg='brand.3'
       >
         <Reverso3d />
       </Wrapper>
