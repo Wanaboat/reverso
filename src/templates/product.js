@@ -333,7 +333,7 @@ const ProductTpl = (props) => {
                             <Box
                                 mx={{ xs:'-1rem', lg:0 }}
                             >
-                                <Reverso3d />
+                                <Reverso3d url={ data.three_dimension_link.url } />
                             </Box>
                             <Box>
                                 <CarouselPictures
@@ -522,6 +522,7 @@ query productQuery($prismicId: ID) {
             args_list {
                 item
             }
+            three_dimension_link{ url }
             versions{
                 version_link{
                     document{

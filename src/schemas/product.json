@@ -12,7 +12,8 @@
       "config": {
         "options": [
           "air",
-          "series",
+          "series-red",
+          "series-blue",
           "match"
         ],
         "default_value": "air",
@@ -245,6 +246,14 @@
           }
         },
         "label": "versions"
+      }
+    }
+  },
+  "3D": {
+    "three_dimension_link": {
+      "type": "Link",
+      "config": {
+        "label": "Iframe link URL"
       }
     }
   }

@@ -7,7 +7,7 @@ import {
 import BtnPrimary from './Buttons/primary'
 import { FormattedMessage } from 'react-intl'
 
-const Reverso3d = () => {
+const Reverso3d = ({ url }) => {
     const [showPlayer, setShowPlayer] = useState(false)
     return (
             // <Flex
@@ -34,7 +34,7 @@ const Reverso3d = () => {
                 <Box
                     as="iframe"
                     title="Reverso 3D"
-                    src='https://emersya.com/showcase/85N0OLMVM4'
+                    src={ url ? url : 'https://emersya.com/showcase/85N0OLMVM4'}
                     allowFullScreen
                 />
             </AspectRatioBox>
@@ -48,7 +48,7 @@ const Reverso3d = () => {
                 <Box
                     as="iframe"
                     title="Reverso 3D"
-                    src='https://emersya.com/showcase/85N0OLMVM4'
+                    src={ url ? url : 'https://emersya.com/showcase/85N0OLMVM4'}
                     allowFullScreen
                     frameborder={ 0 }
                     allow='camera; gyroscope; accelerometer; magnetometer;'
