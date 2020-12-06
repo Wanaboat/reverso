@@ -34,7 +34,7 @@ const Reverso3d = ({ url }) => {
                 <Box
                     as="iframe"
                     title="Reverso 3D"
-                    src={ url ? url : 'https://emersya.com/showcase/85N0OLMVM4'}
+                    src={ url ? url : 'https://emersya.com/presets/85N0OLMVM4'}
                     allowFullScreen
                 />
             </AspectRatioBox>
@@ -48,7 +48,7 @@ const Reverso3d = ({ url }) => {
                 <Box
                     as="iframe"
                     title="Reverso 3D"
-                    src={ url ? url : 'https://emersya.com/showcase/85N0OLMVM4'}
+                    src={ url ? url : 'https://emersya.com/presets/85N0OLMVM4'}
                     allowFullScreen
                     frameborder={ 0 }
                     allow='camera; gyroscope; accelerometer; magnetometer;'
