@@ -18,7 +18,8 @@ import {
     IllustratedSummary,
     ContactForm,
     Quote,
-    Video
+    Video,
+    CriteriaList
 } from './all'
 
 
@@ -52,7 +53,9 @@ const Engine = ({ data }) => {
         PrismicPageBodyContact: ContactForm,
         PrismicPageBodyQuote: Quote,
 
-        PrismicPageBodyVideo: Video
+        PrismicPageBodyVideo: Video,
+        PrismicPageBodyCriteriaList : CriteriaList,
+        PrismicProductBodyCriteriaList : CriteriaList
 
 
     }

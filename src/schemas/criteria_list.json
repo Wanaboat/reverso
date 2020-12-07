@@ -1,0 +1,46 @@
+{
+    "Main" : {
+      "title" : {
+        "type" : "StructuredText",
+        "config" : {
+          "single" : "heading1",
+          "label" : "Title"
+        }
+      },
+      "body" : {
+        "type" : "Slices",
+        "fieldset" : "Slice zone",
+        "config" : {
+          "labels" : {
+            "column" : [ ]
+          },
+          "choices" : {
+            "column" : {
+              "type" : "Slice",
+              "fieldset" : "Column",
+              "description" : "A group of criteria",
+              "icon" : "add_box",
+              "display" : "list",
+              "non-repeat" : {
+                "column_title" : {
+                  "type" : "StructuredText",
+                  "config" : {
+                    "single" : "heading3, heading4, heading5, heading6",
+                    "label" : "Column title"
+                  }
+                }
+              },
+              "repeat" : {
+                "item" : {
+                  "type" : "Text",
+                  "config" : {
+                    "label" : "Item"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }

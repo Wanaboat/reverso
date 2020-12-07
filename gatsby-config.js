@@ -60,7 +60,8 @@ module.exports = {
           homepage: require('./src/schemas/homepage.json'),
           page: require('./src/schemas/page.json'),
           product: require('./src/schemas/product.json'),
-          accordion: require('./src/schemas/accordion.json')
+          accordion: require('./src/schemas/accordion.json'),
+          criteria_list: require('./src/schemas/criteria_list.json')
         },
         shouldDownloadImage: ({ node, key, value }) => {
           if( value ){

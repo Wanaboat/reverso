@@ -13,6 +13,7 @@ import IllustratedSummary from './IllustratedSummary'
 import ContactForm from './ContactForm'
 import Quote from './Quote'
 import Video from './Video'
+import CriteriaList from './CriteriaList'
 
 export {
     Accordion,
@@ -29,5 +30,6 @@ export {
     IllustratedSummary,
     ContactForm,
     Quote,
-    Video
+    Video,
+    CriteriaList
 }

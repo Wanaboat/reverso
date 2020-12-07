@@ -79,20 +79,9 @@ const SliceBannerAndDescription = ({ data }) => {
                         data.text_extra_margin && data.reverse_position ? '30%' : 0
                     }
                 >
-                    {/* <Heading
-                        as='p'
-                        fontWeight='600'
-                        fontSize='24px'
-                    >
-                        Reverso Sailing dinghy : Meet our full range
-                    </Heading> */}
                     { data.content ? 
                         <Wysiwyg data={ data.content.raw } />
-                    : "null"}
-
-                    {/* <Text>
-                        3 different, hulls colors, many tech equipements possibilities and several options : your Reverso will be like no other.
-                    </Text> */}
+                    : "-"}
                     { data.button_label ? 
                     <Box mt='1rem'>
                         <BtnPrimary
@@ -104,7 +93,6 @@ const SliceBannerAndDescription = ({ data }) => {
                         
                     </Box>
                     : null}
-
                 </Stack>
             </Grid>
         </Wrapper>

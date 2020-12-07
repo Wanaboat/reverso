@@ -105,7 +105,8 @@
           "illustrated_summary": [],
           "contact": [],
           "quote": [],
-          "video": []
+          "video": [],
+          "criteria_list": []
         },
         "choices": {
           "wysiwyg": {
@@ -589,6 +590,45 @@
                     "dark"
                   ],
                   "label": "Video background"
+                }
+              }
+            },
+            "repeat": {}
+          },
+          "criteria_list": {
+            "type": "Slice",
+            "fieldset": "Criteria list",
+            "description": "A list of criteria",
+            "icon": "add_box",
+            "display": "list",
+            "non-repeat": {
+              "criteria_list_title": {
+                "type": "StructuredText",
+                "config": {
+                  "single": "heading3, heading4, heading5, heading6",
+                  "label": "Criteria list title"
+                }
+              },
+              "related_criteria": {
+                "type": "Link",
+                "config": {
+                  "select": "document",
+                  "customtypes": [
+                    "criteria_list"
+                  ],
+                  "label": "Related criteria"
+                }
+              },
+              "background_color": {
+                "type": "Select",
+                "config": {
+                  "options": [
+                    "white",
+                    "gray",
+                    "mastic",
+                    "dark"
+                  ],
+                  "label": "Background color"
                 }
               }
             },

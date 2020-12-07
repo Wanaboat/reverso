@@ -447,6 +447,25 @@ query productQuery($prismicId: ID) {
         data {
             body{
                 __typename
+                ... on PrismicProductBodyCriteriaList {
+                    primary {
+                      background_color
+                      criteria_list_title{ text }
+                      related_criteria {
+                        document{ ...on PrismicCriteriaList{
+                          data{
+                            title{ text }
+                            body{
+                            ... on PrismicCriteriaListBodyColumn{
+                              primary{ column_title{ text } }
+                              items { item }
+                              id
+                            }
+                          }}
+                        }}
+                      }
+                    }
+                }
                 ... on PrismicProductBodyWysiwyg{
                     slice_type
                     slice_label

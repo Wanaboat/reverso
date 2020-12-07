@@ -139,6 +139,25 @@ query pageQuery($prismicId: ID) {
               }
             }
             body {
+              ... on PrismicPageBodyCriteriaList {
+                primary {
+                  background_color
+                  criteria_list_title{ text }
+                  related_criteria {
+                    document{ ...on PrismicCriteriaList{
+                      data{
+                        title{ text }
+                        body{
+                        ... on PrismicCriteriaListBodyColumn{
+                          primary{ column_title{ text } }
+                          items { item }
+                          id
+                        }
+                      }}
+                    }}
+                  }
+                }
+              }
               ... on PrismicPageBodyQuote {
                 primary{
                   quote_content{ html raw }
@@ -183,6 +202,8 @@ query pageQuery($prismicId: ID) {
                   isolated_image{ alt fixed{ src } localFile{ childImageSharp{ fixed(width:1000){ src srcWebp } } } }
                 }
               }
+              #... on PrismicPageBodyCriteriaList {
+              #}
               ... on PrismicPageBodyGallery{
                 items{
                   picture{
