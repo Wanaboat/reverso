@@ -48,8 +48,8 @@ const NewsletterForm = () => {
         );
 
         ReactGA.event({
-            category: "Newsletter",
-            action: "Subscription"
+            category: "Lead",
+            action: "Newsletter"
         });
     }
 
