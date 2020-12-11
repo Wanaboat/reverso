@@ -57,7 +57,7 @@ const CriteriaList = (props) => {
                             key={`criteriaArg-${y}-${column.id}`}
 
                             >
-                                {`${itemPrefix ? itemPrefix : ''} ${item.item}`}
+                                {`${ itemPrefix } ${item.item}`}
                             </Text>)}
                     </Box>
 
