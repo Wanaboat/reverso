@@ -6,6 +6,7 @@ import {
     AspectRatioBox
 } from '@chakra-ui/core'
 import BtnPrimary from './Buttons/primary'
+import { FormattedMessage } from 'react-intl'
 
 const SimpleQuestionForm = () => {
     const [ formVisible, setFormVisible ] = useState(false)
@@ -21,7 +22,7 @@ const SimpleQuestionForm = () => {
                 <BtnPrimary
                     handleClick={ ()=>{ setFormVisible(true)} }
                 >
-                    Posez-nous vos questions
+                    <FormattedMessage id="ask.your.questions" />
                 </BtnPrimary>
             </AspectRatioBox>
         :

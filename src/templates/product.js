@@ -455,9 +455,11 @@ query productQuery($prismicId: ID) {
                         document{ ...on PrismicCriteriaList{
                           data{
                             title{ text }
+                            is_centered
+                            item_prefix
                             body{
                             ... on PrismicCriteriaListBodyColumn{
-                              primary{ column_title{ text } }
+                              primary{ item_prefix column_title{ text } }
                               items { item }
                               id
                             }
