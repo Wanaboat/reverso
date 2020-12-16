@@ -35,8 +35,6 @@ const GalleryModal = ({ handleClose }) => {
 
     const locale = useIntl().locale
 
-    console.log('GalleryModalLocale', locale)
-
     return (
         <Modal
             size='full'

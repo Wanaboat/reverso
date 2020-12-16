@@ -12,7 +12,7 @@ import 'pure-react-carousel/dist/react-carousel.es.css';
 const PicturesGallery = ({ pictures }) => {
     const [current, setCurrent] = useState(false)
 
-    console.log('PicturesGallery', pictures)
+    // console.log('PicturesGallery', pictures)
 
     const formatArray = (arr) => {
         const cleanArray = []

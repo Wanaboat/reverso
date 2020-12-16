@@ -8,7 +8,7 @@ import GalleryModal from './GalleryModal'
 
 const PicturesGallery = ({ pictures }) => {
 
-    console.log('PicturesGallery', pictures)
+    // console.log('PicturesGallery', pictures)
     
     const [ current, setCurrent ] = useState( false )
 
@@ -16,20 +16,22 @@ const PicturesGallery = ({ pictures }) => {
         const cleanArray = []
         for (let index = 0; index < arr.length; index++) {
             const img = arr[index];
-            cleanArray.push(
-                {
-                    src:img.picture.localFile.childImageSharp.fixed.src,
-                    width:img.picture.dimensions.width,
-                    height:img.picture.dimensions.height,
-                }
-            )
+            if( img.picture.localFile ){
+                cleanArray.push(
+                    {
+                        src:img.picture.localFile.childImageSharp.fixed.src,
+                        width:img.picture.dimensions.width,
+                        height:img.picture.dimensions.height,
+                    }
+                )
+            }
         }
         return cleanArray
     }
     const photos = formatArray( pictures )
     const openModal = useCallback((event, { photo, index }) => {
         // setCurrentImage(index);
-        console.log( index )
+        // console.log( index )
         setCurrent( index + 1 )
         // setViewerIsOpen(true);
       }, []);

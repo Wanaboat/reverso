@@ -221,11 +221,10 @@ exports.createPages = async ({ graphql, actions }) => {
       })
   })
 
-  console.log( paths )
+  // console.log( paths )
 
   fs.writeFile('./paths.js', `export const URIs=${JSON.stringify( paths )};`, function (err) {
     if (err) throw err;
-    console.log('Saved!');
   });
 
 }

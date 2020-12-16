@@ -8,7 +8,7 @@ import { FormattedMessage } from 'react-intl'
 const Breadcrumbs = ({ node, lang }) => {
     const hierarchy = () => {
 
-        console.log( 'Breadcrumbs', node )
+        // console.log( 'Breadcrumbs', node )
 
         if (node.uid) {
             let slug = []

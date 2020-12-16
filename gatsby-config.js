@@ -67,10 +67,6 @@ module.exports = {
           if( value ){
             return true
           }
-          console.log(
-
-            value
-          )
         },
       }
     },
