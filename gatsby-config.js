@@ -91,18 +91,6 @@ module.exports = {
         },
       }
     },
-    {
-      resolve: 'gatsby-plugin-manifest',
-      options: {
-        name: 'Reverso',
-        short_name: 'Reverso',
-        start_url: '/',
-        background_color: '#FB8600',
-        theme_color: '#FB8600',
-        display: 'minimal-ui',
-        icon: 'src/images/logo-red-r.png',
-      },
-    },
     `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-filesystem`,
@@ -122,13 +110,18 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `ReversoProject`,
+        name: `SailReverso`,
         short_name: `Reverso`,
         start_url: `/`,
         background_color: `#FFFFFF`,
         theme_color: `#ED1C24`,
         display: `standalone`,
         icon: `src/images/logo-red-r.png`, // This path is relative to the root of the site.
+        icon_options: {
+          // For all the options available,
+          // please see the section "Additional Resources" below.
+          purpose: `maskable`,
+        },
       },
     },
     {

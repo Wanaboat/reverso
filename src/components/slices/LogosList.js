@@ -15,7 +15,7 @@ const LogosList = ( props ) => {
                 fontSize='16px'
                 fontWeight='500'
                 textAlign='center'
-                color='gray.500'
+                color='gray.600'
                 mb='1rem'
             >
                 { props.data.logo_list_title}
