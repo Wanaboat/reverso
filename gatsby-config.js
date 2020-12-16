@@ -112,15 +112,16 @@ module.exports = {
       options: {
         name: `SailReverso`,
         short_name: `Reverso`,
-        start_url: `/`,
+        start_url: `https://sailreverso.com`,
         background_color: `#FFFFFF`,
         theme_color: `#ED1C24`,
         display: `standalone`,
         icon: `src/images/logo-red-r.png`, // This path is relative to the root of the site.
         icon_options: {
+          
           // For all the options available,
           // please see the section "Additional Resources" below.
-          purpose: `maskable`,
+          purpose: `any maskable`,
         },
       },
     },

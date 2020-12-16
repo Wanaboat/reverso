@@ -73,6 +73,7 @@ query HpQuery($langIso:String!) {
                 }
                 items{
                   logo_item{
+                    alt
                     localFile{ childImageSharp{ fixed( height: 80) { src, srcWebp }}}
                   }
                 }
