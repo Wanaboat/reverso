@@ -72,11 +72,9 @@ const IllustratedSummary = ( props ) => {
                                 justifyContent='center'
                                 alignItems='center'
                                 transition='all 200ms ease'
-
                                 _groupHover={{ bg: 'rgba(0,0,0,0.5)' }}
                             >
                                 <Text
-                                    textShadow='0 0 3px rgba(0,0,0,0.4)'
                                     color='white'
                                     fontWeight='900'
                                     fontFamily='Roboto'
@@ -87,7 +85,6 @@ const IllustratedSummary = ( props ) => {
                                     textAlign='center'
                                 >
                                 { item.link_label }
-
                                 </Text>
                             </PseudoBox>
                             {

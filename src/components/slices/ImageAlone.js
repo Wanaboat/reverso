@@ -20,7 +20,7 @@ const ImageAlone = (props) => {
         >
             <Box
                 w={{ xs: '100vw', lg: props.data.wide_display ? '70vw' : '42rem' }}
-                mx={{ xs: '-1rem', lg: 'auto' }}
+                mx={{ xs: '0rem', lg: 'auto' }}
                 borderRadius={{ lg: '2px' }}
                 py='1rem'
 
@@ -33,7 +33,7 @@ const ImageAlone = (props) => {
                     src={props.data.isolated_image.localFile ? props.data.isolated_image.localFile.childImageSharp.fixed.src : props.data.isolated_image.fixed.src}
                 />
                 <Text
-                    textAlign='center'
+                    textAlign='left'
                     fontStyle='italic'
                     color='gray.700'
                     fontSize={{ xs: '12px', lg: '14px' }}

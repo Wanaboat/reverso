@@ -9,6 +9,7 @@ import usePreviewData from '../utils/usePreviewData'
 import PageContent from '../components/PageContent'
 import Hierarchy from '../components/hierachyPage'
 import SliceEngine from '../components/slices/Engine'
+
 import {
   Box,
   Text,
@@ -21,7 +22,6 @@ const PageTpl = (props) => {
 
   const data = usePreviewData(props.data)
   console.log('PageData', data)
-  console.log('props.data.prismicPage.alternate_languages[0]', props.data.prismicPage.alternate_languages[0])
 
   return (
     <Layout lang={props.pageContext.lang}>
@@ -55,10 +55,15 @@ const PageTpl = (props) => {
         px={{ xs: '1.5rem' }}
         display={{ xs: 'none', md: 'block' }}
       >
-        {/* <Breadcrumbs
-          node={props.data.prismicPage}
-          lang={props.pageContext.lang}
-        /> */}
+        <Box
+          py='1.5rem'
+          display={{ xs: 'none', lg: 'block' }}
+        >
+          <Breadcrumbs
+            node={props.data.prismicPage}
+            lang={props.pageContext.lang}
+          />
+        </Box>
       </Wrapper>
       <Wrapper>
         <Heading
@@ -158,6 +163,11 @@ query pageQuery($prismicId: ID) {
                       }}
                     }}
                   }
+                }
+              }
+              ... on PrismicPageBodyIframe3d{
+                primary{
+                  iframe_url
                 }
               }
               ... on PrismicPageBodyQuote {

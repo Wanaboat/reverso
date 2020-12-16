@@ -14,6 +14,8 @@ import ContactForm from './ContactForm'
 import Quote from './Quote'
 import Video from './Video'
 import CriteriaList from './CriteriaList'
+import Iframe3d from './Iframe3d'
+import SisterPagesSummary from './SisterPagesSummary'
 
 export {
     Accordion,
@@ -31,5 +33,7 @@ export {
     ContactForm,
     Quote,
     Video,
-    CriteriaList
+    CriteriaList,
+    Iframe3d,
+    SisterPagesSummary
 }

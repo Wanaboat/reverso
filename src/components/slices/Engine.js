@@ -19,7 +19,9 @@ import {
     ContactForm,
     Quote,
     Video,
-    CriteriaList
+    CriteriaList,
+    Iframe3d,
+    SisterPagesSummary
 } from './all'
 
 
@@ -55,7 +57,10 @@ const Engine = ({ data }) => {
 
         PrismicPageBodyVideo: Video,
         PrismicPageBodyCriteriaList : CriteriaList,
-        PrismicProductBodyCriteriaList : CriteriaList
+        PrismicProductBodyCriteriaList : CriteriaList,
+
+        PrismicPageBodyIframe3d: Iframe3d,
+        PrismicPageBodySisterPagesSummary: SisterPagesSummary
 
 
     }

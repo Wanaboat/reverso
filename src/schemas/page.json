@@ -34,6 +34,13 @@
         "label": "Is title narrow"
       }
     },
+    "is_breadcrumbs_hidden": {
+      "type": "Boolean",
+      "config": {
+        "default_value": false,
+        "label": "Is breadcrumbs hidden"
+      }
+    },
     "image": {
       "type": "Image",
       "config": {
@@ -106,7 +113,9 @@
           "contact": [],
           "quote": [],
           "video": [],
-          "criteria_list": []
+          "criteria_list": [],
+          "iframe_3d": [],
+          "sister_pages_summary": []
         },
         "choices": {
           "wysiwyg": {
@@ -116,6 +125,12 @@
             "icon": "add_box",
             "display": "list",
             "non-repeat": {
+              "url_to_display": {
+                "type": "Text",
+                "config": {
+                  "label": "Url to display"
+                }
+              },
               "anchor": {
                 "type": "Text",
                 "config": {
@@ -632,6 +647,32 @@
                 }
               }
             },
+            "repeat": {}
+          },
+          "iframe_3d": {
+            "type": "Slice",
+            "fieldset": "Iframe 3d",
+            "description": "An iframe for 3d preview",
+            "icon": "filter_frames",
+            "display": "list",
+            "non-repeat": {
+              "iframe_url": {
+                "type": "Text",
+                "config": {
+                  "label": "Iframe URL",
+                  "placeholder": "The url of the frame to display"
+                }
+              }
+            },
+            "repeat": {}
+          },
+          "sister_pages_summary": {
+            "type": "Slice",
+            "fieldset": "Sister pages summary",
+            "description": "A list of sisters pages",
+            "icon": "playlist_add_check",
+            "display": "list",
+            "non-repeat": {},
             "repeat": {}
           }
         }
