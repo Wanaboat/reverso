@@ -2,22 +2,18 @@ import React from 'react'
 import {
     AspectRatioBox,
     Box,
-    Flex,
 } from '@chakra-ui/core'
 import Wrapper from '../Wrapper'
 
 const Video = ( props ) => {
-    console.log( 'VideoProps', props )
+    // console.log( 'VideoProps', props )
     const regex = /([0-9]+)/g;
     const found = props.data.embed.embed_url.match(regex);
-    console.log( 'VideoPropsfound', found )
+    // console.log( 'VideoPropsfound', found )
     let iframeURL =  'https://player.vimeo.com/video/'+found[0]+'?app_id=122963';
 
-
-
-// console.log(found);
-
     return (
+        props.data.embed.embed_url ? 
         <Wrapper
             bg={
                 props.data.video_background === 'mastic' ? 'brand.4'
@@ -39,6 +35,7 @@ const Video = ( props ) => {
                 />
             </AspectRatioBox>
         </Wrapper>
+        : null
     )
 }
 

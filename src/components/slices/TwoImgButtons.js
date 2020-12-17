@@ -39,6 +39,7 @@ const TwoImgButtons = ( props ) => {
                         // background='linear-gradient(180deg, rgba(0, 0, 0, 0.47) 69.8%, #BBBDBF 99.24%);'
 
                     >
+                        { data.label_1 ? 
                         <PseudoBox
                             w='100%'
                             color='white'
@@ -59,6 +60,7 @@ const TwoImgButtons = ( props ) => {
                         >
                             { data.label_1.replace(/&#8232;/g," ") }
                         </PseudoBox>
+                        : null }
 
                     </PseudoBox>
                     { data.image_1 ?

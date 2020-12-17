@@ -10,9 +10,10 @@ import {
     Text,
     SimpleGrid,
 } from '@chakra-ui/core'
-
+import { Link as GatsbyLink } from 'gatsby'
 import Wysiwyg from '../Wysiwyg'
 import Wrapper from '../../components/Wrapper'
+import BtnPrimary from '../Buttons/primary'
 
 const Accordion = (props) => {
 
@@ -111,6 +112,21 @@ const Accordion = (props) => {
         >
             <Heading>{ props.data.accordion_title.text }</Heading>
             { <Items />}
+            {/* <Box
+                borderTop='solid 1px'
+                borderTopColor='gray.600'
+                mx={{ xs: 0, lg:'-3rem'}}
+                px={{ xs: 0, lg:'3rem'}}
+                py='1rem'
+            >
+                <BtnPrimary
+                    ml='1rem'
+                    as={ GatsbyLink }
+                    to='/'
+                >
+                    Curious about Reverso, Read the Faq
+                </BtnPrimary>
+            </Box> */}
         </Wrapper>
     )
 }

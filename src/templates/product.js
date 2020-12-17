@@ -1,10 +1,11 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Helmet from 'react-helmet'
 import { Link as GatsbyLink } from 'gatsby'
 import Layout from '../components/layout'
 import Breadcrumbs from '../components/Breadcrumbs'
 import {
     AspectRatioBox,
+    Button,
     Box,
     Flex,
     Heading,
@@ -12,6 +13,7 @@ import {
     Icon,
     Image,
     List,
+    Link,
     ListItem,
     Stack,
     Text,
@@ -54,6 +56,7 @@ import Reverso3d from '../components/Reverso3d'
 const ProductTpl = (props) => {
 
     const { data } = usePreviewData(props.data.prismicProduct)
+    const [formVisible, setFormVisible] = useState(false)
 
     console.log('productData', data)
 
@@ -71,7 +74,7 @@ const ProductTpl = (props) => {
                         rel="alternate"
                         href={`${process.env.GATSBY_BASE_URL}${linkResolver({ prismicId: props.data.prismicProduct.alternate_languages[0].document.prismicId })} `}
                         hreflang={props.pageContext.lang === 'en' ? 'fr' : 'en'}
-                        // hreflang="x-default"
+                    // hreflang="x-default"
                     />
                     : null}
             </Helmet>
@@ -331,9 +334,9 @@ const ProductTpl = (props) => {
                         </Grid>
                         <Stack mt='4rem' mb='2rem' spacing='5rem'>
                             <Box
-                                mx={{ xs:'-1rem', lg:0 }}
+                                mx={{ xs: '-1rem', lg: 0 }}
                             >
-                                <Reverso3d url={ data.three_dimension_link.url } />
+                                <Reverso3d url={data.three_dimension_link.url} />
                             </Box>
                             <Box>
                                 <CarouselPictures
@@ -378,24 +381,30 @@ const ProductTpl = (props) => {
                             </Box>
                             <SimpleGrid
                                 columns={{ xs: 1, lg: 2 }}
-                                gap='3rem'
+                                gap='2rem'
                             >
-                                <Box>
+                                <Box
+                                    border='solid 1px'
+                                    borderColor='gray.100'
+                                    p='1rem'
+                                    bg='gray.50'
+                                    borderRadius='4px'
+                                >
                                     <Heading
                                         fontWeight='900'
+                                        as='h4'
+                                        mb='1rem'
                                     >
                                         Video
                                     </Heading>
-
                                     <Box
                                         as='iframe'
                                         ratio={16 / 9}
                                         w='100%'
-                                        h='100%'
+                                        h='300px'
                                         allowFullScreen
                                         src="https://player.vimeo.com/video/430264806"
                                     />
-                                    {/* <iframe title="vimeo-player"  width="640" height="360" frameborder="0" allowfullscreen></iframe> */}
                                     {/* <VideoPlayer
                                             src={data.video.url}
                                             poster={VideoCover}
@@ -403,13 +412,96 @@ const ProductTpl = (props) => {
 
 
                                 </Box>
-                                <Box>
-                                    <Heading
-                                        fontWeight='900'
-                                    >
-                                        <FormattedMessage id="your.questions" />
-                                    </Heading>
-                                    <SimpleQuestionForm />
+                                <Box
+                                    border='solid 1px'
+                                    borderColor='gray.100'
+                                    p='1rem'
+                                    bg='gray.50'
+                                    borderRadius='4px'
+                                >
+                                    <Box>
+                                        <Heading
+                                            fontWeight='900'
+                                            as='h4'
+                                            mb='1rem'
+                                        >
+                                            <FormattedMessage id="your.questions" />
+                                        </Heading>
+                                        <Stack
+                                            spacing='0rem'
+                                        >
+                                            <PseudoBox
+                                                role="group"
+                                                display='flex'
+                                                alignItems='center'
+                                                borderBottom='solid 1px'
+                                                borderBottomColor='gray.100'
+                                                p='1rem 1rem'
+                                                as={GatsbyLink}
+                                                to={ data.related_faq.document ? linkResolver( data.related_faq.document ) : '/null'}
+                                                _hover={{
+                                                    bg: 'gray.100',
+                                                    color: "brand.1",
+
+                                                }}
+                                            >
+                                                <Text
+                                                    pr={{ xs: '0', lg: '3rem' }}
+                                                >
+                                                    { data.faq_link_sentence ? data.faq_link_sentence :
+                                                        <>Curious about Reverso's ? We have a nice Faq with a lot of informations about our incredible small sailing dinghy.</>
+                                                    }
+                                                </Text>
+                                                <PseudoBox
+                                                    transition='all 200ms ease'
+                                                    transform='translateX(-.5rem)'
+                                                    _groupHover={{
+                                                        color: "brand.1",
+                                                        transform: 'translateX(.25rem)'
+                                                    }}
+                                                >
+                                                    <Icon name='arrow-forward' />
+                                                </PseudoBox>
+                                            </PseudoBox>
+                                            {!formVisible ?
+                                                <PseudoBox
+                                                    cursor='pointer'
+                                                    role="group"
+                                                    display='flex'
+                                                    alignItems='center'
+                                                    borderBottom='solid 1px'
+                                                    borderBottomColor='gray.100'
+                                                    p='1rem 1rem'
+                                                    _hover={{
+                                                        bg: 'gray.100',
+                                                        color: "brand.1",
+
+                                                    }}
+                                                    onClick={() => { setFormVisible(true) }}
+                                                >
+                                                    <Text
+                                                        pr={{ xs: '0', lg: '3rem' }}
+                                                    >
+                                                        { data.form_link_sentence ? data.form_link_sentence :
+                                                            <>If you cannot find the info you're looking for. Just contact us, we reply very quickly.</>
+                                                        }
+                                                    </Text>
+                                                    <PseudoBox
+                                                        transition='all 200ms ease'
+                                                        transform='translateX(-.5rem)'
+                                                        _groupHover={{
+                                                            color: "brand.1",
+                                                            transform: 'translateX(.25rem)'
+                                                        }}
+                                                    >
+                                                        <Icon name='arrow-forward' />
+                                                    </PseudoBox>
+                                                </PseudoBox>
+                                                : <SimpleQuestionForm />}
+
+
+                                        </Stack>
+                                    </Box>
                                 </Box>
                             </SimpleGrid>
                             {/* <Box>
@@ -603,6 +695,11 @@ query productQuery($prismicId: ID) {
                         width
                     }
                 }
+            }
+            faq_link_sentence
+            form_link_sentence
+            related_faq{
+            document{ ... on PrismicPage{ prismicId }}
             }
         }
     }

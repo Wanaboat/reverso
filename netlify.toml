@@ -28,6 +28,10 @@
     from = "/test/*"
     to = "/"
     status = 301    
+[[redirects]]
+    from = "/a-life-lived-in-the-water/"
+    to = "/new-sailing-culture/free/a-life-lived-in-the-water/"
+    status = 301
 
 
 ## Fauna Key : fnAD5mMGnXACAaZ07REwSRrKUf8L6xSCVyMsGccn    
