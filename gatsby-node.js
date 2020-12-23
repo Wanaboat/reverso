@@ -70,13 +70,13 @@ exports.createPages = async ({ graphql, actions }) => {
     //   },
     // })
 
-    createPage({
-      path: `/product/`,
-      component: path.resolve(__dirname, 'src/templates/product.js'),
-      context: {
-          lang: `en`
-      },
-    })
+    // createPage({
+    //   path: `/product/`,
+    //   component: path.resolve(__dirname, 'src/templates/product.js'),
+    //   context: {
+    //       lang: `en`
+    //   },
+    // })
 
     // Query all Pages with their IDs and template data.
     const homepage = await graphql(`
@@ -119,6 +119,7 @@ exports.createPages = async ({ graphql, actions }) => {
           prismicId
           lang
           uid
+          id
           data {
             seo_title
             parent {
@@ -154,13 +155,22 @@ exports.createPages = async ({ graphql, actions }) => {
   `)
   // Create pages for each Page in Prismic using the selected template.
   pages.data.allPrismicPage.edges.forEach((page) => {
+    let parentUID = ''
+    if( page.node.data.parent ){
+      if( page.node.data.parent.document ){
+        parentUID = page.node.data.parent.document.uid
+      }else{ parentUID = 'no' }
+    }else{ parentUID = 'no' }
       createPage({
           path: `${buildPageSlug(page.node)}`,
           component: pageTemplates['page'],
           context: {
-              id: page.node.id,
-              prismicId: page.node.prismicId,
-              lang: `${langCodeConverter(page.node.lang)}`
+            id: page.node.id,
+            uid: page.node.uid,
+            prismicId: page.node.prismicId,
+            lang: `${langCodeConverter(page.node.lang)}`,
+            parentUid: parentUID
+            // "page.node.data.parent ? page.node.data.parent.document.uid : '-'"
           },
       })
   })

@@ -25,7 +25,7 @@ import {
 } from './all'
 
 
-const Engine = ({ data }) => {
+const Engine = ({ data, sisters }) => {
 
     const sliceComponents = {
         PrismicPageBodyWysiwyg: SliceWysiwyg,
@@ -60,13 +60,13 @@ const Engine = ({ data }) => {
         PrismicProductBodyCriteriaList : CriteriaList,
 
         PrismicPageBodyIframe3d: Iframe3d,
-        PrismicPageBodySisterPagesSummary: SisterPagesSummary
+        PrismicPageBodySisterPagesSummary: SisterPagesSummary,
 
 
     }
 
     const Slices = data.map((slice, index) => {
-        // console.log('Slice', slice)
+        console.log('sisters', sisters)
         const SliceComponent = sliceComponents[slice.__typename]
         if (SliceComponent) {
             return (
@@ -77,6 +77,7 @@ const Engine = ({ data }) => {
                                 : null
                     }
                     items={slice.items ? slice.items : null}
+                    sisters={ sisters }
                     //   lastPosts={ posts }
                     //   products= { products}
                     key={`${slice.__typename}-${index}`}

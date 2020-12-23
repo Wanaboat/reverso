@@ -21,7 +21,10 @@ import { linkResolver } from '../prismic-configuration'
 const PageTpl = (props) => {
 
   const data = usePreviewData(props.data)
-  console.log('PageData', data)
+  //console.log( 'Pageprops', props )
+  //console.log('PageData', data)
+  //console.log('Context', props.pageContext )
+  //console.log('Sisters', data.sisters )
 
   return (
     <Layout lang={props.pageContext.lang}>
@@ -98,7 +101,10 @@ const PageTpl = (props) => {
           />
         </Heading>
       </Wrapper>
-      <SliceEngine data={data.prismicPage.data.body} />
+      <SliceEngine
+        data={data.prismicPage.data.body}
+        sisters={data.sisters}
+      />
     </Layout>
   )
 }
@@ -106,7 +112,10 @@ const PageTpl = (props) => {
 export default PageTpl
 
 export const query = graphql`
-query pageQuery($prismicId: ID) {
+query pageQuery(
+  $prismicId: ID
+  $parentUid: String
+) {
     prismicPage( prismicId: { eq : $prismicId} ){
         ...HierachyPage
         prismicId
@@ -398,5 +407,19 @@ query pageQuery($prismicId: ID) {
             #}
         }
       }
+    sisters: allPrismicPage(filter:{
+        data: {parent: {uid: {eq: $parentUid }}}
+      }) {
+      edges {
+        node {
+          prismicId
+          data {
+            title {
+              text
+            }
+          }
+        }
+      }
+    }
      
 }`
