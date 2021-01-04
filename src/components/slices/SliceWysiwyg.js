@@ -6,7 +6,6 @@ const WysiwigSlice = ({ data }) => {
     console.log( 'WysiwigSlice', data )
     return (
         <Wrapper
-            // mt='2px'
             bg={
                 data.background_color === 'white' ? 'white' :
                     data.background_color === 'gray' ? 'gray.50' :
