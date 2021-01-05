@@ -5,15 +5,14 @@ import { Box, Button, Input, Grid, Text } from '@chakra-ui/core'
 import {
     FormControl,
     FormLabel,
-    FormErrorMessage,
+    // FormErrorMessage,
     FormHelperText,
 } from "@chakra-ui/core"
 import addToMailchimp from 'gatsby-plugin-mailchimp'
 import { FormattedMessage, useIntl } from 'react-intl'
-import ReactGA from 'react-ga';
+
 const NewsletterForm = () => {
 
-    ReactGA.initialize( process.env.GATSBY_GA_ID );
 
     const locale = useIntl()['locale']
     // console.log('locale', locale)
@@ -46,11 +45,6 @@ const NewsletterForm = () => {
                 if (data) resolve(data);
             }),
         );
-
-        ReactGA.event({
-            category: "Lead",
-            action: "Newsletter"
-        });
     }
 
     return (

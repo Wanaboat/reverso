@@ -45,7 +45,6 @@ const Header = ({ siteTitle }) => (
         <Menu lang='fr' />
         <Box display={{ xs: 'none', lg: 'block' }}>
           <LanguageSwitcher />
-
         </Box>
       </Flex>
 
