@@ -617,8 +617,8 @@
           },
           "iframe_3d" : {
             "type" : "Slice",
-            "fieldset" : "Iframe 3d",
-            "description" : "An iframe for 3d preview",
+            "fieldset" : "Iframe",
+            "description" : "An iframe block",
             "icon" : "filter_frames",
             "display" : "list",
             "non-repeat" : {
@@ -627,6 +627,13 @@
                 "config" : {
                   "label" : "Iframe URL",
                   "placeholder" : "The url of the frame to display"
+                }
+              },
+              "is_wide" : {
+                "type" : "Boolean",
+                "config" : {
+                  "default_value" : false,
+                  "label" : "Is wide"
                 }
               }
             },

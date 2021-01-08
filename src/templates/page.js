@@ -181,6 +181,7 @@ query pageQuery(
               ... on PrismicPageBodyIframe3d{
                 primary{
                   iframe_url
+                  is_wide
                 }
               }
               ... on PrismicPageBodyQuote {

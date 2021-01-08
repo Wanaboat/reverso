@@ -20,7 +20,7 @@ import {
     Quote,
     Video,
     CriteriaList,
-    Iframe3d,
+    Iframe,
     SisterPagesSummary
 } from './all'
 
@@ -59,7 +59,7 @@ const Engine = ({ data, sisters }) => {
         PrismicPageBodyCriteriaList : CriteriaList,
         PrismicProductBodyCriteriaList : CriteriaList,
 
-        PrismicPageBodyIframe3d: Iframe3d,
+        PrismicPageBodyIframe3d: Iframe,
         PrismicPageBodySisterPagesSummary: SisterPagesSummary,
 
 

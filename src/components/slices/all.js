@@ -14,7 +14,7 @@ import ContactForm from './ContactForm'
 import Quote from './Quote'
 import Video from './Video'
 import CriteriaList from './CriteriaList'
-import Iframe3d from './Iframe3d'
+import Iframe from './Iframe'
 import SisterPagesSummary from './SisterPagesSummary'
 
 export {
@@ -34,6 +34,6 @@ export {
     Quote,
     Video,
     CriteriaList,
-    Iframe3d,
+    Iframe,
     SisterPagesSummary
 }
