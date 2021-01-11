@@ -10,14 +10,14 @@ const LogosList = ( props ) => {
     return(
         <Box
             py='2rem'
-            bg={ props.data.bg_color === 'white' ? 'white' : 'gray.900' }
+            bg={ props.data.bg_color === 'dark' ? 'gray.900' : 'white' }
         >
             { props.data.logo_list_title ?
                 <Text
                     fontSize='16px'
                     fontWeight='500'
                     textAlign='center'
-                    color= { props.data.bg_color === 'white' ? 'gray.900' : 'white' }
+                    color= { props.data.bg_color === 'dark' ? 'white' : 'gray.900' }
                     mb='1rem'
                 >
                     { props.data.logo_list_title}
