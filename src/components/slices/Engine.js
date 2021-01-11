@@ -47,6 +47,7 @@ const Engine = ({ data, sisters }) => {
         PrismicPageBodyHorizontalButtons: FourImgButtons,
 
         PrismicHomepageBodyLogosList: LogosList,
+        PrismicPageBodyLogosList: LogosList,
 
         PrismicPageBodyImageAlone: ImageAlone,
         PrismicPageBodyGallery: GalleryWall,

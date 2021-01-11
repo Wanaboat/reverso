@@ -10,12 +10,13 @@ import { linkResolver } from '../../prismic-configuration'
 import { FormattedMessage } from 'react-intl'
 
 const SisterPagesSummary = ( props ) => {
-    console.log('SisterPagesSummary', props )
+    // console.log('SisterPagesSummary', props )
     return(
         <Box
             maxW={{ xs:'none', lg: '42rem' }}
             mx='auto'
             py='2rem'
+            px={{ xs:'1rem', lg: 0 }}
             id="related"
         >
             <Heading

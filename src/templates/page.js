@@ -157,6 +157,17 @@ query pageQuery(
               }
             }
             body {
+              ... on PrismicPageBodyLogosList{
+                primary{
+                  logo_list_title
+                }
+                items{
+                  logo_item{
+                    alt
+                    localFile{ childImageSharp{ fixed( height: 80) { src, srcWebp }}}
+                  }
+                }
+              }
               ... on PrismicPageBodyCriteriaList {
                 primary {
                   background_color
