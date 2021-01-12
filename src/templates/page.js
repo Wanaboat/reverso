@@ -157,6 +157,19 @@ query pageQuery(
               }
             }
             body {
+              ... on PrismicPageBodyTwoColumnsText{
+                primary{
+                  column_1{ html raw }
+                  column_2{ html raw }
+                  background_color
+                  button_label
+                  button_target{
+                    document{ ... on PrismicPage {
+                      data{ title{ text }}
+                    }}
+                  }
+                }
+              }
               ... on PrismicPageBodyLogosList{
                 primary{
                   logo_list_title

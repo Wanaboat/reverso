@@ -21,7 +21,8 @@ import {
     Video,
     CriteriaList,
     Iframe,
-    SisterPagesSummary
+    SisterPagesSummary,
+    TwoColumnsText
 } from './all'
 
 
@@ -62,6 +63,8 @@ const Engine = ({ data, sisters }) => {
 
         PrismicPageBodyIframe3d: Iframe,
         PrismicPageBodySisterPagesSummary: SisterPagesSummary,
+
+        PrismicPageBodyTwoColumnsText: TwoColumnsText
 
 
     }

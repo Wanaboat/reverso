@@ -16,6 +16,7 @@ import Video from './Video'
 import CriteriaList from './CriteriaList'
 import Iframe from './Iframe'
 import SisterPagesSummary from './SisterPagesSummary'
+import TwoColumnsText from './TwoColumnsText'
 
 export {
     Accordion,
@@ -35,5 +36,6 @@ export {
     Video,
     CriteriaList,
     Iframe,
-    SisterPagesSummary
+    SisterPagesSummary,
+    TwoColumnsText
 }
