@@ -173,6 +173,7 @@ query pageQuery(
               ... on PrismicPageBodyLogosList{
                 primary{
                   logo_list_title
+                  bg_color
                 }
                 items{
                   logo_item{

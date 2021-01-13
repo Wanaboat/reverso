@@ -7,7 +7,6 @@ import '../css/wysiwyg.css'
 const Wysiwyg = ({isDark, data}) => {
     // console.log( 'Wysiwyg', data )
     return(
-
         <Box
             color={ isDark ? 'white' : 'inherit'}
             className="wysiwyg"

@@ -7,9 +7,10 @@ import {
 } from '@chakra-ui/core'
 
 const LogosList = ( props ) => {
+    // console.log('LogosList', props)
     return(
         <Box
-            py='2rem'
+            py={{ xs:'2rem', lg:'4rem' }}
             bg={ props.data.bg_color === 'dark' ? 'gray.900' : 'white' }
         >
             { props.data.logo_list_title ?
@@ -18,7 +19,7 @@ const LogosList = ( props ) => {
                     fontWeight='500'
                     textAlign='center'
                     color= { props.data.bg_color === 'dark' ? 'white' : 'gray.900' }
-                    mb='1rem'
+                    mb={{ xs:'1rem', lg:'2rem' }}
                 >
                     { props.data.logo_list_title}
                 </Text>

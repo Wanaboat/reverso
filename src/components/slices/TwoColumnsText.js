@@ -71,7 +71,7 @@ const TwoColumnsText = ({ data }) => {
                             as={ GatsbyLink }
                             to={ linkResolver(data.button_target.document ) }
                             border='solid 1px'
-                            borderColor='gray.50'
+                            borderColor={ data.background_color === 'dark' ? 'gray.50' : 'black' }
                             borderRadius='3px'
                             backgroundColor='transparent'
                             mt={10}
