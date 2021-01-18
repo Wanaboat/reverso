@@ -165,6 +165,7 @@ query pageQuery(
                   button_label
                   button_target{
                     document{ ... on PrismicPage {
+                      prismicId
                       data{ title{ text }}
                     }}
                   }
