@@ -57,8 +57,45 @@ const ProductTpl = (props) => {
 
     const { data } = usePreviewData(props.data.prismicProduct)
     const [formVisible, setFormVisible] = useState(false)
-
-    console.log('productData', data)
+    let structuredProductData = {
+        "@context": "http://schema.org/",
+        "@type": "Product",
+        "name": `Reverso Air`,
+        "brand": 'Reverso Project',
+        "sku": `RVAIR`,
+        "description": `Foldable performance dinghy`,
+        "url": `https://sailreverso.com/fr/nos-deriveurs/reverso-air/`,
+        "offers": {
+            "@type": "Offer",
+            "priceCurrency": "€",
+            "price": `7800`,
+            "availability": "InStoreOnly",
+            "itemCondition": "https://schema.org/UsedCondition",
+            "seller": {
+                "@type": "Organization",
+                "name": `ReversoProject`
+            },
+            "url": `https://sailreverso.com/fr/nos-deriveurs/reverso-air/`,
+            "priceValidUntil": "2022/01/01"
+        },
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "4.9",
+          "reviewCount": "35"
+        },
+        "review": {
+          "@type": "Review",
+          "reviewRating": {
+            "@type": "Rating",
+            "ratingValue": "4.9",
+            "bestRating": "5"
+          },
+          "author": {
+            "@type": "Website",
+            "name": `ReversoProject`
+          }
+        },
+      };
 
     return (
         <Layout lang={props.pageContext.lang}>
@@ -77,6 +114,10 @@ const ProductTpl = (props) => {
                     // hreflang="x-default"
                     />
                     : null}
+
+                    
+                <script className='structured-data-product' type="application/ld+json">{ JSON.stringify(structuredProductData) }</script>
+
             </Helmet>
             <Box
                 bg='white'
