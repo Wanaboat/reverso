@@ -12,7 +12,7 @@ import {
 const ConfigThankyouPage = () => {
     return(
         <Layout>
-        <SEO title="404: Not found" />
+        <SEO title="Thank you for your configuration" />
         <Flex
           alignItems='center'
           justifyContent='center'
