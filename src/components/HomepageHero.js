@@ -23,6 +23,7 @@ const HomepageHero = (props) => {
         <Box>
             <Box
                 bg='white'
+                fontFamily='Futura PT'
             >
                 <Wrapper
                     pt={{ xs: '0', lg: '5rem' }}

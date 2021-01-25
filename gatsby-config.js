@@ -42,16 +42,16 @@ module.exports = {
           timeout: 3500, // number; the amount of time, in milliseconds, that you want to allow mailchimp to respond to your request before timing out. defaults to 3500
       }
     },
-    {
-      resolve: `gatsby-plugin-google-fonts`,
-      options: {
-        fonts: [
-          `hind\:300,400`,
-          `roboto\:300,600,700,900`
-        ],
-        display: 'swap'
-      }
-    },
+    // {
+    //   resolve: `gatsby-plugin-google-fonts`,
+    //   options: {
+    //     fonts: [
+    //       `hind\:300,400`,
+    //       `roboto\:300,600,700,900`
+    //     ],
+    //     display: 'swap'
+    //   }
+    // },
     {
       resolve: 'gatsby-source-prismic',
       options: {

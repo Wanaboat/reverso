@@ -2,6 +2,7 @@ import React from 'react'
 import Helmet from 'react-helmet'
 import Layout from '../components/layout'
 import HomepageHero from '../components/HomepageHero'
+import HomepageHeroIllustrated from '../components/HomepageHeroIllustrated'
 import SliceEngine from '../components/slices/Engine'
 import { AspectRatioBox, Box } from '@chakra-ui/core'
 import Reverso3d from '../components/Reverso3d'
@@ -33,13 +34,20 @@ const HomeTpl = (props) => {
         <meta property="og:image:height" content="630" />
         <meta property='og:url' content={`${process.env.GATSBY_BASE_URL}/${'fr'}`} />
       </Helmet>
-      <HomepageHero
+      <HomepageHeroIllustrated
+      data={prismicHomepage.data}
+      image1={prismicHomepage.data.hero_image_1}
+      image2={prismicHomepage.data.hero_image_2}
+      args_list={prismicHomepage.data.args_list}
+      second_args_list={prismicHomepage.data.second_args_list}
+      />
+      {/* <HomepageHero
         data={prismicHomepage.data}
         image1={prismicHomepage.data.hero_image_1}
         image2={prismicHomepage.data.hero_image_2}
         args_list={prismicHomepage.data.args_list}
         second_args_list={prismicHomepage.data.second_args_list}
-      />
+      /> */}
       {/* 
           <SliceLogosList />
           <SliceBannerAndDescription />

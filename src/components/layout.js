@@ -13,7 +13,7 @@ import Header from "./Header"
 import Footer from "./Footer"
 import messagesEN from '../intl/en.json'
 import messagesFR from '../intl/fr.json'
-
+import '../css/font.css'
 import theme from '../theme'
 
 const Layout = ({ lang, children }) => {
