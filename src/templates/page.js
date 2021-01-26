@@ -90,7 +90,6 @@ const PageTpl = (props) => {
               as='span'
               color='brand.1'
               fontWeight='900'
-              fontFamily='Roboto'
             >
               &nbsp;{data.prismicPage.data.title_suffix}
             </Text>

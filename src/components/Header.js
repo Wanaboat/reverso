@@ -43,9 +43,9 @@ const Header = ({ siteTitle }) => (
         </Flex>
 
         <Menu lang='fr' />
-        <Box display={{ xs: 'none', lg: 'block' }}>
+        <Flex display={{ xs: 'none', lg: 'Flex' }} alignItems='center'>
           <LanguageSwitcher />
-        </Box>
+        </Flex>
       </Flex>
 
     </Wrapper>

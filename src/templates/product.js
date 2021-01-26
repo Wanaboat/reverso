@@ -204,7 +204,6 @@ const ProductTpl = (props) => {
                                         <Heading
                                             as='h1'
                                             fontSize='16px'
-                                            fontFamily='Hind'
                                             fontWeight='500'
                                             display='inline'
                                         >
@@ -406,7 +405,6 @@ const ProductTpl = (props) => {
                                         >
                                             <Heading
                                                 fontWeight='400'
-                                                fontFamily='hind'
                                                 fontSize='24px'
                                                 letterSpacing='0.15rem'
                                                 textTransform='uppercase'

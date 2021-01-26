@@ -74,6 +74,7 @@ const TwoColumnsText = ({ data }) => {
                             borderColor={ data.background_color === 'dark' ? 'gray.50' : 'black' }
                             borderRadius='3px'
                             backgroundColor='transparent'
+                            fontFamily='Futura PT'
                             mt={10}
                             _hover={{
                                 bg:'gray.800',

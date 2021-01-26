@@ -10,6 +10,7 @@ const LanguageSwitcher = ({ siteTitle }) => {
     <>
       <Stack isInline spacing='1rem'>
         <Button
+          fontWeight='normal'
           variant='ouline'
           alignItems='center'
           border='solid 1px'

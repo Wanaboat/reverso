@@ -119,6 +119,7 @@ const Menu = ({ lang }) => {
         />
       </Button>
       <Flex
+        alignItems='center'
         w={{ xs: '100vw', lg: 'auto' }}
         h={{ xs: 'auto', lg: 'auto' }}
         wrap={{ xs: 'wrap', lg: 'nowrap' }}

@@ -40,7 +40,6 @@ const HomepageHero = (props) => {
                             <Text
                                 fontSize='36px'
                                 fontWeight='900'
-                                fontFamily='Roboto'
                             >
                                 {data.intro_title}
                             </Text>
@@ -48,7 +47,6 @@ const HomepageHero = (props) => {
                                 as='span'
                                 fontSize='36px'
                                 fontWeight='900'
-                                fontFamily='Roboto'
                             >
                                 {data.title_prefix}
                                 {/* → We invented Reverso, the{' '} */}

@@ -1,6 +1,6 @@
 import React from 'react'
 import { Box } from '@chakra-ui/core'
-import {Link, RichText, Date} from 'prismic-reactjs';
+import { RichText} from 'prismic-reactjs';
 import { linkResolver } from '../prismic-configuration';
 import '../css/wysiwyg.css'
 

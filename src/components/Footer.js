@@ -75,7 +75,7 @@ const Footer = ({ siteTitle }) => (
             color='gray.50'
             fontSize='14px'
           >
-            Région Occitanie • Banque populaire • BPI France • Créalia - DEV version
+            Région Occitanie • Banque populaire • BPI France • Créalia
           </Text>
         </Box>
         {/* <Box>

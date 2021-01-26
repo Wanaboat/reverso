@@ -3,7 +3,7 @@ import { Box } from '@chakra-ui/core'
 import Wrapper from '../Wrapper'
 import Wysiwyg from '../Wysiwyg'
 const WysiwigSlice = ({ data }) => {
-    console.log( 'WysiwigSlice', data )
+    // console.log( 'WysiwigSlice', data )
     return (
         <Wrapper
             bg={

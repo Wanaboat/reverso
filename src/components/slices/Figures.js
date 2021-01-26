@@ -39,7 +39,6 @@ const Figures = ( props ) => {
                 pr={{ xs: '1rem', lg: '3rem' }}
                 textAlign='center'
                 fontWeight='900'
-                fontFamily='Roboto'
                 whiteSpace='pre'
                 lineHeight='30px'
                 textTransform='uppercase'
@@ -52,7 +51,6 @@ const Figures = ( props ) => {
                 px={{ xs: '1rem', lg: '3rem' }}
                 textAlign='center'
                 fontWeight='900'
-                fontFamily='Roboto'
                 whiteSpace='pre'
                 lineHeight='30px'
                 textTransform='uppercase'

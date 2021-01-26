@@ -67,7 +67,6 @@ const FourImgButtons = ( props ) => {
                             fontWeight='bold'
                             p='2rem'
                             fontWeight='900'
-                            fontFamily='Roboto'
                             lineHeight='28px'
                             transition='all 200ms ease'
                             // _groupHover={{ pl: "4rem" }}
@@ -77,7 +76,6 @@ const FourImgButtons = ( props ) => {
                             flexWrap='wrap'
                             textAlign='center'
                             fontWeight='300'
-                            fontFamily='Roboto'
                             letterSpacing='0.085rem'
                         >
                             <Stack spacing="1rem">

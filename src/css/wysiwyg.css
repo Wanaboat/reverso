@@ -87,7 +87,7 @@
 .wysiwyg h6 {
     font-weight: 900;
     line-height: 1.2;
-    font-family: 'Roboto';
+    font-family: 'Futura PT';
 }
 .wysiwyg h1:first-child,
 .wysiwyg h2:first-child,
@@ -129,7 +129,6 @@
     margin-bottom: 1.4em;
     margin-top: 1.4em;
     font-size: 48px;
-    font-family:'Roboto';
 }
 .wysiwyg dd {
     margin-left: 1.4em;

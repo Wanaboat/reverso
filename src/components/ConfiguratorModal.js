@@ -64,7 +64,6 @@ const GalleryModal = ({ handleClose }) => {
                             variant='outline'
                             // color='gray.50'
                             alignItems='center'
-                            fontFamily='hind'
                             _hover={{
                                 // color:'gray.800',
                                 // bg:'gray.100'

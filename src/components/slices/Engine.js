@@ -70,7 +70,7 @@ const Engine = ({ data, sisters }) => {
     }
 
     const Slices = data.map((slice, index) => {
-        console.log('sisters', sisters)
+        // console.log('sisters', sisters)
         const SliceComponent = sliceComponents[slice.__typename]
         if (SliceComponent) {
             return (

@@ -46,8 +46,6 @@ const Accordion = (props) => {
                     <Heading
                         as='p'
                         mb='1rem'
-                        fontWeight='900'
-                        fontFamily='Roboto'
                         letterSpacing='0.1rem'
                         fontSize={{ xs:'18px', lg:'20px' }}
                         cursor='pointer'
