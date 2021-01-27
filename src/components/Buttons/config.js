@@ -12,10 +12,10 @@ const BtnConfig = ({props, handleClick, children}) => {
             <Button
                 bg='brand.1'
                 color='white'
-                p='.7rem 1rem .5rem 1rem'
+                p='.7rem 1rem .7rem 1rem'
                 border='solid 1px'
                 borderColor='brand.1'
-                fontWeight='bold'
+                fontWeight='normal'
                 textTransform='uppercase'
                 _hover={{
                     bg:'blue.500'

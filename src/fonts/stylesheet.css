@@ -25,3 +25,29 @@
     font-display: swap;
 }
 
+/* @font-face {
+    font-family: 'Bodoni Moda';
+    src: url('BodoniModa-Regular.woff2') format('woff2'),
+        url('BodoniModa-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Souvenir';
+    src: url('Souvenir.woff2') format('woff2'),
+        url('Souvenir.woff') format('woff');
+    font-weight: 100;
+    font-style: normal;
+    font-display: swap;
+} */
+
+@font-face {
+    font-family: 'Sabon';
+    src: url('SabonRoman.woff2') format('woff2'),
+        url('SabonRoman.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}

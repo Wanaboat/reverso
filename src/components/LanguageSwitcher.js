@@ -10,6 +10,7 @@ const LanguageSwitcher = ({ siteTitle }) => {
     <>
       <Stack isInline spacing='1rem'>
         <Button
+          fontFamily='Futura PT'
           fontWeight='normal'
           variant='ouline'
           alignItems='center'
