@@ -33,10 +33,10 @@ const Header = ({ siteTitle }) => (
           <Image
             // style={{ display: 'block' }}
             display='block'
-            maxW={{ xs:'100px', lg:'160px'}}
+            maxW={{ xs:'150px', lg:'160px'}}
+            w={{ xs:'150px', lg:'180px'}}
             src={logoTypo}
             alt='Reverso Project'
-            w={{ xs:'100px', lg:'180px'}}
             h='65px'
             
           />

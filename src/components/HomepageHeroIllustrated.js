@@ -17,6 +17,9 @@ import BtnPrimary from '../components/Buttons/primary'
 import Wysiwyg from './Wysiwyg'
 import { linkResolver } from '../prismic-configuration'
 import HeroPano from '../images/hero-pano.jpeg'
+import HeroDesktop from '../images/hero-desktop.jpg'
+import HeroSmartphone from '../images/hero-smartphone.jpg'
+import { FormattedMessage } from 'react-intl'
 
 const HomepageHeroIllustrated = (props) => {
     const { data, args_list, second_args_list } = props
@@ -32,7 +35,7 @@ const HomepageHeroIllustrated = (props) => {
 
                 >
                     <Flex
-                        alignItems='center'
+                        alignItems={{ base:'flex-end', lg:'center' }}
                         h='100%'
                         minH='80vh'
                         p='1rem'
@@ -44,31 +47,45 @@ const HomepageHeroIllustrated = (props) => {
                                 fontWeight='900'
                                 color='white'
                                 textTransform='uppercase'
-                                fontSize='54px'
+                                fontSize={{ base:'37px', lg:'54px' }}
                                 maxW='500px'
                                 mb='1rem'
                             >
-                                Ultra light and portable sailboat
+                                {/* Ultra light and portable sailboat */}
+                                <FormattedMessage id='home.title' />
                             </Heading>
                             <Button
                                 borderRadius='2px'
                                 fontFamily='Futura PT'
                                 fontWeight='normal'
-                            >Read more</Button>
+                            ><FormattedMessage id='home.discover.it' /> →</Button>
                         </Box>
                         
                     </Flex>
                 </Wrapper>
                 <Image
+                    display={{ base:'block', lg:'none'}}
                     position='absolute'
                     top='0'
                     left='0'
                     right='0'
-                    src={ HeroPano }
+                    src={ HeroSmartphone }
                     w='100%'
                     h='100%'
                     objectFit='cover'
-                    style={{ filter:'brightness(0.8)'}}
+                    style={{ filter:'brightness(0.9)'}}
+                />
+                <Image
+                    display={{ base:'none', lg:'block'}}
+                    position='absolute'
+                    top='0'
+                    left='0'
+                    right='0'
+                    src={ HeroDesktop }
+                    w='100%'
+                    h='100%'
+                    objectFit='cover'
+                    style={{ filter:'brightness(0.9)'}}
                 />
             </Box>
 
