@@ -22,25 +22,18 @@ module.exports = {
       }
     },
     `gatsby-plugin-force-trailing-slashes`,
-    // {
-    //   resolve: `gatsby-plugin-intl`,
-    //   options: {
-    //     // language JSON resource path
-    //     path: `${__dirname}/src/intl`,
-    //     // supported language
-    //     languages: [`fr`, `en`],
-    //     // language file path
-    //     defaultLanguage: `en`,
-    //     // option to redirect to `/ko` when connecting `/`
-    //     // redirect: true,
-    //   },
-    // },
     {
       resolve: 'gatsby-plugin-mailchimp',
       options: {
           endpoint: process.env.GATSBY_MAILCHIMP_EN_AUDIENCE, // string; add your MC list endpoint here; see instructions below
           timeout: 3500, // number; the amount of time, in milliseconds, that you want to allow mailchimp to respond to your request before timing out. defaults to 3500
       }
+    },
+    {
+      resolve: `gatsby-plugin-facebook-pixel`,
+      options: {
+        pixelId: "400844697424787",
+      },
     },
     {
       resolve: `gatsby-plugin-google-fonts`,
