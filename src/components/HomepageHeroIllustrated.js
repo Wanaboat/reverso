@@ -19,9 +19,10 @@ import { linkResolver } from '../prismic-configuration'
 import HeroPano from '../images/hero-pano.jpeg'
 import HeroDesktop from '../images/hero-desktop.jpg'
 import HeroSmartphone from '../images/hero-smartphone.jpg'
-import { FormattedMessage } from 'react-intl'
+import { FormattedMessage, useIntl } from 'react-intl'
 
 const HomepageHeroIllustrated = (props) => {
+    const locale = useIntl()['locale'];
     const { data, args_list, second_args_list } = props
     // console.log('HeroProps', data)
     return (
@@ -31,9 +32,7 @@ const HomepageHeroIllustrated = (props) => {
                 // backgroundSize='100% auto'
                 position='relative'
             >
-                <Wrapper
-
-                >
+                <Wrapper>
                     <Flex
                         alignItems={{ base:'flex-end', lg:'center' }}
                         h='100%'
@@ -56,6 +55,8 @@ const HomepageHeroIllustrated = (props) => {
                                 <FormattedMessage id='home.title' />
                             </Heading>
                             <Button
+                                as={ GatsbyLink }
+                                to={ locale === 'en' ? '/small-sailboats/' : '/deriveurs/'}
                                 borderRadius='2px'
                                 fontFamily='Futura PT'
                                 fontWeight='normal'
