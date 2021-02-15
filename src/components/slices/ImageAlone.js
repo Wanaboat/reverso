@@ -4,7 +4,7 @@ import Wrapper from '../Wrapper'
 
 const ImageAlone = (props) => {
 
-    console.log('ImageAlone', props)
+    // console.log('ImageAlone', props)
     const { data } = props
 
     return (

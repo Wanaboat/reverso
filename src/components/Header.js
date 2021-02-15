@@ -6,7 +6,7 @@ import PropTypes from "prop-types"
 import React from "react"
 import { FormattedMessage } from 'react-intl'
 import Wrapper from '../components/Wrapper'
-import logoTypo from '../images/logo-typo.svg'
+import logoTypo from '../images/logo-r-white.svg'
 
 const Header = ({ siteTitle }) => (
   <Box
@@ -14,7 +14,7 @@ const Header = ({ siteTitle }) => (
     bg='gray.900'
     color='white'
     p={{ lg:'1rem' }}
-    py={{ xs:'0rem', lg:'1rem' }}
+    py={{ xs:'0rem', lg:'.5rem' }}
     position={{ xs:'fixed', lg:'initial'}}
     top='0'
     left='0'
@@ -33,19 +33,19 @@ const Header = ({ siteTitle }) => (
           <Image
             // style={{ display: 'block' }}
             display='block'
-            maxW={{ xs:'100px', lg:'160px'}}
+            maxW={{ xs:'150px', lg:'160px'}}
+            w={{ xs:'150px', lg:'180px'}}
             src={logoTypo}
             alt='Reverso Project'
-            w={{ xs:'100px', lg:'160px'}}
-            h='40px'
+            h='65px'
             
           />
         </Flex>
 
         <Menu lang='fr' />
-        <Box display={{ xs: 'none', lg: 'block' }}>
+        <Flex display={{ xs: 'none', lg: 'Flex' }} alignItems='center'>
           <LanguageSwitcher />
-        </Box>
+        </Flex>
       </Flex>
 
     </Wrapper>

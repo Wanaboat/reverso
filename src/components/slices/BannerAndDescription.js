@@ -65,6 +65,7 @@ const SliceBannerAndDescription = ({ data }) => {
                 <Stack
                     order={ data.reverse_position ? 1 : 2 }
                     spacing='2rem'
+                    fontSize='20px'
                     justify={
                         data.vertical_align === 'top' ? 'flex-start'
                             : data.vertical_align === 'center' ? 'center'

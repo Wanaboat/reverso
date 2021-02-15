@@ -76,8 +76,6 @@ const IllustratedSummary = ( props ) => {
                             >
                                 <Text
                                     color='white'
-                                    fontWeight='900'
-                                    fontFamily='Roboto'
                                     fontWeight='300'
                                     textTransform='uppercase'
                                     fontSize={{ xs:'18px', lg:'22px' }}

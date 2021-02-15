@@ -7,6 +7,9 @@
 .wysiwyg {
     line-height: 1.6;
     color:#222;
+    font-family: 'Futura PT';
+    font-weight: 'normal';
+    font-size: 22px;
 }
 .wysiwyg a {
     text-decoration: none;
@@ -85,9 +88,9 @@
 .wysiwyg h4,
 .wysiwyg h5,
 .wysiwyg h6 {
-    font-weight: 900;
+    font-weight: normal;
     line-height: 1.2;
-    font-family: 'Roboto';
+    font-family: 'Futura PT';
 }
 .wysiwyg h1:first-child,
 .wysiwyg h2:first-child,
@@ -98,7 +101,7 @@
     margin-top: 0;
 }
 .wysiwyg h1 {
-    font-size: 2.4em;
+    font-size: 2.5em;
     margin-bottom: 0.58333em;
     margin-top: 0.58333em;
     line-height: 1;
@@ -110,9 +113,10 @@
     line-height: 1.1;
 }
 .wysiwyg h3 {
-    font-size: 1.3em;
+    font-size: 1.65em;
     margin-bottom: 1.07692em;
     margin-top: 1.07692em;
+    font-weight: 300;
 }
 .wysiwyg h4 {
     font-size: 1.2em;
@@ -129,7 +133,6 @@
     margin-bottom: 1.4em;
     margin-top: 1.4em;
     font-size: 48px;
-    font-family:'Roboto';
 }
 .wysiwyg dd {
     margin-left: 1.4em;

@@ -15,7 +15,7 @@ const Menu = ({ lang }) => {
         mx='1rem'
         // p='.45rem'
         my={{ xs: '1rem', lg: '.35rem' }}
-        fontWeight='600'
+        fontWeight='normal'
         textTransform='uppercase'
         as={GatsbyLink}
         to={to}
@@ -96,6 +96,9 @@ const Menu = ({ lang }) => {
     <Flex
       as='nav'
       alignItems='center'
+      fontFamily='Futura PT'
+      fontWeight='normal'
+      letterSpacing='0.015rem'
     >
       <Button
         bg='transparent'
@@ -116,6 +119,7 @@ const Menu = ({ lang }) => {
         />
       </Button>
       <Flex
+        alignItems='center'
         w={{ xs: '100vw', lg: 'auto' }}
         h={{ xs: 'auto', lg: 'auto' }}
         wrap={{ xs: 'wrap', lg: 'nowrap' }}

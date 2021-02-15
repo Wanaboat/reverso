@@ -56,9 +56,17 @@ exports.createPages = async ({ graphql, actions }) => {
     // Subscribers page
     createPage({
       path: `/admin/`,
-      component: path.resolve(__dirname, 'src/templates/admin.js'),
+      component: path.resolve(__dirname, 'src/templates/thank-you-config.js'),
       context: {
           lang: `en`
+      },
+    })
+
+    createPage({
+      path: `/fr/merci-configuration/`,
+      component: path.resolve(__dirname, 'src/templates/thank-you-config.js'),
+      context: {
+          lang: `fr`
       },
     })
 

@@ -28,8 +28,8 @@ theme = {
     },
     fonts: {
         ...defaultTheme.fonts,
-        body: "Hind, sans-serif",
-        heading: "Roboto, sans-serif",
+        body: "Futura PT, sans-serif",
+        heading: "Futura PT, sans-serif",
         mono: "Source Sans Pro",
     },
     breakpoints

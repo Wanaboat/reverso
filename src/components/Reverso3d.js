@@ -43,9 +43,10 @@ const Reverso3d = ({ url }) => {
                 maxW="100%"
                 w='100%'
                 // ratio={{ xs:1.77, lg: }}
-                ratio={1.6}
+                ratio={1.2}
             >
-                <Box
+
+            <Box
                     as="iframe"
                     title="Reverso 3D"
                     src={ url ? url : 'https://emersya.com/presets/85N0OLMVM4'}
@@ -53,6 +54,7 @@ const Reverso3d = ({ url }) => {
                     frameborder={ 0 }
                     allow='camera; gyroscope; accelerometer; magnetometer;'
                 />
+                
             </AspectRatioBox>
         </>
     )

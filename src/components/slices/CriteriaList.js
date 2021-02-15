@@ -43,9 +43,8 @@ const CriteriaList = (props) => {
                         textAlign={ isCentered ? 'center' : 'left'}
                     >
                         <Text
-                            fontWeight='bold'
+                            fontWeight='900'
                             textTransform='uppercase'
-                            fontFamily='Roboto'
                             ml='1rem'
                             mb='.5rem'
                         >
