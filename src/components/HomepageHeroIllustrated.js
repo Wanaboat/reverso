@@ -44,6 +44,7 @@ const HomepageHeroIllustrated = (props) => {
                     >
                         <Box>
                             <Heading
+                                as='p'
                                 fontWeight='900'
                                 color='white'
                                 textTransform='uppercase'
