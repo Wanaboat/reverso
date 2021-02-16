@@ -1,14 +1,18 @@
 import React, { useState } from 'react'
 import {
     AspectRatioBox,
-    Box,
     Flex,
+    Button,
+    Box,
 } from '@chakra-ui/core'
 import BtnPrimary from './Buttons/primary'
 import { FormattedMessage } from 'react-intl'
+import Emersea3dPlayer from '../components/Emersea3dPlayer'
 
 const Reverso3d = ({ url }) => {
     const [showPlayer, setShowPlayer] = useState(false)
+    const [modalOpen, setModalOpen] = useState(false)
+    
     return (
             // <Flex
             //     minH={{ xs: '200px', lg: '500px' }}
@@ -47,15 +51,26 @@ const Reverso3d = ({ url }) => {
             >
 
             <Box
-                    as="iframe"
-                    title="Reverso 3D"
-                    src={ url ? url : 'https://emersya.com/presets/85N0OLMVM4'}
-                    allowFullScreen
-                    frameborder={ 0 }
-                    allow='camera; gyroscope; accelerometer; magnetometer;'
-                />
+                as="iframe"
+                title="Reverso 3D"
+                src={ url ? url : 'https://emersya.com/presets/85N0OLMVM4'}
+                allowFullScreen
+                frameborder={ 0 }
+                allow='camera; gyroscope; accelerometer; magnetometer;'
+            />
                 
             </AspectRatioBox>
+            <Flex justifyContent='flex-end' mt={ 2 }>
+                <BtnPrimary
+                    handleClick={ ()=>{setModalOpen( true )} }
+                >
+                    Open 3d in Fullscreen
+                </BtnPrimary>
+            </Flex>
+            <Emersea3dPlayer
+                isOpen={ modalOpen }
+                handleClose={ ()=>{setModalOpen( false ) }}
+            />
         </>
     )
 }

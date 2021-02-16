@@ -36,7 +36,7 @@ const HomepageHeroIllustrated = (props) => {
                     <Flex
                         alignItems={{ base:'flex-end', lg:'center' }}
                         h='100%'
-                        minH='80vh'
+                        minH={{ xs:'70vh', lg:'80vh' }}
                         p='1rem'
                         position='relative'
                         zIndex='banner'
