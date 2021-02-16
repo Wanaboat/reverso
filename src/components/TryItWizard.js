@@ -25,6 +25,7 @@ const TryItWizard = ( {isActive, handleClose} ) => {
             // w='1200px'
             zIndex='tooltip'
             mt={{ xs:'0'}}
+            mb={ 0 }
             p={ 0 }
             bgColor='green.500'
 
@@ -37,32 +38,51 @@ const TryItWizard = ( {isActive, handleClose} ) => {
           >
 
           <Box
-                p='1rem'
-                bg='white'
-            >
-                <Button
-                    onClick={() => { handleClose() }}
-                    variant='outline'
-                    alignItems='center'
-                    _hover={{
-                        // color:'gray.800',
-                        // bg:'gray.100'
-                    }}
-                >
-                    <Icon mr='.5rem' name='arrow-back' />
-                    <FormattedMessage id="back" />
-                </Button>
+            p='1rem'
+            bg='white'
+          >
+              <Button
+                  onClick={() => { handleClose() }}
+                  variant='outline'
+                  alignItems='center'
+                  _hover={{
+                      // color:'gray.800',
+                      // bg:'gray.100'
+                  }}
+              >
+                  <Icon mr='.5rem' name='arrow-back' />
+                  <FormattedMessage id="back" />
+              </Button>
             </Box>
-            <iframe width='100%' height='1000px' src="https://plugin.experify.io/overlay/reverso"></iframe>
+            <AspectRatioBox
+              display={{ xs:'block', lg:'none'}}
+              ratio={10/16}
+              maxW='100vw'
+            >
+              <Box
+                as='iframe'
+                width='100%'
+                height='90%'
+                src="https://plugin.experify.io/overlay/reverso"
+              />
+            </AspectRatioBox>
+            <Box
+              display={{ xs:'none', lg:'block'}}
+              as='iframe'
+              width='100%'
+              height='100%'
+              minH='calc( 100vh - 78px)'
+              src="https://plugin.experify.io/overlay/reverso"
+            />
           </ModalBody>
-          <ModalFooter>
+          {/* <ModalFooter>
             <Button
               onClick={ ()=>{ handleClose() } }
               variant="ghost"
             >
               <FormattedMessage id='main.close' />
             </Button>
-          </ModalFooter>
+          </ModalFooter> */}
         </ModalContent>
       </Modal>
     )
