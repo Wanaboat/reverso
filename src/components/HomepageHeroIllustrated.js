@@ -16,9 +16,10 @@ import {
 import BtnPrimary from '../components/Buttons/primary'
 import Wysiwyg from './Wysiwyg'
 import { linkResolver } from '../prismic-configuration'
-import HeroPano from '../images/hero-pano.jpeg'
 import HeroDesktop from '../images/hero-desktop.jpg'
 import HeroSmartphone from '../images/hero-smartphone.jpg'
+// import HeroDesktopAvif from '../images/hero-desktop.avif'
+// import HeroSmartphoneAvif from '../images/hero-smartphone.avif'
 import { FormattedMessage, useIntl } from 'react-intl'
 
 const HomepageHeroIllustrated = (props) => {
@@ -56,7 +57,7 @@ const HomepageHeroIllustrated = (props) => {
                             </Heading>
                             <Button
                                 as={ GatsbyLink }
-                                to={ locale === 'en' ? '/small-sailboats/' : '/deriveurs/'}
+                                to={ locale === 'en' ? '/small-sailboats/' : '/nos-deriveurs/'}
                                 borderRadius='2px'
                                 fontFamily='Futura PT'
                                 fontWeight='normal'
@@ -65,30 +66,37 @@ const HomepageHeroIllustrated = (props) => {
                         
                     </Flex>
                 </Wrapper>
-                <Image
-                    display={{ base:'block', lg:'none'}}
-                    position='absolute'
-                    top='0'
-                    left='0'
-                    right='0'
-                    src={ HeroSmartphone }
-                    w='100%'
-                    h='100%'
-                    objectFit='cover'
-                    style={{ filter:'brightness(0.9)'}}
-                />
-                <Image
-                    display={{ base:'none', lg:'block'}}
-                    position='absolute'
-                    top='0'
-                    left='0'
-                    right='0'
-                    src={ HeroDesktop }
-                    w='100%'
-                    h='100%'
-                    objectFit='cover'
-                    style={{ filter:'brightness(0.9)'}}
-                />
+                <picture>
+                    {/* <source type="image/avif" src={ HeroSmartphoneAvif } /> */}
+                    <Image
+                        display={{ base:'block', lg:'none'}}
+                        position='absolute'
+                        top='0'
+                        left='0'
+                        right='0'
+                        src={ HeroSmartphone }
+                        w='100%'
+                        h='100%'
+                        objectFit='cover'
+                        style={{ filter:'brightness(0.9)'}}
+                    />
+                </picture>
+                <picture>
+                    {/* <source type="image/avif" src={ HeroDesktopAvif } /> */}
+                    <Image
+                        display={{ base:'none', lg:'block'}}
+                        position='absolute'
+                        top='0'
+                        left='0'
+                        right='0'
+                        src={ HeroDesktop }
+                        w='100%'
+                        h='100%'
+                        objectFit='cover'
+                        style={{ filter:'brightness(0.9)'}}
+                    />
+                </picture>
+                
             </Box>
 
             <Box
