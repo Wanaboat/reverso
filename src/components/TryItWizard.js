@@ -1,8 +1,8 @@
 import React from 'react'
 import { FormattedMessage } from 'react-intl'
+import { AspectRatioBox, Button, Box, Flex, Icon } from '@chakra-ui/core'
 
 import {
-  Button,
   Modal,
   ModalOverlay,
   ModalContent,
@@ -15,6 +15,7 @@ import {
 const TryItWizard = ( {isActive, handleClose} ) => {
     return(
         <Modal
+            size="full"
             isOpen={ isActive }
             onClose={ () => { handleClose() } }
             size='100vw'
@@ -22,12 +23,37 @@ const TryItWizard = ( {isActive, handleClose} ) => {
         <ModalOverlay />
         <ModalContent
             // w='1200px'
-            mt={{ base:'auto',lg:'81px'}}
+            zIndex='tooltip'
+            mt={{ xs:'0'}}
+            p={ 0 }
+            bgColor='green.500'
+
         >
           {/* <ModalHeader>Modal Title</ModalHeader> */}
           <ModalCloseButton />
-          <ModalBody>
-              <iframe width='100%' height='1000px' src="https://plugin.experify.io/overlay/reverso"></iframe>
+          <ModalBody
+            p={ 0 }
+            bg='#FAFAFA'
+          >
+
+          <Box
+                p='1rem'
+                bg='white'
+            >
+                <Button
+                    onClick={() => { handleClose() }}
+                    variant='outline'
+                    alignItems='center'
+                    _hover={{
+                        // color:'gray.800',
+                        // bg:'gray.100'
+                    }}
+                >
+                    <Icon mr='.5rem' name='arrow-back' />
+                    <FormattedMessage id="back" />
+                </Button>
+            </Box>
+            <iframe width='100%' height='1000px' src="https://plugin.experify.io/overlay/reverso"></iframe>
           </ModalBody>
           <ModalFooter>
             <Button

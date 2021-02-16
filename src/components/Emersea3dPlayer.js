@@ -39,7 +39,6 @@ const Emersea3dPlayerModal = ({ isOpen, handleClose }) => {
             minH='100vh'
             isOpen={ isOpen }
             onClose={() => { handleClose() }}
-            zIndex='tooltip'
         >
             <ModalOverlay />
             <ModalContent
