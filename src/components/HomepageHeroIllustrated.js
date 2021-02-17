@@ -57,7 +57,7 @@ const HomepageHeroIllustrated = (props) => {
                             </Heading>
                             <Button
                                 as={ GatsbyLink }
-                                to={ locale === 'en' ? '/small-sailboats/' : '/nos-deriveurs/'}
+                                to={ locale === 'en' ? '/small-sailboats/' : '/fr/nos-deriveurs/'}
                                 borderRadius='2px'
                                 fontFamily='Futura PT'
                                 fontWeight='normal'
