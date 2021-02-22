@@ -17,6 +17,7 @@ import CriteriaList from './CriteriaList'
 import Iframe from './Iframe'
 import SisterPagesSummary from './SisterPagesSummary'
 import TwoColumnsText from './TwoColumnsText'
+import ImageAndButtonsColumns from './ImageAndButtonsColumns'
 
 export {
     Accordion,
@@ -37,5 +38,6 @@ export {
     CriteriaList,
     Iframe,
     SisterPagesSummary,
-    TwoColumnsText
+    TwoColumnsText,
+    ImageAndButtonsColumns
 }

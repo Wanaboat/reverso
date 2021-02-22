@@ -9,11 +9,15 @@ const BtnPrimary = ({
     children,
     to,
     as,
+    mx,
+    className
 }) => {
     return(
         <Button
             to={ to ? to : null}
             as={ as ? as : null}
+            mx={ mx ? mx : null }
+            className={ className ? className : null }
             cursor='pointer'
             bg='brand.1'
             color='white'

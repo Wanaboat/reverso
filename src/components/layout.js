@@ -26,7 +26,7 @@ const Layout = ({ lang, children }) => {
         <Helmet>
           <html lang={lang} />
           <meta name="viewport" id="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"></meta>
-          <script src="https://assets.experify.io/pluginAssets/js/experifyButton_reverso.js" />
+          <script src="https://assets.experify.io/pluginAssets/js/experifyButton_reverso.min.js" />
         </Helmet>
         <CSSReset />
         <Box

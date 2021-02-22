@@ -22,7 +22,9 @@ import {
     CriteriaList,
     Iframe,
     SisterPagesSummary,
-    TwoColumnsText
+    TwoColumnsText,
+    ImageAndButtonsColumns,
+    
 } from './all'
 
 
@@ -64,7 +66,10 @@ const Engine = ({ data, sisters }) => {
         PrismicPageBodyIframe3d: Iframe,
         PrismicPageBodySisterPagesSummary: SisterPagesSummary,
 
-        PrismicPageBodyTwoColumnsText: TwoColumnsText
+        PrismicPageBodyTwoColumnsText: TwoColumnsText,
+        PrismicProductBodyTwoColumnsText: TwoColumnsText,
+
+        PrismicPageBodyImageAndButtons: ImageAndButtonsColumns
 
 
     }

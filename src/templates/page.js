@@ -170,6 +170,27 @@ query pageQuery(
                   }
                 }
               }
+              ... on PrismicPageBodyImageAndButtons {
+                items {
+                  image1{
+                    localFile{ childImageSharp{ fixed(width: 300, height:300){ src }}}
+                  }
+                  image_title
+                  button_label
+                  image_target{
+                    document{
+                      ... on PrismicPage {
+                        prismicId
+                        data{ title{ text }}
+                      }
+                      ... on PrismicProduct {
+                        prismicId
+                        data{ title{ text }}
+                      }
+                    }
+                  } 
+                }
+              }
               ... on PrismicPageBodyLogosList{
                 primary{
                   logo_list_title

@@ -126,7 +126,7 @@ const Menu = ({ lang }) => {
         position={{ xs: 'fixed', lg: 'initial' }}
         pointerEvents={{ xs: isVisible ? 'auto' : 'none', lg: 'auto' }}
         opacity={{ xs: isVisible ? '1' : '0', lg: '1' }}
-        transform={{ xs: isVisible ? 'translateY(72px)' : 'translateY(0px)', lg: 'none' }}
+        transform={{ xs: isVisible ? 'translateY(97px)' : 'translateY(0px)', lg: 'none' }}
         transition='all 200ms ease'
         zIndex='banner'
 

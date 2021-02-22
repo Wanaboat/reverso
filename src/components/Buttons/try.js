@@ -19,9 +19,10 @@ const TryItButton = () => {
     return (
         <>
             <BtnPrimary
+                className='experifyTrigger'
                 handleClick={() => {
-                    setOpenTryWizard(!openTryWizard)
-                    trackTryIt()
+                    // setOpenTryWizard(!openTryWizard)
+                    // trackTryIt()
                     // console.log('wizard')
                 }}
             >

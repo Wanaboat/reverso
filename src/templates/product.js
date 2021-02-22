@@ -578,6 +578,20 @@ query productQuery($prismicId: ID) {
         data {
             body{
                 __typename
+                ... on PrismicProductBodyTwoColumnsText{
+                    primary{
+                      column_1{ html raw }
+                      column_2{ html raw }
+                      background_color
+                      button_label
+                      button_target{
+                        document{ ... on PrismicPage {
+                          prismicId
+                          data{ title{ text }}
+                        }}
+                      }
+                    }
+                  }
                 ... on PrismicProductBodyCriteriaList {
                     primary {
                       background_color

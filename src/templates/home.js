@@ -11,7 +11,7 @@ const HomeTpl = (props) => {
 
   const { prismicHomepage } = props.data
   // console.log( 'hp props', props.data )
-  console.log('props.pageContext.lang', props.pageContext.lang)
+  // console.log('props.pageContext.lang', props.pageContext.lang)
   return (
     <Layout lang={props.pageContext.lang}>
       <Helmet>
@@ -55,12 +55,7 @@ const HomeTpl = (props) => {
           <SliceNewsletterSubscription />
           <SliceCenteredOneColumn />
       */}
-      <Wrapper
-        py='1rem'
-        // bg='brand.3'
-      >
-        <Reverso3d />
-      </Wrapper>
+      <Reverso3d />
       <SliceEngine data={prismicHomepage.data.body} />
     </Layout>
 

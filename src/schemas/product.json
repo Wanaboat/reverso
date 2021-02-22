@@ -196,6 +196,50 @@
             },
             "repeat" : { }
           },
+          "two_columns_text" : {
+            "type" : "Slice",
+            "fieldset" : "Two columns text",
+            "description" : "A block with two text columns",
+            "icon" : "add_box",
+            "display" : "list",
+            "non-repeat" : {
+              "column_1" : {
+                "type" : "StructuredText",
+                "config" : {
+                  "multi" : "paragraph, heading3, heading4, heading5, heading6, strong, em, hyperlink, list-item, o-list-item",
+                  "label" : "Column 1"
+                }
+              },
+              "column_2" : {
+                "type" : "StructuredText",
+                "config" : {
+                  "multi" : "paragraph, heading3, heading4, heading5, heading6, strong, em, hyperlink, list-item, o-list-item",
+                  "label" : "Column 2"
+                }
+              },
+              "background_color" : {
+                "type" : "Select",
+                "config" : {
+                  "options" : [ "white", "mastic", "gray", "dark" ],
+                  "label" : "background_color"
+                }
+              },
+              "button_label" : {
+                "type" : "Text",
+                "config" : {
+                  "label" : "Button label"
+                }
+              },
+              "button_target" : {
+                "type" : "Link",
+                "config" : {
+                  "select" : "document",
+                  "label" : "Button target"
+                }
+              }
+            },
+            "repeat" : { }
+          },
           "criteria_list" : {
             "type" : "Slice",
             "fieldset" : "Criteria list",
