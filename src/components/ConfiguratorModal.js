@@ -70,7 +70,7 @@ const GalleryModal = ({ handleClose }) => {
                             }}
                         >
                             <Icon mr='.5rem' name='arrow-back' />
-                            <FormattedMessage id="back" />
+                            <FormattedMessage id="main.close" />
                         </Button>
                     </Box>
                     <Box
