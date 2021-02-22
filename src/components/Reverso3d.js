@@ -65,13 +65,11 @@ const Reverso3d = ({ url }) => {
                             spacing={{ xs:4, lg: 10 }}
                             maxW={{ xs:'auto', lg:'48rem' }}
                         >
-
                             <Heading
                                 w='100%'
                                 color='white'
                                 fontWeight='300'
                             >
-                                Discover Reverso in 3D
                                 <FormattedMessage id="3d.block.title" />
                             </Heading>
                             <Text
@@ -82,7 +80,6 @@ const Reverso3d = ({ url }) => {
                                 <FormattedMessage
                                     id='3d.block.introduction'
                                 />
-                                {/* The design of the Reverso is incredibly subtle. That's what gives it its astonishing marine capabilities and outstanding storage capacity. */}
                             </Text>
                             <Box
                                 w='100%'
@@ -90,6 +87,9 @@ const Reverso3d = ({ url }) => {
                                 <BtnPrimary
                                     handleClick={() => { setModalOpen(true) }}
                                 >
+                                    <FormattedMessage
+                                        id='3d.open.fullscreen'
+                                    />
                                     Open 3d in Fullscreen
                             </BtnPrimary>
 
