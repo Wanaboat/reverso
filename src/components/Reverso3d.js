@@ -43,6 +43,7 @@ const Reverso3d = ({ url }) => {
                 backgroundSize='auto 100%'
                 // h='100vh'
                 backgroundColor='#171923'
+                id='3d-viewer'
             >
                 <SimpleGrid
                     columns={{ xs: 1, lg: 2 }}
@@ -90,7 +91,6 @@ const Reverso3d = ({ url }) => {
                                     <FormattedMessage
                                         id='3d.open.fullscreen'
                                     />
-                                    Open 3d in Fullscreen
                             </BtnPrimary>
 
                             </Box>
