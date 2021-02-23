@@ -29,11 +29,11 @@ const LogosList = ( props ) => {
             >
                 { props.items.map( item =>
                     <Box
-                        key={ item.logo_item.localFile.childImageSharp.fixed.src }
+                        key={ item.logo_item.localFile ? item.logo_item.localFile.childImageSharp.fixed.src : null }
                         mx='1.5rem'>
                         <Image
                             h={{ xs:'auto', lg:'60px' }}
-                            src={ item.logo_item.localFile.childImageSharp.fixed.src }
+                            src={ item.logo_item.localFile ?item.logo_item.localFile.childImageSharp.fixed.src : null }
                             alt={ item.logo_item.alt }
                         />
                     </Box>

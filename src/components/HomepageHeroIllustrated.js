@@ -168,17 +168,17 @@ const HomepageHeroIllustrated = (props) => {
                                 <picture>
                                     <source
                                         type='image/jpeg'
-                                        srcSet={ props.image1.localFile.childImageSharp.fixed.srcSet }
+                                        srcSet={ props.image1.localFile ? props.image1.localFile.childImageSharp.fixed.srcSet : null}
                                     />
                                     <source
                                         type='image/webp'
-                                        srcSet={ props.image1.localFile.childImageSharp.fixed.srcSetWebp }
+                                        srcSet={props.image1.localFile ?  props.image1.localFile.childImageSharp.fixed.srcSetWebp : null }
                                     />
                                     <Image
                                         w='100%'
                                         loading='lazy'
                                         alt={ props.image1.alt }
-                                        src={ props.image1.localFile.childImageSharp.fixed.src }
+                                        src={ props.image1.localFile ? props.image1.localFile.childImageSharp.fixed.src : null }
                                     />
                                 </picture>
                             </Flex>
@@ -210,11 +210,11 @@ const HomepageHeroIllustrated = (props) => {
                                 >
                                     <source
                                         type='image/jpeg'
-                                        srcSet={ props.image2.localFile.childImageSharp.fixed.srcSet }
+                                        srcSet={ props.image2.localFile ? props.image2.localFile.childImageSharp.fixed.srcSet : null }
                                     />
                                     <source
                                         type='image/webp'
-                                        srcSet={ props.image2.localFile.childImageSharp.fixed.srcSetWebp }
+                                        srcSet={ props.image2.localFile ? props.image2.localFile.childImageSharp.fixed.srcSetWebp : null }
                                     />
                                     <Image
                                         w='100%'
@@ -223,7 +223,7 @@ const HomepageHeroIllustrated = (props) => {
                                         // fixed={
                                         //     props.image1.localFile.childImageSharp.fixed
                                         // }
-                                        src={ props.image2.localFile.childImageSharp.fixed.src }
+                                        src={ props.image2.localFile ? props.image2.localFile.childImageSharp.fixed.src : null }
                                     />
                                     <Text
                                         mx={{ xs:'1rem', lg:'0' }}

@@ -20,11 +20,10 @@ const PreviewPage = ({ location }) => {
     }
   `)
 
-  console.log('allSitePage', allSitePage)
 
-  console.log('location', location)
   const allPaths = allSitePage.nodes.map((node) => node.path)
-
+  console.log('allSitePage', allSitePage)
+  console.log('location', location)
   console.log('allPaths', allPaths)
 
 
@@ -60,9 +59,13 @@ const PreviewPage = ({ location }) => {
     else if (previewData.prismicProduct) {
         navigate(linkResolver(previewData.prismicProduct))
     }
-    else{
-      navigate( `/` )
+    else if (previewData.prismicHomepage) {
+      console.log('previewData.prismicHomepage', previewData.prismicHomepage)
+      navigate(linkResolver(previewData.prismicHomepage))
     }
+    // else{
+    //   navigate( `/` )
+    // }
 
 
 

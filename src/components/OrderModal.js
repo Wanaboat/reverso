@@ -1,15 +1,26 @@
-import React, {useEffect, useCallback} from 'react'
-import { AspectRatioBox, Button, Box, Flex, Icon } from '@chakra-ui/core'
+import React, 
+    {
+        //useEffect,
+        //useCallback
+    }
+    from 'react'
+import {
+    // AspectRatioBox,
+    Button,
+    Box,
+    // Flex,
+    Icon
+} from '@chakra-ui/core'
 
 import {
-    Image,
+    // Image,
     Modal,
     ModalOverlay,
     ModalContent,
-    ModalHeader,
-    ModalFooter,
+    // ModalHeader,
+    // ModalFooter,
     ModalBody,
-    ModalCloseButton,
+    // ModalCloseButton,
 } from "@chakra-ui/core";
 import { FormattedMessage } from 'react-intl';
 
