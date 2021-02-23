@@ -118,7 +118,7 @@ export const query = graphql`
 query pageQuery(
   $prismicId: ID
   $parentUid: String
-  $lang: string
+  $lang: String
 ) {
     prismicPage( prismicId: { eq : $prismicId} ){
         ...HierachyPage
