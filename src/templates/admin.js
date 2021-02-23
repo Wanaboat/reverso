@@ -20,13 +20,6 @@ const AdminTpl = (props) => {
                 setBuildTriggerResponse( time )
             });
     }
-
-    useEffect(() => {
-        // getAllContacts.then(res => {
-        //     setContacts(res);
-        //     console.log(res);
-        // });
-    }, []);
     return (
         <Layout lang={props.pageContext.lang}>
             <Box
