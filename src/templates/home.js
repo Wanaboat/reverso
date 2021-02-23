@@ -15,7 +15,7 @@ const HomeTpl = (props) => {
   const data = usePreviewData(props.data)
   const page = data.prismicHomepage.data
 
-  console.log('HomepageData',  data)
+  console.log('HomepageData',  page)
 
   return (
     <Layout lang={props.pageContext.lang}>
