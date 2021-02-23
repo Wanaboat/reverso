@@ -118,6 +118,7 @@ export const query = graphql`
 query pageQuery(
   $prismicId: ID
   $parentUid: String
+  $lang: string
 ) {
     prismicPage( prismicId: { eq : $prismicId} ){
         ...HierachyPage
@@ -467,6 +468,7 @@ query pageQuery(
       }
     sisters: allPrismicPage(filter:{
         data: {parent: {uid: {eq: $parentUid }}}
+        lang: { eq: $lang }
       }) {
       edges {
         node {
