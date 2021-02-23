@@ -156,6 +156,13 @@ query pageQuery(
               }
             }
             body {
+              #... on PrismicPageBodyTwitt {
+              #  primary {
+              #    twit {
+              #      embed_url
+              #    }
+              #  }
+              #}
               ... on PrismicPageBodyTwoColumnsText{
                 primary{
                   column_1{ html raw }

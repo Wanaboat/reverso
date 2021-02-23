@@ -115,7 +115,8 @@
           "iframe_3d" : [ ],
           "sister_pages_summary" : [ ],
           "two_columns_text" : [ ],
-          "image_and_buttons" : [ ]
+          "image_and_buttons" : [ ],
+          "twitt" : [ ]
         },
         "choices" : {
           "wysiwyg" : {
@@ -740,6 +741,22 @@
                 }
               }
             }
+          },
+          "twitt" : {
+            "type" : "Slice",
+            "fieldset" : "Twitt",
+            "description" : "An embed Twitt",
+            "icon" : "add_box",
+            "display" : "list",
+            "non-repeat" : {
+              "twit" : {
+                "type" : "Embed",
+                "config" : {
+                  "label" : "Twit"
+                }
+              }
+            },
+            "repeat" : { }
           }
         }
       }

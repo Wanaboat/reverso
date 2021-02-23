@@ -18,6 +18,7 @@ import Iframe from './Iframe'
 import SisterPagesSummary from './SisterPagesSummary'
 import TwoColumnsText from './TwoColumnsText'
 import ImageAndButtonsColumns from './ImageAndButtonsColumns'
+import EmbedTwitt from './EmbedTwitt'
 
 export {
     Accordion,
@@ -39,5 +40,6 @@ export {
     Iframe,
     SisterPagesSummary,
     TwoColumnsText,
-    ImageAndButtonsColumns
+    ImageAndButtonsColumns,
+    EmbedTwitt
 }
