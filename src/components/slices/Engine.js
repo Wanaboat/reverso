@@ -24,7 +24,8 @@ import {
     SisterPagesSummary,
     TwoColumnsText,
     ImageAndButtonsColumns,
-    EmbedTwitt
+    EmbedTwitt,
+    InstagramPost
     
 } from './all'
 
@@ -71,6 +72,7 @@ const Engine = ({ data, sisters }) => {
         PrismicProductBodyTwoColumnsText: TwoColumnsText,
 
         PrismicPageBodyImageAndButtons: ImageAndButtonsColumns,
+        PrismicPageBodyIntagram: InstagramPost,
 
         // PrismicPageBodyTwitt: EmbedTwitt
 

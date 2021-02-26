@@ -164,6 +164,33 @@ query pageQuery(
               #    }
               #  }
               #}
+              ... on PrismicPageBodyIntagram {
+                id
+                primary {
+                  instagram_post {
+                    author_id
+                    author_name
+                    author_url
+                    cache_age
+                    description
+                    embed_url
+                    height
+                    html
+                    media_id
+                    name
+                    provider_name
+                    provider_url
+                    thumbnail_height
+                    thumbnail_url
+                    thumbnail_width
+                    title
+                    type
+                    url
+                    version
+                    width
+                  }
+                }
+              }
               ... on PrismicPageBodyTwoColumnsText{
                 primary{
                   column_1{ html raw }

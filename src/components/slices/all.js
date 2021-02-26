@@ -19,6 +19,7 @@ import SisterPagesSummary from './SisterPagesSummary'
 import TwoColumnsText from './TwoColumnsText'
 import ImageAndButtonsColumns from './ImageAndButtonsColumns'
 import EmbedTwitt from './EmbedTwitt'
+import InstagramPost from './InstagramPost'
 
 export {
     Accordion,
@@ -41,5 +42,6 @@ export {
     SisterPagesSummary,
     TwoColumnsText,
     ImageAndButtonsColumns,
-    EmbedTwitt
+    EmbedTwitt,
+    InstagramPost
 }
