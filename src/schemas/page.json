@@ -116,7 +116,8 @@
           "sister_pages_summary" : [ ],
           "two_columns_text" : [ ],
           "image_and_buttons" : [ ],
-          "twitt" : [ ]
+          "twitt" : [ ],
+          "intagram" : [ ]
         },
         "choices" : {
           "wysiwyg" : {
@@ -753,6 +754,22 @@
                 "type" : "Embed",
                 "config" : {
                   "label" : "Twit"
+                }
+              }
+            },
+            "repeat" : { }
+          },
+          "intagram" : {
+            "type" : "Slice",
+            "fieldset" : "Intagram",
+            "description" : "A block with Instagram Embed",
+            "icon" : "add_box",
+            "display" : "list",
+            "non-repeat" : {
+              "instagram_post" : {
+                "type" : "Embed",
+                "config" : {
+                  "label" : "instagram post"
                 }
               }
             },
