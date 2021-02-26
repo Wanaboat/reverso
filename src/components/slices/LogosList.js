@@ -26,11 +26,14 @@ const LogosList = ( props ) => {
             : null }
             <Flex
                 justifyContent='center'
+                wrap='wrap'
             >
                 { props.items.map( item =>
                     <Box
                         key={ item.logo_item.localFile ? item.logo_item.localFile.childImageSharp.fixed.src : null }
-                        mx='1.5rem'>
+                        mx='1.5rem'
+                        my={{ xs:1, lg:2}}
+                    >
                         <Image
                             h={{ xs:'auto', lg:'60px' }}
                             src={ item.logo_item.localFile ?item.logo_item.localFile.childImageSharp.fixed.src : null }
