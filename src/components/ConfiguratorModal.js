@@ -58,18 +58,21 @@ const GalleryModal = ({ handleClose }) => {
                     <Box
                         bg='gray.50'
                         p='1rem'
+                        bg='gray.900'
                     >
                         <Button
                             onClick={() => { handleClose() }}
                             variant='outline'
                             // color='gray.50'
                             alignItems='center'
+                            borderColor='white'
+                            color='white'
                             _hover={{
                                 // color:'gray.800',
                                 // bg:'gray.100'
                             }}
                         >
-                            <Icon mr='.5rem' name='arrow-back' />
+                            <Icon mr='.5rem' name='small-close' />
                             <FormattedMessage id="main.close" />
                         </Button>
                     </Box>

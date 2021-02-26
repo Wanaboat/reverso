@@ -89,7 +89,7 @@ const Reverso3d = ({ url }) => {
                                     handleClick={() => { setModalOpen(true) }}
                                 >
                                     <FormattedMessage
-                                        id='3d.open.fullscreen'
+                                        id='3d.open'
                                     />
                             </BtnPrimary>
 
