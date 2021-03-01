@@ -9,7 +9,7 @@ import usePreviewData from '../utils/usePreviewData'
 import PageContent from '../components/PageContent'
 import Hierarchy from '../components/hierachyPage'
 import SliceEngine from '../components/slices/Engine'
-
+import StickyChildrenNav from '../components/StickyChildrenNav'
 import {
   Box,
   Text,
@@ -56,6 +56,10 @@ const PageTpl = (props) => {
           <meta name='og:image' content={`${process.env.GATSBY_BASE_URL}${props.data.prismicPage.data.sharing_image.localFile.childImageSharp.fixed.src}`} />
           : null : null}
       </Helmet>
+      {/* <pre>
+        { JSON.stringify( data.children, null, 2 )}
+      </pre> */}
+      { data.prismicPage.data.display_children_sticky_nav ? <StickyChildrenNav childrenPages={data.children.edges} /> : null }
       <Wrapper
         bg='white'
         py={{ xs: '1rem', lg: '1rem' }}
@@ -77,6 +81,7 @@ const PageTpl = (props) => {
           position='relative'
           my={{ xs: '.5rem', lg: '1rem' }}
           as='h1'
+          mt={{ xs:'2rem', lg:'0'}}
           pb='1rem'
           mb='1rem'
           fontWeight='900'
@@ -119,6 +124,7 @@ query pageQuery(
   $prismicId: ID
   $parentUid: String
   $lang: String
+  $uid: String
 ) {
     prismicPage( prismicId: { eq : $prismicId} ){
         ...HierachyPage
@@ -156,6 +162,7 @@ query pageQuery(
                 }
               }
             }
+            display_children_sticky_nav
             body {
               #... on PrismicPageBodyTwitt {
               #  primary {
@@ -508,5 +515,16 @@ query pageQuery(
         }
       }
     }
-     
+    children:allPrismicPage(filter: {data: {parent: {uid: {eq: $uid}}}}) {
+      edges {
+        node {
+          prismicId
+          data {
+            title {
+              text
+            }
+          }
+        }
+      }
+    }  
 }`

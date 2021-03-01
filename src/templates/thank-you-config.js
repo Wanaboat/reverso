@@ -53,7 +53,12 @@ const ConfigThankyouPage = ( props ) => {
               Félicitation, la configuration de votre Reverso est complète.
             </Heading>
             <Text>
-              Vous recevrez bientôt plein de détails par email.
+              Vous recevrez bientôt plein de détails par email. Avant cela, vous pouvez trouver plein d'informations sur notre <Link
+                as={GatsbyLink}
+                to={'/fr/nos-deriveurs/faq/'}
+                color='brand.1'
+                textDecoration='underline'
+              >page faq</Link>.
             </Text>
             <Button
               mt='.5rem'

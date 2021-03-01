@@ -99,6 +99,7 @@ const Menu = ({ lang }) => {
       fontFamily='Futura PT'
       fontWeight='normal'
       letterSpacing='0.015rem'
+      id="nav"
     >
       <Button
         bg='transparent'

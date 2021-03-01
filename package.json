@@ -8,6 +8,7 @@
     "@chakra-ui/core": "^0.8.0",
     "@emotion/core": "^10.1.1",
     "@emotion/styled": "^10.0.27",
+    "@n8tb1t/use-scroll-position": "^2.0.3",
     "@reduxjs/toolkit": "^1.4.0",
     "emotion-theming": "^10.0.27",
     "faunadb": "^3.0.1",
