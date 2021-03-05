@@ -1,12 +1,17 @@
 import Menu from './Menu'
 import LanguageSwitcher from './LanguageSwitcher'
 import { Link as GatsbyLink } from 'gatsby'
-import { Box, Button, Flex, Image } from '@chakra-ui/core'
 import PropTypes from "prop-types"
 import React from "react"
-import { FormattedMessage } from 'react-intl'
 import Wrapper from '../components/Wrapper'
 import logoTypo from '../images/logo-r-white.svg'
+import {
+  Box,
+  Button,
+  Flex,
+  Image
+} from '@chakra-ui/core'
+
 
 const Header = ({ siteTitle }) => (
   <Box
@@ -43,7 +48,10 @@ const Header = ({ siteTitle }) => (
         </Flex>
 
         <Menu lang='fr' />
-        <Flex display={{ xs: 'none', lg: 'Flex' }} alignItems='center'>
+        <Flex
+          display={{ xs: 'none', lg: 'Flex' }}
+          alignItems='center'
+        >
           <LanguageSwitcher />
         </Flex>
       </Flex>

@@ -56,9 +56,15 @@ const PageTpl = (props) => {
           <meta name='og:image' content={`${process.env.GATSBY_BASE_URL}${props.data.prismicPage.data.sharing_image.localFile.childImageSharp.fixed.src}`} />
           : null : null}
       </Helmet>
-      {/* <pre>
-        { JSON.stringify( data.children, null, 2 )}
-      </pre> */}
+      <pre>
+        { JSON.stringify( data.sisters, null, 2 )}
+      </pre>
+      <pre>
+        { JSON.stringify( props.pageContext, null, 2 )}
+      </pre>
+      <pre>
+        { JSON.stringify( props.pageContext.lang, null, 2 )}
+      </pre>
       { data.prismicPage.data.display_children_sticky_nav ? <StickyChildrenNav childrenPages={data.children.edges} /> : null }
       <Wrapper
         bg='white'

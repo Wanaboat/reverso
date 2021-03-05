@@ -5,6 +5,7 @@ import PropTypes from "prop-types"
 import { useIntl } from 'react-intl'
 import BtnPrimary from "./Buttons/primary"
 import TryItButton from './Buttons/try'
+import LanguageSwitcher from './LanguageSwitcher'
 
 const Menu = ({ lang }) => {
   const locale = useIntl().locale
@@ -86,6 +87,7 @@ const Menu = ({ lang }) => {
   ].map(item =>
     <MainNavLink
       to={item.url}
+      key={item.url}
     >
       {item.label}
     </MainNavLink>
@@ -137,14 +139,21 @@ const Menu = ({ lang }) => {
         bg={{ xs: 'gray.800', lg: 'transparent' }}
       >
         {items[locale]}
-        <Box
+        {/* <Box
           m='1rem'
           mt='0'
           display={{ xs:'block', lg:'none'}}
         >
           <TryItButton />
-        </Box>
+        </Box> */}
+        <Box
+          mx='1rem'
+          my={{ xs: '1rem', lg: '.35rem' }}
+          display={{ xs: 'block', lg: 'none' }}
 
+        >
+          <LanguageSwitcher />
+        </Box>
       </Flex>
     </Flex>
   )

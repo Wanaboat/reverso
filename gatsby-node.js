@@ -187,6 +187,7 @@ exports.createPages = async ({ graphql, actions }) => {
             uid: page.node.uid,
             prismicId: page.node.prismicId,
             lang: `${langCodeConverter(page.node.lang)}`,
+            langIso: `${page.node.lang}`,
             parentUid: parentUID
             // "page.node.data.parent ? page.node.data.parent.document.uid : '-'"
           },
