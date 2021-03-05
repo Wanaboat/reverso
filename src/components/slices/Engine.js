@@ -74,7 +74,7 @@ const Engine = ({ data, sisters }) => {
         PrismicPageBodyImageAndButtons: ImageAndButtonsColumns,
         PrismicPageBodyIntagram: InstagramPost,
 
-        // PrismicPageBodyTwitt: EmbedTwitt
+        PrismicPageBodyTwitt: EmbedTwitt
 
 
     }

@@ -528,6 +528,13 @@
             "icon": "add_box",
             "display": "list",
             "non-repeat": {
+              "hide_text": {
+                "type": "Boolean",
+                "config": {
+                  "default_value": false,
+                  "label": "Hide text"
+                }
+              },
               "summary_title": {
                 "type": "Text",
                 "config": {
@@ -538,6 +545,13 @@
                 "type": "Text",
                 "config": {
                   "label": "Summary intro"
+                }
+              },
+              "summary_intro_rich": {
+                "type": "StructuredText",
+                "config": {
+                  "multi": "paragraph, hyperlink",
+                  "label": "summary intro rich"
                 }
               }
             },

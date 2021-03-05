@@ -24,7 +24,8 @@ const TwoColumnsText = ({ data }) => {
         >
             <Wrapper>
                 <Grid
-                    templateColumns={{ xs: '100%', lg: '50% 50%' }}
+                    templateColumns={{ xs: '100%', lg: '1fr 1fr' }}
+                    gap={{ xs:5, lg:'4rem'}}
                     color={
                         data.background_color === 'mastic' ? 'gray.800'
                             : data.background_color === 'dark' ? 'gray.50'

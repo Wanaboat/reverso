@@ -8,7 +8,7 @@ const ImageAlone = (props) => {
     const { data } = props
 
     return (
-        // <Wrapper>
+        <Wrapper>
         <Box
             bg={
                 data.isolated_image_background === 'white' ? 'white' :
@@ -19,10 +19,10 @@ const ImageAlone = (props) => {
             }
         >
             <Box
-                w={{ xs: '100vw', lg: props.data.wide_display ? '70vw' : '42rem' }}
-                mx={{ xs: '0rem', lg: 'auto' }}
-                borderRadius={{ lg: '2px' }}
-                py='1rem'
+                // w={{ xs: '100vw', lg: props.data.wide_display ? '70vw' : '42rem' }}
+                // mx={{ xs: '0rem', lg: 'auto' }}
+                // borderRadius={{ lg: '2px' }}
+                // py='1rem'
 
             >
                 <Image
@@ -42,7 +42,7 @@ const ImageAlone = (props) => {
                 </Text>
             </Box>
         </Box>
-        // </Wrapper>
+         </Wrapper>
     )
 }
 

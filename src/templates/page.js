@@ -173,13 +173,32 @@ query pageQuery(
             }
             display_children_sticky_nav
             body {
-              #... on PrismicPageBodyTwitt {
-              #  primary {
-              #    twit {
-              #      embed_url
-              #    }
-              #  }
-              #}
+              ... on PrismicPageBodyTwitt {
+                primary {
+                  twit {
+                    author_id
+                    author_name
+                    author_url
+                    cache_age
+                    description
+                    embed_url
+                    height
+                    html
+                    media_id
+                    name
+                    provider_name
+                    provider_url
+                    thumbnail_height
+                    thumbnail_url
+                    thumbnail_width
+                    title
+                    type
+                    url
+                    version
+                    width
+                  }
+                }
+              }
               ... on PrismicPageBodyIntagram {
                 id
                 primary {
@@ -289,8 +308,10 @@ query pageQuery(
               }
               ... on PrismicPageBodyIllustratedSummary {
                 primary{
+                  hide_text
                   summary_title
                   summary_intro
+                  summary_intro_rich{ raw }
                 }
                 items{
                   link_target{

@@ -7,22 +7,25 @@ import {
     Image,
     PseudoBox,
     SimpleGrid,
-    Stack,
     Text
 } from '@chakra-ui/core'
 import Wrapper from '../Wrapper'
 import { linkResolver } from '../../prismic-configuration'
+import { RichText } from 'prismic-reactjs'
 
 const IllustratedSummary = ( props ) => {
-    console.log( 'IllustratedSummary', props )
     const { data, items } = props
     return(
         <Wrapper>
+            {/* <pre>
+                { JSON.stringify( data, null, 2)}
+            </pre> */}
             <Box my={{ xs:'1rem', lg:'2rem' }}>
                 <SimpleGrid
                     columns={{ xs:1, lg:2}}
                     gap={{ xs:'1rem', lg:'2rem'}}
                 >
+                    { !data.hide_text ?
                     <Flex
                         // border='solid 1px'
                         // borderColor='gray.400'
@@ -30,11 +33,12 @@ const IllustratedSummary = ( props ) => {
                         py='3rem'
                         pr='3rem'
                         h='100%'
+                        w='100%'
                         wrap='wrap'
                         alignItems='center'
                         justifyContent='center'
                     >
-                        <Box>
+                        <Box w='100%'>
                             <Heading
                                 as='h3'
                                 textTransform='uppercase'
@@ -43,12 +47,21 @@ const IllustratedSummary = ( props ) => {
                                 mb='1rem'
                                 fontSize={{ xs:'20px', lg:'28px'}}
                             >{data.summary_title}</Heading>
-                            <Text
+                            {/* <Text
                                 w='100%'
-                            >{ data.summary_intro }</Text>
+                            >{ data.summary_intro }</Text> */}
+
+                            <Text
+                                className="wysiwyg"
+                                fontSize='16px'
+                            >
+                                {/* Rich : { data.summary_intro_rich.raw } */}
+                                { RichText.render( data.summary_intro_rich.raw , linkResolver )}
+                            </Text>
                         </Box>
 
                     </Flex>
+                    : null}
                     { items.map( item =>
                     <PseudoBox
                         borderRadius='2px'
