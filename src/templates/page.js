@@ -56,6 +56,7 @@ const PageTpl = (props) => {
           <meta name='og:image' content={`${process.env.GATSBY_BASE_URL}${props.data.prismicPage.data.sharing_image.localFile.childImageSharp.fixed.src}`} />
           : null : null}
       </Helmet>
+
       {/* <pre>
         { JSON.stringify( data.sisters, null, 2 )}
       </pre>
@@ -65,6 +66,7 @@ const PageTpl = (props) => {
       <pre>
         { JSON.stringify( props.pageContext.lang, null, 2 )}
       </pre> */}
+
       { data.prismicPage.data.display_children_sticky_nav ? <StickyChildrenNav childrenPages={data.children.edges} /> : null }
       <Wrapper
         bg='white'
@@ -129,7 +131,8 @@ export const query = graphql`
 query pageQuery(
   $prismicId: ID
   $parentUid: String
-  $lang: String
+  #$lang: String
+  $langIso: String
   $uid: String
 ) {
     prismicPage( prismicId: { eq : $prismicId} ){
@@ -508,7 +511,7 @@ query pageQuery(
       }
     sisters: allPrismicPage(filter:{
         data: {parent: {uid: {eq: $parentUid }}}
-        lang: { eq: $lang }
+        lang: { eq: $langIso }
       }) {
       edges {
         node {

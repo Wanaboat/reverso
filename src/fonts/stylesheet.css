@@ -1,3 +1,8 @@
+body{
+    -webkit-font-smoothing: initial;
+    text-rendering: initial;
+}
+
 @font-face {
     font-family: 'Futura PT';
     src: url('FuturaPT-Heavy.woff2') format('woff2'),
