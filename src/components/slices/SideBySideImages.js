@@ -23,12 +23,14 @@ const SideBySideImages = ( props ) => {
                     <Image
                         src={ props.data.image1.localFile.childImageSharp.fixed.src }
                         alt={ props.data.image1.alt }
+                        w='100%'
                     />
                 </Box>
                 <Box>
                     <Image
                         src={ props.data.image2.localFile.childImageSharp.fixed.src }
                         alt={ props.data.image2.alt }
+                        w='100%'
                     />
                 </Box>
 
