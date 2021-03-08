@@ -20,6 +20,7 @@ import TwoColumnsText from './TwoColumnsText'
 import ImageAndButtonsColumns from './ImageAndButtonsColumns'
 import EmbedTwitt from './EmbedTwitt'
 import InstagramPost from './InstagramPost'
+import SideBySideImages from './SideBySideImages'
 
 export {
     Accordion,
@@ -43,5 +44,6 @@ export {
     TwoColumnsText,
     ImageAndButtonsColumns,
     EmbedTwitt,
-    InstagramPost
+    InstagramPost,
+    SideBySideImages
 }

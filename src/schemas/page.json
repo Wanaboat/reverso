@@ -126,7 +126,8 @@
           "two_columns_text": [],
           "image_and_buttons": [],
           "twitt": [],
-          "intagram": []
+          "intagram": [],
+          "side_by_side_image": []
         },
         "choices": {
           "wysiwyg": {
@@ -835,6 +836,32 @@
                 "type": "Embed",
                 "config": {
                   "label": "instagram post"
+                }
+              }
+            },
+            "repeat": {}
+          },
+          "side_by_side_image": {
+            "type": "Slice",
+            "fieldset": "Side by side image",
+            "description": "Two images side by side",
+            "icon": "add_box",
+            "display": "list",
+            "non-repeat": {
+              "image1": {
+                "type": "Image",
+                "config": {
+                  "constraint": {},
+                  "thumbnails": [],
+                  "label": "Image"
+                }
+              },
+              "image2": {
+                "type": "Image",
+                "config": {
+                  "constraint": {},
+                  "thumbnails": [],
+                  "label": "Image"
                 }
               }
             },

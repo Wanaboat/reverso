@@ -418,7 +418,14 @@ const ProductTpl = (props) => {
                                     )}
                                 </SimpleGrid>
                             </Box>
+                            <AspectRatioBox ratio={ 16/9 }>
+                                <Box
+                                    as='iframe'
+                                    src='https://www.youtube.com/embed/qM7XuztLZaY'
+                                />   
+                            </AspectRatioBox>
                             <SimpleGrid
+                                display='none'
                                 columns={{ xs: 1, lg: 2 }}
                                 gap='2rem'
                             >

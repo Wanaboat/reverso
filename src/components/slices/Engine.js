@@ -25,7 +25,8 @@ import {
     TwoColumnsText,
     ImageAndButtonsColumns,
     EmbedTwitt,
-    InstagramPost
+    InstagramPost,
+    SideBySideImages
     
 } from './all'
 
@@ -74,7 +75,8 @@ const Engine = ({ data, sisters }) => {
         PrismicPageBodyImageAndButtons: ImageAndButtonsColumns,
         PrismicPageBodyIntagram: InstagramPost,
 
-        PrismicPageBodyTwitt: EmbedTwitt
+        PrismicPageBodyTwitt: EmbedTwitt,
+        PrismicPageBodySideBySideImage: SideBySideImages
 
 
     }

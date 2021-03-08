@@ -49,10 +49,10 @@ const Video = ( props ) => {
                     : props.data.video_background === 'gray' ? 'gray.50'
                         : props.data.video_background === 'white' ? 'white'
                             : 'none' }
-                id='quote'
+                id='video'
                 p={{ xs:0, lg:'0rem' }}
                 mx={{ xs:'-1rem', lg:'auto'}}
-                maxW={{ xs:'none', lg:'42rem' }}
+                // maxW={{ xs:'none', lg:'42rem' }}
 
             >
                 {

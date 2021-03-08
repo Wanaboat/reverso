@@ -173,6 +173,16 @@ query pageQuery(
             }
             display_children_sticky_nav
             body {
+              ... on PrismicPageBodySideBySideImage{
+                primary{
+                  image1{
+                    localFile{ childImageSharp{ fixed(width: 600, height:600){ src }}}
+                  }
+                  image2{ 
+                    localFile{ childImageSharp{ fixed(width: 600, height:600){ src }}}
+                   }
+                }
+              }
               ... on PrismicPageBodyTwitt {
                 primary {
                   twit {
