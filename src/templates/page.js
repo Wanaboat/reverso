@@ -176,10 +176,10 @@ query pageQuery(
               ... on PrismicPageBodySideBySideImage{
                 primary{
                   image1{
-                    localFile{ childImageSharp{ fixed(width: 600, height:600){ src }}}
+                    localFile{ childImageSharp{ fixed { src }}}
                   }
                   image2{ 
-                    localFile{ childImageSharp{ fixed(width: 600, height:600){ src }}}
+                    localFile{ childImageSharp{ fixed { src }}}
                    }
                 }
               }
