@@ -585,6 +585,39 @@ query productQuery($prismicId: ID) {
         data {
             body{
                 __typename
+
+                ... on PrismicProductBodyIllustratedSummary {
+                    primary{
+                      hide_text
+                      summary_title
+                      summary_intro_rich{ raw }
+                    }
+                    items{
+                      link_target{
+                        document{
+                          ... on PrismicPage{ prismicId }
+                          ... on PrismicProduct{ prismicId }
+                        }
+                      }
+                      link_label
+                      link_image {
+                        alt
+                        thumbnails {
+                          landscape {
+                            fixed{ src }
+                            localFile {
+                              childImageSharp {
+                                fixed( width:550 height:250) {
+                                  src
+                                  srcWebp
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
                 ... on PrismicProductBodyTwoColumnsText{
                     primary{
                       column_1{ html raw }

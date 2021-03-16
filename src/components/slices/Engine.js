@@ -59,6 +59,8 @@ const Engine = ({ data, sisters }) => {
         PrismicPageBodyGallery: GalleryWall,
 
         PrismicPageBodyIllustratedSummary: IllustratedSummary,
+        PrismicProductBodyIllustratedSummary: IllustratedSummary,
+
         PrismicPageBodyContact: ContactForm,
         PrismicPageBodyQuote: Quote,
 

@@ -4,6 +4,7 @@ import Gallery from '../Gallery'
 import Wrapper from '../Wrapper'
 
 const GalleryWall = (props) => {
+    return false
     console.log( 'gallerywall', props)
     return (
         <Box
@@ -12,7 +13,6 @@ const GalleryWall = (props) => {
             p='1rem'
             borderRadius='2px'
         >
-
             <Gallery
                 pictures={props.items}
             />
