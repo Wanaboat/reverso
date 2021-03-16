@@ -438,6 +438,7 @@ query pageQuery(
                 primary {
                   anchor
                   is_narrow
+                  is_centered
                   increase_font_size
                   background_color
                   content {

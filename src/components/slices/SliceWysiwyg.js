@@ -19,6 +19,7 @@ const WysiwigSlice = ({ data }) => {
                 maxW={{ xs:'none', lg: !data.is_narrow ? '100%' : '42rem' }}
                 mx='auto'
                 fontSize={{ xs:'16px', lg:data.increase_font_size ? '21px' : '16px' }}
+                textAlign={ data.is_centered ? 'center' : 'auto' }
             >
                 <Wysiwyg isDark={ data.background_color === 'dark' ? true : false  } data={ data.content.raw } />
             </Box>

@@ -156,6 +156,13 @@
                   "label": "Is narrow"
                 }
               },
+              "is_centered": {
+                "type": "Boolean",
+                "config": {
+                  "default_value": false,
+                  "label": "Is centered"
+                }
+              },
               "increase_font_size": {
                 "type": "Boolean",
                 "config": {
