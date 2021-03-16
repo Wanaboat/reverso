@@ -500,7 +500,7 @@ query pageQuery(
                       fixed{ src }
                       localFile {
                           childImageSharp {
-                              fixed(height: 400, width: 600) {
+                              fixed(width: 600) {
                                   src
                               }
                           }
