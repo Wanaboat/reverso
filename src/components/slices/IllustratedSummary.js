@@ -65,7 +65,7 @@ const IllustratedSummary = ( props ) => {
                     : null}
                     { items.map( (item, index) =>
                     <PseudoBox
-                        key={item.link_target.document.uid}
+                        key={`IllustratedSummary-${index}`}
                         borderRadius='2px'
                         role="group"
                         cursor='pointer'
