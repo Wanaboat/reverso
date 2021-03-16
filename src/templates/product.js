@@ -35,6 +35,7 @@ import FaqSimple from '../components/FaqSimple'
 
 import ButtonConfig from '../components/Buttons/config'
 import ButtonOrder from '../components/Buttons/order'
+import TypeFormConfigButton from '../components/Buttons/TypeFormConfigButton'
 
 import SimpleQuestionForm from '../components/SimpleQuestionForm'
 
@@ -241,9 +242,20 @@ const ProductTpl = (props) => {
                                     gap='1rem'
                                 >
                                     <Box>
-                                        <ButtonConfig>
+                                        {/* <ButtonConfig>
                                             <FormattedMessage id="pricing.and.boat.configuration" />
-                                        </ButtonConfig>
+                                        </ButtonConfig> */}
+
+                                        <TypeFormConfigButton />
+
+                                        {/* <a
+                                            className="typeform-share button"
+                                            href="https://form.typeform.com/to/BC6lkfG6?typeform-medium=embed-snippet"
+                                            data-mode="drawer_right"
+                                            // style="display:inline-block;text-decoration:none;background-color:#0445AF;color:white;cursor:pointer;font-family:Helvetica,Arial,sans-serif;font-size:20px;line-height:50px;text-align:center;margin:0;height:50px;padding:0px 33px;border-radius:25px;max-width:100%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-weight:bold;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;"
+                                            target="_blank">
+                                            Launch me
+                                        </a> */}
                                     </Box>
                                     <Box>
                                         <ButtonOrder>

@@ -54,6 +54,7 @@ const IllustratedSummary = ( props ) => {
                             <Text
                                 className="wysiwyg"
                                 fontSize='16px'
+                                as='div'
                             >
                                 {/* Rich : { data.summary_intro_rich.raw } */}
                                 { RichText.render( data.summary_intro_rich.raw , linkResolver )}
@@ -64,6 +65,7 @@ const IllustratedSummary = ( props ) => {
                     : null}
                     { items.map( item =>
                     <PseudoBox
+                        key={item.link_target.document.prismicId}
                         borderRadius='2px'
                         role="group"
                         cursor='pointer'

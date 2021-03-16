@@ -17,8 +17,9 @@ const ImageAndButtonsColumns = (props) => {
         <Wrapper>
             <SimpleGrid columns={{ xs: 0, lg: 2, xl: 4 }}>
                 {
-                    props.data.map(item =>
+                    props.data.map((item, index) =>
                         <PseudoBox
+                            key={`${ImageAndButtonsColumns}-Index`}
                             onClick={() => { navigate(linkResolver(item.image_target.document)) }}
                             p={{ xs: 5, lg: 10 }}
                             display='flex'
