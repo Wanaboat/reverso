@@ -63,9 +63,9 @@ const IllustratedSummary = ( props ) => {
 
                     </Flex>
                     : null}
-                    { items.map( item =>
+                    { items.map( (item, index) =>
                     <PseudoBox
-                        key={item.link_target.document.prismicId}
+                        key={item.link_target.document.uid}
                         borderRadius='2px'
                         role="group"
                         cursor='pointer'
